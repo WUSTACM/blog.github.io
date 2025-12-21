@@ -20,12 +20,12 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":"flat"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="曼哈顿距离与切比雪夫距离的转换曼哈顿距离定义平面内两点坐标分别为（x1，y1），（x2，y2） 则 $$ dis &#x3D; |x_1 - x_2| + |y_1 - y_2|$$">
+  <meta name="description" content="曼哈顿距离与切比雪夫距离的转换 曼哈顿距离 定义 平面内两点坐标分别为（x1，y1），（x2，y2） 则 dis &#x3D; |x1 − x2| + |y1 − y2|">
 <meta property="og:type" content="article">
 <meta property="og:title" content="曼哈顿距离与切比雪夫距离的转换">
 <meta property="og:url" content="http://example.com/2025/09/10/%E6%9B%BC%E5%93%88%E9%A1%BF%E8%B7%9D%E7%A6%BB%E4%B8%8E%E5%88%87%E6%AF%94%E9%9B%AA%E5%A4%AB%E8%B7%9D%E7%A6%BB%E7%9A%84%E8%BD%AC%E6%8D%A2/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="曼哈顿距离与切比雪夫距离的转换曼哈顿距离定义平面内两点坐标分别为（x1，y1），（x2，y2） 则 $$ dis &#x3D; |x_1 - x_2| + |y_1 - y_2|$$">
+<meta property="og:description" content="曼哈顿距离与切比雪夫距离的转换 曼哈顿距离 定义 平面内两点坐标分别为（x1，y1），（x2，y2） 则 dis &#x3D; |x1 − x2| + |y1 − y2|">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-09-10T05:46:28.659Z">
 <meta property="article:modified_time" content="2025-12-21T07:36:12.082Z">
@@ -273,53 +273,78 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="曼哈顿距离与切比雪夫距离的转换"><a href="#曼哈顿距离与切比雪夫距离的转换" class="headerlink" title="曼哈顿距离与切比雪夫距离的转换"></a>曼哈顿距离与切比雪夫距离的转换</h1><h2 id="曼哈顿距离"><a href="#曼哈顿距离" class="headerlink" title="曼哈顿距离"></a>曼哈顿距离</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>平面内两点坐标分别为（x1，y1），（x2，y2）</p>
+        <h1
+id="曼哈顿距离与切比雪夫距离的转换">曼哈顿距离与切比雪夫距离的转换</h1>
+<h2 id="曼哈顿距离">曼哈顿距离</h2>
+<h3 id="定义">定义</h3>
+<p>平面内两点坐标分别为（x1，y1），（x2，y2）</p>
 <p>则</p>
-<p>$$<br> dis &#x3D; |x_1 - x_2| + |y_1 - y_2|<br>$$</p>
+<p><span
+class="math display"><em>d</em><em>i</em><em>s</em> = |<em>x</em><sub>1</sub> − <em>x</em><sub>2</sub>| + |<em>y</em><sub>1</sub> − <em>y</em><sub>2</sub>|</span></p>
 <span id="more"></span>
-
-<h2 id="切比雪夫距离"><a href="#切比雪夫距离" class="headerlink" title="切比雪夫距离"></a>切比雪夫距离</h2><h3 id="定义-1"><a href="#定义-1" class="headerlink" title="定义"></a>定义</h3><p>平面内两点坐标分别为（x1，y1），（x2，y2）</p>
+<h2 id="切比雪夫距离">切比雪夫距离</h2>
+<h3 id="定义-1">定义</h3>
+<p>平面内两点坐标分别为（x1，y1），（x2，y2）</p>
 <p>则</p>
-<p>$$<br>dis &#x3D; \max(|x1 - x2|, |y1 - y2|)<br>$$</p>
-<h2 id="两者的关系"><a href="#两者的关系" class="headerlink" title="两者的关系"></a>两者的关系</h2><h3 id="第一组"><a href="#第一组" class="headerlink" title="第一组"></a>第一组</h3><p>将一个点 ((x, y)) 的坐标变为 ((x + y, x - y)) 后，原坐标系中的曼哈顿距离 (&#x3D;) 新坐标系中的切比雪夫距离 。</p>
-<p>当然有时候为了防止数组越界，在处理 x - y 的时候，可以全部加上一个定值常数，即转换为 ((x + y, x - y + C))</p>
-<h3 id="第二组"><a href="#第二组" class="headerlink" title="第二组"></a>第二组</h3><p>将一个点 ((x, y)) 的坐标变为</p>
-<p>$$<br>\left( \frac{x+y}{2},\ \frac{x-y}{2} \right)<br>$$</p>
-<p>后，原坐标系中的切比雪夫距离 (&#x3D;) 新坐标系中的曼哈顿距离</p>
-<h3 id="1-第一组变换证明"><a href="#1-第一组变换证明" class="headerlink" title="1. 第一组变换证明"></a>1. 第一组变换证明</h3><p>设原两点 ( A(x_1,y_1) )、( B(x_2,y_2) )，变换后新坐标：</p>
-<p>$$ A’(x_1+y_1,\ x_1-y_1),\quad B’(x_2+y_2,\ x_2-y_2) $$</p>
+<p><span
+class="math display"><em>d</em><em>i</em><em>s</em> = max (|<em>x</em>1 − <em>x</em>2|, |<em>y</em>1 − <em>y</em>2|)</span></p>
+<h2 id="两者的关系">两者的关系</h2>
+<h3 id="第一组">第一组</h3>
+<p>将一个点 ((x, y)) 的坐标变为 ((x + y, x - y))
+后，原坐标系中的曼哈顿距离 (=) 新坐标系中的切比雪夫距离 。</p>
+<p>当然有时候为了防止数组越界，在处理 x - y
+的时候，可以全部加上一个定值常数，即转换为 ((x + y, x - y + C))</p>
+<h3 id="第二组">第二组</h3>
+<p>将一个点 ((x, y)) 的坐标变为</p>
+<p><span class="math display">$$
+\left( \frac{x+y}{2},\ \frac{x-y}{2} \right)
+$$</span></p>
+<p>后，原坐标系中的切比雪夫距离 (=) 新坐标系中的曼哈顿距离</p>
+<h3 id="第一组变换证明">1. 第一组变换证明</h3>
+<p>设原两点 ( A(x_1,y_1) )、( B(x_2,y_2) )，变换后新坐标：</p>
+<p><span
+class="math display"><em>A</em>′(<em>x</em><sub>1</sub> + <em>y</em><sub>1</sub>, <em>x</em><sub>1</sub> − <em>y</em><sub>1</sub>),  <em>B</em>′(<em>x</em><sub>2</sub> + <em>y</em><sub>2</sub>, <em>x</em><sub>2</sub> − <em>y</em><sub>2</sub>)</span></p>
 <ul>
 <li><p>原曼哈顿距离：</p>
 <ul>
-<li>$$ d_{\text{Manhattan}} &#x3D; |x_1-x_2| + |y_1-y_2| $$</li>
-</ul>
-</li>
+<li><span
+class="math display"><em>d</em>_Manhattan = |<em>x</em><sub>1</sub> − <em>x</em><sub>2</sub>| + |<em>y</em><sub>1</sub> − <em>y</em><sub>2</sub>|</span></li>
+</ul></li>
 <li><p>新切比雪夫距离：</p>
 <ul>
-<li>$$ d_{\text{Chebyshev}}’ &#x3D; \max\left(,|(x_1+y_1)-(x_2+y_2)|,,\ |(x_1-y_1)-(x_2-y_2)|,\right) $$</li>
+<li><span
+class="math display"><em>d</em>_Chebyshev′ = max ( |(<em>x</em><sub>1</sub> + <em>y</em><sub>1</sub>) − (<em>x</em><sub>2</sub> + <em>y</em><sub>2</sub>)| , |(<em>x</em><sub>1</sub> − <em>y</em><sub>1</sub>) − (<em>x</em><sub>2</sub> − <em>y</em><sub>2</sub>)| )</span></li>
+</ul></li>
+<li><p>化简后可证</p></li>
 </ul>
-</li>
-<li><p>化简后可证</p>
-</li>
-</ul>
-<p>$$<br> ( d_{\text{Manhattan}} &#x3D; d_{\text{Chebyshev}}’ )<br>$$</p>
-<h3 id="2-第二组变换证明"><a href="#2-第二组变换证明" class="headerlink" title="2. 第二组变换证明"></a>2. 第二组变换证明</h3><p>变换后新坐标： $$ A’\left(\frac{x_1+y_1}{2},\ \frac{x_1-y_1}{2}\right),\quad B’\left(\frac{x_2+y_2}{2},\ \frac{x_2-y_2}{2}\right) $$</p>
+<p><span
+class="math display">(<em>d</em><sub>Manhattan</sub> = <em>d</em><sub>Chebyshev</sub>′)</span></p>
+<h3 id="第二组变换证明">2. 第二组变换证明</h3>
+<p>变换后新坐标： <span class="math display">$$
+A'\left(\frac{x_1+y_1}{2},\ \frac{x_1-y_1}{2}\right),\quad
+B'\left(\frac{x_2+y_2}{2},\ \frac{x_2-y_2}{2}\right) $$</span></p>
 <ul>
 <li><p>原切比雪夫距离：</p>
 <ul>
-<li>$$ d_{\text{Chebyshev}} &#x3D; \max\left(,|x_1-x_2|,\ |y_1-y_2|,\right) $$</li>
-</ul>
-</li>
+<li><span
+class="math display"><em>d</em>_Chebyshev = max ( |<em>x</em><sub>1</sub> − <em>x</em><sub>2</sub>|, |<em>y</em><sub>1</sub> − <em>y</em><sub>2</sub>| )</span></li>
+</ul></li>
 <li><p>新曼哈顿距离：</p>
 <ul>
-<li>$$ d_{\text{Manhattan}}’ &#x3D; \left|\frac{x_1+y_1}{2} - \frac{x_2+y_2}{2}\right| + \left|\frac{x_1-y_1}{2} - \frac{x_2-y_2}{2}\right| $$</li>
+<li><span class="math display">$$ d\_{\text{Manhattan}}' =
+\left|\frac{x_1+y_1}{2} - \frac{x_2+y_2}{2}\right| +
+\left|\frac{x_1-y_1}{2} - \frac{x_2-y_2}{2}\right| $$</span></li>
+</ul></li>
+<li><p>化简后可证 <span
+class="math display">(<em>d</em><sub>Chebyshev</sub> = <em>d</em><sub>Manhattan</sub>′)</span></p></li>
 </ul>
-</li>
-<li><p>化简后可证<br>$$<br>( d_{\text{Chebyshev}} &#x3D; d_{\text{Manhattan}}’ )<br>$$</p>
-</li>
-</ul>
-<h3 id="应用意义"><a href="#应用意义" class="headerlink" title="应用意义"></a>应用意义</h3><p>这些变换可将两种距离问题<strong>相互转换</strong>，利用不同距离在算法中的优势（如曼哈顿距离计算简单、切比雪夫距离在网格问题中直观 ），简化解题。</p>
-<h3 id="例题-C-总辖之愿-金山杯-2025-年武汉理工大学程序设计竞赛"><a href="#例题-C-总辖之愿-金山杯-2025-年武汉理工大学程序设计竞赛" class="headerlink" title="例题 ( C-总辖之愿_金山杯 2025 年武汉理工大学程序设计竞赛 )"></a>例题 ( <span class="exturl" data-url="aHR0cHM6Ly9hYy5ub3djb2Rlci5jb20vYWNtL2NvbnRlc3QvMTEyNjkyL0M=">C-总辖之愿_金山杯 2025 年武汉理工大学程序设计竞赛<i class="fa fa-external-link-alt"></i></span> )</h3>
+<h3 id="应用意义">应用意义</h3>
+<p>这些变换可将两种距离问题<strong>相互转换</strong>，利用不同距离在算法中的优势（如曼哈顿距离计算简单、切比雪夫距离在网格问题中直观
+），简化解题。</p>
+<h3 id="例题-c-总辖之愿_金山杯-2025-年武汉理工大学程序设计竞赛">例题 (
+<span class="exturl" data-url="aHR0cHM6Ly9hYy5ub3djb2Rlci5jb20vYWNtL2NvbnRlc3QvMTEyNjkyL0M=">C-总辖之愿_金山杯
+2025 年武汉理工大学程序设计竞赛<i class="fa fa-external-link-alt"></i></span> )</h3>
+
     </div>
 
     
@@ -351,12 +376,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2025/09/10/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6%E5%BA%8F%E7%90%86%E8%AE%BA/" rel="prev" title="离散数学序理论">
-      <i class="fa fa-chevron-left"></i> 离散数学序理论
+    <a href="/2025/09/10/%E6%95%B0%E5%AD%97dfs/" rel="prev" title="数字dfs">
+      <i class="fa fa-chevron-left"></i> 数字dfs
     </a></div>
       <div class="post-nav-item">
-    <a href="/2025/09/10/%E6%95%B0%E5%AD%97dfs/" rel="next" title="数字dfs">
-      数字dfs <i class="fa fa-chevron-right"></i>
+    <a href="/2025/09/10/%E5%BF%AB%E9%80%9F%E5%B9%82-%E9%80%86%E5%85%83-%E5%8F%96%E4%BD%99%E5%85%AC%E5%BC%8F/" rel="next" title="快速幂-逆元-取余公式">
+      快速幂-逆元-取余公式 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -416,7 +441,9 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9B%BC%E5%93%88%E9%A1%BF%E8%B7%9D%E7%A6%BB%E4%B8%8E%E5%88%87%E6%AF%94%E9%9B%AA%E5%A4%AB%E8%B7%9D%E7%A6%BB%E7%9A%84%E8%BD%AC%E6%8D%A2"><span class="nav-number">1.</span> <span class="nav-text">曼哈顿距离与切比雪夫距离的转换</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9B%BC%E5%93%88%E9%A1%BF%E8%B7%9D%E7%A6%BB"><span class="nav-number">1.1.</span> <span class="nav-text">曼哈顿距离</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89"><span class="nav-number">1.1.1.</span> <span class="nav-text">定义</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%87%E6%AF%94%E9%9B%AA%E5%A4%AB%E8%B7%9D%E7%A6%BB"><span class="nav-number">1.2.</span> <span class="nav-text">切比雪夫距离</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89-1"><span class="nav-number">1.2.1.</span> <span class="nav-text">定义</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%A4%E8%80%85%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="nav-number">1.3.</span> <span class="nav-text">两者的关系</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E7%BB%84"><span class="nav-number">1.3.1.</span> <span class="nav-text">第一组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E4%BA%8C%E7%BB%84"><span class="nav-number">1.3.2.</span> <span class="nav-text">第二组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E7%AC%AC%E4%B8%80%E7%BB%84%E5%8F%98%E6%8D%A2%E8%AF%81%E6%98%8E"><span class="nav-number">1.3.3.</span> <span class="nav-text">1. 第一组变换证明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E7%AC%AC%E4%BA%8C%E7%BB%84%E5%8F%98%E6%8D%A2%E8%AF%81%E6%98%8E"><span class="nav-number">1.3.4.</span> <span class="nav-text">2. 第二组变换证明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BA%94%E7%94%A8%E6%84%8F%E4%B9%89"><span class="nav-number">1.3.5.</span> <span class="nav-text">应用意义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B%E9%A2%98-C-%E6%80%BB%E8%BE%96%E4%B9%8B%E6%84%BF-%E9%87%91%E5%B1%B1%E6%9D%AF-2025-%E5%B9%B4%E6%AD%A6%E6%B1%89%E7%90%86%E5%B7%A5%E5%A4%A7%E5%AD%A6%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E7%AB%9E%E8%B5%9B"><span class="nav-number">1.3.6.</span> <span class="nav-text">例题 ( C-总辖之愿_金山杯 2025 年武汉理工大学程序设计竞赛 )</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9B%BC%E5%93%88%E9%A1%BF%E8%B7%9D%E7%A6%BB%E4%B8%8E%E5%88%87%E6%AF%94%E9%9B%AA%E5%A4%AB%E8%B7%9D%E7%A6%BB%E7%9A%84%E8%BD%AC%E6%8D%A2"><span class="nav-number">1.</span> <span class="nav-text">曼哈顿距离与切比雪夫距离的转换</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9B%BC%E5%93%88%E9%A1%BF%E8%B7%9D%E7%A6%BB"><span class="nav-number">1.1.</span> <span class="nav-text">曼哈顿距离</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89"><span class="nav-number">1.1.1.</span> <span class="nav-text">定义</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%87%E6%AF%94%E9%9B%AA%E5%A4%AB%E8%B7%9D%E7%A6%BB"><span class="nav-number">1.2.</span> <span class="nav-text">切比雪夫距离</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89-1"><span class="nav-number">1.2.1.</span> <span class="nav-text">定义</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%A4%E8%80%85%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="nav-number">1.3.</span> <span class="nav-text">两者的关系</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E7%BB%84"><span class="nav-number">1.3.1.</span> <span class="nav-text">第一组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E4%BA%8C%E7%BB%84"><span class="nav-number">1.3.2.</span> <span class="nav-text">第二组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E7%BB%84%E5%8F%98%E6%8D%A2%E8%AF%81%E6%98%8E"><span class="nav-number">1.3.3.</span> <span class="nav-text">1. 第一组变换证明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E4%BA%8C%E7%BB%84%E5%8F%98%E6%8D%A2%E8%AF%81%E6%98%8E"><span class="nav-number">1.3.4.</span> <span class="nav-text">2. 第二组变换证明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BA%94%E7%94%A8%E6%84%8F%E4%B9%89"><span class="nav-number">1.3.5.</span> <span class="nav-text">应用意义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B%E9%A2%98-c-%E6%80%BB%E8%BE%96%E4%B9%8B%E6%84%BF_%E9%87%91%E5%B1%B1%E6%9D%AF-2025-%E5%B9%B4%E6%AD%A6%E6%B1%89%E7%90%86%E5%B7%A5%E5%A4%A7%E5%AD%A6%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E7%AB%9E%E8%B5%9B"><span class="nav-number">1.3.6.</span> <span class="nav-text">例题 (
+C-总辖之愿_金山杯
+2025 年武汉理工大学程序设计竞赛 )</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 

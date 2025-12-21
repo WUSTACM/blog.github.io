@@ -20,12 +20,12 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":"flat"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="Markdown 使用方法Markdown 是一种轻量级标记语言，常用于格式化文本。它易于阅读和编写，并且可以转换为有效的 HTML 文档。以下是 Markdown 的基本语法和使用方法。">
+  <meta name="description" content="Markdown 使用方法 Markdown 是一种轻量级标记语言，常用于格式化文本。它易于阅读和编写，并且可以转换为有效的 HTML 文档。以下是 Markdown 的基本语法和使用方法。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Markdown使用方法">
 <meta property="og:url" content="http://example.com/2025/09/10/Markdown%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Markdown 使用方法Markdown 是一种轻量级标记语言，常用于格式化文本。它易于阅读和编写，并且可以转换为有效的 HTML 文档。以下是 Markdown 的基本语法和使用方法。">
+<meta property="og:description" content="Markdown 使用方法 Markdown 是一种轻量级标记语言，常用于格式化文本。它易于阅读和编写，并且可以转换为有效的 HTML 文档。以下是 Markdown 的基本语法和使用方法。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-09-10T05:46:28.659Z">
 <meta property="article:modified_time" content="2025-12-21T07:37:17.263Z">
@@ -273,266 +273,298 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="Markdown-使用方法"><a href="#Markdown-使用方法" class="headerlink" title="Markdown 使用方法"></a>Markdown 使用方法</h1><p>Markdown 是一种轻量级标记语言，常用于格式化文本。它易于阅读和编写，并且可以转换为有效的 HTML 文档。以下是 Markdown 的基本语法和使用方法。</p>
+        <h1 id="markdown-使用方法">Markdown 使用方法</h1>
+<p>Markdown
+是一种轻量级标记语言，常用于格式化文本。它易于阅读和编写，并且可以转换为有效的
+HTML 文档。以下是 Markdown 的基本语法和使用方法。</p>
 <span id="more"></span>
-
-<h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><ol>
-<li><a href="#%E6%A0%87%E9%A2%98">标题</a></li>
-<li><a href="#%E6%AE%B5%E8%90%BD%E5%92%8C%E6%8D%A2%E8%A1%8C">段落和换行</a></li>
-<li><a href="#%E5%BC%BA%E8%B0%83">强调</a></li>
-<li><a href="#%E5%88%97%E8%A1%A8">列表</a></li>
-<li><a href="#%E9%93%BE%E6%8E%A5%E5%92%8C%E5%9B%BE%E7%89%87">链接和图片</a></li>
-<li><a href="#%E4%BB%A3%E7%A0%81">代码</a></li>
-<li><a href="#%E5%BC%95%E7%94%A8">引用</a></li>
-<li><a href="#%E5%88%86%E9%9A%94%E7%BA%BF">分隔线</a></li>
-<li><a href="#%E8%A1%A8%E6%A0%BC">表格</a></li>
-<li><a href="#%E5%86%85%E5%B5%8C-html">内嵌 HTML</a></li>
-<li><a href="#%E6%95%B0%E5%AD%A6%E7%AC%A6%E5%8F%B7%E5%8F%8A%E6%8E%92%E7%89%88">数学符号及排版</a></li>
+<h2 id="目录">目录</h2>
+<ol type="1">
+<li><a href="#标题">标题</a></li>
+<li><a href="#段落和换行">段落和换行</a></li>
+<li><a href="#强调">强调</a></li>
+<li><a href="#列表">列表</a></li>
+<li><a href="#链接和图片">链接和图片</a></li>
+<li><a href="#代码">代码</a></li>
+<li><a href="#引用">引用</a></li>
+<li><a href="#分隔线">分隔线</a></li>
+<li><a href="#表格">表格</a></li>
+<li><a href="#内嵌-html">内嵌 HTML</a></li>
+<li><a href="#数学符号及排版">数学符号及排版</a></li>
 </ol>
-<h2 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h2><p>使用 <code>#</code> 符号来创建标题。<code>#</code> 的数量表示标题的级别。</p>
+<h2 id="标题">标题</h2>
+<p>使用 <code>#</code> 符号来创建标题。<code>#</code>
+的数量表示标题的级别。</p>
 <figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="section"># 一级标题</span></span><br><span class="line"></span><br><span class="line"><span class="section">## 二级标题</span></span><br><span class="line"></span><br><span class="line"><span class="section">### 三级标题</span></span><br><span class="line"></span><br><span class="line"><span class="section">#### 四级标题</span></span><br><span class="line"></span><br><span class="line"><span class="section">##### 五级标题</span></span><br><span class="line"></span><br><span class="line"><span class="section">###### 六级标题</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="段落和换行"><a href="#段落和换行" class="headerlink" title="段落和换行"></a>段落和换行</h2><p>段落由一个或多个连续的文本行组成，段落之间需要空一行。</p>
+<h2 id="段落和换行">段落和换行</h2>
+<p>段落由一个或多个连续的文本行组成，段落之间需要空一行。</p>
 <figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">这是第一个段落。</span><br><span class="line"></span><br><span class="line">这是第二个段落。</span><br></pre></td></tr></table></figure>
-
-<p>要在 Markdown 中换行，可以在行尾添加两个空格，或者使用 <code>&lt;br&gt;</code> 标签。</p>
+<p>要在 Markdown 中换行，可以在行尾添加两个空格，或者使用
+<code>&lt;br&gt;</code> 标签。</p>
 <figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">这是第一行  </span><br><span class="line">这是第二行</span><br></pre></td></tr></table></figure>
-
-<h2 id="强调"><a href="#强调" class="headerlink" title="强调"></a>强调</h2><p>使用 <code>*</code> 或 <code>_</code> 来表示斜体，使用 <code>**</code> 或 <code>__</code> 来表示粗体。</p>
+<h2 id="强调">强调</h2>
+<p>使用 <code>*</code> 或 <code>_</code> 来表示斜体，使用
+<code>**</code> 或 <code>__</code> 来表示粗体。</p>
 <figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="emphasis">_斜体_</span> 或 <span class="emphasis">_斜体_</span></span><br><span class="line"></span><br><span class="line"><span class="strong">**粗体**</span> 或 <span class="strong">**粗体**</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h2><h3 id="无序列表"><a href="#无序列表" class="headerlink" title="无序列表"></a>无序列表</h3><p>使用 <code>-</code>、<code>+</code> 或 <code>*</code> 来创建无序列表。</p>
+<h2 id="列表">列表</h2>
+<h3 id="无序列表">无序列表</h3>
+<p>使用 <code>-</code>、<code>+</code> 或 <code>*</code>
+来创建无序列表。</p>
 <figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">-</span> 项目一</span><br><span class="line"><span class="bullet">-</span> 项目二</span><br><span class="line"><span class="bullet">  -</span> 子项目</span><br></pre></td></tr></table></figure>
-
-<h3 id="有序列表"><a href="#有序列表" class="headerlink" title="有序列表"></a>有序列表</h3><p>使用数字加点来创建有序列表。</p>
+<h3 id="有序列表">有序列表</h3>
+<p>使用数字加点来创建有序列表。</p>
 <figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">1.</span> 第一项</span><br><span class="line"><span class="bullet">2.</span> 第二项</span><br><span class="line"><span class="bullet">   1.</span> 子项</span><br></pre></td></tr></table></figure>
-
-<h2 id="链接和图片"><a href="#链接和图片" class="headerlink" title="链接和图片"></a>链接和图片</h2><h3 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h3><p>使用 <code>[文本](URL)</code> 来创建链接。</p>
+<h2 id="链接和图片">链接和图片</h2>
+<h3 id="链接">链接</h3>
+<p>使用 <code>[文本](URL)</code> 来创建链接。</p>
 <figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="string">Google</span>](<span class="link">https://www.google.com</span>)</span><br></pre></td></tr></table></figure>
-
-<h3 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h3><p>使用 <code>![替代文本](图片URL)</code> 来插入图片。</p>
+<h3 id="图片">图片</h3>
+<p>使用 <code>![替代文本](图片URL)</code> 来插入图片。</p>
 <figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![<span class="string">Markdown Logo</span>](<span class="link">https://markdownlogo.com/logo.png</span>)</span><br></pre></td></tr></table></figure>
-
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><h3 id="行内代码"><a href="#行内代码" class="headerlink" title="行内代码"></a>行内代码</h3><p>使用 <code>`</code> 包裹行内代码。</p>
+<h2 id="代码">代码</h2>
+<h3 id="行内代码">行内代码</h3>
+<p>使用 <code>`</code> 包裹行内代码。</p>
 <figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">这是 <span class="code">`行内代码`</span> 示例。</span><br></pre></td></tr></table></figure>
-
-<h3 id="代码块"><a href="#代码块" class="headerlink" title="代码块"></a>代码块</h3><p>使用 <code> </code> 包裹多行代码块。</p>
+<h3 id="代码块">代码块</h3>
+<p>使用 <code></code> 包裹多行代码块。</p>
 <figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">​<span class="code">```python</span></span><br><span class="line"><span class="code">def hello_world():</span></span><br><span class="line"><span class="code">print(&quot;Hello, World!&quot;)</span></span><br><span class="line"><span class="code"></span></span><br><span class="line"><span class="code">```</span></span><br><span class="line"></span><br><span class="line"><span class="code">```</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h2><p>使用 <code>&gt;</code> 来创建引用。</p>
-<p>​&#96;&#96;&#96;markdown</p>
+<h2 id="引用">引用</h2>
+<p>使用 <code>&gt;</code> 来创建引用。</p>
+<p>​```markdown</p>
 <blockquote>
 <p>这是一个引用。</p>
 </blockquote>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">## 分隔线</span><br><span class="line"></span><br><span class="line">使用 `-`、`*` 或 `_` 来创建分隔线。</span><br><span class="line"></span><br><span class="line">```markdown</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
-
-<h2 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h2><p>使用 <code>|</code> 和 <code>-</code> 来创建表格。</p>
+<h2 id="表格">表格</h2>
+<p>使用 <code>|</code> 和 <code>-</code> 来创建表格。</p>
 <figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">| 列 1   | 列 2   | 列 3   |</span><br><span class="line">| ------ | ------ | ------ |</span><br><span class="line">| 数据 1 | 数据 2 | 数据 3 |</span><br></pre></td></tr></table></figure>
-
-<h2 id="内嵌-HTML"><a href="#内嵌-HTML" class="headerlink" title="内嵌 HTML"></a>内嵌 HTML</h2><p>Markdown 支持内嵌 HTML 标签。</p>
+<h2 id="内嵌-html">内嵌 HTML</h2>
+<p>Markdown 支持内嵌 HTML 标签。</p>
 <figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">p</span> <span class="attr">style</span>=<span class="string">&quot;color:red;&quot;</span>&gt;</span></span>这是一个红色的段落。<span class="language-xml"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
-
-<hr>
-<h2 id="数学符号及排版"><a href="#数学符号及排版" class="headerlink" title="数学符号及排版"></a>数学符号及排版</h2><h3 id="希腊字母"><a href="#希腊字母" class="headerlink" title="希腊字母"></a>希腊字母</h3><ul>
+<hr />
+<h2 id="数学符号及排版">数学符号及排版</h2>
+<h3 id="希腊字母">希腊字母</h3>
+<ul>
 <li><p>小写字母</p>
 <ul>
-<li>$\alpha$ <code>\alpha</code></li>
-<li>$\beta$ <code>\beta</code></li>
-<li>$\gamma$ <code>\gamma</code></li>
-<li>$\delta$ <code>\delta</code></li>
-<li>$\epsilon$ <code>\epsilon</code></li>
-<li>$\zeta$ <code>\zeta</code></li>
-<li>$\eta$ <code>\eta</code></li>
-<li>$\theta$ <code>\theta</code></li>
-<li>$\iota$ <code>\iota</code></li>
-<li>$\kappa$ <code>\kappa</code></li>
-<li>$\lambda$ <code>\lambda</code></li>
-<li>$\mu$ <code>\mu</code></li>
-<li>$\nu$ <code>\nu</code></li>
-<li>$\xi$ <code>\xi</code></li>
-<li>$\pi$ <code>\pi</code></li>
-<li>$\rho$ <code>\rho</code></li>
-<li>$\sigma$ <code>\sigma</code></li>
-<li>$\tau$ <code>\tau</code></li>
-<li>$\upsilon$ <code>\upsilon</code></li>
-<li>$\phi$ <code>\phi</code></li>
-<li>$\chi$ <code>\chi</code></li>
-<li>$\psi$ <code>\psi</code></li>
-<li>$\omega$ <code>\omega</code></li>
-</ul>
-</li>
+<li><span class="math inline"><em>α</em></span> <code>\alpha</code></li>
+<li><span class="math inline"><em>β</em></span> <code>\beta</code></li>
+<li><span class="math inline"><em>γ</em></span> <code>\gamma</code></li>
+<li><span class="math inline"><em>δ</em></span> <code>\delta</code></li>
+<li><span class="math inline"><em>ϵ</em></span>
+<code>\epsilon</code></li>
+<li><span class="math inline"><em>ζ</em></span> <code>\zeta</code></li>
+<li><span class="math inline"><em>η</em></span> <code>\eta</code></li>
+<li><span class="math inline"><em>θ</em></span> <code>\theta</code></li>
+<li><span class="math inline"><em>ι</em></span> <code>\iota</code></li>
+<li><span class="math inline"><em>κ</em></span> <code>\kappa</code></li>
+<li><span class="math inline"><em>λ</em></span>
+<code>\lambda</code></li>
+<li><span class="math inline"><em>μ</em></span> <code>\mu</code></li>
+<li><span class="math inline"><em>ν</em></span> <code>\nu</code></li>
+<li><span class="math inline"><em>ξ</em></span> <code>\xi</code></li>
+<li><span class="math inline"><em>π</em></span> <code>\pi</code></li>
+<li><span class="math inline"><em>ρ</em></span> <code>\rho</code></li>
+<li><span class="math inline"><em>σ</em></span> <code>\sigma</code></li>
+<li><span class="math inline"><em>τ</em></span> <code>\tau</code></li>
+<li><span class="math inline"><em>υ</em></span>
+<code>\upsilon</code></li>
+<li><span class="math inline"><em>ϕ</em></span> <code>\phi</code></li>
+<li><span class="math inline"><em>χ</em></span> <code>\chi</code></li>
+<li><span class="math inline"><em>ψ</em></span> <code>\psi</code></li>
+<li><span class="math inline"><em>ω</em></span> <code>\omega</code></li>
+</ul></li>
 <li><p>大写字母</p>
 <ul>
-<li>$\Gamma$ <code>\Gamma</code></li>
-<li>$\Delta$ <code>\Delta</code></li>
-<li>$\Theta$ <code>\Theta</code></li>
-<li>$\Lambda$ <code>\Lambda</code></li>
-<li>$\Xi$ <code>\Xi</code></li>
-<li>$\Pi$ <code>\Pi</code></li>
-<li>$\Sigma$ <code>\Sigma</code></li>
-<li>$\Upsilon$ <code>\Upsilon</code></li>
-<li>$\Phi$ <code>\Phi</code></li>
-<li>$\Psi$ <code>\Psi</code></li>
-<li>$\Omega$ <code>\Omega</code></li>
+<li><span class="math inline"><em>Γ</em></span> <code>\Gamma</code></li>
+<li><span class="math inline"><em>Δ</em></span> <code>\Delta</code></li>
+<li><span class="math inline"><em>Θ</em></span> <code>\Theta</code></li>
+<li><span class="math inline"><em>Λ</em></span>
+<code>\Lambda</code></li>
+<li><span class="math inline"><em>Ξ</em></span> <code>\Xi</code></li>
+<li><span class="math inline"><em>Π</em></span> <code>\Pi</code></li>
+<li><span class="math inline"><em>Σ</em></span> <code>\Sigma</code></li>
+<li><span class="math inline"><em>Υ</em></span>
+<code>\Upsilon</code></li>
+<li><span class="math inline"><em>Φ</em></span> <code>\Phi</code></li>
+<li><span class="math inline"><em>Ψ</em></span> <code>\Psi</code></li>
+<li><span class="math inline"><em>Ω</em></span> <code>\Omega</code></li>
+</ul></li>
 </ul>
-</li>
+<h3 id="运算符">运算符</h3>
+<ul>
+<li>基本运算
+<ul>
+<li><span class="math inline">+</span> <code>+</code></li>
+<li><span class="math inline">−</span> <code>-</code></li>
+<li><span class="math inline">×</span> <code>\times</code></li>
+<li><span class="math inline">÷</span> <code>\div</code></li>
+<li><span class="math inline">⋅</span> <code>\cdot</code></li>
+<li><span class="math inline">±</span> <code>\pm</code></li>
+<li><span class="math inline">∓</span> <code>\mp</code></li>
+</ul></li>
+<li>关系运算符
+<ul>
+<li><span class="math inline">=</span> <code>=</code></li>
+<li><span class="math inline">≠</span> <code>\neq</code></li>
+<li><span class="math inline">&lt;</span> <code>&lt;</code></li>
+<li><span class="math inline">&gt;</span> <code>&gt;</code></li>
+<li><span class="math inline">≤</span> <code>\leq</code></li>
+<li><span class="math inline">≥</span> <code>\geq</code></li>
+<li><span class="math inline">≈</span> <code>\approx</code></li>
+<li><span class="math inline">≡</span> <code>\equiv</code></li>
+<li><span class="math inline">∝</span> <code>\propto</code></li>
+</ul></li>
+<li>集合运算符
+<ul>
+<li><span class="math inline">∈</span> <code>\in</code></li>
+<li><span class="math inline">∉</span> <code>\notin</code></li>
+<li><span class="math inline">⊂</span> <code>\subset</code></li>
+<li><span class="math inline">⊆</span> <code>\subseteq</code></li>
+<li><span class="math inline">⊃</span> <code>\supset</code></li>
+<li><span class="math inline">⊇</span> <code>\supseteq</code></li>
+<li><span class="math inline">∪</span> <code>\cup</code></li>
+<li><span class="math inline">∩</span> <code>\cap</code></li>
+<li><span class="math inline">∅</span> <code>\emptyset</code></li>
+</ul></li>
+<li>逻辑运算符
+<ul>
+<li><span class="math inline">∧</span> <code>\land</code></li>
+<li><span class="math inline">∨</span> <code>\lor</code></li>
+<li><span class="math inline">¬</span> <code>\lnot</code></li>
+<li><span class="math inline">⇒</span> <code>\Rightarrow</code></li>
+<li><span class="math inline">⇔</span> <code>\Leftrightarrow</code></li>
+</ul></li>
+<li>几何关系
+<ul>
+<li><span class="math inline">∥</span> <code>\parallel</code></li>
+<li><span class="math inline">⊥</span><code>\perp</code></li>
+</ul></li>
 </ul>
-<h3 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h3><ul>
-<li>基本运算<ul>
-<li>$+$ <code>+</code></li>
-<li>$-$ <code>-</code></li>
-<li>$\times$ <code>\times</code></li>
-<li>$\div$ <code>\div</code></li>
-<li>$\cdot$ <code>\cdot</code></li>
-<li>$\pm$ <code>\pm</code></li>
-<li>$\mp$ <code>\mp</code></li>
-</ul>
-</li>
-<li>关系运算符<ul>
-<li>$&#x3D;$ <code>=</code></li>
-<li>$\neq$ <code>\neq</code></li>
-<li>$&lt;$ <code>&lt;</code></li>
-<li>$&gt;$ <code>&gt;</code></li>
-<li>$\leq$ <code>\leq</code></li>
-<li>$\geq$ <code>\geq</code></li>
-<li>$\approx$ <code>\approx</code></li>
-<li>$\equiv$ <code>\equiv</code></li>
-<li>$\propto$ <code>\propto</code></li>
-</ul>
-</li>
-<li>集合运算符<ul>
-<li>$\in$ <code>\in</code></li>
-<li>$\notin$ <code>\notin</code></li>
-<li>$\subset$ <code>\subset</code></li>
-<li>$\subseteq$ <code>\subseteq</code></li>
-<li>$\supset$ <code>\supset</code></li>
-<li>$\supseteq$ <code>\supseteq</code></li>
-<li>$\cup$ <code>\cup</code></li>
-<li>$\cap$ <code>\cap</code></li>
-<li>$\emptyset$ <code>\emptyset</code></li>
-</ul>
-</li>
-<li>逻辑运算符<ul>
-<li>$\land$ <code>\land</code></li>
-<li>$\lor$ <code>\lor</code></li>
-<li>$\lnot$ <code>\lnot</code></li>
-<li>$\Rightarrow$ <code>\Rightarrow</code></li>
-<li>$\Leftrightarrow$ <code>\Leftrightarrow</code></li>
-</ul>
-</li>
-<li>几何关系<ul>
-<li>$\parallel$ <code>\parallel</code></li>
-<li>$\perp$<code>\perp</code></li>
-</ul>
-</li>
-</ul>
-<h3 id="上下标"><a href="#上下标" class="headerlink" title="上下标"></a>上下标</h3><ul>
+<h3 id="上下标">上下标</h3>
+<ul>
 <li><p>上标</p>
 <ul>
-<li>$x^2$ <code>x^2</code></li>
-<li>$e^{x+y}$ <code>e^{x+y}</code></li>
-</ul>
-</li>
+<li><span class="math inline"><em>x</em><sup>2</sup></span>
+<code>x^2</code></li>
+<li><span
+class="math inline"><em>e</em><sup><em>x</em> + <em>y</em></sup></span>
+<code>e^{x+y}</code></li>
+</ul></li>
 <li><p>下标</p>
 <ul>
-<li>$x_1$ <code>x_1</code></li>
-<li>$x_{i,j}$ <code>x_{i,j}</code></li>
+<li><span class="math inline"><em>x</em><sub>1</sub></span>
+<code>x_1</code></li>
+<li><span
+class="math inline"><em>x</em><sub><em>i</em>, <em>j</em></sub></span>
+<code>x_{i,j}</code></li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h3 id="分式与根式"><a href="#分式与根式" class="headerlink" title="分式与根式"></a>分式与根式</h3><ul>
+<h3 id="分式与根式">分式与根式</h3>
+<ul>
 <li><p>分式</p>
 <ul>
-<li>$\frac{a}{b}$ <code>\frac{a}{b}</code></li>
-<li>$\dfrac{a}{b}$ <code>\dfrac{a}{b}</code></li>
-</ul>
-</li>
+<li><span class="math inline">$\frac{a}{b}$</span>
+<code>\frac{a}{b}</code></li>
+<li><span class="math inline">$\dfrac{a}{b}$</span>
+<code>\dfrac{a}{b}</code></li>
+</ul></li>
 <li><p>根式</p>
 <ul>
-<li>$\sqrt{x}$ <code>\sqrt{x}</code></li>
-<li>$\sqrt[n]{x}$ <code>\sqrt[n]{x}</code></li>
+<li><span class="math inline">$\sqrt{x}$</span>
+<code>\sqrt{x}</code></li>
+<li><span class="math inline">$\sqrt[n]{x}$</span>
+<code>\sqrt[n]{x}</code></li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h3 id="积分与求和"><a href="#积分与求和" class="headerlink" title="积分与求和"></a>积分与求和</h3><ul>
+<h3 id="积分与求和">积分与求和</h3>
+<ul>
 <li><p>积分</p>
 <ul>
-<li>$\int$ <code>\int</code></li>
-<li>$\int_a^b$ <code>\int_a^b</code></li>
-<li>$\iint$ <code>\iint</code></li>
-<li>$\iiint$ <code>\iiint</code></li>
-</ul>
-</li>
+<li><span class="math inline">∫</span> <code>\int</code></li>
+<li><span
+class="math inline">∫<sub><em>a</em></sub><sup><em>b</em></sup></span>
+<code>\int_a^b</code></li>
+<li><span class="math inline">∬</span> <code>\iint</code></li>
+<li><span class="math inline">∭</span> <code>\iiint</code></li>
+</ul></li>
 <li><p>求和</p>
 <ul>
-<li>$\sum$ <code>\sum</code></li>
-<li>$\sum_{i&#x3D;1}^n$ <code>\sum_{i=1}^n</code></li>
+<li><span class="math inline">∑</span> <code>\sum</code></li>
+<li><span class="math inline">$\sum_{i=1}^n$</span>
+<code>\sum_{i=1}^n</code></li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h3 id="极限与导数"><a href="#极限与导数" class="headerlink" title="极限与导数"></a>极限与导数</h3><ul>
+<h3 id="极限与导数">极限与导数</h3>
+<ul>
 <li><p>极限</p>
 <ul>
-<li>$\lim$ <code>\lim</code></li>
-<li>$\lim_{x \to \infty}$ <code>\lim_{x \to \infty}</code></li>
-</ul>
-</li>
+<li><span class="math inline">lim </span> <code>\lim</code></li>
+<li><span class="math inline">lim<sub><em>x</em> → ∞</sub></span>
+<code>\lim_{x \to \infty}</code></li>
+</ul></li>
 <li><p>导数</p>
 <ul>
-<li>$\frac{dy}{dx}$ <code>\frac{dy}{dx}</code></li>
-<li>$\frac{\partial f}{\partial x}$ <code>\frac{\partial f}{\partial x}</code></li>
+<li><span class="math inline">$\frac{dy}{dx}$</span>
+<code>\frac{dy}{dx}</code></li>
+<li><span class="math inline">$\frac{\partial f}{\partial x}$</span>
+<code>\frac{\partial f}{\partial x}</code></li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h3 id="矩阵与行列式"><a href="#矩阵与行列式" class="headerlink" title="矩阵与行列式"></a>矩阵与行列式</h3><ul>
+<h3 id="矩阵与行列式">矩阵与行列式</h3>
+<ul>
 <li><p>矩阵</p>
 <ul>
-<li>$\begin{matrix} a &amp; b \ c &amp; d \end{matrix}$ <code>\begin{matrix} a &amp; b \\ c &amp; d \end{matrix}</code></li>
-<li>$\begin{pmatrix} a &amp; b \ c &amp; d \end{pmatrix}$ <code>\begin{pmatrix} a &amp; b \\ c &amp; d \end{pmatrix}</code></li>
-<li>$\begin{bmatrix} a &amp; b \ c &amp; d \end{bmatrix}$ <code>\begin{bmatrix} a &amp; b \\ c &amp; d \end{bmatrix}</code></li>
-</ul>
-</li>
+<li><span class="math inline">$\begin{matrix} a &amp; b \\ c &amp; d
+\end{matrix}$</span>
+<code>\begin{matrix} a &amp; b \\ c &amp; d \end{matrix}</code></li>
+<li><span class="math inline">$\begin{pmatrix} a &amp; b \\ c &amp; d
+\end{pmatrix}$</span>
+<code>\begin{pmatrix} a &amp; b \\ c &amp; d \end{pmatrix}</code></li>
+<li><span class="math inline">$\begin{bmatrix} a &amp; b \\ c &amp; d
+\end{bmatrix}$</span>
+<code>\begin{bmatrix} a &amp; b \\ c &amp; d \end{bmatrix}</code></li>
+</ul></li>
 <li><p>行列式</p>
 <ul>
-<li>$\begin{vmatrix} a &amp; b \ c &amp; d \end{vmatrix}$ <code>\begin{vmatrix} a &amp; b \\ c &amp; d \end{vmatrix}</code></li>
+<li><span class="math inline">$\begin{vmatrix} a &amp; b \\ c &amp; d
+\end{vmatrix}$</span>
+<code>\begin{vmatrix} a &amp; b \\ c &amp; d \end{vmatrix}</code></li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h3 id="其他符号"><a href="#其他符号" class="headerlink" title="其他符号"></a>其他符号</h3><ul>
+<h3 id="其他符号">其他符号</h3>
+<ul>
 <li><p>箭头</p>
 <ul>
-<li>$\rightarrow$ <code>\rightarrow</code></li>
-<li>$\leftarrow$ <code>\leftarrow</code></li>
-<li>$\Rightarrow$ <code>\Rightarrow</code></li>
-<li>$\Leftarrow$ <code>\Leftarrow</code></li>
-<li>$\leftrightarrow$ <code>\leftrightarrow</code></li>
-<li>$\Leftrightarrow$<code>\leftrightarrow</code></li>
-</ul>
-</li>
+<li><span class="math inline">→</span> <code>\rightarrow</code></li>
+<li><span class="math inline">←</span> <code>\leftarrow</code></li>
+<li><span class="math inline">⇒</span> <code>\Rightarrow</code></li>
+<li><span class="math inline">⇐</span> <code>\Leftarrow</code></li>
+<li><span class="math inline">↔︎</span> <code>\leftrightarrow</code></li>
+<li><span class="math inline">⇔</span><code>\leftrightarrow</code></li>
+</ul></li>
 <li><p>点</p>
 <ul>
-<li>$\cdot$ <code>\cdot</code></li>
-<li>$\cdots$ <code>\cdots</code></li>
-<li>$\vdots$ <code>\vdots</code></li>
-<li>$\ddots$ <code>\ddots</code></li>
-</ul>
-</li>
+<li><span class="math inline">⋅</span> <code>\cdot</code></li>
+<li><span class="math inline">⋯</span> <code>\cdots</code></li>
+<li><span class="math inline">⋮</span> <code>\vdots</code></li>
+<li><span class="math inline">⋱</span> <code>\ddots</code></li>
+</ul></li>
 <li><p>括号</p>
 <ul>
-<li>$( )$ <code>( )</code></li>
-<li>$[ ]$ <code>[ ]</code></li>
-<li>${ }$ <code>\{ \}</code></li>
-<li>$\langle \rangle$ <code>\langle \rangle</code></li>
-</ul>
-</li>
+<li><span class="math inline">()</span> <code>( )</code></li>
+<li><span class="math inline">[]</span> <code>[ ]</code></li>
+<li><span class="math inline">{}</span> <code>\{ \}</code></li>
+<li><span class="math inline">⟨⟩</span>
+<code>\langle \rangle</code></li>
+</ul></li>
 <li><p>其他</p>
 <ul>
-<li>$\infty$ <code>\infty</code></li>
-<li>$\nabla$ <code>\nabla</code></li>
-<li>$\partial$ <code>\partial</code></li>
-<li>$\hbar$ <code>\hbar</code></li>
-</ul>
-</li>
+<li><span class="math inline">∞</span> <code>\infty</code></li>
+<li><span class="math inline">∇</span> <code>\nabla</code></li>
+<li><span class="math inline">∂</span> <code>\partial</code></li>
+<li><span class="math inline">ℏ</span> <code>\hbar</code></li>
+</ul></li>
 </ul>
 
     </div>
@@ -631,7 +663,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Markdown-%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95"><span class="nav-number">1.</span> <span class="nav-text">Markdown 使用方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%AE%E5%BD%95"><span class="nav-number">1.1.</span> <span class="nav-text">目录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%87%E9%A2%98"><span class="nav-number">1.2.</span> <span class="nav-text">标题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AE%B5%E8%90%BD%E5%92%8C%E6%8D%A2%E8%A1%8C"><span class="nav-number">1.3.</span> <span class="nav-text">段落和换行</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%BA%E8%B0%83"><span class="nav-number">1.4.</span> <span class="nav-text">强调</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%97%E8%A1%A8"><span class="nav-number">1.5.</span> <span class="nav-text">列表</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%97%A0%E5%BA%8F%E5%88%97%E8%A1%A8"><span class="nav-number">1.5.1.</span> <span class="nav-text">无序列表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%89%E5%BA%8F%E5%88%97%E8%A1%A8"><span class="nav-number">1.5.2.</span> <span class="nav-text">有序列表</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%93%BE%E6%8E%A5%E5%92%8C%E5%9B%BE%E7%89%87"><span class="nav-number">1.6.</span> <span class="nav-text">链接和图片</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%93%BE%E6%8E%A5"><span class="nav-number">1.6.1.</span> <span class="nav-text">链接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%BE%E7%89%87"><span class="nav-number">1.6.2.</span> <span class="nav-text">图片</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.7.</span> <span class="nav-text">代码</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A1%8C%E5%86%85%E4%BB%A3%E7%A0%81"><span class="nav-number">1.7.1.</span> <span class="nav-text">行内代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E5%9D%97"><span class="nav-number">1.7.2.</span> <span class="nav-text">代码块</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%95%E7%94%A8"><span class="nav-number">1.8.</span> <span class="nav-text">引用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A1%A8%E6%A0%BC"><span class="nav-number">1.9.</span> <span class="nav-text">表格</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%86%85%E5%B5%8C-HTML"><span class="nav-number">1.10.</span> <span class="nav-text">内嵌 HTML</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E5%AD%A6%E7%AC%A6%E5%8F%B7%E5%8F%8A%E6%8E%92%E7%89%88"><span class="nav-number">1.11.</span> <span class="nav-text">数学符号及排版</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%8C%E8%85%8A%E5%AD%97%E6%AF%8D"><span class="nav-number">1.11.1.</span> <span class="nav-text">希腊字母</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-number">1.11.2.</span> <span class="nav-text">运算符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8A%E4%B8%8B%E6%A0%87"><span class="nav-number">1.11.3.</span> <span class="nav-text">上下标</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E5%BC%8F%E4%B8%8E%E6%A0%B9%E5%BC%8F"><span class="nav-number">1.11.4.</span> <span class="nav-text">分式与根式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A7%AF%E5%88%86%E4%B8%8E%E6%B1%82%E5%92%8C"><span class="nav-number">1.11.5.</span> <span class="nav-text">积分与求和</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9E%81%E9%99%90%E4%B8%8E%E5%AF%BC%E6%95%B0"><span class="nav-number">1.11.6.</span> <span class="nav-text">极限与导数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9F%A9%E9%98%B5%E4%B8%8E%E8%A1%8C%E5%88%97%E5%BC%8F"><span class="nav-number">1.11.7.</span> <span class="nav-text">矩阵与行列式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B6%E4%BB%96%E7%AC%A6%E5%8F%B7"><span class="nav-number">1.11.8.</span> <span class="nav-text">其他符号</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#markdown-%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95"><span class="nav-number">1.</span> <span class="nav-text">Markdown 使用方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%AE%E5%BD%95"><span class="nav-number">1.1.</span> <span class="nav-text">目录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%87%E9%A2%98"><span class="nav-number">1.2.</span> <span class="nav-text">标题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AE%B5%E8%90%BD%E5%92%8C%E6%8D%A2%E8%A1%8C"><span class="nav-number">1.3.</span> <span class="nav-text">段落和换行</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%BA%E8%B0%83"><span class="nav-number">1.4.</span> <span class="nav-text">强调</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%97%E8%A1%A8"><span class="nav-number">1.5.</span> <span class="nav-text">列表</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%97%A0%E5%BA%8F%E5%88%97%E8%A1%A8"><span class="nav-number">1.5.1.</span> <span class="nav-text">无序列表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%89%E5%BA%8F%E5%88%97%E8%A1%A8"><span class="nav-number">1.5.2.</span> <span class="nav-text">有序列表</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%93%BE%E6%8E%A5%E5%92%8C%E5%9B%BE%E7%89%87"><span class="nav-number">1.6.</span> <span class="nav-text">链接和图片</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%93%BE%E6%8E%A5"><span class="nav-number">1.6.1.</span> <span class="nav-text">链接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%BE%E7%89%87"><span class="nav-number">1.6.2.</span> <span class="nav-text">图片</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.7.</span> <span class="nav-text">代码</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A1%8C%E5%86%85%E4%BB%A3%E7%A0%81"><span class="nav-number">1.7.1.</span> <span class="nav-text">行内代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E5%9D%97"><span class="nav-number">1.7.2.</span> <span class="nav-text">代码块</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%95%E7%94%A8"><span class="nav-number">1.8.</span> <span class="nav-text">引用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A1%A8%E6%A0%BC"><span class="nav-number">1.9.</span> <span class="nav-text">表格</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%86%85%E5%B5%8C-html"><span class="nav-number">1.10.</span> <span class="nav-text">内嵌 HTML</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E5%AD%A6%E7%AC%A6%E5%8F%B7%E5%8F%8A%E6%8E%92%E7%89%88"><span class="nav-number">1.11.</span> <span class="nav-text">数学符号及排版</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%8C%E8%85%8A%E5%AD%97%E6%AF%8D"><span class="nav-number">1.11.1.</span> <span class="nav-text">希腊字母</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-number">1.11.2.</span> <span class="nav-text">运算符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8A%E4%B8%8B%E6%A0%87"><span class="nav-number">1.11.3.</span> <span class="nav-text">上下标</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E5%BC%8F%E4%B8%8E%E6%A0%B9%E5%BC%8F"><span class="nav-number">1.11.4.</span> <span class="nav-text">分式与根式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A7%AF%E5%88%86%E4%B8%8E%E6%B1%82%E5%92%8C"><span class="nav-number">1.11.5.</span> <span class="nav-text">积分与求和</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9E%81%E9%99%90%E4%B8%8E%E5%AF%BC%E6%95%B0"><span class="nav-number">1.11.6.</span> <span class="nav-text">极限与导数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9F%A9%E9%98%B5%E4%B8%8E%E8%A1%8C%E5%88%97%E5%BC%8F"><span class="nav-number">1.11.7.</span> <span class="nav-text">矩阵与行列式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B6%E4%BB%96%E7%AC%A6%E5%8F%B7"><span class="nav-number">1.11.8.</span> <span class="nav-text">其他符号</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 

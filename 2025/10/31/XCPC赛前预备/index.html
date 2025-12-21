@@ -20,12 +20,12 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":"flat"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="这里我们仅介绍在ubuntu环境中给了一个什么都没有vscode如何用指令方便的coding。 第一步创建一个新的文件夹并且右键点击 Open in Terminal 输入">
+  <meta name="description" content="这里我们仅介绍在ubuntu环境中给了一个什么都没有vscode如何用指令方便的coding。 第一步 创建一个新的文件夹并且右键点击 Open in Terminal 输入">
 <meta property="og:type" content="article">
 <meta property="og:title" content="XCPC赛前预备">
 <meta property="og:url" content="http://example.com/2025/10/31/XCPC%E8%B5%9B%E5%89%8D%E9%A2%84%E5%A4%87/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="这里我们仅介绍在ubuntu环境中给了一个什么都没有vscode如何用指令方便的coding。 第一步创建一个新的文件夹并且右键点击 Open in Terminal 输入">
+<meta property="og:description" content="这里我们仅介绍在ubuntu环境中给了一个什么都没有vscode如何用指令方便的coding。 第一步 创建一个新的文件夹并且右键点击 Open in Terminal 输入">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/assets/c9b90e3a-04e1-4324-9636-e6c71e84e60e.png">
 <meta property="og:image" content="http://example.com/assets/7578e0f2-4ea4-43f3-bc6c-ea171340e479.png">
@@ -279,22 +279,40 @@
 
       
         <p>这里我们仅介绍在<code>ubuntu</code>环境中给了一个什么都没有<code>vscode</code>如何用指令方便的<code>coding</code>。</p>
-<h2 id="第一步"><a href="#第一步" class="headerlink" title="第一步"></a>第一步</h2><p>创建一个新的文件夹并且右键点击 <code>Open in Terminal</code> 输入</p>
+<h2 id="第一步">第一步</h2>
+<p>创建一个新的文件夹并且右键点击 <code>Open in Terminal</code> 输入</p>
 <span id="more"></span>
-
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">code .</span><br></pre></td></tr></table></figure>
-
 <p>在当前文件夹中打开<code>vscode</code>。</p>
 <p>强烈推荐在<code>vscode</code>中开启这个界面转换时自动保存。</p>
-<p><img src="/assets/c9b90e3a-04e1-4324-9636-e6c71e84e60e.png" alt="c9b90e3a-04e1-4324-9636-e6c71e84e60e"></p>
-<h2 id="第二步"><a href="#第二步" class="headerlink" title="第二步"></a>第二步</h2><p>我们写一段<code>C++</code>代码，命名为 <code>a.cpp</code>，然后在终端执行以下程序</p>
-<p><img src="/assets/7578e0f2-4ea4-43f3-bc6c-ea171340e479.png" alt="7578e0f2-4ea4-43f3-bc6c-ea171340e479"><code>a.out</code>文件是编译后自动生成的，如果程序可以运行则说明没有问题。</p>
-<h2 id="第三步"><a href="#第三步" class="headerlink" title="第三步"></a>第三步</h2><p>我们新建一个文件，起名为<code>run.sh</code>，写入以下代码</p>
-<p><img src="/assets/6c2684d8-0d15-41a7-81b2-d41244ac2f30.png" alt="6c2684d8-0d15-41a7-81b2-d41244ac2f30"></p>
+<figure>
+<img src="/assets/c9b90e3a-04e1-4324-9636-e6c71e84e60e.png"
+alt="c9b90e3a-04e1-4324-9636-e6c71e84e60e" />
+<figcaption
+aria-hidden="true">c9b90e3a-04e1-4324-9636-e6c71e84e60e</figcaption>
+</figure>
+<h2 id="第二步">第二步</h2>
+<p>我们写一段<code>C++</code>代码，命名为
+<code>a.cpp</code>，然后在终端执行以下程序</p>
+<p><img src="/assets/7578e0f2-4ea4-43f3-bc6c-ea171340e479.png"
+alt="7578e0f2-4ea4-43f3-bc6c-ea171340e479" /><code>a.out</code>文件是编译后自动生成的，如果程序可以运行则说明没有问题。</p>
+<h2 id="第三步">第三步</h2>
+<p>我们新建一个文件，起名为<code>run.sh</code>，写入以下代码</p>
+<figure>
+<img src="/assets/6c2684d8-0d15-41a7-81b2-d41244ac2f30.png"
+alt="6c2684d8-0d15-41a7-81b2-d41244ac2f30" />
+<figcaption
+aria-hidden="true">6c2684d8-0d15-41a7-81b2-d41244ac2f30</figcaption>
+</figure>
 <p>（井号内容一定要写！一定要写！一定要写！）</p>
 <p>然后再创建<code>in.txt</code>跟<code>out.txt</code>文件，在前者中写入你想输入的内容，再执行以下程序</p>
 <p>补充：先执行 <code>chmod +x run.sh</code></p>
-<p><img src="/assets/6d138c55-6761-4fb8-b76b-898a9f9d6935.png" alt="6d138c55-6761-4fb8-b76b-898a9f9d6935"></p>
+<figure>
+<img src="/assets/6d138c55-6761-4fb8-b76b-898a9f9d6935.png"
+alt="6d138c55-6761-4fb8-b76b-898a9f9d6935" />
+<figcaption
+aria-hidden="true">6d138c55-6761-4fb8-b76b-898a9f9d6935</figcaption>
+</figure>
 <p>检查<code>out.txt</code>文件中是否是正确的输出信息。</p>
 
     </div>
