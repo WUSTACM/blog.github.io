@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="zh-CN,en,default">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 8.1.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/2025-12-21-2.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/2025-12-21-1.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":"flat"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="Introduction Lec 01 &#x2F; 2024.11.11阅读前须知本文是算法入门第一课，不是 0 基础第一课，如果你是武科大想要学习算法的新生，请先保证自己有一定的代码基础（如刷够 140 道 wustoj 上的入门题，并且初步了解 c 语言和 c++的区别….. 0x01 动手实现一个可变长度数组 前置要求：对 C 语言的指针和结构体有基本了解  在 C 语言学习初期我们可能会">
+<meta property="og:type" content="article">
+<meta property="og:title" content="算法入门第一课">
+<meta property="og:url" content="http://example.com/2025/09/10/%E7%AE%97%E6%B3%95%E5%85%A5%E9%97%A8%E7%AC%AC%E4%B8%80%E8%AF%BE/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Introduction Lec 01 &#x2F; 2024.11.11阅读前须知本文是算法入门第一课，不是 0 基础第一课，如果你是武科大想要学习算法的新生，请先保证自己有一定的代码基础（如刷够 140 道 wustoj 上的入门题，并且初步了解 c 语言和 c++的区别….. 0x01 动手实现一个可变长度数组 前置要求：对 C 语言的指针和结构体有基本了解  在 C 语言学习初期我们可能会">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-09-10T05:46:28.659Z">
+<meta property="article:modified_time" content="2025-12-21T07:36:34.789Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="杂谈">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://example.com/2025/09/10/%E7%AE%97%E6%B3%95%E5%85%A5%E9%97%A8%E7%AC%AC%E4%B8%80%E8%AF%BE/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>算法入门第一课 | Hexo</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta custom-logo">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Hexo</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <a>
+        <img class="custom-logo-image" src="/images/2025-12-21-3.png" alt="Hexo">
+      </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        
+            
+  <li class="menu-item menu-item-wiki">
+
+    <a href="/wiki/" rel="section"><i class="fa fa-book fa-fw"></i>wiki</a>
+
+  </li>
+
+
+      
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+  <span class="exturl github-corner" data-url="aHR0cHM6Ly9naXRodWIuY29tL1dVU1RBQ00=" title="Follow me on GitHub" aria-label="Follow me on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></span>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/09/10/%E7%AE%97%E6%B3%95%E5%85%A5%E9%97%A8%E7%AC%AC%E4%B8%80%E8%AF%BE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          算法入门第一课
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2025-09-10 13:46:28" itemprop="dateCreated datePublished" datetime="2025-09-10T13:46:28+08:00">2025-09-10</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-12-21 15:36:34" itemprop="dateModified" datetime="2025-12-21T15:36:34+08:00">2025-12-21</time>
+              </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>4.1k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>15 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="Introduction-Lec-01-2024-11-11"><a href="#Introduction-Lec-01-2024-11-11" class="headerlink" title="Introduction Lec 01 &#x2F; 2024.11.11"></a>Introduction Lec 01 &#x2F; 2024.11.11</h1><h2 id="阅读前须知"><a href="#阅读前须知" class="headerlink" title="阅读前须知"></a>阅读前须知</h2><p>本文是算法入门第一课，不是 0 基础第一课，如果你是武科大想要学习算法的新生，请先保证自己有一定的代码基础（如刷够 140 道 wustoj 上的入门题，并且初步了解 c 语言和 c++的区别…..</p>
+<h2 id="0x01-动手实现一个可变长度数组"><a href="#0x01-动手实现一个可变长度数组" class="headerlink" title="0x01 动手实现一个可变长度数组"></a>0x01 动手实现一个可变长度数组</h2><blockquote>
+<p>前置要求：对 C 语言的指针和结构体有基本了解</p>
+</blockquote>
+<p>在 C 语言学习初期我们可能会有写动态长度的数组的想法，就像下面这样</p>
+<span id="more"></span>
+
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> n;  <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;n);</span><br><span class="line"><span class="type">int</span> arr[n];</span><br></pre></td></tr></table></figure>
+
+<p>这个东西叫 VLA，Variable Length Array 可变长度数组。C11 标准规定 VLA 是一个可选项，不强制编译器实现 <em>（虽然代码在你当前的编译器编过了，但换一个编译器可能就编挂了）</em>。尽管 GCC 和 Clang 都支持 VLA，但是在 C++ 标准中没有规定编译器一定要实现这玩意儿。 此外，虽然对于现代编译器 VLA 不会给性能和可移植性造成很大的负面影响，但是编码实践中我们通常不使用 VLA。</p>
+<p>那么现在我们来自己尝试写一个可变长度的数组。</p>
+<p>我们跳过 C 的 <code>malloc</code> 函数，这里直接介绍 C++ 的 <code>new</code> 和 <code>delete</code></p>
+<blockquote>
+<p>new 用于申请内存，delete 用于释放 new 申请的内存。内存申请了要释放（回收），不然会漏内存。</p>
+<p>内存泄漏会导致程序占用越来越多的内存，最终可能耗尽系统资源，导致系统性能下降或程序崩溃。</p>
+</blockquote>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span>* arr = new <span class="type">int</span>[n];  <span class="comment">// 申请内存，new[] 可以接受一个运行时确定的变量</span></span><br><span class="line">delete[] arr;           <span class="comment">// 释放内存</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="封装"><a href="#封装" class="headerlink" title="封装"></a>封装</h3><p>我们用结构体封一下这个行为。</p>
+<p>注意 C++ 的结构体是可以在里边写函数的，但 C 结构体不行。</p>
+<blockquote>
+<p>这是一个很重要的特性，C++ 结构体允许包含数据（成员）和函数（方法），使一组数据和它对应的行为能够被封装在一起，对外隐藏细节只暴露接口，使代码更加模块化易于维护。</p>
+<p>封装是面向对象编程的核心理念之一，还有两个是继承和多态。</p>
+</blockquote>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">VLArray</span> &#123;  <span class="comment">// Variable Length Array</span></span><br><span class="line">    <span class="type">int</span> len;</span><br><span class="line">    <span class="type">int</span>* data = <span class="literal">nullptr</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">alloc</span><span class="params">(<span class="type">int</span> n)</span> </span>&#123;         <span class="comment">// 申请内存</span></span><br><span class="line">        <span class="type">int</span>* newData = <span class="keyword">new</span> <span class="type">int</span>[n];</span><br><span class="line">        <span class="keyword">if</span>(data != <span class="literal">nullptr</span>) &#123;   <span class="comment">// 扩容或缩容，先拷贝已有数据</span></span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; (n &lt; len ? n : len); i++)</span><br><span class="line">                newData[i] = data[i];</span><br><span class="line">            <span class="built_in">free</span>();             <span class="comment">// 释放已持有的内存</span></span><br><span class="line">        &#125;</span><br><span class="line">        len = n;</span><br><span class="line">        data = newData;         <span class="comment">// data指向新申请的内存</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 类和结构体里面函数不用先定义后调用，留意一下</span></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">free</span><span class="params">()</span> </span>&#123;  <span class="comment">// 释放内存</span></span><br><span class="line">        <span class="keyword">delete</span>[] data;</span><br><span class="line">        data = <span class="literal">nullptr</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Usage 用法</span></span><br><span class="line">VLArray arr;</span><br><span class="line">arr.<span class="built_in">alloc</span>(<span class="number">100</span>);         <span class="comment">// 申请内存</span></span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">100</span>; i++)</span><br><span class="line">    arr.data[i] = i;    <span class="comment">// 0, 1, 2, ..., 99</span></span><br><span class="line">arr.<span class="built_in">alloc</span>(<span class="number">10</span>);          <span class="comment">// 0, 1, 2, ..., 9</span></span><br><span class="line">arr.<span class="built_in">free</span>();             <span class="comment">// 记得释放内存，不然会有内存泄漏的问题</span></span><br></pre></td></tr></table></figure>
+
+<p>看起来还行，我们已经实现了一个可变长度的数组，能伸缩的那种。但是有个很不好的地方：每次用之前都要手动 调用 <code>alloc</code> ，用完了也不能忘记手动 <code>free</code> 。能不能让它自动做这件事？</p>
+<h3 id="构造和析构"><a href="#构造和析构" class="headerlink" title="构造和析构"></a>构造和析构</h3><p>当然可以。这里需要介绍面向对象经常提到的构造函数和析构函数。构造函数在一个对象被创建时自动调用，析构函数在一个对象被销毁时自动调用，我们只需要把 <code>alloc</code> 和 <code>free</code> 写到构造函数和析构函数里就行。C++ 构造函数就是结构体（或者类）内的同名函数，析构函数是结构体（类）名前面加一个 <code>~</code> 。</p>
+<p>修改后的代码如下</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">VLArray</span> &#123;  <span class="comment">// Variable Length Array</span></span><br><span class="line">    <span class="built_in">VLArray</span>(<span class="type">int</span> len) &#123; <span class="built_in">alloc</span>(len); &#125;    <span class="comment">// 构造函数</span></span><br><span class="line">    ~<span class="built_in">VLArray</span>() &#123; <span class="built_in">free</span>(); &#125;              <span class="comment">// 析构函数</span></span><br><span class="line">    <span class="comment">// ...省略同上</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Usage 用法</span></span><br><span class="line"><span class="function">VLArray <span class="title">arr</span><span class="params">(<span class="number">100</span>)</span></span>;       <span class="comment">// 这里隐式调用了构造函数</span></span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">100</span>; i++)</span><br><span class="line">    arr.data[i] = i;    <span class="comment">// 0, 1, 2, ..., 99</span></span><br><span class="line">arr.<span class="built_in">alloc</span>(<span class="number">10</span>);          <span class="comment">// 0, 1, 2, ..., 9</span></span><br></pre></td></tr></table></figure>
+
+<p>建议课后尝试在 Linux 下使用 Valgrind 看看不手动释放且没有析构函数释放的内存泄漏。</p>
+<p>这个动态数组可以做的更好吗？显然，比如使用 <code>arr[]</code> 直接访问里面的元素而不是用 <code>arr.data[]</code> （用运算符重载可以实现，自行了解），比如这个动态数组只支持 <code>int</code> 类型，如果需要其他类型我们需要自己重新写一遍。</p>
+<p>关于它仅支持 <code>int</code> 类型这个问题，在 C++ 里通常会使用模板（一种泛型编程的实现方式）来解决。下一节我们会接触到。</p>
+<blockquote>
+<p>泛型编程（Generic Programming）是一种编程范式，它允许你写一份代码用来处理多种不同类型的数据，避免大量无意义的重复劳动。泛型编程的核心思想是将类型视作参数来实现代码的复用和灵活性。</p>
+</blockquote>
+<h2 id="0x02-初识-STL"><a href="#0x02-初识-STL" class="headerlink" title="0x02 初识 STL"></a>0x02 初识 STL</h2><p>C++ STL（Standard Template Library，标准模板库）是 C++ 标准库的一部分，通过泛型编程的理念实现了一些常用算法和数据结构。</p>
+<h3 id="std-vector"><a href="#std-vector" class="headerlink" title="std::vector"></a>std::vector</h3><p>刚才我们讲了如何自己实现一个简易的可变长度数组，本质上可以算作是 STL 中 <code>std::vector</code> 的一个子集。</p>
+<p><code>std::vector</code> 是一个动态数组容器，能够自动管理内存，按需扩容和缩容。</p>
+<p>使用 <code>std::vector</code> 需要 <code>#include &lt;vector&gt;</code></p>
+<p>一些常用操作如下</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">std::vector&lt;<span class="type">int</span>&gt; v;     <span class="comment">// 声明一个vector，里边装的是int。容量为 0</span></span><br><span class="line"><span class="function">std::vector&lt;<span class="type">int</span>&gt; <span class="title">v</span><span class="params">(<span class="number">10</span>)</span></span>; <span class="comment">// 同上，但容量为 10， 所有元素初始值为 0</span></span><br><span class="line">std::vector&lt;<span class="type">int</span>&gt; v = &#123; <span class="number">1</span>, <span class="number">1</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">1</span>, <span class="number">4</span> &#125;; <span class="comment">// 容量为 6，有初始值</span></span><br><span class="line"></span><br><span class="line">v.<span class="built_in">push_back</span>(<span class="number">1</span>);     <span class="comment">// 在数组末尾添加一个 1</span></span><br><span class="line">v.<span class="built_in">pop_back</span>();       <span class="comment">// 删除尾部元素</span></span><br><span class="line"><span class="type">int</span> sz = v.<span class="built_in">size</span>();  <span class="comment">// 获取当前元素数量</span></span><br><span class="line"><span class="keyword">if</span>(v.<span class="built_in">empty</span>())       <span class="comment">// 判空</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 遍历输出每个元素</span></span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span> ; i &lt; v.<span class="built_in">size</span>() ; i++) std::cout &lt;&lt; v[i] &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line"><span class="comment">// C++ 11 引入的 Range-based for loop （基于范围的 for 循环）</span></span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span>&amp; x : v) std::cout &lt;&lt; x &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br></pre></td></tr></table></figure>
+
+<p>需要注意到最后一行 <code>for(int&amp; x : v)</code> 这个写法。这里的 <code>int&amp;</code> 表示 <code>x</code> 是 <code>v</code> 中元素的引用（别名），对 <code>x</code> 进行赋值操作会使 <code>v</code> 中的元素被更改。如果是 <code>for(int x : v)</code> 那么 <code>x</code> 就是 <code>v</code> 中元素的拷贝了，改变 <code>x</code> 不会影响到 <code>v</code> 中的元素。</p>
+<h3 id="std-map"><a href="#std-map" class="headerlink" title="std::map"></a>std::map</h3><p>这里再介绍一个 <code>std::map</code> 。它是一个关联容器，存储键值对（key-value pairs），或者说存储多对映射关系。</p>
+<p>使用 <code>std::map</code> 需要 <code>#include &lt;map&gt;</code> ，下面简单介绍一下用法</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">std::map&lt;char, int&gt; mp;         // 建立一个 char 到 int 的映射</span><br><span class="line">for(char ch = &#x27;A&#x27; ; ch &lt;= &#x27;Z&#x27; ; ch++)   mp[ch] = int(ch);</span><br><span class="line">std::cout &lt;&lt; mp[&#x27;A&#x27;] &lt;&lt; &quot;\n&quot;;   // 输出 65</span><br></pre></td></tr></table></figure>
+
+<p>需要注意的是，<code>std::map</code> 的键（也就是第一个类型参数，上面代码 <code>std::map&lt;char, int&gt;</code> 的 <code>char</code>）是不允许重复的，值可以重复。<code>std::map</code> 底层依赖红黑树实现，插入、查找、删除的复杂度都是优秀的 O(\log N) （关于复杂度后文再讲）。</p>
+<p>队列 <code>queue</code>，双端队列 <code>deque</code>，优先队列 <code>priority_queue</code>，集合 <code>set</code>，链表 <code>link</code> 也是常用的 STL 容器，建议课后自行了解。</p>
+<h3 id="std-sort"><a href="#std-sort" class="headerlink" title="std::sort"></a>std::sort</h3><p>STL 也实现了一些常用算法，这里讲个排序 <code>std::sort</code>。用法很简单</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">int arr[6] = &#123; 1, 1, 4, 5, 1, 4 &#125;;</span><br><span class="line">std::sort(arr, arr + 6);    // 第一个参数表示待排序的首元素，第二个参数表示待排序的末位元素的后一位</span><br><span class="line">std::vector&lt;int&gt; v = &#123; 1, 1, 4, 5, 1, 4 &#125;;</span><br><span class="line">std::sort(v.begin(), v.end());  // 这里 v.end() 也表示 v 的最后一个元素的后一位</span><br><span class="line"></span><br><span class="line">// std::sort 默认是从小到大排序，如果需要从大到小排序需要自己写一个排序规则</span><br><span class="line">bool cmp(int a, int b) &#123;</span><br><span class="line">    return a &gt; b;</span><br><span class="line">&#125;</span><br><span class="line">std::sort(arr, arr + 6, cmp);   // 这样就能实现从大到小排序</span><br></pre></td></tr></table></figure>
+
+<p><code>std::sort</code> 的实现方式类似于 Introsort 内省排序，使用快排但限制递归层数，递归到小区间后根据区间内元素乱序程度采用堆排序或插入排序，保证最坏情况下能够做到 O(N \log N) 。</p>
+<p>下面我们简单介绍一下时间复杂度。</p>
+<h2 id="0x03-一种快速估测时间复杂度的方法"><a href="#0x03-一种快速估测时间复杂度的方法" class="headerlink" title="0x03 一种快速估测时间复杂度的方法"></a>0x03 一种快速估测时间复杂度的方法</h2><p>在设计算法时，时间复杂度和空间复杂度是衡量一个算法效率的重要标准。</p>
+<p>时间复杂度指的是一个算法所用时间随着数据规模（比如输入数字的多少）增长的趋势。随着数据规模增长，算法用时增长越缓慢，那么这个算法的时间复杂度就越优秀。</p>
+<blockquote>
+<p>同一个算法在不同的计算机上运行需要的时间会有一定的差别，并且实际运行速度难以在理论上进行计算，实际去测量又比较麻烦，所以我们通常考虑的不是算法运行的实际用时，而是算法运行所需要进行的基本操作的数量。</p>
+<p>在普通的计算机上，加减乘除、访问变量（基本数据类型的变量，下同）、给变量赋值等都可以看作基本操作。对基本操作的计数或是估测可以作为评判算法用时的指标。 （摘自 OI-WIKI）</p>
+</blockquote>
+<p>列举几个常见复杂度 $$O(1) \ O(\log N) \ O(\sqrt N) \ O(N) \ O(N \log N) \ O(n^2) \ O(2^n) \ O(N!)$$（按照随数据规模增长速度由慢到快排序）</p>
+<p>对时间复杂度进行快速估算时，可以关注算法中循环和递归的嵌套层数。通常，单层循环的时间复杂度为 $$O(N)$$，双层嵌套循环为 $$O(N^2)$$，以此类推。</p>
+<p>对于一段代码，可能有多个循环体、递归调用，把它们的复杂度相加可以得到一个多项式。通常我们只保留最高阶项并忽略常数系数。</p>
+<p>以下面这段代码为例</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">long</span> <span class="type">long</span> <span class="title">InnerProductSum</span><span class="params">(<span class="type">int</span> arr[], <span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">    <span class="type">long</span> <span class="type">long</span> ans = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span> ; i &lt; n ; i++)</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j = i + <span class="number">1</span> ; j &lt; n ; j++)</span><br><span class="line">            ans += arr[i] * arr[j];</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> arr1[N], arr2[N];                       <span class="comment">// 1</span></span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span> ; i &lt; N ; i++)    <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;arr1[i]);  <span class="comment">// N</span></span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span> ; i &lt; N ; i++)    <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;arr2[i]);  <span class="comment">// N</span></span><br><span class="line"><span class="type">long</span> <span class="type">long</span> sum1 = <span class="built_in">InnerProductSum</span>(arr1, N);  <span class="comment">// N^2</span></span><br><span class="line"><span class="type">long</span> <span class="type">long</span> sum2 = <span class="built_in">InnerProductSum</span>(arr2, N);  <span class="comment">// N^2</span></span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;%lld&quot;</span>, sum1 % sum2);                <span class="comment">// 1</span></span><br></pre></td></tr></table></figure>
+
+<p>不妨认为基本操作数是</p>
+<p>$$<br>f(n) &#x3D; 2 \times n^2 + 2 \times n + 2<br>$$</p>
+<p>在估算时我们忽略常数并保留最高阶项，认为其时间复杂度为 O(N^2)</p>
+<p><del>然后你把 N 代进去算一下 N^2 不超过 2e8 一般就能在 1s 内跑过</del></p>
+<h2 id="0x04-卡常，关流同步和标准-IO-重定向"><a href="#0x04-卡常，关流同步和标准-IO-重定向" class="headerlink" title="0x04 卡常，关流同步和标准 IO 重定向"></a>0x04 卡常，关流同步和标准 IO 重定向</h2><blockquote>
+<p>前置要求：会用 C++ std::cin 和 std::cout</p>
+</blockquote>
+<h3 id="卡常"><a href="#卡常" class="headerlink" title="卡常"></a>卡常</h3><p>前文提到，对于一个算法计算最小操作数可以得到一个多项式，其中每一项都会有一个常数系数。通常我们不考虑常数对时间复杂度的影响，但是不排除少数情况下常数过大导致我们的程序无法在限定时间内通过所有测试用例——你的算法因为常数被卡掉了。</p>
+<p>我们认为，一道合理的题目应当考察时间复杂度是否正确，但不应在主观上故意用微小的常数优化区分参赛者的表现。</p>
+<p>通常在比赛中，C &#x2F; C++ 语言的编译选项会开启 O2 优化。编译器会进行函数内联、循环展开等操作以优化代码性能。现代编译器具备完善的机制处理各种情况，因此不必过分考虑常数优化问题。 <del>高中生 OI 选手可能会手写一些东西避免使用 STL 因为 NOIP 不开 O2 而且 STL 常数大</del></p>
+<h3 id="关闭流同步提升-IO-性能"><a href="#关闭流同步提升-IO-性能" class="headerlink" title="关闭流同步提升 IO 性能"></a>关闭流同步提升 IO 性能</h3><p>有的题目可能会提示输入数据量较大需要使用较快的数据读入方式，这里介绍 C++ 关闭 IO 流同步加快输入输出速度的方法和原理。默认情况下 C++ 的 <code>std::cin</code> 和 <code>std::cout</code> 与 C 标准库的输入输出函数保持同步（但会有额外性能开销）。为提高输入输出速度，可以关闭同步并解除绑定：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">std::ios::sync_with_stdio(false);   // 关闭 C++ 与 C 标准库的输入输出流同步</span><br></pre></td></tr></table></figure>
+
+<p>有的题目可能输出行数较多，用 <code>std::cout &lt;&lt; std::endl</code> 进行换行输出会导致超时，原因是 <code>std::endl</code> 包含了 <code>std::cout &lt;&lt; &quot;\n&quot;</code> 和 <code>std::cout.flush()</code> 两个操作。其中 <code>std::cout.flush()</code> 会刷新输出缓冲区，频繁刷新缓冲区会消耗大量的时间，因此建议手动输出换行符。另外将 <code>std::cin</code> 与 <code>std::cout</code> 解绑也能够减少输出缓冲区的刷新。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">std::cin.<span class="built_in">tie</span>(<span class="literal">nullptr</span>);      <span class="comment">// std::cin 时不再刷新 std::cout 缓冲区</span></span><br><span class="line">std::cout &lt;&lt; ans &lt;&lt; <span class="string">&quot;\n&quot;</span>;   <span class="comment">// 手动输出换行符而不是 std::endl</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="标准-IO-重定向"><a href="#标准-IO-重定向" class="headerlink" title="标准 IO 重定向"></a>标准 IO 重定向</h3><p>目前绝大多数题目都使用标准 IO，极少数题目可能会使用文件输入。另外，自己写题目的时候可以用文件输入避免每次都手动输入样例的麻烦。</p>
+<p><del>笔者舍近求远，</del> 这里先介绍一下操作系统的文件描述符。文件描述符 File Descriptor 可以理解为对当前进程打开的文件的编号，从 0 开始。通常 0，1，2 分别对应了标准输入、输出和错误信息，此时如果再自己开一个文件，那么它的描述符就是 3。</p>
+<p>通常我们写算法题的简单程序，在本地运行，文件描述符 0，1，2 对应的都是控制台。</p>
+<p>我们可以使用 <code>freopen</code> 函数将输入从控制台重定向到文件（输出不受影响）</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">freopen(<span class="string">&quot;./in.txt&quot;</span>, <span class="string">&quot;r&quot;</span>, <span class="built_in">stdin</span>);    <span class="comment">// 以只读方式打开 in.txt 作为标准输入</span></span><br></pre></td></tr></table></figure>
+
+<p>同理，将输出重定向到文件也是可行的。 <del>但是一定一定一定要注意如果写了死循环里边还有输出可能会在 10s 内写出一个 3GiB 的巨大 txt 文件然后把电脑卡住</del></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">freopen(<span class="string">&quot;./out.txt&quot;</span>, <span class="string">&quot;w&quot;</span>, <span class="built_in">stdout</span>);</span><br></pre></td></tr></table></figure>
+
+<h4 id="使用条件编译实现仅本地文件读入"><a href="#使用条件编译实现仅本地文件读入" class="headerlink" title="使用条件编译实现仅本地文件读入"></a>使用条件编译实现仅本地文件读入</h4><p>本地使用文件读入会有一个问题：OJ 上的题目没要求用文件读入，交上去读不到数据。这个时候就需要代码在本地和 OJ 上有不同的编译行为（本地编译执行 <code>freopen</code> ，但 OJ 上不执行）。实现方法是通过某个宏定义是否存在来判断。</p>
+<p>在很多 OJ 上编译选项中都会包含一个 <code>-DONLINE_JUDGE</code> ，比如 WUST OJ 上的编译选项</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/bin/g++ -DONLINE_JUDGE -O2 -w -fmax-errors=3 -std=c++14 &#123;src_path&#125; -lm -o &#123;exe_path&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这个选项的意思是定义一个宏 <code>ONLINE_JUDGE</code> （我们本地是没有这个宏的），这样我们就可以利用这个宏来区分是 OJ 还是本地环境。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">ifndef</span> ONLINE_JUDGE    <span class="comment">// 如果没定义 ONLINE_JUDGE，是本地</span></span></span><br><span class="line">    freopen(<span class="string">&quot;./in.txt&quot;</span>, <span class="string">&quot;r&quot;</span>, <span class="built_in">stdin</span>);</span><br><span class="line"><span class="meta">#<span class="keyword">else</span>                   <span class="comment">// 定义了 ONLINE_JUDGE，是 OJ，关流加速</span></span></span><br><span class="line">    <span class="built_in">std</span>::ios::sync_with_stdio(<span class="literal">false</span>), <span class="built_in">std</span>::<span class="built_in">cin</span>.tie(nullptr);</span><br><span class="line"><span class="meta">#<span class="keyword">endif</span></span></span><br></pre></td></tr></table></figure>
+
+<p>当然我们也可以在本地修改编译选项，自己添加一个比如 <code>-DNOT_OJ</code></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">ifdef</span> NOT_OJ   <span class="comment">// 如果定义了 NOT_OJ，是本地</span></span></span><br><span class="line"><span class="comment">// ...省略</span></span><br></pre></td></tr></table></figure>
+
+<p>这样本地可以使用文件输入，提交到 OJ 也能正常运行。</p>
+<h2 id="0x05-在命令行界面编译程序"><a href="#0x05-在命令行界面编译程序" class="headerlink" title="0x05 在命令行界面编译程序"></a>0x05 在命令行界面编译程序</h2><blockquote>
+<p>命令行界面 Command Line Interface，简称 CLI</p>
+<p>图形用户界面 Graphical User Interface，简称 GUI</p>
+<p>集成开发环境 Intergrated Development Environment，简称 IDE</p>
+<p>本节参考了 USTC Linux 101</p>
+</blockquote>
+<p>现在假设我们有一份源码文件 main.c，内容如下：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// main.c</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span> &#123;</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">&quot;Hello World!\n&quot;</span>);</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这是一个简单的 Hello World 程序。</p>
+<p>要将它编译成二进制可执行文件，在 Windows 或 Mac OS X 这样带有 GUI 的系统上，可以使用 IDE 中的编译功能得到目标程序。这些带有图形界面的 IDE 的编译通常是封装了各种提供命令行接口的编译器。自然，我们也可以在 CLI 下手动去调用这些命令行接口进行编译。</p>
+<blockquote>
+<p>GCC 和 Clang 是 Linux 下常用的编译器。 其中 GCC 由 GNU 组织维护，Clang 由 LLVM 组织维护的。</p>
+<p>Windows 下 Visual Studio 默认使用微软的 MSVC 工具集，它的编译器是 cl.exe。</p>
+</blockquote>
+<h3 id="多文件的情况"><a href="#多文件的情况" class="headerlink" title="多文件的情况"></a>多文件的情况</h3><h3 id="使用构建工具"><a href="#使用构建工具" class="headerlink" title="使用构建工具"></a>使用构建工具</h3><h2 id="0x06-扯一嘴代码风格"><a href="#0x06-扯一嘴代码风格" class="headerlink" title="0x06 扯一嘴代码风格"></a>0x06 扯一嘴代码风格</h2><p>\</p>
+
+    </div>
+
+    
+    
+    
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>kanszhan
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://example.com/2025/09/10/%E7%AE%97%E6%B3%95%E5%85%A5%E9%97%A8%E7%AC%AC%E4%B8%80%E8%AF%BE/" title="算法入门第一课">http://example.com/2025/09/10/算法入门第一课/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</span> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/%E6%9D%82%E8%B0%88/" rel="tag"><i class="fa fa-tag"></i> 杂谈</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2025/09/10/%E8%87%AA%E5%8A%A8%E5%88%B7%E8%AF%BE/" rel="prev" title="自动刷课">
+      <i class="fa fa-chevron-left"></i> 自动刷课
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2025/09/10/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6%E5%BA%8F%E7%90%86%E8%AE%BA/" rel="next" title="离散数学序理论">
+      离散数学序理论 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Introduction-Lec-01-2024-11-11"><span class="nav-number">1.</span> <span class="nav-text">Introduction Lec 01 &#x2F; 2024.11.11</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%98%85%E8%AF%BB%E5%89%8D%E9%A1%BB%E7%9F%A5"><span class="nav-number">1.1.</span> <span class="nav-text">阅读前须知</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x01-%E5%8A%A8%E6%89%8B%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA%E5%8F%AF%E5%8F%98%E9%95%BF%E5%BA%A6%E6%95%B0%E7%BB%84"><span class="nav-number">1.2.</span> <span class="nav-text">0x01 动手实现一个可变长度数组</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B0%81%E8%A3%85"><span class="nav-number">1.2.1.</span> <span class="nav-text">封装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9E%84%E9%80%A0%E5%92%8C%E6%9E%90%E6%9E%84"><span class="nav-number">1.2.2.</span> <span class="nav-text">构造和析构</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x02-%E5%88%9D%E8%AF%86-STL"><span class="nav-number">1.3.</span> <span class="nav-text">0x02 初识 STL</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#std-vector"><span class="nav-number">1.3.1.</span> <span class="nav-text">std::vector</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#std-map"><span class="nav-number">1.3.2.</span> <span class="nav-text">std::map</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#std-sort"><span class="nav-number">1.3.3.</span> <span class="nav-text">std::sort</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x03-%E4%B8%80%E7%A7%8D%E5%BF%AB%E9%80%9F%E4%BC%B0%E6%B5%8B%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6%E7%9A%84%E6%96%B9%E6%B3%95"><span class="nav-number">1.4.</span> <span class="nav-text">0x03 一种快速估测时间复杂度的方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x04-%E5%8D%A1%E5%B8%B8%EF%BC%8C%E5%85%B3%E6%B5%81%E5%90%8C%E6%AD%A5%E5%92%8C%E6%A0%87%E5%87%86-IO-%E9%87%8D%E5%AE%9A%E5%90%91"><span class="nav-number">1.5.</span> <span class="nav-text">0x04 卡常，关流同步和标准 IO 重定向</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8D%A1%E5%B8%B8"><span class="nav-number">1.5.1.</span> <span class="nav-text">卡常</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B3%E9%97%AD%E6%B5%81%E5%90%8C%E6%AD%A5%E6%8F%90%E5%8D%87-IO-%E6%80%A7%E8%83%BD"><span class="nav-number">1.5.2.</span> <span class="nav-text">关闭流同步提升 IO 性能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%87%E5%87%86-IO-%E9%87%8D%E5%AE%9A%E5%90%91"><span class="nav-number">1.5.3.</span> <span class="nav-text">标准 IO 重定向</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E6%9D%A1%E4%BB%B6%E7%BC%96%E8%AF%91%E5%AE%9E%E7%8E%B0%E4%BB%85%E6%9C%AC%E5%9C%B0%E6%96%87%E4%BB%B6%E8%AF%BB%E5%85%A5"><span class="nav-number">1.5.3.1.</span> <span class="nav-text">使用条件编译实现仅本地文件读入</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x05-%E5%9C%A8%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%95%8C%E9%9D%A2%E7%BC%96%E8%AF%91%E7%A8%8B%E5%BA%8F"><span class="nav-number">1.6.</span> <span class="nav-text">0x05 在命令行界面编译程序</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%9A%E6%96%87%E4%BB%B6%E7%9A%84%E6%83%85%E5%86%B5"><span class="nav-number">1.6.1.</span> <span class="nav-text">多文件的情况</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E6%9E%84%E5%BB%BA%E5%B7%A5%E5%85%B7"><span class="nav-number">1.6.2.</span> <span class="nav-text">使用构建工具</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x06-%E6%89%AF%E4%B8%80%E5%98%B4%E4%BB%A3%E7%A0%81%E9%A3%8E%E6%A0%BC"><span class="nav-number">1.7.</span> <span class="nav-text">0x06 扯一嘴代码风格</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">John Doe</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">31</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">分类</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1dVU1RBQ00vYmxvZy5naXRodWIuaW8=" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;WUSTACM&#x2F;blog.github.io"><i class="fab fa-github fa-fw"></i>GitHub</span>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <span class="exturl cc-opacity" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></span>
+  </div>
+
+
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+  <div class="languages">
+    <label class="lang-select-label">
+      <i class="fa fa-language"></i>
+      <span>简体中文</span>
+      <i class="fa fa-angle-up" aria-hidden="true"></i>
+    </label>
+    <select class="lang-select" data-canonical="">
+      
+        <option value="zh-CN" data-href="/2025/09/10/%E7%AE%97%E6%B3%95%E5%85%A5%E9%97%A8%E7%AC%AC%E4%B8%80%E8%AF%BE/" selected="">
+          简体中文
+        </option>
+      
+        <option value="en" data-href="/en/2025/09/10/%E7%AE%97%E6%B3%95%E5%85%A5%E9%97%A8%E7%AC%AC%E4%B8%80%E8%AF%BE/" selected="">
+          English
+        </option>
+      
+    </select>
+  </div>
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2025</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">57k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">3:27</span>
+</div>
+  <div class="powered-by">由 <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl theme-link" data-url="aHR0cHM6Ly90aGVtZS1uZXh0Lm9yZw==">NexT.Gemini</span> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/pjax/pjax.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '.languages',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[data-pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.dataset.pjax !== undefined) {
+      script.dataset.pjax = '';
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+    </div>
+</body>
+</html>
