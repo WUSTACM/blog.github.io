@@ -1,0 +1,23 @@
+# OS / IDE
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.iml
+*.log
+
+# Node
+node_modules/
+
+# Hexo build & cache (do NOT commit)
+public/
+.deploy*/
+db.json
+.cache/
+.tmp/
+
+# Optional external libs (only if you really use it)
+source/lib/*
+!source/lib/font-awesome/
+!source/lib/anime.min.js
+!source/lib/velocity/
