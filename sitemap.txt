@@ -1,3 +1,4 @@
+http://example.com/2025/12/21/2025%E8%8F%9C%E9%B8%9F%E6%9D%AF%E9%A2%98%E8%A7%A3/
 http://example.com/2025/12/21/XCPC%E8%B5%9B%E5%89%8D%E9%A2%84%E5%A4%87/
 http://example.com/2025/12/21/vscode%E9%85%8D%E7%BD%AE/
 http://example.com/2025/12/21/vjudge%20%E6%B4%9B%E8%B0%B7%E8%B4%A6%E5%8F%B7%E5%AF%BC%E5%85%A5%E6%95%99%E7%A8%8B/
@@ -21,7 +22,6 @@ http://example.com/2025/12/21/%E5%A4%9A%E6%A0%A15%E9%A2%98%E8%A7%A3e-j/
 http://example.com/2025/12/21/%E5%A4%9A%E6%A0%A11%E9%A2%98%E8%A7%A3I/
 http://example.com/2025/12/21/%E5%AF%B9%E6%8B%8D/
 http://example.com/2025/12/21/%E5%B9%B6%E6%9F%A5%E9%9B%86/
-http://example.com/2025/12/21/2025%E8%8F%9C%E9%B8%9F%E6%9D%AF%E9%A2%98%E8%A7%A3/
 http://example.com/2025/12/21/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/
 http://example.com/2025/12/21/%E6%95%B0%E5%AD%97dfs/
 http://example.com/2025/12/21/%E8%87%AA%E5%8A%A8%E5%88%B7%E8%AF%BE/
@@ -45,9 +45,9 @@ http://example.com/tags/%E4%BD%9C%E4%B8%9A/
 http://example.com/tags/dfs/
 http://example.com/tags/%E6%9D%82%E8%B0%88/
 http://example.com/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/
-http://example.com/categories/%E9%A2%98%E8%A7%A3/
 http://example.com/categories/%E7%AE%97%E6%B3%95/
-http://example.com/categories/%E9%AB%98%E6%95%B0/
+http://example.com/categories/%E9%A2%98%E8%A7%A3/
 http://example.com/categories/cpp/
+http://example.com/categories/%E9%AB%98%E6%95%B0/
 http://example.com/categories/%E6%8A%80%E5%B7%A7/
 http://example.com/categories/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/
