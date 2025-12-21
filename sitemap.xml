@@ -11,6 +11,15 @@
   </url>
   
   <url>
+    <loc>http://example.com/commonweal/index.html</loc>
+    
+    <lastmod>2025-12-21</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://example.com/baidu_verify_codeva-8QO8uFqwJN.html</loc>
     
     <lastmod>2025-12-21</lastmod>
@@ -21,15 +30,6 @@
   
   <url>
     <loc>http://example.com/google1893c4969d34c6fa.html</loc>
-    
-    <lastmod>2025-12-21</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://example.com/commonweal/index.html</loc>
     
     <lastmod>2025-12-21</lastmod>
     
