@@ -1037,35 +1037,6 @@ href="https://blog.wustacm.org/2025/12/15/2025%E8%8F%9C%E9%B8%9F%E6%9D%AF%E9%A2%
       </categories>
   </entry>
   <entry>
-    <title>Hello World</title>
-    <url>/2025/12/21/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very
-first post. Check <a href="https://hexo.io/docs/">documentation</a> for
-more info. If you get any problems when using Hexo, you can find the
-answer in <a
-href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or
-you can ask me on <a
-href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<span id="more"></span>
-<h2 id="quick-start">Quick Start</h2>
-<h3 id="create-a-new-post">Create a new post</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a
-href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="run-server">Run server</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="generate-static-files">Generate static files</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a
-href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="deploy-to-remote-sites">Deploy to remote sites</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a
-href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
-  </entry>
-  <entry>
     <title>vjudge 洛谷账号导入教程</title>
     <url>/2025/12/21/vjudge%20%E6%B4%9B%E8%B0%B7%E8%B4%A6%E5%8F%B7%E5%AF%BC%E5%85%A5%E6%95%99%E7%A8%8B/</url>
     <content><![CDATA[<p><strong>在此感谢本文主要笔者 25 级 xiaozhangup</strong></p>
@@ -1680,6 +1651,265 @@ href="https://scriptcat.org/scripts/code/1604/LinkSwift.user.js">LinkSwift</a>
 <img src="/assets/5-2.png" /> <img src="/assets/5-3.png" /></p>
 <h3
 id="感谢你的观看希望能起到一些作用">感谢你的观看，希望能起到一些作用！</h3>
+]]></content>
+      <categories>
+        <category>技术分享</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>博客搭建教程</title>
+    <url>/2025/12/21/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/</url>
+    <content><![CDATA[<h1
+id="本博文记录搭建类似本博客网站的方式可以-0-经济成本完成">本博文记录搭建类似本博客网站的方式，可以
+0 经济成本完成</h1>
+<p>整体过程 借助 hexo 框架使用现有主题直接形成网站基本框架，然后部署到
+GitHub Pages 和 Cloudflare Pages 上。</p>
+<span id="more"></span>
+<h2 id="准备阶段">1.准备阶段</h2>
+<p>1.（必须）你需要注册一个 <a href="https://github.com/">GitHub</a>
+账号（如果无法直接打开 github 试试 <a
+href="https://hoa.moe/blog/access-github/">这个小玩意</a></p>
+<p>2.（非必需）你可以注册一个<a
+href="https://dash.cloudflare.com/login">Cloudflare Pages</a>
+它可以将博客的 CDN 加速</p>
+<h2 id="需要下载的软件">2.需要下载的软件</h2>
+<h3 id="安装-node">2.1 安装 Node</h3>
+<p>1.打开 Node 官网，下载并安装和自己系统相配的 Node
+的安装程序，否则会出现安装问题。下载地址：<a
+href="https://nodejs.org/en">https://nodejs.org/en</a></p>
+<p>2.安装完成后，要检查看看是否安装成功。操作如下：在键盘按下 win + R
+键，输入 CMD，然后回车，打开 CMD 窗口，执行下面的命令。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">node -v</span><br></pre></td></tr></table></figure>
+<p>看到类似下面的版本信息，则说明安装成功。 <img src="/assets/1.png"
+alt="111" /></p>
+<h3 id="安装-git">2.2.安装 Git</h3>
+<p>1.打开 Git 官网，下载并安装和自己系统相配的 Git:<a
+href="https://git-scm.com/downloads">https://git-scm.com/downloads</a></p>
+<p>2.点击电脑 window 开始按钮，可以搜索到 Git CMD，Git Bash，Git
+GUI。（主要使用 Git Bash</p>
+<h3 id="下载并安装-vscode-这是一款轻量型的代码编辑器">2.3 下载并安装 <a
+href="https://code.visualstudio.com/">vscode</a>
+（这是一款轻量型的代码编辑器</h3>
+<hr />
+<h2 id="配置-git-密钥并连接至-github">3.配置 Git 密钥并连接至
+Github</h2>
+<h3 id="打开-git-bash-如图">3.1 打开 Git Bash 如图</h3>
+<figure>
+<img src="/assets/111.png" alt="111" />
+<figcaption aria-hidden="true">111</figcaption>
+</figure>
+<h3 id="配置用户名和邮箱">3.2 配置用户名和邮箱</h3>
+<p>用户名和邮箱可以自己随便取（不用真实也许 这里假设 用户名为：scandi
+邮箱：3567140151@qq.com 在上面打开的 Git Bash 中
+依次输入下面命令然后回车</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git config --global user.name scandi</span><br><span class="line">git config --global user.email 3567140151@qq.com</span><br></pre></td></tr></table></figure>
+<p>然后通过下面命令检查是否配置成功。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git config -l</span><br></pre></td></tr></table></figure>
+<p>类似下图即配置成功 <img src="/assets/1111.png" alt="1111" /></p>
+<h3 id="配置公钥连接-github">3.3 配置公钥连接 Github</h3>
+<h4 id="执行以下命令生成-ssh-公钥此公钥用于你的计算机连接-github">3.3.1
+执行以下命令生成 ssh 公钥，此公钥用于你的计算机连接 Github</h4>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ssh-keygen -t rsa -C <span class="string">&quot;你的邮箱&quot;</span></span><br></pre></td></tr></table></figure>
+<p>提示 【Enter file in which to save the key】 直接一路回车即可。</p>
+<p>之后打开 C 盘下用户文件夹下的.ssh 的文件夹，会看到以下文件 <img
+src="/assets/11111.png" alt="11111" /> 用记事本打开上述图片中的公钥
+【id_rsa.pub】，复制里面的内容，然后开始在 github 中配置 ssh 密钥。</p>
+<h4 id="将-ssh-key-配置到-github">3.3.2 将 SSH KEY 配置到 GitHub</h4>
+<p>进入 github，点击右上角头像 选择 【settings】，进入设置页后选择 【SSH
+and GPG keys】，名字随便起，公钥填到 【Key】 那一栏。如图 <img
+src="/assets/111111.png" alt="111111" /></p>
+<h4 id="测试连接输入以下命令">3.3.3 测试连接，输入以下命令</h4>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure>
+<p>第一次连接会提示【Are you sure you want to continue connecting
+(yes/no/[fingerprint])?】，输入 yes 即可<br />
+如图即连接成功 <img src="/assets/1111111.png" alt="1111111" /></p>
+<h3
+id="如果是在公司或学校网络可能会存在防火墙或代理限制阻止了-ssh-连接连接没有现实如图信息则查看下面这篇博文尝试解决">如果是在公司或学校网络，可能会存在防火墙或代理限制，阻止了
+SSH 连接。连接没有现实如图信息，则查看下面这篇博文尝试解决！！！</h3>
+<p><a
+href="https://scandidreams.top/2025/02/23/%E5%9C%A8%E5%AD%A6%E6%A0%A1%E5%86%85%E4%B8%8A%E4%BC%A0%E5%8D%9A%E6%96%87%E6%8A%A5%E9%94%99%E7%9A%84%E8%A7%A3%E5%86%B3/">解决博文</a></p>
+<hr />
+<h2 id="创建-github.io-仓库">4.创建 GitHub.io 仓库</h2>
+<h3
+id="点击右上角的按钮选择-new-repository创建一个.github.io-的仓库">4.1
+点击右上角的+按钮，选择 New repository，创建一个<用户名>.github.io
+的仓库。</h3>
+<h3
+id="仓库名字的格式必须为.github.io-注意前缀必须为用户名此为预览博客需要后期可修改仓库名不要忘记加.github.io">4.2
+仓库名字的格式必须为：【<用户名>.github.io】
+(注意：前缀必须为用户名，此为预览博客需要，后期可修改仓库名)（不要忘记加.github.io</h3>
+<h3
+id="可见性必须选择-public-方便第一次部署检查问题点击-creat-repository-进行创建即可">4.3
+可见性必须选择 【Public】 方便第一次部署检查问题，点击 Creat repository
+进行创建即可</h3>
+<h2 id="section"><img src="/assets/2.png" alt="2" /></h2>
+<hr />
+<h2 id="初始化-hexo-博客">5.初始化 Hexo 博客</h2>
+<h3
+id="创建一个文件夹来保存博客源码我这里选的路径为-dcollege在文件夹内右键鼠标选择-open-git-bash-here">5.1
+创建一个文件夹来保存博客源码（我这里选的路径为
+D:/college），在文件夹内右键鼠标，选择 【Open Git Bash here】</h3>
+<figure>
+<img src="/assets/22.png" alt="1111111" />
+<figcaption aria-hidden="true">1111111</figcaption>
+</figure>
+<h3 id="在git-bash输入如下命令安装-hexo">5.2 在【Git
+BASH】输入如下命令安装 Hexo</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install -g hexo-cli &amp;&amp; hexo -v</span><br></pre></td></tr></table></figure>
+<figure>
+<img src="/assets/222.png" alt="1111111" />
+<figcaption aria-hidden="true">1111111</figcaption>
+</figure>
+<h3 id="安装完后输入hexo--v验证是否安装成功">5.3 安装完后输入【hexo
+-v】验证是否安装成功。</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo -v</span><br></pre></td></tr></table></figure>
+<figure>
+<img src="/assets/2222.png" alt="1111111" />
+<figcaption aria-hidden="true">1111111</figcaption>
+</figure>
+<h3 id="初始化-hexo-项目安装相关依赖">5.4 初始化 Hexo
+项目安装相关依赖。</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo init “自己取文件名”</span><br><span class="line"><span class="built_in">cd</span> “上面取的文件名”</span><br><span class="line">npm i</span><br></pre></td></tr></table></figure>
+<figure>
+<img src="/assets/22222.png" alt="1111111" />
+<figcaption aria-hidden="true">1111111</figcaption>
+</figure>
+<h3 id="初始化项目后college-文件夹中-有如下结构">5.5
+初始化项目后，college 文件夹中 有如下结构：</h3>
+<figure>
+<img src="/assets/222222.png" alt="1111111" />
+<figcaption aria-hidden="true">1111111</figcaption>
+</figure>
+<h3 id="输入-hexo-cl-hexo-s-启动项目">5.6 输入 【hexo cl &amp;&amp; hexo
+s】 启动项目</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo cl &amp;&amp; hexo s</span><br></pre></td></tr></table></figure>
+<p>出现如图 <img src="/assets/3.png" alt="1111111" /></p>
+<p>打开浏览器，输入地址：【http://localhost:4000/ 】
+，看到下面的效果，说明你的博客已经构建成功了。</p>
+<h2 id="section-1"><img src="/assets/2222222.png" alt="1111111" /></h2>
+<hr />
+<h2 id="将静态博客挂载到-github-pages">6.将静态博客挂载到 GitHub
+Pages</h2>
+<h3 id="安装-hexo-deployer-git">6.1 安装 hexo-deployer-git</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+<h3 id="修改-_config.yml-文件">6.2 修改 _config.yml 文件</h3>
+<p>在 college 目录下的_config.yml，就是整个 Hexo
+框架的配置文件了。可以在里面修改大部分的配置。详细可参考官方的配置描述。
+<img src="/assets/33.png" alt="1111111" /> 找到最后一行的配置如图 <img
+src="/assets/333.png" alt="1111111" /> 修改它像下面代码这样的格式</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  <span class="built_in">type</span>: git</span><br><span class="line">  repository:</span><br><span class="line">  branch: main</span><br></pre></td></tr></table></figure>
+<p>然后将 repository 修改为你自己的 github 项目地址即可，还有分支要改为
+main 代表主分支（注意缩进）。 你自己的 github 项目地址在下面这里找 <img
+src="/assets/3333.png" alt="1111111" /> 总体类似下面这样 <img
+src="/assets/33333.png" alt="1111111" /></p>
+<h3 id="修改好配置后运行如下命令将代码部署到-githubhexo-三连">6.3
+修改好配置后，运行如下命令，将代码部署到 GitHub（Hexo 三连）。</h3>
+<p>（在 Git Bash 上用第一行那个命令，不要全部复制上去）</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">// Git BASH终端</span><br><span class="line">hexo clean &amp;&amp; hexo generate &amp;&amp; hexo deploy</span><br><span class="line"></span><br><span class="line">// 或者</span><br><span class="line"></span><br><span class="line">// VSCODE终端</span><br><span class="line">hexo cl; hexo g; hexo d</span><br></pre></td></tr></table></figure>
+<p>如果出现【Deploy done】，则说明部署成功了。 <img
+src="/assets/333333.png" alt="1111111" /></p>
+<h3
+id="稍等两分钟打开浏览器访问httpscollege.github.io-注意这里要用你的仓库名字替换这时候我们就可以看到博客内容了">稍等两分钟，打开浏览器访问：https://college.github.io
+（注意！这里要用你的仓库名字替换），这时候我们就可以看到博客内容了。</h3>
+<figure>
+<img src="/assets/3333333.png" alt="1111111" />
+<figcaption aria-hidden="true">1111111</figcaption>
+</figure>
+<hr />
+<h2 id="将静态博客挂载到-cloudflare-pages">7.将静态博客挂载到 Cloudflare
+Pages</h2>
+<h3
+id="打开-cloudflare-pages在-workers-和-pages-中选择-pages-的-连接到-git-如图">7.1
+打开 Cloudflare Pages，在 【Workers 和 Pages】 中选择 【Pages】 的
+【连接到 Git】 如图</h3>
+<p><img src="/assets/4.png" alt="1111111" /> 然后选择 连接
+Github，登录账号，选择你要部署的仓库 <img src="/assets/44.png"
+alt="1111111" /> 点击保存并部署后等待部署完成即可。 <img
+src="/assets/444.png" alt="1111111" />
+提示【成功！您的项目已部署到以下区域：全球】后，浏览器访问：https://college-github-io.pages.dev
+，这时候我们就可以看到博客内容了。 <img src="/assets/4444.png"
+alt="1111111" /></p>
+<h3
+id="这时你也就可以将你的.github.io的仓库设置为private私库了不改也行">这时你也就可以将你的【<用户名>.github.io】的仓库设置为【Private】私库了（不改也行</h3>
+<hr />
+<h2
+id="至此-你已经拥有自己的博客网站不过它还很丑陋我们接下来可以下载主题来美化它">8.至此
+你已经拥有自己的博客网站，不过它还很丑陋，我们接下来可以下载主题来美化它</h2>
+<p>本博客网站采用的主题是【anzhiyu】 实际上 搜索【hexo
+主题】，会有大量主题供你选择，挑一个喜欢的下载就行，每个主题都会提供下载命令，这里我以【next】主题为例（当然【anzhiyu】主题一样的流程，我同时举例</p>
+<h3 id="继续在刚才的-git-bash-上运行下面命令-下载next主题">8.1
+继续在刚才的 Git Bash 上运行下面命令 下载【next】主题</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> hexo</span><br><span class="line">//下面这个是【next】</span><br><span class="line">git <span class="built_in">clone</span> https://github.com/theme-next/hexo-theme-next themes/next</span><br><span class="line"></span><br><span class="line">//下面这个是【anzhiyu】</span><br><span class="line">git <span class="built_in">clone</span> -b main https://github.com/anzhiyu-c/hexo-theme-anzhiyu.git themes/anzhiyu</span><br></pre></td></tr></table></figure>
+<p>如下图，即为下载成功 <img src="/assets/444444.png"
+alt="1111111" /></p>
+<h3 id="打开-vscode-在-vscode-中打开项目文件夹">8.1 打开 vscode， 在
+vscode 中打开项目文件夹</h3>
+<figure>
+<img src="/assets/44444.png" alt="1111111" />
+<figcaption aria-hidden="true">1111111</figcaption>
+</figure>
+<figure>
+<img src="/assets/4444444.png" alt="1111111" />
+<figcaption aria-hidden="true">1111111</figcaption>
+</figure>
+<h3 id="新建终端以后直接在-vscode-上运行命令">8.2 新建终端，以后直接在
+vscode 上运行命令</h3>
+<figure>
+<img src="/assets/5.png" alt="1111111" />
+<figcaption aria-hidden="true">1111111</figcaption>
+</figure>
+<h3 id="第一次使用需要安装-pug-以及-stylus-的渲染器">8.3
+第一次使用需要安装 pug 以及 stylus 的渲染器</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-renderer-pug hexo-renderer-stylus --save</span><br></pre></td></tr></table></figure>
+<h3 id="打开_config.yml-文件修改主题为next或者anzhiyu">8.4
+打开_config.yml 文件，修改主题为【next】或者【anzhiyu】</h3>
+<figure>
+<img src="/assets/55.png" alt="1111111" />
+<figcaption aria-hidden="true">1111111</figcaption>
+</figure>
+<h3 id="覆盖配置">8.5 覆盖配置</h3>
+<p>手动将【/themes/next/_config.yml】或者【/themes/anzhiyu/_config.yml】复制到根目录下并重命名为【_config.next.yml】或者【_config.anzhiyu.yml】即可。
+如图 <img src="/assets/555.png" alt="1111111" /></p>
+<hr />
+<h2
+id="平时编辑博客和博文的一些基本操作">9.平时编辑博客和博文的一些基本操作</h2>
+<h3
+id="每次在编译器上的修改在网站上是不能同步的你需要在每次修改后通过下面命令上传才能反馈给网站产生变化">9.1
+每次在编译器上的修改，在网站上是不能同步的，你需要在每次修改后通过下面命令上传，才能反馈给网站产生变化</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">//本地预览</span><br><span class="line">hexo cl; hexo s</span><br><span class="line"></span><br><span class="line">//推送更新上线</span><br><span class="line">hexo cl; hexo g; hexo d</span><br></pre></td></tr></table></figure>
+<p>每次修改后，可以先运行【hexo cl; hexo
+s】命令，就会生成临时页面效果链接，打开就可以看临时效果，这时候不会对公开网站产生修改变化。
+等你觉得修改没问题，想要上线完成修改，再运行【hexo cl; hexo g; hexo
+d】命令，推送更新上线。</p>
+<h3 id="新建一篇博文">9.2 新建一篇博文</h3>
+<p>终端中输入下面命令</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo new <span class="string">&quot;博文名称&quot;</span></span><br></pre></td></tr></table></figure>
+<p>回车确认后，在总文件夹中的 source 文件夹的 _posts
+文件夹中出现一个新的博文文件（markdown
+格式）这样就可以直接对博文进行编辑</p>
+<h3 id="scaffolds-目录下有几个模板文件其中post.md是新建博文模板">9.3
+【/scaffolds】 目录下有几个模板文件，其中【post.md】是新建博文模板</h3>
+<p>修改【post.md】模板
+可以使得每次新建的博文文章，会有一段相同的初始化设置，免得每次都重复添加
+post.md 模版，仅供参考（建议直接全部复制到 post.md 文件中</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: &#123;&#123; title &#125;&#125; <span class="comment">#【必需】页面标题</span></span><br><span class="line"><span class="built_in">date</span>: &#123;&#123; <span class="built_in">date</span> &#125;&#125; <span class="comment">#【必需】页面创建日期</span></span><br><span class="line">updated: <span class="comment">#【可选】页面更新日期</span></span><br><span class="line">tags: <span class="comment">#【可选】文章标签</span></span><br><span class="line">categories: <span class="comment">#【可选】文章分类</span></span><br><span class="line">keywords: <span class="comment">#【可选】文章关键字</span></span><br><span class="line">description: <span class="comment">#【可选】文章描述</span></span><br><span class="line">top: <span class="comment"># 1 置顶</span></span><br><span class="line">top_img: <span class="comment">#【可选】文章顶部图片</span></span><br><span class="line">comments: <span class="comment">#【可选】显示文章评论模块(默认 true)</span></span><br><span class="line">cover: https://img.090227.xyz/file/ae62475a131f3734a201c.png <span class="comment">#【可选】文章缩略图(如果没有设置 top_img,文章页顶部将显示缩略图，可设为 false/图片地址/留空)</span></span><br><span class="line">toc: <span class="comment">#【可选】显示文章 TOC(默认为设置中 toc 的 enable 配置)</span></span><br><span class="line">toc_number: <span class="comment">#【可选】显示 toc_number(默认为设置中 toc 的 number 配置)</span></span><br><span class="line">toc_style_simple: <span class="comment">#【可选】显示 toc 简洁模式</span></span><br><span class="line">copyright: <span class="comment">#【可选】显示文章版权模块(默认为设置中 post_copyright 的 enable 配置)</span></span><br><span class="line">copyright_author: <span class="comment">#【可选】文章版权模块的文章作者</span></span><br><span class="line">copyright_author_href: <span class="comment">#【可选】文章版权模块的文章作者链接</span></span><br><span class="line">copyright_url: <span class="comment">#【可选】文章版权模块的文章作者链接</span></span><br><span class="line">copyright_info: <span class="comment">#【可选】文章版权模块的版权声明文字</span></span><br><span class="line">mathjax: <span class="comment">#【可选】显示 mathjax(当设置 mathjax 的 per_page: false 时，才需要配置，默认 false)</span></span><br><span class="line">katex: <span class="comment">#【可选】显示 katex(当设置 katex 的 per_page: false 时，才需要配置，默认 false)</span></span><br><span class="line">aplayer: <span class="comment">#【可选】在需要的页面加载 aplayer 的 js 和 css,请参考文章下面的音乐 配置</span></span><br><span class="line">highlight_shrink: <span class="comment">#【可选】配置代码框是否展开(true/false)(默认为设置中 highlight_shrink 的配置)</span></span><br><span class="line">aside: <span class="comment">#【可选】显示侧边栏 (默认 true)</span></span><br><span class="line">swiper_index: 10 <span class="comment">#【可选】首页轮播图配置 index 索引，数字越小越靠前</span></span><br><span class="line">top_group_index: 10 <span class="comment">#【可选】首页右侧卡片组配置, 数字越小越靠前</span></span><br><span class="line">ai: <span class="comment">#【可选】文章ai摘要</span></span><br><span class="line">background: <span class="string">&quot;#fff&quot;</span> <span class="comment">#【可选】文章主色，必须是16进制颜色且有6位，不可缩减，例如#ffffff 不可写成#fff</span></span><br><span class="line">---</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="当然主题还有许多功能可以自行查看主题官方网站直接搜索就行">9.4
+当然，主题还有许多功能，可以自行查看主题官方网站（直接搜索就行</h3>
+<h3 id="平时我个人更改博客的一些小技巧">9.5
+平时我个人更改博客的一些小技巧</h3>
+<p>首先打开网站，按键盘【f12】，点击如图红色框框的东西</p>
+<figure>
+<img src="/assets/66.png" alt="1111111" />
+<figcaption aria-hidden="true">1111111</figcaption>
+</figure>
+<p>然后再用鼠标对准网页中的元素，比如对准某张图片位置，既可以得到定义所选图片的代码，复制这些代码的部分关键词，然后再回到
+vscode
+的环境主题文件【_config.next.yml】或者【_config.anzhiyu.yml】中，按
+ctrl+f，打开搜索功能，粘贴上刚才的代码关键词，就可以直接修改选中元素</p>
+<hr />
+<h2
+id="至此彻底结束喽以上教程我自己实现的时候是零基础并不需要任何高端的技能一开始面对晦涩的名词多有不解不过没事我们目的本来就不是要学会它的原理只是搭建一个较为自由的个人平台方便自己记录些东西刚开始可能会出现许多问题遇到问题可以多问问-ai-详细描述你的困境一般都能解决我就是这样子">至此！彻底结束喽，以上教程我自己实现的时候是零基础！并不需要任何高端的技能，一开始面对晦涩的名词多有不解，不过没事！我们目的本来就不是要学会它的原理，只是搭建一个较为自由的个人平台，方便自己记录些东西。刚开始可能会出现许多问题，遇到问题可以多问问
+ai 详细描述你的困境，一般都能解决（我就是这样子。。。</h2>
 ]]></content>
       <categories>
         <category>技术分享</category>
@@ -2585,265 +2815,6 @@ class="math inline">≤</span> i - j + d</p>
       </categories>
   </entry>
   <entry>
-    <title>博客搭建教程</title>
-    <url>/2025/12/21/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/</url>
-    <content><![CDATA[<h1
-id="本博文记录搭建类似本博客网站的方式可以-0-经济成本完成">本博文记录搭建类似本博客网站的方式，可以
-0 经济成本完成</h1>
-<p>整体过程 借助 hexo 框架使用现有主题直接形成网站基本框架，然后部署到
-GitHub Pages 和 Cloudflare Pages 上。</p>
-<span id="more"></span>
-<h2 id="准备阶段">1.准备阶段</h2>
-<p>1.（必须）你需要注册一个 <a href="https://github.com/">GitHub</a>
-账号（如果无法直接打开 github 试试 <a
-href="https://hoa.moe/blog/access-github/">这个小玩意</a></p>
-<p>2.（非必需）你可以注册一个<a
-href="https://dash.cloudflare.com/login">Cloudflare Pages</a>
-它可以将博客的 CDN 加速</p>
-<h2 id="需要下载的软件">2.需要下载的软件</h2>
-<h3 id="安装-node">2.1 安装 Node</h3>
-<p>1.打开 Node 官网，下载并安装和自己系统相配的 Node
-的安装程序，否则会出现安装问题。下载地址：<a
-href="https://nodejs.org/en">https://nodejs.org/en</a></p>
-<p>2.安装完成后，要检查看看是否安装成功。操作如下：在键盘按下 win + R
-键，输入 CMD，然后回车，打开 CMD 窗口，执行下面的命令。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">node -v</span><br></pre></td></tr></table></figure>
-<p>看到类似下面的版本信息，则说明安装成功。 <img src="/assets/1.png"
-alt="111" /></p>
-<h3 id="安装-git">2.2.安装 Git</h3>
-<p>1.打开 Git 官网，下载并安装和自己系统相配的 Git:<a
-href="https://git-scm.com/downloads">https://git-scm.com/downloads</a></p>
-<p>2.点击电脑 window 开始按钮，可以搜索到 Git CMD，Git Bash，Git
-GUI。（主要使用 Git Bash</p>
-<h3 id="下载并安装-vscode-这是一款轻量型的代码编辑器">2.3 下载并安装 <a
-href="https://code.visualstudio.com/">vscode</a>
-（这是一款轻量型的代码编辑器</h3>
-<hr />
-<h2 id="配置-git-密钥并连接至-github">3.配置 Git 密钥并连接至
-Github</h2>
-<h3 id="打开-git-bash-如图">3.1 打开 Git Bash 如图</h3>
-<figure>
-<img src="/assets/111.png" alt="111" />
-<figcaption aria-hidden="true">111</figcaption>
-</figure>
-<h3 id="配置用户名和邮箱">3.2 配置用户名和邮箱</h3>
-<p>用户名和邮箱可以自己随便取（不用真实也许 这里假设 用户名为：scandi
-邮箱：3567140151@qq.com 在上面打开的 Git Bash 中
-依次输入下面命令然后回车</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git config --global user.name scandi</span><br><span class="line">git config --global user.email 3567140151@qq.com</span><br></pre></td></tr></table></figure>
-<p>然后通过下面命令检查是否配置成功。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git config -l</span><br></pre></td></tr></table></figure>
-<p>类似下图即配置成功 <img src="/assets/1111.png" alt="1111" /></p>
-<h3 id="配置公钥连接-github">3.3 配置公钥连接 Github</h3>
-<h4 id="执行以下命令生成-ssh-公钥此公钥用于你的计算机连接-github">3.3.1
-执行以下命令生成 ssh 公钥，此公钥用于你的计算机连接 Github</h4>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ssh-keygen -t rsa -C <span class="string">&quot;你的邮箱&quot;</span></span><br></pre></td></tr></table></figure>
-<p>提示 【Enter file in which to save the key】 直接一路回车即可。</p>
-<p>之后打开 C 盘下用户文件夹下的.ssh 的文件夹，会看到以下文件 <img
-src="/assets/11111.png" alt="11111" /> 用记事本打开上述图片中的公钥
-【id_rsa.pub】，复制里面的内容，然后开始在 github 中配置 ssh 密钥。</p>
-<h4 id="将-ssh-key-配置到-github">3.3.2 将 SSH KEY 配置到 GitHub</h4>
-<p>进入 github，点击右上角头像 选择 【settings】，进入设置页后选择 【SSH
-and GPG keys】，名字随便起，公钥填到 【Key】 那一栏。如图 <img
-src="/assets/111111.png" alt="111111" /></p>
-<h4 id="测试连接输入以下命令">3.3.3 测试连接，输入以下命令</h4>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure>
-<p>第一次连接会提示【Are you sure you want to continue connecting
-(yes/no/[fingerprint])?】，输入 yes 即可<br />
-如图即连接成功 <img src="/assets/1111111.png" alt="1111111" /></p>
-<h3
-id="如果是在公司或学校网络可能会存在防火墙或代理限制阻止了-ssh-连接连接没有现实如图信息则查看下面这篇博文尝试解决">如果是在公司或学校网络，可能会存在防火墙或代理限制，阻止了
-SSH 连接。连接没有现实如图信息，则查看下面这篇博文尝试解决！！！</h3>
-<p><a
-href="https://scandidreams.top/2025/02/23/%E5%9C%A8%E5%AD%A6%E6%A0%A1%E5%86%85%E4%B8%8A%E4%BC%A0%E5%8D%9A%E6%96%87%E6%8A%A5%E9%94%99%E7%9A%84%E8%A7%A3%E5%86%B3/">解决博文</a></p>
-<hr />
-<h2 id="创建-github.io-仓库">4.创建 GitHub.io 仓库</h2>
-<h3
-id="点击右上角的按钮选择-new-repository创建一个.github.io-的仓库">4.1
-点击右上角的+按钮，选择 New repository，创建一个<用户名>.github.io
-的仓库。</h3>
-<h3
-id="仓库名字的格式必须为.github.io-注意前缀必须为用户名此为预览博客需要后期可修改仓库名不要忘记加.github.io">4.2
-仓库名字的格式必须为：【<用户名>.github.io】
-(注意：前缀必须为用户名，此为预览博客需要，后期可修改仓库名)（不要忘记加.github.io</h3>
-<h3
-id="可见性必须选择-public-方便第一次部署检查问题点击-creat-repository-进行创建即可">4.3
-可见性必须选择 【Public】 方便第一次部署检查问题，点击 Creat repository
-进行创建即可</h3>
-<h2 id="section"><img src="/assets/2.png" alt="2" /></h2>
-<hr />
-<h2 id="初始化-hexo-博客">5.初始化 Hexo 博客</h2>
-<h3
-id="创建一个文件夹来保存博客源码我这里选的路径为-dcollege在文件夹内右键鼠标选择-open-git-bash-here">5.1
-创建一个文件夹来保存博客源码（我这里选的路径为
-D:/college），在文件夹内右键鼠标，选择 【Open Git Bash here】</h3>
-<figure>
-<img src="/assets/22.png" alt="1111111" />
-<figcaption aria-hidden="true">1111111</figcaption>
-</figure>
-<h3 id="在git-bash输入如下命令安装-hexo">5.2 在【Git
-BASH】输入如下命令安装 Hexo</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install -g hexo-cli &amp;&amp; hexo -v</span><br></pre></td></tr></table></figure>
-<figure>
-<img src="/assets/222.png" alt="1111111" />
-<figcaption aria-hidden="true">1111111</figcaption>
-</figure>
-<h3 id="安装完后输入hexo--v验证是否安装成功">5.3 安装完后输入【hexo
--v】验证是否安装成功。</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo -v</span><br></pre></td></tr></table></figure>
-<figure>
-<img src="/assets/2222.png" alt="1111111" />
-<figcaption aria-hidden="true">1111111</figcaption>
-</figure>
-<h3 id="初始化-hexo-项目安装相关依赖">5.4 初始化 Hexo
-项目安装相关依赖。</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo init “自己取文件名”</span><br><span class="line"><span class="built_in">cd</span> “上面取的文件名”</span><br><span class="line">npm i</span><br></pre></td></tr></table></figure>
-<figure>
-<img src="/assets/22222.png" alt="1111111" />
-<figcaption aria-hidden="true">1111111</figcaption>
-</figure>
-<h3 id="初始化项目后college-文件夹中-有如下结构">5.5
-初始化项目后，college 文件夹中 有如下结构：</h3>
-<figure>
-<img src="/assets/222222.png" alt="1111111" />
-<figcaption aria-hidden="true">1111111</figcaption>
-</figure>
-<h3 id="输入-hexo-cl-hexo-s-启动项目">5.6 输入 【hexo cl &amp;&amp; hexo
-s】 启动项目</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo cl &amp;&amp; hexo s</span><br></pre></td></tr></table></figure>
-<p>出现如图 <img src="/assets/3.png" alt="1111111" /></p>
-<p>打开浏览器，输入地址：【http://localhost:4000/ 】
-，看到下面的效果，说明你的博客已经构建成功了。</p>
-<h2 id="section-1"><img src="/assets/2222222.png" alt="1111111" /></h2>
-<hr />
-<h2 id="将静态博客挂载到-github-pages">6.将静态博客挂载到 GitHub
-Pages</h2>
-<h3 id="安装-hexo-deployer-git">6.1 安装 hexo-deployer-git</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
-<h3 id="修改-_config.yml-文件">6.2 修改 _config.yml 文件</h3>
-<p>在 college 目录下的_config.yml，就是整个 Hexo
-框架的配置文件了。可以在里面修改大部分的配置。详细可参考官方的配置描述。
-<img src="/assets/33.png" alt="1111111" /> 找到最后一行的配置如图 <img
-src="/assets/333.png" alt="1111111" /> 修改它像下面代码这样的格式</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  <span class="built_in">type</span>: git</span><br><span class="line">  repository:</span><br><span class="line">  branch: main</span><br></pre></td></tr></table></figure>
-<p>然后将 repository 修改为你自己的 github 项目地址即可，还有分支要改为
-main 代表主分支（注意缩进）。 你自己的 github 项目地址在下面这里找 <img
-src="/assets/3333.png" alt="1111111" /> 总体类似下面这样 <img
-src="/assets/33333.png" alt="1111111" /></p>
-<h3 id="修改好配置后运行如下命令将代码部署到-githubhexo-三连">6.3
-修改好配置后，运行如下命令，将代码部署到 GitHub（Hexo 三连）。</h3>
-<p>（在 Git Bash 上用第一行那个命令，不要全部复制上去）</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">// Git BASH终端</span><br><span class="line">hexo clean &amp;&amp; hexo generate &amp;&amp; hexo deploy</span><br><span class="line"></span><br><span class="line">// 或者</span><br><span class="line"></span><br><span class="line">// VSCODE终端</span><br><span class="line">hexo cl; hexo g; hexo d</span><br></pre></td></tr></table></figure>
-<p>如果出现【Deploy done】，则说明部署成功了。 <img
-src="/assets/333333.png" alt="1111111" /></p>
-<h3
-id="稍等两分钟打开浏览器访问httpscollege.github.io-注意这里要用你的仓库名字替换这时候我们就可以看到博客内容了">稍等两分钟，打开浏览器访问：https://college.github.io
-（注意！这里要用你的仓库名字替换），这时候我们就可以看到博客内容了。</h3>
-<figure>
-<img src="/assets/3333333.png" alt="1111111" />
-<figcaption aria-hidden="true">1111111</figcaption>
-</figure>
-<hr />
-<h2 id="将静态博客挂载到-cloudflare-pages">7.将静态博客挂载到 Cloudflare
-Pages</h2>
-<h3
-id="打开-cloudflare-pages在-workers-和-pages-中选择-pages-的-连接到-git-如图">7.1
-打开 Cloudflare Pages，在 【Workers 和 Pages】 中选择 【Pages】 的
-【连接到 Git】 如图</h3>
-<p><img src="/assets/4.png" alt="1111111" /> 然后选择 连接
-Github，登录账号，选择你要部署的仓库 <img src="/assets/44.png"
-alt="1111111" /> 点击保存并部署后等待部署完成即可。 <img
-src="/assets/444.png" alt="1111111" />
-提示【成功！您的项目已部署到以下区域：全球】后，浏览器访问：https://college-github-io.pages.dev
-，这时候我们就可以看到博客内容了。 <img src="/assets/4444.png"
-alt="1111111" /></p>
-<h3
-id="这时你也就可以将你的.github.io的仓库设置为private私库了不改也行">这时你也就可以将你的【<用户名>.github.io】的仓库设置为【Private】私库了（不改也行</h3>
-<hr />
-<h2
-id="至此-你已经拥有自己的博客网站不过它还很丑陋我们接下来可以下载主题来美化它">8.至此
-你已经拥有自己的博客网站，不过它还很丑陋，我们接下来可以下载主题来美化它</h2>
-<p>本博客网站采用的主题是【anzhiyu】 实际上 搜索【hexo
-主题】，会有大量主题供你选择，挑一个喜欢的下载就行，每个主题都会提供下载命令，这里我以【next】主题为例（当然【anzhiyu】主题一样的流程，我同时举例</p>
-<h3 id="继续在刚才的-git-bash-上运行下面命令-下载next主题">8.1
-继续在刚才的 Git Bash 上运行下面命令 下载【next】主题</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> hexo</span><br><span class="line">//下面这个是【next】</span><br><span class="line">git <span class="built_in">clone</span> https://github.com/theme-next/hexo-theme-next themes/next</span><br><span class="line"></span><br><span class="line">//下面这个是【anzhiyu】</span><br><span class="line">git <span class="built_in">clone</span> -b main https://github.com/anzhiyu-c/hexo-theme-anzhiyu.git themes/anzhiyu</span><br></pre></td></tr></table></figure>
-<p>如下图，即为下载成功 <img src="/assets/444444.png"
-alt="1111111" /></p>
-<h3 id="打开-vscode-在-vscode-中打开项目文件夹">8.1 打开 vscode， 在
-vscode 中打开项目文件夹</h3>
-<figure>
-<img src="/assets/44444.png" alt="1111111" />
-<figcaption aria-hidden="true">1111111</figcaption>
-</figure>
-<figure>
-<img src="/assets/4444444.png" alt="1111111" />
-<figcaption aria-hidden="true">1111111</figcaption>
-</figure>
-<h3 id="新建终端以后直接在-vscode-上运行命令">8.2 新建终端，以后直接在
-vscode 上运行命令</h3>
-<figure>
-<img src="/assets/5.png" alt="1111111" />
-<figcaption aria-hidden="true">1111111</figcaption>
-</figure>
-<h3 id="第一次使用需要安装-pug-以及-stylus-的渲染器">8.3
-第一次使用需要安装 pug 以及 stylus 的渲染器</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-renderer-pug hexo-renderer-stylus --save</span><br></pre></td></tr></table></figure>
-<h3 id="打开_config.yml-文件修改主题为next或者anzhiyu">8.4
-打开_config.yml 文件，修改主题为【next】或者【anzhiyu】</h3>
-<figure>
-<img src="/assets/55.png" alt="1111111" />
-<figcaption aria-hidden="true">1111111</figcaption>
-</figure>
-<h3 id="覆盖配置">8.5 覆盖配置</h3>
-<p>手动将【/themes/next/_config.yml】或者【/themes/anzhiyu/_config.yml】复制到根目录下并重命名为【_config.next.yml】或者【_config.anzhiyu.yml】即可。
-如图 <img src="/assets/555.png" alt="1111111" /></p>
-<hr />
-<h2
-id="平时编辑博客和博文的一些基本操作">9.平时编辑博客和博文的一些基本操作</h2>
-<h3
-id="每次在编译器上的修改在网站上是不能同步的你需要在每次修改后通过下面命令上传才能反馈给网站产生变化">9.1
-每次在编译器上的修改，在网站上是不能同步的，你需要在每次修改后通过下面命令上传，才能反馈给网站产生变化</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">//本地预览</span><br><span class="line">hexo cl; hexo s</span><br><span class="line"></span><br><span class="line">//推送更新上线</span><br><span class="line">hexo cl; hexo g; hexo d</span><br></pre></td></tr></table></figure>
-<p>每次修改后，可以先运行【hexo cl; hexo
-s】命令，就会生成临时页面效果链接，打开就可以看临时效果，这时候不会对公开网站产生修改变化。
-等你觉得修改没问题，想要上线完成修改，再运行【hexo cl; hexo g; hexo
-d】命令，推送更新上线。</p>
-<h3 id="新建一篇博文">9.2 新建一篇博文</h3>
-<p>终端中输入下面命令</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo new <span class="string">&quot;博文名称&quot;</span></span><br></pre></td></tr></table></figure>
-<p>回车确认后，在总文件夹中的 source 文件夹的 _posts
-文件夹中出现一个新的博文文件（markdown
-格式）这样就可以直接对博文进行编辑</p>
-<h3 id="scaffolds-目录下有几个模板文件其中post.md是新建博文模板">9.3
-【/scaffolds】 目录下有几个模板文件，其中【post.md】是新建博文模板</h3>
-<p>修改【post.md】模板
-可以使得每次新建的博文文章，会有一段相同的初始化设置，免得每次都重复添加
-post.md 模版，仅供参考（建议直接全部复制到 post.md 文件中</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: &#123;&#123; title &#125;&#125; <span class="comment">#【必需】页面标题</span></span><br><span class="line"><span class="built_in">date</span>: &#123;&#123; <span class="built_in">date</span> &#125;&#125; <span class="comment">#【必需】页面创建日期</span></span><br><span class="line">updated: <span class="comment">#【可选】页面更新日期</span></span><br><span class="line">tags: <span class="comment">#【可选】文章标签</span></span><br><span class="line">categories: <span class="comment">#【可选】文章分类</span></span><br><span class="line">keywords: <span class="comment">#【可选】文章关键字</span></span><br><span class="line">description: <span class="comment">#【可选】文章描述</span></span><br><span class="line">top: <span class="comment"># 1 置顶</span></span><br><span class="line">top_img: <span class="comment">#【可选】文章顶部图片</span></span><br><span class="line">comments: <span class="comment">#【可选】显示文章评论模块(默认 true)</span></span><br><span class="line">cover: https://img.090227.xyz/file/ae62475a131f3734a201c.png <span class="comment">#【可选】文章缩略图(如果没有设置 top_img,文章页顶部将显示缩略图，可设为 false/图片地址/留空)</span></span><br><span class="line">toc: <span class="comment">#【可选】显示文章 TOC(默认为设置中 toc 的 enable 配置)</span></span><br><span class="line">toc_number: <span class="comment">#【可选】显示 toc_number(默认为设置中 toc 的 number 配置)</span></span><br><span class="line">toc_style_simple: <span class="comment">#【可选】显示 toc 简洁模式</span></span><br><span class="line">copyright: <span class="comment">#【可选】显示文章版权模块(默认为设置中 post_copyright 的 enable 配置)</span></span><br><span class="line">copyright_author: <span class="comment">#【可选】文章版权模块的文章作者</span></span><br><span class="line">copyright_author_href: <span class="comment">#【可选】文章版权模块的文章作者链接</span></span><br><span class="line">copyright_url: <span class="comment">#【可选】文章版权模块的文章作者链接</span></span><br><span class="line">copyright_info: <span class="comment">#【可选】文章版权模块的版权声明文字</span></span><br><span class="line">mathjax: <span class="comment">#【可选】显示 mathjax(当设置 mathjax 的 per_page: false 时，才需要配置，默认 false)</span></span><br><span class="line">katex: <span class="comment">#【可选】显示 katex(当设置 katex 的 per_page: false 时，才需要配置，默认 false)</span></span><br><span class="line">aplayer: <span class="comment">#【可选】在需要的页面加载 aplayer 的 js 和 css,请参考文章下面的音乐 配置</span></span><br><span class="line">highlight_shrink: <span class="comment">#【可选】配置代码框是否展开(true/false)(默认为设置中 highlight_shrink 的配置)</span></span><br><span class="line">aside: <span class="comment">#【可选】显示侧边栏 (默认 true)</span></span><br><span class="line">swiper_index: 10 <span class="comment">#【可选】首页轮播图配置 index 索引，数字越小越靠前</span></span><br><span class="line">top_group_index: 10 <span class="comment">#【可选】首页右侧卡片组配置, 数字越小越靠前</span></span><br><span class="line">ai: <span class="comment">#【可选】文章ai摘要</span></span><br><span class="line">background: <span class="string">&quot;#fff&quot;</span> <span class="comment">#【可选】文章主色，必须是16进制颜色且有6位，不可缩减，例如#ffffff 不可写成#fff</span></span><br><span class="line">---</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h3 id="当然主题还有许多功能可以自行查看主题官方网站直接搜索就行">9.4
-当然，主题还有许多功能，可以自行查看主题官方网站（直接搜索就行</h3>
-<h3 id="平时我个人更改博客的一些小技巧">9.5
-平时我个人更改博客的一些小技巧</h3>
-<p>首先打开网站，按键盘【f12】，点击如图红色框框的东西</p>
-<figure>
-<img src="/assets/66.png" alt="1111111" />
-<figcaption aria-hidden="true">1111111</figcaption>
-</figure>
-<p>然后再用鼠标对准网页中的元素，比如对准某张图片位置，既可以得到定义所选图片的代码，复制这些代码的部分关键词，然后再回到
-vscode
-的环境主题文件【_config.next.yml】或者【_config.anzhiyu.yml】中，按
-ctrl+f，打开搜索功能，粘贴上刚才的代码关键词，就可以直接修改选中元素</p>
-<hr />
-<h2
-id="至此彻底结束喽以上教程我自己实现的时候是零基础并不需要任何高端的技能一开始面对晦涩的名词多有不解不过没事我们目的本来就不是要学会它的原理只是搭建一个较为自由的个人平台方便自己记录些东西刚开始可能会出现许多问题遇到问题可以多问问-ai-详细描述你的困境一般都能解决我就是这样子">至此！彻底结束喽，以上教程我自己实现的时候是零基础！并不需要任何高端的技能，一开始面对晦涩的名词多有不解，不过没事！我们目的本来就不是要学会它的原理，只是搭建一个较为自由的个人平台，方便自己记录些东西。刚开始可能会出现许多问题，遇到问题可以多问问
-ai 详细描述你的困境，一般都能解决（我就是这样子。。。</h2>
-]]></content>
-      <categories>
-        <category>技术分享</category>
-      </categories>
-  </entry>
-  <entry>
     <title>对拍</title>
     <url>/2025/12/21/%E5%AF%B9%E6%8B%8D/</url>
     <content><![CDATA[<h1 id="对拍">对拍</h1>
@@ -3174,6 +3145,40 @@ y'$</span></li>
 class="math inline"><em>x</em>′ = 1, <em>y</em>′ = 0</span>
 带入不断的回求 x 和 y。</p>
 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">exgcd</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b, <span class="type">int</span>&amp; x, <span class="type">int</span>&amp; y)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (!b) &#123;</span><br><span class="line">        x = <span class="number">1</span>;</span><br><span class="line">        y = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="built_in">exgcd</span>(b, a % b, x, y);</span><br><span class="line">        <span class="type">int</span> t = x;</span><br><span class="line">        x = y;</span><br><span class="line">        y = t - (a / b) * y;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>排序算法</title>
+    <url>/2025/12/21/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/</url>
+    <content><![CDATA[<h1 id="八种排序">八种排序</h1>
+<pre><code>三种 O(n ^ 2)的排序：冒泡，选择，插入
+三种不基于比较的排序：桶，基数，计数
+最后是：归并排序，快速排序</code></pre>
+<h2 id="一.冒泡排序">一.冒泡排序</h2>
+<p>较简单，直接代码注释结合理解即可</p>
+<span id="more"></span>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">//给定乱序数组a</span></span><br><span class="line">    <span class="type">int</span> a[<span class="number">10</span>] = &#123; <span class="number">1</span>, <span class="number">10</span>, <span class="number">4</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">8</span>, <span class="number">5</span>, <span class="number">9</span>, <span class="number">7</span>, <span class="number">6</span> &#125;;</span><br><span class="line">    <span class="comment">//这里令n = 10，方便给出通解</span></span><br><span class="line">    <span class="type">int</span> n = <span class="number">10</span>;</span><br><span class="line">    <span class="comment">//两层循环，内层做从左到右遍历数组中未排序元素，并进行比较操作；外层每次去除已定序元素，限制下一次内循环排序范围。</span></span><br><span class="line">    <span class="comment">//外循环一共循环n - 1次，因为每一次外循环结束可以定下一个元素的位置，到第n - 1次排序完成，就只剩下一个元素，自然不用再排序。</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n - <span class="number">1</span>; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">//内循环从数组最左边元素到未定序的最右边元素遍历，注意！下面使用a[j+1]，这里的j范围要注意，不要越界了！</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt; n - <span class="number">1</span> - i; j++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="comment">//比较，此判断是将数组按升序排，降序反之即可</span></span><br><span class="line">            <span class="keyword">if</span> (a[j] &gt; a[j + <span class="number">1</span>])</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="comment">//临时变量temp，完成交换数组相邻两个元素</span></span><br><span class="line">                <span class="type">int</span> temp = a[j];</span><br><span class="line">                a[j] = a[j + <span class="number">1</span>];</span><br><span class="line">                a[j + <span class="number">1</span>] = temp;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">        cout &lt;&lt; a[i] &lt;&lt; <span class="string">&#x27; &#x27;</span>;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="二.选择排序">二.选择排序</h2>
+<p>较简单，直接代码注释结合理解即可</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">//给定乱序数组a</span></span><br><span class="line">    <span class="type">int</span> a[<span class="number">10</span>] = &#123; <span class="number">1</span>, <span class="number">10</span>, <span class="number">4</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">8</span>, <span class="number">5</span>, <span class="number">9</span>, <span class="number">7</span>, <span class="number">6</span> &#125;;</span><br><span class="line">    <span class="comment">//这里令n = 10，方便给出通解</span></span><br><span class="line">    <span class="type">int</span> n = <span class="number">10</span>;</span><br><span class="line">    <span class="comment">//两层循环，外层循环每次更新未定序最左元素下标mmin，然后到内循环进行数组遍历寻找未定序元素中更小值，循环结束后判断是否有更小值，如果有，就替换。</span></span><br><span class="line">    <span class="comment">//外循环一共循环n - 1次，因为每一次外循环结束可以定下一个元素的位置，到第n - 1次排序完成，就只剩下一个元素，自然不用再排序。</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n - <span class="number">1</span>; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">//每次更新未定序最左元素下标</span></span><br><span class="line">        <span class="type">int</span> mmin = i;</span><br><span class="line">        <span class="comment">//内循环进行数组遍历寻找未定序元素中更小值</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> j = i + <span class="number">1</span>; j &lt; n; j++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (a[j] &lt; a[mmin]) mmin = j;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//判断未定序元素中是否有更小值，如果有，就替换。</span></span><br><span class="line">        <span class="keyword">if</span> (mmin != i)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="type">int</span> temp = a[i];</span><br><span class="line">            a[i] = a[mmin];</span><br><span class="line">            a[mmin] = temp;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">        cout &lt;&lt; a[i] &lt;&lt; <span class="string">&#x27; &#x27;</span> ;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="三.插入排序">三.插入排序</h2>
+<p>打扑克牌时，当第一张摸到 6，然后第二张摸到
+5，会自然的与第一张比较，并把 5 插入到 6 的左边，第三张摸到 8，又把 8
+插入到 6
+的右边（不同个人习惯，就会有升降序不同的情况）总而言之，这就是插入排序法！下面代码实现</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">//给定乱序数组a</span></span><br><span class="line">    <span class="type">int</span> a[<span class="number">10</span>] = &#123; <span class="number">1</span>, <span class="number">10</span>, <span class="number">4</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">8</span>, <span class="number">5</span>, <span class="number">9</span>, <span class="number">7</span>, <span class="number">6</span> &#125;;</span><br><span class="line">    <span class="comment">//这里令n = 10，方便给出通解</span></span><br><span class="line">    <span class="type">int</span> n = <span class="number">10</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt; n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">//摸一张新牌a[i],i之前的都是手牌，如果新牌大不用往回插，直接放右边就行，反之进行下面操作。</span></span><br><span class="line">        <span class="keyword">if</span> (a[i] &lt; a[i - <span class="number">1</span>])</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="comment">//临时变量temp存储新牌点数</span></span><br><span class="line">            <span class="type">int</span> temp = a[i];</span><br><span class="line">            <span class="comment">//j变量循环外单独定义，因为循环结束还会用到它，不然会报错未定义</span></span><br><span class="line">            <span class="type">int</span> j;</span><br><span class="line">            <span class="comment">//要插入新牌，循环往回找新牌点数介于哪个位置，结束条件要注意，因为这些牌都是升序排好的，所以从序数大到小直到找到第一张小于新牌为止</span></span><br><span class="line">            <span class="keyword">for</span> (j = i - <span class="number">1</span>; j &gt;= <span class="number">0</span> &amp;&amp; a[j] &gt; temp; j--)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="comment">//还没找到第一张小于新牌前，每张牌都要为新牌腾位置往右移。</span></span><br><span class="line">                a[j + <span class="number">1</span>] = a[j];</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">//找到后，在这张牌后一个位子插入新牌即可。</span></span><br><span class="line">            a[j + <span class="number">1</span>] = temp;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">        cout &lt;&lt; a[i] &lt;&lt; <span class="string">&#x27; &#x27;</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="四.桶排序">四.桶排序</h2>
+<h2 id="五.基数排序">五.基数排序</h2>
+<h2 id="六.计数排序">六.计数排序</h2>
+<h2 id="七.归并排序">七.归并排序</h2>
+<p>分分—-&gt;合合</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">int</span> a[<span class="number">1005</span>];</span><br><span class="line"><span class="type">int</span> b[<span class="number">1005</span>];</span><br><span class="line"><span class="type">int</span> n;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">bin</span><span class="params">(<span class="type">int</span> z, <span class="type">int</span> mid, <span class="type">int</span> y)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="type">int</span> q = z, p = mid + <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = z; i &lt;= y; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span> (p &gt; y || (q &lt;= mid &amp;&amp; a[q] &lt;= a[p]))</span><br><span class="line">		&#123;</span><br><span class="line">			b[i] = a[q++];</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span> b[i] = a[p++];</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = z; i &lt;= y; i++)</span><br><span class="line">		a[i] = b[i];</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">sot</span><span class="params">(<span class="type">int</span> z, <span class="type">int</span> y)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (z == y) <span class="keyword">return</span>;</span><br><span class="line">	<span class="type">int</span> mid = (y + z) / <span class="number">2</span>;</span><br><span class="line">	<span class="built_in">sot</span>(z, mid);</span><br><span class="line">	<span class="built_in">sot</span>(mid + <span class="number">1</span>, y);</span><br><span class="line">	<span class="built_in">bin</span>(z, mid, y);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	cin &gt;&gt; n;</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">		cin &gt;&gt; a[i];</span><br><span class="line">	<span class="built_in">sot</span>(<span class="number">1</span>, n);</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">		cout &lt;&lt; a[i] &lt;&lt; <span class="string">&#x27; &#x27;</span>;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="八.快速排序">八.快速排序</h2>
+<p>找基数，换换换</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">int</span> a[<span class="number">1005</span>];</span><br><span class="line"><span class="type">int</span> n;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">sot</span><span class="params">(<span class="type">int</span> z, <span class="type">int</span> y)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="type">int</span> mid = (z + y) / <span class="number">2</span>;</span><br><span class="line">	<span class="type">int</span> x = a[mid];</span><br><span class="line">	<span class="type">int</span> i = z, j = y;</span><br><span class="line">	<span class="keyword">while</span> (i &lt;= j)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">while</span> (a[i] &lt; x) i++;</span><br><span class="line">		<span class="keyword">while</span> (a[j] &gt; x) j--;</span><br><span class="line">		<span class="keyword">if</span> (i &lt;= j)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="built_in">swap</span>(a[i], a[j]);</span><br><span class="line">			i++;</span><br><span class="line">			j--;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span> (z &lt; j) <span class="built_in">sot</span>(z, j);</span><br><span class="line">	<span class="keyword">if</span> (i &lt; y) <span class="built_in">sot</span>(i, y);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	cin &gt;&gt; n;</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">		cin &gt;&gt; a[i];</span><br><span class="line">	<span class="built_in">sot</span>(<span class="number">1</span>, n);</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">		cout &lt;&lt; a[i] &lt;&lt; <span class="string">&#x27; &#x27;</span>;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>算法</category>
@@ -4011,40 +4016,6 @@ Image Installation</a></p>
       <tags>
         <tag>杂谈</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>排序算法</title>
-    <url>/2025/12/21/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/</url>
-    <content><![CDATA[<h1 id="八种排序">八种排序</h1>
-<pre><code>三种 O(n ^ 2)的排序：冒泡，选择，插入
-三种不基于比较的排序：桶，基数，计数
-最后是：归并排序，快速排序</code></pre>
-<h2 id="一.冒泡排序">一.冒泡排序</h2>
-<p>较简单，直接代码注释结合理解即可</p>
-<span id="more"></span>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">//给定乱序数组a</span></span><br><span class="line">    <span class="type">int</span> a[<span class="number">10</span>] = &#123; <span class="number">1</span>, <span class="number">10</span>, <span class="number">4</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">8</span>, <span class="number">5</span>, <span class="number">9</span>, <span class="number">7</span>, <span class="number">6</span> &#125;;</span><br><span class="line">    <span class="comment">//这里令n = 10，方便给出通解</span></span><br><span class="line">    <span class="type">int</span> n = <span class="number">10</span>;</span><br><span class="line">    <span class="comment">//两层循环，内层做从左到右遍历数组中未排序元素，并进行比较操作；外层每次去除已定序元素，限制下一次内循环排序范围。</span></span><br><span class="line">    <span class="comment">//外循环一共循环n - 1次，因为每一次外循环结束可以定下一个元素的位置，到第n - 1次排序完成，就只剩下一个元素，自然不用再排序。</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n - <span class="number">1</span>; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">//内循环从数组最左边元素到未定序的最右边元素遍历，注意！下面使用a[j+1]，这里的j范围要注意，不要越界了！</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt; n - <span class="number">1</span> - i; j++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="comment">//比较，此判断是将数组按升序排，降序反之即可</span></span><br><span class="line">            <span class="keyword">if</span> (a[j] &gt; a[j + <span class="number">1</span>])</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="comment">//临时变量temp，完成交换数组相邻两个元素</span></span><br><span class="line">                <span class="type">int</span> temp = a[j];</span><br><span class="line">                a[j] = a[j + <span class="number">1</span>];</span><br><span class="line">                a[j + <span class="number">1</span>] = temp;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">        cout &lt;&lt; a[i] &lt;&lt; <span class="string">&#x27; &#x27;</span>;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="二.选择排序">二.选择排序</h2>
-<p>较简单，直接代码注释结合理解即可</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">//给定乱序数组a</span></span><br><span class="line">    <span class="type">int</span> a[<span class="number">10</span>] = &#123; <span class="number">1</span>, <span class="number">10</span>, <span class="number">4</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">8</span>, <span class="number">5</span>, <span class="number">9</span>, <span class="number">7</span>, <span class="number">6</span> &#125;;</span><br><span class="line">    <span class="comment">//这里令n = 10，方便给出通解</span></span><br><span class="line">    <span class="type">int</span> n = <span class="number">10</span>;</span><br><span class="line">    <span class="comment">//两层循环，外层循环每次更新未定序最左元素下标mmin，然后到内循环进行数组遍历寻找未定序元素中更小值，循环结束后判断是否有更小值，如果有，就替换。</span></span><br><span class="line">    <span class="comment">//外循环一共循环n - 1次，因为每一次外循环结束可以定下一个元素的位置，到第n - 1次排序完成，就只剩下一个元素，自然不用再排序。</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n - <span class="number">1</span>; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">//每次更新未定序最左元素下标</span></span><br><span class="line">        <span class="type">int</span> mmin = i;</span><br><span class="line">        <span class="comment">//内循环进行数组遍历寻找未定序元素中更小值</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> j = i + <span class="number">1</span>; j &lt; n; j++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (a[j] &lt; a[mmin]) mmin = j;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//判断未定序元素中是否有更小值，如果有，就替换。</span></span><br><span class="line">        <span class="keyword">if</span> (mmin != i)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="type">int</span> temp = a[i];</span><br><span class="line">            a[i] = a[mmin];</span><br><span class="line">            a[mmin] = temp;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">        cout &lt;&lt; a[i] &lt;&lt; <span class="string">&#x27; &#x27;</span> ;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="三.插入排序">三.插入排序</h2>
-<p>打扑克牌时，当第一张摸到 6，然后第二张摸到
-5，会自然的与第一张比较，并把 5 插入到 6 的左边，第三张摸到 8，又把 8
-插入到 6
-的右边（不同个人习惯，就会有升降序不同的情况）总而言之，这就是插入排序法！下面代码实现</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">//给定乱序数组a</span></span><br><span class="line">    <span class="type">int</span> a[<span class="number">10</span>] = &#123; <span class="number">1</span>, <span class="number">10</span>, <span class="number">4</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">8</span>, <span class="number">5</span>, <span class="number">9</span>, <span class="number">7</span>, <span class="number">6</span> &#125;;</span><br><span class="line">    <span class="comment">//这里令n = 10，方便给出通解</span></span><br><span class="line">    <span class="type">int</span> n = <span class="number">10</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt; n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">//摸一张新牌a[i],i之前的都是手牌，如果新牌大不用往回插，直接放右边就行，反之进行下面操作。</span></span><br><span class="line">        <span class="keyword">if</span> (a[i] &lt; a[i - <span class="number">1</span>])</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="comment">//临时变量temp存储新牌点数</span></span><br><span class="line">            <span class="type">int</span> temp = a[i];</span><br><span class="line">            <span class="comment">//j变量循环外单独定义，因为循环结束还会用到它，不然会报错未定义</span></span><br><span class="line">            <span class="type">int</span> j;</span><br><span class="line">            <span class="comment">//要插入新牌，循环往回找新牌点数介于哪个位置，结束条件要注意，因为这些牌都是升序排好的，所以从序数大到小直到找到第一张小于新牌为止</span></span><br><span class="line">            <span class="keyword">for</span> (j = i - <span class="number">1</span>; j &gt;= <span class="number">0</span> &amp;&amp; a[j] &gt; temp; j--)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="comment">//还没找到第一张小于新牌前，每张牌都要为新牌腾位置往右移。</span></span><br><span class="line">                a[j + <span class="number">1</span>] = a[j];</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">//找到后，在这张牌后一个位子插入新牌即可。</span></span><br><span class="line">            a[j + <span class="number">1</span>] = temp;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">        cout &lt;&lt; a[i] &lt;&lt; <span class="string">&#x27; &#x27;</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="四.桶排序">四.桶排序</h2>
-<h2 id="五.基数排序">五.基数排序</h2>
-<h2 id="六.计数排序">六.计数排序</h2>
-<h2 id="七.归并排序">七.归并排序</h2>
-<p>分分—-&gt;合合</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">int</span> a[<span class="number">1005</span>];</span><br><span class="line"><span class="type">int</span> b[<span class="number">1005</span>];</span><br><span class="line"><span class="type">int</span> n;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">bin</span><span class="params">(<span class="type">int</span> z, <span class="type">int</span> mid, <span class="type">int</span> y)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="type">int</span> q = z, p = mid + <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = z; i &lt;= y; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span> (p &gt; y || (q &lt;= mid &amp;&amp; a[q] &lt;= a[p]))</span><br><span class="line">		&#123;</span><br><span class="line">			b[i] = a[q++];</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span> b[i] = a[p++];</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = z; i &lt;= y; i++)</span><br><span class="line">		a[i] = b[i];</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">sot</span><span class="params">(<span class="type">int</span> z, <span class="type">int</span> y)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (z == y) <span class="keyword">return</span>;</span><br><span class="line">	<span class="type">int</span> mid = (y + z) / <span class="number">2</span>;</span><br><span class="line">	<span class="built_in">sot</span>(z, mid);</span><br><span class="line">	<span class="built_in">sot</span>(mid + <span class="number">1</span>, y);</span><br><span class="line">	<span class="built_in">bin</span>(z, mid, y);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	cin &gt;&gt; n;</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">		cin &gt;&gt; a[i];</span><br><span class="line">	<span class="built_in">sot</span>(<span class="number">1</span>, n);</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">		cout &lt;&lt; a[i] &lt;&lt; <span class="string">&#x27; &#x27;</span>;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="八.快速排序">八.快速排序</h2>
-<p>找基数，换换换</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">int</span> a[<span class="number">1005</span>];</span><br><span class="line"><span class="type">int</span> n;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">sot</span><span class="params">(<span class="type">int</span> z, <span class="type">int</span> y)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="type">int</span> mid = (z + y) / <span class="number">2</span>;</span><br><span class="line">	<span class="type">int</span> x = a[mid];</span><br><span class="line">	<span class="type">int</span> i = z, j = y;</span><br><span class="line">	<span class="keyword">while</span> (i &lt;= j)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">while</span> (a[i] &lt; x) i++;</span><br><span class="line">		<span class="keyword">while</span> (a[j] &gt; x) j--;</span><br><span class="line">		<span class="keyword">if</span> (i &lt;= j)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="built_in">swap</span>(a[i], a[j]);</span><br><span class="line">			i++;</span><br><span class="line">			j--;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span> (z &lt; j) <span class="built_in">sot</span>(z, j);</span><br><span class="line">	<span class="keyword">if</span> (i &lt; y) <span class="built_in">sot</span>(i, y);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	cin &gt;&gt; n;</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">		cin &gt;&gt; a[i];</span><br><span class="line">	<span class="built_in">sot</span>(<span class="number">1</span>, n);</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">		cout &lt;&lt; a[i] &lt;&lt; <span class="string">&#x27; &#x27;</span>;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>算法</category>
-      </categories>
   </entry>
   <entry>
     <title>高精度算法</title>
