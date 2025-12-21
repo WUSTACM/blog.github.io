@@ -126,19 +126,9 @@
     <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
 
   </li>
-        
-            
-  <li class="menu-item menu-item-wiki">
+        <li class="menu-item menu-item-categories">
 
-    <a href="/wiki/" rel="section"><i class="fa fa-book fa-fw"></i>wiki</a>
-
-  </li>
-
-
-      
-        <li class="menu-item menu-item-about">
-
-    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
 
   </li>
         <li class="menu-item menu-item-tags">
@@ -146,9 +136,9 @@
     <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
 
   </li>
-        <li class="menu-item menu-item-categories">
+        <li class="menu-item menu-item-about">
 
-    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -273,56 +263,32 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="暑期多校-5e"><a
-target="_blank" rel="noopener" href="https://ac.nowcoder.com/acm/contest/108302/E">暑期多校 5E</a></h2>
-<span id="more"></span>
-<p>求<span class="math inline">∑∑</span> <span
-class="math inline"><em>a</em><sub><em>i</em>, <em>j</em></sub></span>
-经典考虑每一位的贡献</p>
+        <h2 id="暑期多校-5E"><a href="#暑期多校-5E" class="headerlink" title="暑期多校 5E"></a><span class="exturl" data-url="aHR0cHM6Ly9hYy5ub3djb2Rlci5jb20vYWNtL2NvbnRlc3QvMTA4MzAyL0U=">暑期多校 5E<i class="fa fa-external-link-alt"></i></span></h2><span id="more"></span>
+
+<p>求$\sum\sum$ $a_{i,j}$ 经典考虑每一位的贡献</p>
 <p>设当前是 第 t 位， 则贡献为(1ll &lt;&lt; t) 或者 0</p>
 <p>思考(1ll &lt;&lt; t)怎么产生</p>
 <p>首先第 t 位的异或结果要是 1 ，即一个 1，一个 0</p>
 <p>其次是异或结果第 t 位后面要有偶数个 1</p>
-<p>考虑 x 与 y；x 第 t 位后面的一有 <span
-class="math inline"><em>c</em><em>n</em><em>t</em><sub><em>x</em></sub></span>
-个， y 第 t 位后面的一又 <span
-class="math inline"><em>c</em><em>n</em><em>t</em><sub><em>y</em></sub></span>
-个，x， y 第 t 位后面的同位一有 k 个</p>
-<p>则异或结果第 t 位后面的一有 <span
-class="math inline"><em>c</em><em>n</em><em>t</em><sub><em>x</em></sub></span>
-- k + <span
-class="math inline"><em>c</em><em>n</em><em>t</em><sub><em>y</em></sub></span>
-- k = <span
-class="math inline"><em>c</em><em>n</em><em>t</em><sub><em>x</em></sub></span>
-+ <span
-class="math inline"><em>c</em><em>n</em><em>t</em><sub><em>y</em></sub></span>
-- 2 * k 个；</p>
-<p>故 <span
-class="math inline"><em>c</em><em>n</em><em>t</em><sub><em>x</em></sub></span>，
-<span
-class="math inline"><em>c</em><em>n</em><em>t</em><sub><em>y</em></sub></span>
-奇偶性一致即可</p>
+<p>考虑 x 与 y；x 第 t 位后面的一有 $cnt_x$ 个， y 第 t 位后面的一又 $cnt_y$ 个，x， y 第 t 位后面的同位一有 k 个</p>
+<p>则异或结果第 t 位后面的一有 $cnt_x$ - k + $cnt_y$ - k &#x3D; $cnt_x$ + $cnt_y$ - 2 * k 个；</p>
+<p>故 $cnt_x$， $cnt_y$ 奇偶性一致即可</p>
 <p>下面是参考 jiangly 的代码后写的</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">ll n, a[N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">cl</span><span class="params">(ll sum)</span></span>&#123;</span><br><span class="line">	ll ans = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">while</span>(sum)&#123;</span><br><span class="line">		<span class="keyword">if</span>(sum&amp;<span class="number">1</span>)ans++;</span><br><span class="line">		sum&gt;&gt;=<span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span></span>&#123;</span><br><span class="line">	cin &gt;&gt; n;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++)cin &gt;&gt; a[i];</span><br><span class="line">	ll ans = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> t = <span class="number">0</span>; t &lt; <span class="number">30</span>; t++)&#123;</span><br><span class="line">		<span class="type">int</span> cnt[<span class="number">2</span>][<span class="number">2</span>] = &#123;&#125;;</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++)&#123;</span><br><span class="line">			cnt[(a[i] &gt;&gt; t) &amp; <span class="number">1</span>][<span class="built_in">cl</span>(a[i] &amp; ((<span class="number">1</span> &lt;&lt; t) - <span class="number">1</span>)) &amp; <span class="number">1</span>]++;</span><br><span class="line">		&#125;</span><br><span class="line">		ans += (<span class="number">1ll</span> &lt;&lt; t) * ((<span class="number">1ll</span> * cnt[<span class="number">0</span>][<span class="number">0</span>] * cnt[<span class="number">1</span>][<span class="number">0</span>]) + (<span class="number">1ll</span> * cnt[<span class="number">0</span>][<span class="number">1</span>] * cnt[<span class="number">1</span>][<span class="number">1</span>]));</span><br><span class="line">        <span class="comment">//计数原理</span></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	cout &lt;&lt; ans &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h2 id="暑期多校-5j"><a
-target="_blank" rel="noopener" href="https://ac.nowcoder.com/acm/contest/108302/J">暑期多校 5J</a></h2>
-<p>最小化一个很复杂的东西的值，考虑二分</p>
+
+<h2 id="暑期多校-5J"><a href="#暑期多校-5J" class="headerlink" title="暑期多校 5J"></a><span class="exturl" data-url="aHR0cHM6Ly9hYy5ub3djb2Rlci5jb20vYWNtL2NvbnRlc3QvMTA4MzAyL0o=">暑期多校 5J<i class="fa fa-external-link-alt"></i></span></h2><p>最小化一个很复杂的东西的值，考虑二分</p>
 <p>先 bfs 跑一遍求 dis[i] [j];</p>
 <p>关键是 check 怎么写</p>
-<p>对于 check(int d)，如果有 dis[i] [j] &gt; d
-，我们就要考虑用加的点去让 dis[i] [j] <span class="math inline">≤</span>
-d;</p>
-<p>设加的点是 x， y， 则有 | x - i | + | y - j| $ $ d;</p>
+<p>对于 check(int d)，如果有 dis[i] [j] &gt; d ，我们就要考虑用加的点去让 dis[i] [j] $\leq$ d;</p>
+<p>设加的点是 x， y， 则有 | x - i | + | y - j| $ \leq$ d;</p>
 <p>解方程，有</p>
-<p>x - i + y - j <span class="math inline">≤</span> d;</p>
-<p>x - i + j - y <span class="math inline">≤</span> d;</p>
-<p>i - x + y - j <span class="math inline">≤</span> d;</p>
-<p>i - x + j - y <span class="math inline">≤</span> d;</p>
+<p>x - i + y - j $\leq$ d;</p>
+<p>x - i + j - y $\leq$ d;</p>
+<p>i - x + y - j $\leq$ d;</p>
+<p>i - x + j - y $\leq$ d;</p>
 <p>整理有</p>
-<p>i + j - d <span class="math inline">≤</span> x + y <span
-class="math inline">≤</span> i + j + d</p>
-<p>i - j - d <span class="math inline">≤</span> x - y <span
-class="math inline">≤</span> i - j + d</p>
+<p>i + j - d $\leq$ x + y $\leq$ i + j + d</p>
+<p>i - j - d $\leq$ x - y $\leq$ i - j + d</p>
 <p>下面是参考 InfiniteDarkBee 的代码后写的</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line">ll n, m, x;</span><br><span class="line"><span class="type">int</span> mo[<span class="number">6</span>] = &#123;<span class="number">1</span>, <span class="number">0</span>, <span class="number">-1</span>, <span class="number">0</span>, <span class="number">1</span>&#125;;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span></span>&#123;</span><br><span class="line">	cin &gt;&gt; n &gt;&gt; m;</span><br><span class="line">	vector&lt;vector&lt;<span class="type">int</span>&gt;&gt;<span class="built_in">dis</span>(n<span class="number">+2</span>, <span class="built_in">vector</span>&lt;<span class="type">int</span>&gt;(m<span class="number">+2</span>, INF));</span><br><span class="line">	queue&lt;array&lt;<span class="type">int</span>, 2&gt;&gt;q;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++)&#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> j = <span class="number">1</span>; j &lt;= m; j++)&#123;</span><br><span class="line">			cin &gt;&gt; x;</span><br><span class="line">			<span class="keyword">if</span>(x==<span class="number">1</span>)&#123;</span><br><span class="line">				dis[i][j] = <span class="number">0</span>;</span><br><span class="line">				q.<span class="built_in">push</span>(&#123;i, j&#125;);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">while</span>(!q.<span class="built_in">empty</span>())&#123;</span><br><span class="line">		<span class="keyword">auto</span> it = q.<span class="built_in">front</span>(); q.<span class="built_in">pop</span>();</span><br><span class="line">		<span class="type">int</span> x = it[<span class="number">0</span>], y = it[<span class="number">1</span>];</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">4</span>; i++)&#123;</span><br><span class="line">			<span class="type">int</span> xx = x + mo[i];</span><br><span class="line">			<span class="type">int</span> yy = y + mo[i<span class="number">+1</span>];</span><br><span class="line">			<span class="keyword">if</span>(xx&lt;<span class="number">1</span>||xx&gt;n||yy&lt;<span class="number">1</span>||yy&gt;m)<span class="keyword">continue</span>;</span><br><span class="line">			<span class="keyword">if</span>(dis[xx][yy] &gt; dis[x][y] + <span class="number">1</span>)&#123;</span><br><span class="line">				dis[xx][yy] = dis[x][y] + <span class="number">1</span>;</span><br><span class="line">				q.<span class="built_in">push</span>(&#123;xx, yy&#125;);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">auto</span> check =[&amp;](<span class="type">int</span> d) -&gt; <span class="type">bool</span>&#123;</span><br><span class="line">		<span class="type">int</span> lx = -INF, rx = INF, ly = -INF, ry = INF;</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++)&#123;</span><br><span class="line">			<span class="keyword">for</span>(<span class="type">int</span> j = <span class="number">1</span>; j &lt;= m; j++)&#123;</span><br><span class="line">				<span class="keyword">if</span>(dis[i][j] &gt; d)&#123;</span><br><span class="line">					lx = <span class="built_in">max</span>(lx, i + j - d);</span><br><span class="line">					rx = <span class="built_in">min</span>(rx, i + j + d);</span><br><span class="line">					ly = <span class="built_in">max</span>(ly, i - j - d);</span><br><span class="line">					ry = <span class="built_in">min</span>(ry, i - j + d);</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++)&#123;</span><br><span class="line">			<span class="keyword">for</span>(<span class="type">int</span> j = <span class="number">1</span>; j &lt;= m; j++)&#123;</span><br><span class="line">				<span class="keyword">if</span>(i + j &gt;= lx &amp;&amp; i + j &lt;= rx &amp;&amp; i - j &gt;= ly &amp;&amp; i - j &lt;= ry)<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">	&#125;;</span><br><span class="line"></span><br><span class="line">	ll l = <span class="number">0</span>, r = INF;</span><br><span class="line">	<span class="keyword">while</span>(l &lt;= r)&#123;</span><br><span class="line">		ll mid = l + (r - l) / <span class="number">2</span>;</span><br><span class="line">		<span class="keyword">if</span>(<span class="built_in">check</span>(mid))r = mid - <span class="number">1</span>;</span><br><span class="line">		<span class="keyword">else</span> l = mid + <span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	cout &lt;&lt; l &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
@@ -361,8 +327,8 @@ class="math inline">≤</span> i - j + d</p>
       <i class="fa fa-chevron-left"></i> 对拍
     </a></div>
       <div class="post-nav-item">
-    <a href="/2025/09/10/%E5%A4%9A%E5%85%83%E5%87%BD%E6%95%B0%E5%BE%AE%E5%88%86/" rel="next" title="多元函数微分">
-      多元函数微分 <i class="fa fa-chevron-right"></i>
+    <a href="/2025/09/10/%E5%A4%9A%E6%A0%A11%E9%A2%98%E8%A7%A3I/" rel="next" title="多校1题解I/区间dp">
+      多校1题解I/区间dp <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -422,7 +388,7 @@ class="math inline">≤</span> i - j + d</p>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9A%91%E6%9C%9F%E5%A4%9A%E6%A0%A1-5e"><span class="nav-number">1.</span> <span class="nav-text">暑期多校 5E</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9A%91%E6%9C%9F%E5%A4%9A%E6%A0%A1-5j"><span class="nav-number">2.</span> <span class="nav-text">暑期多校 5J</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9A%91%E6%9C%9F%E5%A4%9A%E6%A0%A1-5E"><span class="nav-number">1.</span> <span class="nav-text">暑期多校 5E</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9A%91%E6%9C%9F%E5%A4%9A%E6%A0%A1-5J"><span class="nav-number">2.</span> <span class="nav-text">暑期多校 5J</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 

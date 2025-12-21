@@ -326,33 +326,6 @@
   </url>
   
   <url>
-    <loc>http://example.com/wiki/Survival-Guide/index.html</loc>
-    
-    <lastmod>2025-12-21</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://example.com/wiki/csdiy/index.html</loc>
-    
-    <lastmod>2025-12-21</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://example.com/wiki/index.html</loc>
-    
-    <lastmod>2025-12-21</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>http://example.com/about/index.html</loc>
     
     <lastmod>2025-12-21</lastmod>
@@ -417,14 +390,14 @@
   </url>
   
   <url>
-    <loc>http://example.com/categories/%E9%A2%98%E8%A7%A3/</loc>
+    <loc>http://example.com/categories/%E7%AE%97%E6%B3%95/</loc>
     <lastmod>2025-12-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>http://example.com/categories/%E7%AE%97%E6%B3%95/</loc>
+    <loc>http://example.com/categories/%E9%A2%98%E8%A7%A3/</loc>
     <lastmod>2025-12-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -445,14 +418,14 @@
   </url>
   
   <url>
-    <loc>http://example.com/categories/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/</loc>
+    <loc>http://example.com/categories/cpp/</loc>
     <lastmod>2025-12-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>http://example.com/categories/cpp/</loc>
+    <loc>http://example.com/categories/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/</loc>
     <lastmod>2025-12-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>

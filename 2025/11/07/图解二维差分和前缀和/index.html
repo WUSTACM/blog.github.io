@@ -20,24 +20,28 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":"flat"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="在此感谢本文主要笔者 25 级 xiaozhangup 图解二维差分和前缀和 前情提要 本文档中所有表格的左上角格子定义为 (0, 0)，暂且把它称为 原格；表格的最左上角的点，我们把它称为 原点。向右和向下为正方向。 本文旨在通过几何图像直观介绍二维前缀和和差分的概念，仅关注 “它是什么” 和 “它表示什么” ，不涉及具体代码实现细节。 你必须先理解一维前缀和和一维差分才可以顺畅阅读本教程。">
+  <meta name="description" content="在此感谢本文主要笔者 25 级 xiaozhangup 图解二维差分和前缀和前情提要本文档中所有表格的左上角格子定义为 (0, 0)，暂且把它称为 原格；表格的最左上角的点，我们把它称为 原点。向右和向下为正方向。本文旨在通过几何图像直观介绍二维前缀和和差分的概念，仅关注 “它是什么” 和 “它表示什么” ，不涉及具体代码实现细节。你必须先理解一维前缀和和一维差分才可以顺畅阅读本教程。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="图解二维差分和前缀和">
 <meta property="og:url" content="http://example.com/2025/11/07/%E5%9B%BE%E8%A7%A3%E4%BA%8C%E7%BB%B4%E5%B7%AE%E5%88%86%E5%92%8C%E5%89%8D%E7%BC%80%E5%92%8C/index.html">
 <meta property="og:site_name" content="WUSTACM">
-<meta property="og:description" content="在此感谢本文主要笔者 25 级 xiaozhangup 图解二维差分和前缀和 前情提要 本文档中所有表格的左上角格子定义为 (0, 0)，暂且把它称为 原格；表格的最左上角的点，我们把它称为 原点。向右和向下为正方向。 本文旨在通过几何图像直观介绍二维前缀和和差分的概念，仅关注 “它是什么” 和 “它表示什么” ，不涉及具体代码实现细节。 你必须先理解一维前缀和和一维差分才可以顺畅阅读本教程。">
+<meta property="og:description" content="在此感谢本文主要笔者 25 级 xiaozhangup 图解二维差分和前缀和前情提要本文档中所有表格的左上角格子定义为 (0, 0)，暂且把它称为 原格；表格的最左上角的点，我们把它称为 原点。向右和向下为正方向。本文旨在通过几何图像直观介绍二维前缀和和差分的概念，仅关注 “它是什么” 和 “它表示什么” ，不涉及具体代码实现细节。你必须先理解一维前缀和和一维差分才可以顺畅阅读本教程。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/assets/20251106-0.png">
 <meta property="og:image" content="http://example.com/assets/20251106-1.png">
 <meta property="og:image" content="http://example.com/assets/20251106-2.png">
+<meta property="og:image" content="http://example.com/assets/20251106-3.png">
 <meta property="og:image" content="http://example.com/assets/20251106-4.png">
 <meta property="og:image" content="http://example.com/assets/20251106-5.png">
+<meta property="og:image" content="http://example.com/assets/20251106-6.png">
 <meta property="og:image" content="http://example.com/assets/20251106-7.png">
 <meta property="og:image" content="http://example.com/assets/20251106-0.png">
 <meta property="og:image" content="http://example.com/assets/20251106-13.png">
+<meta property="og:image" content="http://example.com/assets/20251106-14.png">
 <meta property="og:image" content="http://example.com/assets/20251106-8.png">
 <meta property="og:image" content="http://example.com/assets/20251106-9.png">
 <meta property="og:image" content="http://example.com/assets/20251106-10.png">
+<meta property="og:image" content="http://example.com/assets/20251106-11.png">
 <meta property="og:image" content="http://example.com/assets/20251106-12.png">
 <meta property="article:published_time" content="2025-11-07T07:58:16.460Z">
 <meta property="article:modified_time" content="2025-12-21T07:36:40.396Z">
@@ -139,19 +143,9 @@
     <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
 
   </li>
-        
-            
-  <li class="menu-item menu-item-wiki">
+        <li class="menu-item menu-item-categories">
 
-    <a href="/wiki/" rel="section"><i class="fa fa-book fa-fw"></i>wiki</a>
-
-  </li>
-
-
-      
-        <li class="menu-item menu-item-about">
-
-    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
 
   </li>
         <li class="menu-item menu-item-tags">
@@ -159,9 +153,9 @@
     <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
 
   </li>
-        <li class="menu-item menu-item-categories">
+        <li class="menu-item menu-item-about">
 
-    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -287,103 +281,55 @@
 
       
         <p><strong>在此感谢本文主要笔者 25 级 xiaozhangup</strong></p>
-<h1 id="图解二维差分和前缀和">图解二维差分和前缀和</h1>
-<h2 id="前情提要">前情提要</h2>
-<p>本文档中所有表格的左上角格子定义为 <code>(0, 0)</code>，暂且把它称为
-<code>原格</code>；表格的最左上角的点，我们把它称为
-<code>原点</code>。向右和向下为正方向。<br />
-本文旨在通过几何图像直观介绍二维前缀和和差分的概念，仅关注 “它是什么” 和
-“它表示什么” ，不涉及具体代码实现细节。<br />
-你必须先理解一维前缀和和一维差分才可以顺畅阅读本教程。</p>
+<h1 id="图解二维差分和前缀和"><a href="#图解二维差分和前缀和" class="headerlink" title="图解二维差分和前缀和"></a>图解二维差分和前缀和</h1><h2 id="前情提要"><a href="#前情提要" class="headerlink" title="前情提要"></a>前情提要</h2><p>本文档中所有表格的左上角格子定义为 <code>(0, 0)</code>，暂且把它称为 <code>原格</code>；表格的最左上角的点，我们把它称为 <code>原点</code>。向右和向下为正方向。<br>本文旨在通过几何图像直观介绍二维前缀和和差分的概念，仅关注 “它是什么” 和 “它表示什么” ，不涉及具体代码实现细节。<br>你必须先理解一维前缀和和一维差分才可以顺畅阅读本教程。</p>
 <span id="more"></span>
-<h2 id="对于二维前缀和">对于二维前缀和</h2>
-<p>我们如图定义一个 <code>5*5</code>
-的二维数值矩阵，这也将是我们存储前缀和的矩阵。<br />
-<img src="/assets/20251106-0.png" /></p>
-<p>那么，前缀和是什么？ 简单概括一下：</p>
+
+<h2 id="对于二维前缀和"><a href="#对于二维前缀和" class="headerlink" title="对于二维前缀和"></a>对于二维前缀和</h2><p>我们如图定义一个 <code>5*5</code> 的二维数值矩阵，这也将是我们存储前缀和的矩阵。<br><img src="/assets/20251106-0.png"></p>
+<p>那么，前缀和是什么？<br>简单概括一下：</p>
 <figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">我们定义黄色色块所在的格子是 (x,y)，那么:</span><br><span class="line">黄色格子(x,y) 内的数值就是从 ```原数组``` 的原格到黄色格子(x,y) ，所覆盖的格子(红色+黄色) 内的所有数字的和。</span><br></pre></td></tr></table></figure>
-<p><img src="/assets/20251106-1.png" /></p>
-<p>来用一个更好懂的图片来描述：<br />
-从黄色格子(x, y)
-作为原格右下角点出发，向其左和上方做射线，所形成的区域包含的所有格子内
-<code>原数组数值</code> 的和就是这个黄色格子内的数值，我们给出两个例图：
-<img src="/assets/20251106-2.png" /> <img
-src="/assets/20251106-3.png" /></p>
-<p>这就是前缀和二维数组中每个格子的含义。<br />
-那么，快速求和是什么逻辑？<br />
-我们可以把它简单理解为图形的割补。<br />
-现在，抛开之前的所有定义，我们仅仅从几何的角度来进行分析：</p>
+
+<p><img src="/assets/20251106-1.png"></p>
+<p>来用一个更好懂的图片来描述：<br>从黄色格子(x, y) 作为原格右下角点出发，向其左和上方做射线，所形成的区域包含的所有格子内 <code>原数组数值</code> 的和就是这个黄色格子内的数值，我们给出两个例图：<br><img src="/assets/20251106-2.png"><br><img src="/assets/20251106-3.png"></p>
+<p>这就是前缀和二维数组中每个格子的含义。<br>那么，快速求和是什么逻辑？<br>我们可以把它简单理解为图形的割补。<br>现在，抛开之前的所有定义，我们仅仅从几何的角度来进行分析：</p>
 <figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">我每次只能切或者补一个一定包含原点为其其中一个顶点的矩形，</span><br><span class="line">我们需要几步把图中的这个灰色矩形切出来？</span><br></pre></td></tr></table></figure>
-<p><img src="/assets/20251106-4.png" /></p>
-<p>很简单，按照如图的 3 步即可达到我们的目的！<br />
-第一步：<br />
-取全部的绿色部分<br />
-<img src="/assets/20251106-5.png" /></p>
-<p>第二步：<br />
-割掉红色的那两个部分<br />
-初见端倪，为什么左上角颜色更深？<br />
-因为左上角那一块我们切割了两次！ <img
-src="/assets/20251106-6.png" /></p>
-<p>第三步：<br />
-把切割了两次的红色区域补上一块 (红色变浅了)。<br />
-如此一来，剩下的绿色不就是我们想要的区域了吗？<br />
-<img src="/assets/20251106-7.png" /></p>
+
+<p><img src="/assets/20251106-4.png"></p>
+<p>很简单，按照如图的 3 步即可达到我们的目的！<br>第一步：<br>取全部的绿色部分<br><img src="/assets/20251106-5.png"></p>
+<p>第二步：<br>割掉红色的那两个部分<br>初见端倪，为什么左上角颜色更深？<br>因为左上角那一块我们切割了两次！<br><img src="/assets/20251106-6.png"></p>
+<p>第三步：<br>把切割了两次的红色区域补上一块 (红色变浅了)。<br>如此一来，剩下的绿色不就是我们想要的区域了吗？<br><img src="/assets/20251106-7.png"></p>
 <p>那么，根据我们切割的步骤，把他用数学逻辑表示出来：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">S(绿色的面积) = S(绿色右下角点到原点构成的矩形) - S(绿色左下角点到原点构成的矩形) - S(绿色右上角点到原点构成的矩形) + S(绿色左上角点到原点构成的矩形)</span><br></pre></td></tr></table></figure>
-<p>我们这里所谓的 “面积”，不正是前缀和矩阵中格子的数值吗？<br />
-用程序代码表示一下，那就是：</p>
+
+<p>我们这里所谓的 “面积”，不正是前缀和矩阵中格子的数值吗？<br>用程序代码表示一下，那就是：</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> prefix[<span class="number">5</span>][<span class="number">5</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">// x1, y1, x2, y2 分别是矩形左上角和右下角坐标</span></span><br><span class="line"><span class="comment">// 这里的算式和上面的文字顺序是一一对应的</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">sum</span><span class="params">(<span class="type">int</span> x1, <span class="type">int</span> y1, <span class="type">int</span> x2, <span class="type">int</span> y2)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> prefix[x2][y2] - prefix[x1 - <span class="number">1</span>][y2] - prefix[x2][y1 - <span class="number">1</span>] + prefix[x1 - <span class="number">1</span>][y1 - <span class="number">1</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p>如此一来，我们就完成了区域的和计算。</p>
-<h2 id="对于二维差分">对于二维差分</h2>
-<p>我们如图定义一个 <code>5*5</code>
-的二维数值矩阵，这也将是我们存储二维差分的矩阵。<br />
-<img src="/assets/20251106-0.png" /></p>
-<p>那么，差分是什么？ 简单概括一下：</p>
+<h2 id="对于二维差分"><a href="#对于二维差分" class="headerlink" title="对于二维差分"></a>对于二维差分</h2><p>我们如图定义一个 <code>5*5</code> 的二维数值矩阵，这也将是我们存储二维差分的矩阵。<br><img src="/assets/20251106-0.png"></p>
+<p>那么，差分是什么？<br>简单概括一下：</p>
 <figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">我们定义黄色色块所在的格子是 (x,y)，那么:</span><br><span class="line">黄色格子(x,y) 内的数值就是被黄色覆盖的 ```原数组``` 内的所有数字和相较于被红色覆盖的 ```原数组``` 内的所有数字和的变化量。</span><br><span class="line">例如红色部分的和是 18，黄色部分的和是 20，多了 2，那么 ```差分数组``` 中黄色格子内的值就是 +2；</span><br><span class="line">如果红色部分的和是 18，黄色部分的和是 16，少了 2，那么 ```差分数组``` 中黄色格子内的值就是 -2；</span><br></pre></td></tr></table></figure>
-<p><img src="/assets/20251106-13.png" /> <img
-src="/assets/20251106-14.png" />
-这就是差分二维数组中每个格子的含义。</p>
-<p>那么，快速批量修改数组中间的某一块的数值是什么逻辑？<br />
-我们只需要记住这一点就可以快速理解二位差分的原理了：<br />
-<code>对每一个格子操作所带来的影响都是面性的，影响其右下角范围内的所有格子</code></p>
-<p>看图更易于理解：<br />
-这里我们假设我们修改了黄色格子内的差分数值，那么被该修改影响的矩形范围如下(类似前缀和，这里也是射线！)<br />
-<img src="/assets/20251106-8.png" /> 如果我们对黄色
-+8，那么灰色区域全部都会被 +8。这一整个面内的格子都被抬升了 8。<br />
-相反的，如果我们对黄色 -8，那么灰色区域全部都会被
--8。这一整个面内的格子都被下降了 8。</p>
-<p>那么，范围性修改又是怎么做到的呢？<br />
-现在再次忘掉前缀和，只关注最简单的平面几何：</p>
+
+<p><img src="/assets/20251106-13.png"><br><img src="/assets/20251106-14.png"><br>这就是差分二维数组中每个格子的含义。</p>
+<p>那么，快速批量修改数组中间的某一块的数值是什么逻辑？<br>我们只需要记住这一点就可以快速理解二位差分的原理了：<br><code>对每一个格子操作所带来的影响都是面性的，影响其右下角范围内的所有格子</code></p>
+<p>看图更易于理解：<br>这里我们假设我们修改了黄色格子内的差分数值，那么被该修改影响的矩形范围如下(类似前缀和，这里也是射线！)<br><img src="/assets/20251106-8.png"><br>如果我们对黄色 +8，那么灰色区域全部都会被 +8。这一整个面内的格子都被抬升了 8。<br>相反的，如果我们对黄色 -8，那么灰色区域全部都会被 -8。这一整个面内的格子都被下降了 8。</p>
+<p>那么，范围性修改又是怎么做到的呢？<br>现在再次忘掉前缀和，只关注最简单的平面几何：</p>
 <figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">我每次只能切或者补一个无限向右下角延申的矩形，</span><br><span class="line">需要几步把图中的这个灰色矩形切出来？</span><br></pre></td></tr></table></figure>
-<p>和我们前面对前缀和的几何化理解逻辑一样，但这次我们更自由了，不需要盯着原点不放了。
-<img src="/assets/20251106-9.png" /></p>
-<p>依然只需要三步，和之前大同小异！<br />
-第一步：<br />
-从灰色矩形的左上角点取全部的矩形<br />
-<img src="/assets/20251106-10.png" /></p>
-<p>第二步：<br />
-从灰色的右上角点和左下角点取两个矩形割掉<br />
-再见端倪，为什么右下角颜色更深？<br />
-因为右下角那一块我们切割了两次！ <img
-src="/assets/20251106-11.png" /></p>
-<p>第三步：<br />
-把切割了两次的右下角区域补上一块 (右下角变浅了)。<br />
-类似我们取绿色块的操作，给变浅的那一块加上这个数即可影响到右下角的所有被切割了两次的块。<br />
-<img src="/assets/20251106-12.png" /></p>
-<p>红绿重叠的部分相互抵消
-(因为我们加减了相同的数值)，现在只剩下原先的灰色块了。<br />
-至此，区域修改完成！只有我们想要的格子们被改变，其他格子没有被改变。</p>
+
+<p>和我们前面对前缀和的几何化理解逻辑一样，但这次我们更自由了，不需要盯着原点不放了。<br><img src="/assets/20251106-9.png"></p>
+<p>依然只需要三步，和之前大同小异！<br>第一步：<br>从灰色矩形的左上角点取全部的矩形<br><img src="/assets/20251106-10.png"></p>
+<p>第二步：<br>从灰色的右上角点和左下角点取两个矩形割掉<br>再见端倪，为什么右下角颜色更深？<br>因为右下角那一块我们切割了两次！<br><img src="/assets/20251106-11.png"></p>
+<p>第三步：<br>把切割了两次的右下角区域补上一块 (右下角变浅了)。<br>类似我们取绿色块的操作，给变浅的那一块加上这个数即可影响到右下角的所有被切割了两次的块。<br><img src="/assets/20251106-12.png"></p>
+<p>红绿重叠的部分相互抵消 (因为我们加减了相同的数值)，现在只剩下原先的灰色块了。<br>至此，区域修改完成！只有我们想要的格子们被改变，其他格子没有被改变。</p>
 <p>如图中那样，我们其实只改变了四个格子的数值：</p>
 <ul>
 <li>灰色块中的左上块</li>
 <li>灰色块中右上块的右边一块</li>
 <li>灰色块中左下块的下边一块</li>
-<li>灰色块中右下块的右下块 用程序代码来表示一下：</li>
+<li>灰色块中右下块的右下块<br>用程序代码来表示一下：</li>
 </ul>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> diff[<span class="number">5</span>][<span class="number">5</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">// x1, y1, x2, y2 分别是灰色块左上角和右下角坐标</span></span><br><span class="line"><span class="comment">// val 是你修改的数值</span></span><br><span class="line"><span class="comment">// 这里的修改顺序和上面的文字顺序是一一对应的</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">add</span><span class="params">(<span class="type">int</span> x1, <span class="type">int</span> y1, <span class="type">int</span> x2, <span class="type">int</span> y2, <span class="type">int</span> val)</span> </span>&#123;</span><br><span class="line">    diff[x1][y1] += val;</span><br><span class="line">    diff[x2 + <span class="number">1</span>][y1] -= val;</span><br><span class="line">    diff[x1][y2 + <span class="number">1</span>] -= val;</span><br><span class="line">    diff[x2 + <span class="number">1</span>][y2 + <span class="number">1</span>] += val;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>如此一来，我们就完成了差分的区域修改。</p>
-<h4 id="教程完感谢阅读">教程完，感谢阅读！</h4>
 
+<p>如此一来，我们就完成了差分的区域修改。</p>
+<h4 id="教程完，感谢阅读！"><a href="#教程完，感谢阅读！" class="headerlink" title="教程完，感谢阅读！"></a>教程完，感谢阅读！</h4>
     </div>
 
     
@@ -480,7 +426,7 @@ src="/assets/20251106-11.png" /></p>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9B%BE%E8%A7%A3%E4%BA%8C%E7%BB%B4%E5%B7%AE%E5%88%86%E5%92%8C%E5%89%8D%E7%BC%80%E5%92%8C"><span class="nav-number">1.</span> <span class="nav-text">图解二维差分和前缀和</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E6%83%85%E6%8F%90%E8%A6%81"><span class="nav-number">1.1.</span> <span class="nav-text">前情提要</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AF%B9%E4%BA%8E%E4%BA%8C%E7%BB%B4%E5%89%8D%E7%BC%80%E5%92%8C"><span class="nav-number">1.2.</span> <span class="nav-text">对于二维前缀和</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AF%B9%E4%BA%8E%E4%BA%8C%E7%BB%B4%E5%B7%AE%E5%88%86"><span class="nav-number">1.3.</span> <span class="nav-text">对于二维差分</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%99%E7%A8%8B%E5%AE%8C%E6%84%9F%E8%B0%A2%E9%98%85%E8%AF%BB"><span class="nav-number">1.3.1.</span> <span class="nav-text">教程完，感谢阅读！</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9B%BE%E8%A7%A3%E4%BA%8C%E7%BB%B4%E5%B7%AE%E5%88%86%E5%92%8C%E5%89%8D%E7%BC%80%E5%92%8C"><span class="nav-number">1.</span> <span class="nav-text">图解二维差分和前缀和</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E6%83%85%E6%8F%90%E8%A6%81"><span class="nav-number">1.1.</span> <span class="nav-text">前情提要</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AF%B9%E4%BA%8E%E4%BA%8C%E7%BB%B4%E5%89%8D%E7%BC%80%E5%92%8C"><span class="nav-number">1.2.</span> <span class="nav-text">对于二维前缀和</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AF%B9%E4%BA%8E%E4%BA%8C%E7%BB%B4%E5%B7%AE%E5%88%86"><span class="nav-number">1.3.</span> <span class="nav-text">对于二维差分</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%99%E7%A8%8B%E5%AE%8C%EF%BC%8C%E6%84%9F%E8%B0%A2%E9%98%85%E8%AF%BB%EF%BC%81"><span class="nav-number">1.3.1.</span> <span class="nav-text">教程完，感谢阅读！</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
