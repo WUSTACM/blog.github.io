@@ -191,7 +191,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN,en,default">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/12/21/%E5%8D%9A%E5%AE%A2%E8%BD%AC%E7%A7%BB/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/12/22/2025%E8%8F%9C%E9%B8%9F%E6%9D%AF%E9%A2%98%E8%A7%A3/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -205,7 +205,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2025/12/21/%E5%8D%9A%E5%AE%A2%E8%BD%AC%E7%A7%BB/" class="post-title-link" itemprop="url">博客转移</a>
+            <a href="/2024/12/22/2025%E8%8F%9C%E9%B8%9F%E6%9D%AF%E9%A2%98%E8%A7%A3/" class="post-title-link" itemprop="url">2025菜鸟杯题解</a>
         </h2>
 
         <div class="post-meta">
@@ -215,15 +215,24 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2025-12-21 00:00:00" itemprop="dateCreated datePublished" datetime="2025-12-21T00:00:00+00:00">2025-12-21</time>
+              <time title="创建时间：2024-12-22 00:00:00" itemprop="dateCreated datePublished" datetime="2024-12-22T00:00:00+00:00">2024-12-22</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-12-22 07:14:48" itemprop="dateModified" datetime="2025-12-22T07:14:48+00:00">2025-12-22</time>
+                <time title="修改时间：2025-12-22 07:17:04" itemprop="dateModified" datetime="2025-12-22T07:17:04+00:00">2025-12-22</time>
               </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E9%A2%98%E8%A7%A3/" itemprop="url" rel="index"><span itemprop="name">题解</span></a>
+                </span>
+            </span>
 
           <br>
             <span class="post-meta-item" title="本文字数">
@@ -231,14 +240,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>10</span>
+              <span>5.7k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
+              <span>21 分钟</span>
             </span>
 
         </div>
@@ -250,10 +259,12 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="博客网站转移-2025-12-21">博客网站转移 2025-12-21</h2>
+          <h1 id="官方题解">官方题解</h1>
+<h2 id="b-题题解">B 题题解</h2>
+<p>本题是一个纯数学思维题，难度中等，侧重考察数学思维能力</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2025/12/21/%E5%8D%9A%E5%AE%A2%E8%BD%AC%E7%A7%BB/#more" rel="contents">
+              <a class="btn" href="/2024/12/22/2025%E8%8F%9C%E9%B8%9F%E6%9D%AF%E9%A2%98%E8%A7%A3/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -548,6 +559,59 @@ window.addEventListener('pjax:success', () => {
   
 
   
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 
