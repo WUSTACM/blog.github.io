@@ -34,7 +34,14 @@ jobs:
       - name: Build
         run: |
           npx hexo clean
-          npx hexo generate
+          npx hexo generate --debug
+
+      - name: Verify output
+        run: |
+          ls -lah public | head -n 50
+          test -s public/index.html
+          wc -c public/index.html
+          head -n 30 public/index.html
 
       - name: Deploy to gh-pages
         uses: peaceiris/actions-gh-pages@v4
