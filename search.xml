@@ -1217,6 +1217,321 @@ href="https://blog.wustacm.org/2025/12/15/2025%E8%8F%9C%E9%B8%9F%E6%9D%AF%E9%A2%
       </tags>
   </entry>
   <entry>
+    <title>如何向 WUSTACM 官方博客提交博文</title>
+    <url>/2025/12/23/how%20to%20push%20post%20to%20WUSTACM/</url>
+    <content><![CDATA[<h1 id="如何向-wustacm-官方博客提交博文新手必看">如何向 WUSTACM
+官方博客提交博文（新手必看）</h1>
+<p>本文面向“几乎没用过 GitHub”的同学，目标是：<strong>把你写好的
+Markdown 博文提交到组织仓库</strong>，并由 <strong>GitHub Actions
+自动部署</strong>到官网。</p>
+<blockquote>
+<p>仓库地址：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1dVU1RBQ00vYmxvZy5naXRodWIuaW8=">https://github.com/WUSTACM/blog.github.io<i class="fa fa-external-link-alt"></i></span><br />
+组织地址：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1dVU1RBQ00=">https://github.com/WUSTACM<i class="fa fa-external-link-alt"></i></span><br />
+你在组织内具有 <strong>read + write</strong> 权限。</p>
+</blockquote>
+<hr />
+<span id="more"></span>
+<h2 id="你需要准备什么">你需要准备什么</h2>
+<h3 id="安装-git">1. 安装 Git</h3>
+<ul>
+<li>Windows：建议安装 Git for Windows</li>
+<li>macOS：可用 Homebrew 安装 Git 或 Xcode Command Line Tools</li>
+<li>Linux：使用发行版包管理器安装 Git</li>
+</ul>
+<p>安装后打开终端/命令行，执行：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git --version</span><br></pre></td></tr></table></figure>
+<p>能看到版本号说明安装成功。</p>
+<h3 id="登录-github">2. 登录 GitHub</h3>
+<p>确保你已经：</p>
+<ul>
+<li>有 GitHub 账号</li>
+<li>已加入 WUSTACM 组织，并拥有仓库写权限</li>
+</ul>
+<hr />
+<h2 id="总体流程先看一遍再操作">总体流程（先看一遍再操作）</h2>
+<ol type="1">
+<li><strong>拉取仓库</strong>（每次写新博文都要重新拉取）</li>
+<li>在 <code>source/_posts/</code> 新建 Markdown 文件</li>
+<li><strong>复制其他博文的开头配置</strong>（Front-matter），只改 5
+个字段</li>
+<li>若有图片：按规定命名，放到合适位置，并确认相对路径正确</li>
+<li>本地运行 <code>clean + server</code> 预览确认</li>
+<li><code>git add -&gt; git commit -&gt; git push</code></li>
+<li>等 GitHub Actions 自动部署完成</li>
+</ol>
+<p><strong>特别重要：一定要先拉取再上传。</strong>
+并且：<strong>本地拉下来的项目文件夹，用完可以删。下次写新博文请重新拉取。</strong></p>
+<hr />
+<h2 id="step-1拉取仓库每次写新博文都重新拉">Step
+1：拉取仓库（每次写新博文都重新拉）</h2>
+<p>任选一个你电脑上方便的位置（例如桌面），打开终端进入该目录，然后执行：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">git clone https://github.com/WUSTACM/blog.github.io.git</span><br><span class="line">cd blog.github.io</span><br></pre></td></tr></table></figure>
+<p>说明：</p>
+<ul>
+<li><code>clone</code> 会下载整个博客源码到本地</li>
+<li><code>cd blog.github.io</code> 进入项目目录</li>
+</ul>
+<hr />
+<h2 id="step-2新建博文文件必须放到-source_posts">Step
+2：新建博文文件（必须放到 source/_posts）</h2>
+<p>进入 <code>source/_posts</code>
+目录，你可以直接在文件管理器里创建文件，也可以用命令：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">cd source/_posts</span><br></pre></td></tr></table></figure>
+<p>然后创建一个 <code>.md</code> 文件，例如：</p>
+<ul>
+<li><code>2025-12-23-xxxxxx.md</code>（名字可自定，但建议简洁明确）</li>
+</ul>
+<p>例如（命令行创建）：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">touch my-first-post.md</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>要求：<strong>博文必须放在 <code>source/_posts/</code>
+中。其余目录文件不要擅自修改增添。</strong></p>
+</blockquote>
+<hr />
+<h2 id="step-3复制开头配置只改-5-个字段非常重要">Step
+3：复制“开头配置”，只改 5 个字段（非常重要）</h2>
+<h3 id="什么是开头配置">3.1 什么是“开头配置”？</h3>
+<p>每篇 Hexo 博文最顶部都有一段 <code>--- ... ---</code>
+包裹的内容（Front-matter），类似：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">---</span><br><span class="line">title: ...</span><br><span class="line">date: ...</span><br><span class="line">tags:</span><br><span class="line">  - ...</span><br><span class="line">categories:</span><br><span class="line">  - ...</span><br><span class="line">author: ...</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+<h3 id="正确做法强制">3.2 正确做法（强制）</h3>
+<ol type="1">
+<li>打开 <code>source/_posts/</code>
+下<strong>任意一篇已有博文</strong></li>
+<li><strong>复制它的整段开头配置</strong></li>
+<li>粘贴到你的新博文最顶部</li>
+<li>在博文的正文 <strong>5~10</strong> 行间,<strong>任选一行加上
+<code>&lt;!-- more --&gt;</code></strong></li>
+<li><strong>只允许修改这 5 个字段</strong>（其余保持完全不动）：
+<ul>
+<li><code>title</code></li>
+<li><code>date</code></li>
+<li><code>tags</code></li>
+<li><code>categories</code></li>
+<li><code>author</code></li>
+</ul></li>
+</ol>
+<blockquote>
+<p>除了上述 5 项，其余任何字段不要改、不要删、不要新增。</p>
+</blockquote>
+<h3 id="示例你最终应该是这样示例仅供参考">3.3
+示例：你最终应该是这样（示例仅供参考）</h3>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">---</span><br><span class="line">title: 我的第一篇题解：XXX</span><br><span class="line">date: 2025-12-23 21:30:00</span><br><span class="line">tags:</span><br><span class="line">  - dp</span><br><span class="line">categories:</span><br><span class="line">  - 算法</span><br><span class="line">author: scandi</span><br><span class="line">---</span><br><span class="line">[正文部分]</span><br><span class="line">[正文部分]</span><br><span class="line">[正文部分]</span><br><span class="line">[正文部分]</span><br><span class="line">[正文部分]</span><br><span class="line">[正文部分]</span><br><span class="line">&lt;!-- more --&gt;</span><br></pre></td></tr></table></figure>
+<hr />
+<h2 id="step-4如果你的博文需要图片按规定命名-相对路径正确">Step
+4：如果你的博文需要图片（按规定命名 + 相对路径正确）</h2>
+<h3 id="图片必须一起上传">4.1 图片必须一起上传</h3>
+<p>不要只写 Markdown 引用而不提交图片文件，否则线上会裂图。</p>
+<h3 id="图片放哪儿">4.2 图片放哪儿？</h3>
+<p>通常建议放在项目的 <code>source/images/</code>
+下（如果项目已有约定目录，请遵循现有做法）。</p>
+<p>示例：</p>
+<ul>
+<li><code>source/images/ysp2025-12-23-1.png</code></li>
+<li><code>source/images/ysp2025-12-23-2.jpg</code></li>
+</ul>
+<blockquote>
+<p>关键点：图片必须在仓库里，并且路径要能被 Hexo 正确生成。</p>
+</blockquote>
+<h3 id="图片命名规范必须遵守">4.3 图片命名规范（必须遵守）</h3>
+<p>统一采用：</p>
+<p><strong>笔者名字缩写 + 年-月-日 + 编号</strong></p>
+<p>示例：你当天第一张图片：</p>
+<ul>
+<li><code>ysp2025-12-23-1</code></li>
+</ul>
+<p>第二张：</p>
+<ul>
+<li><code>ysp2025-12-23-2</code></li>
+</ul>
+<p>以此类推：</p>
+<ul>
+<li><code>ysp2025-12-23-3</code></li>
+<li><code>ysp2025-12-23-4</code></li>
+</ul>
+<p>建议加扩展名：</p>
+<ul>
+<li><code>ysp2025-12-23-1.png</code></li>
+</ul>
+<h3 id="markdown-中如何引用相对路径要正确">4.4 Markdown
+中如何引用（相对路径要正确）</h3>
+<p>假设你把图片放到
+<code>source/images/</code>，那么在博文里通常这样写：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">![](/images/ysp2025-12-23-1.png)</span><br></pre></td></tr></table></figure>
+<p>如果你把图片放到别的目录，请确保：</p>
+<ul>
+<li>路径能在生成后的站点中访问到</li>
+<li>引用路径与实际存放位置一致</li>
+</ul>
+<hr />
+<h2 id="step-5本地预览每次-push-前必须做">Step 5：本地预览（每次 push
+前必须做）</h2>
+<p>回到项目根目录（有 <code>package.json</code> 的那个目录）：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">cd &lt;你的 blog.github.io 根目录&gt;</span><br></pre></td></tr></table></figure>
+<p>安装依赖（第一次拉取后需要做）：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">npm install --legacy-peer-deps</span><br></pre></td></tr></table></figure>
+<p>然后每次 push 前务必执行：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">npx hexo clean</span><br><span class="line">npx hexo server</span><br></pre></td></tr></table></figure>
+<p>浏览器打开：</p>
+<ul>
+<li>http://localhost:4000/</li>
+</ul>
+<p>检查：</p>
+<ul>
+<li>文章是否出现在首页/分类/标签页</li>
+<li>图片是否显示正常</li>
+<li>页面是否有异常报错</li>
+</ul>
+<p>确认一切正常后，用 <code>Ctrl + C</code> 停止本地服务。</p>
+<blockquote>
+<p>要求：<strong>每次 push 之前必须先 clean +
+本地预览（server）确认正常。</strong></p>
+</blockquote>
+<hr />
+<h2 id="step-6提交并推送到-githubpush">Step 6：提交并推送到
+GitHub（push）</h2>
+<p>仍在项目根目录执行：</p>
+<h3 id="查看你改了哪些文件">6.1 查看你改了哪些文件</h3>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">git status</span><br></pre></td></tr></table></figure>
+<h3 id="添加本次变更只会提交你写的文章图片等">6.2
+添加本次变更（只会提交你写的文章/图片等）</h3>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">git add source/_posts</span><br><span class="line">git add source/images</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>如果你图片不在
+<code>source/images/</code>，就把上面第二行改成你的实际图片目录。
+原则：只提交文章和相关图片，不要乱提交其他目录的修改。</p>
+</blockquote>
+<h3 id="提交写清楚提交信息">6.3 提交（写清楚提交信息）</h3>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">git commit -m &quot;post: add &lt;你的文章标题或文件名&gt;&quot;</span><br></pre></td></tr></table></figure>
+<h3 id="先拉取再推送避免冲突强制执行">6.4
+先拉取再推送（避免冲突，强制执行）</h3>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">git pull --rebase</span><br><span class="line">git push</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>强制要求：<strong>push 前一定先 pull</strong>，避免覆盖别人提交。</p>
+</blockquote>
+<hr />
+<h2 id="step-7确认-github-actions-自动部署成功">Step 7：确认 GitHub
+Actions 自动部署成功</h2>
+<p>推送完成后，打开仓库：</p>
+<ul>
+<li>https://github.com/WUSTACM/blog.github.io</li>
+</ul>
+<p>进入:</p>
+<ul>
+<li><strong>Actions</strong> 标签页</li>
+</ul>
+<p>找到最新一次 workflow（一般是 Deploy / Pages），看到绿色 ✅
+表示部署成功。</p>
+<p>部署完成后，稍等片刻即可在网站看到更新（若有 CDN
+缓存，可能延迟几分钟）。</p>
+<hr />
+<h2 id="step-8本地文件夹用完就删下次重新拉取">Step
+8：本地文件夹用完就删（下次重新拉取）</h2>
+<p>按要求：</p>
+<ul>
+<li>你本地的 <code>blog.github.io/</code>
+文件夹提交完成后可以直接删除</li>
+<li>下次写新博文：<strong>重新从 Step 1 拉取仓库</strong></li>
+</ul>
+<hr />
+<h2 id="常见问题快速排雷">常见问题（快速排雷）</h2>
+<h3 id="我-push-报错要我先-pull">1）我 push 报错：要我先 pull</h3>
+<p>执行：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">git pull --rebase</span><br><span class="line">git push</span><br></pre></td></tr></table></figure>
+<h3 id="图片线上不显示">2）图片线上不显示</h3>
+<p>检查三件事：</p>
+<ul>
+<li>图片文件是否真的提交进仓库</li>
+<li>图片路径是否正确（特别是 <code>/images/...</code>）</li>
+<li>图片命名是否符合规范</li>
+</ul>
+<h3 id="本地能看到线上没更新">3）本地能看到，线上没更新</h3>
+<p>去 GitHub Actions 看最新一次是否成功；如果失败，按日志提示修复后再
+push。</p>
+<hr />
+<h2 id="规范总结必须遵守">规范总结（必须遵守）</h2>
+<ol type="1">
+<li><strong>先拉取再上传</strong>；push 前先 pull</li>
+<li>博文只放 <code>source/_posts</code>，其他目录不要乱动</li>
+<li>Front-matter
+只改：<code>title / date / tags / categories / author</code></li>
+<li>图片必须一起提交，路径正确</li>
+<li>图片命名：<code>缩写YYYY-MM-DD-编号</code>（如
+<code>ysp2025-12-23-1</code>）</li>
+<li>每次 push 前必须 <code>npx hexo clean</code> +
+<code>npx hexo server</code> 本地预览确认</li>
+</ol>
+<hr />
+<p>如你按本文流程操作仍遇到错误，请把以下信息发到群里：</p>
+<ul>
+<li>你执行的命令</li>
+<li>报错完整截图或日志（尤其是 Actions 日志）</li>
+<li>你新增的 <code>.md</code> 文件名与图片路径</li>
+</ul>
+]]></content>
+      <categories>
+        <category>技术分享</category>
+      </categories>
+      <tags>
+        <tag>杂谈</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>vjudge 洛谷账号导入教程</title>
+    <url>/2025/10/30/vjudge%20%E6%B4%9B%E8%B0%B7%E8%B4%A6%E5%8F%B7%E5%AF%BC%E5%85%A5%E6%95%99%E7%A8%8B/</url>
+    <content><![CDATA[<p><strong>在此感谢本文主要笔者 25 级 xiaozhangup</strong></p>
+<h1 id="vjudge-洛谷账号导入教程">vjudge 洛谷账号导入教程</h1>
+<h2 id="先决条件">先决条件</h2>
+<ul>
+<li>你有一个<a
+href="https://www.luogu.com.cn/">洛谷</a>账号，并且已经在洛谷官网登录</li>
+<li>你会看图</li>
+</ul>
+<span id="more"></span>
+<h2 id="正式开始">正式开始</h2>
+<h3 id="第一步">第一步</h3>
+<p>点击此处的 <code>更新</code> 进入界面 <img src="/assets/1212.png" />
+<img src="/assets/1313.png" /></p>
+<h3 id="第二步">第二步</h3>
+<p>前往洛谷官网，可以点击上图的蓝色 <a
+href="https://www.luogu.com.cn/">洛谷</a>
+二字进入。进入后记得登录你的洛谷账号！<br />
+登陆后在洛谷的任何界面都行，让我们按下键盘上的 <code>F12</code>
+按钮。<br />
+该按钮通常在键盘的最上端一行，这里给出几个例图：<br />
+<img src="/assets/1414.png" /> <img src="/assets/1515.png" /></p>
+<h3 id="第三步">第三步</h3>
+<p>按下后，我们会看到浏览器弹出如下的界面（记得查看你使用的浏览器类型，如果不知道，那就看哪个和你看到的界面最像即可）:</p>
+<h4 id="对于-edgechrome360-安全浏览器qq-浏览器你会看到类似如下的界面">①
+对于 Edge，Chrome，360 安全浏览器，QQ 浏览器你会看到类似如下的界面</h4>
+<p>跟随红色箭头的指引，依次点击：<br />
+<img src="/assets/1616.png" /> <img src="/assets/1717.png" /><br />
+此处便是我们所需要填写的内容。<br />
+复制里面的值，分别填写到第一步的界面中，点击确认即可（如下）</p>
+<p><img src="/assets/1818.png" /></p>
+<p>静静等待，大功告成！<br />
+<img src="/assets/1919.png" /></p>
+<h4 id="对于-firefoxzen-系类浏览器你会看到">② 对于 Firefox，Zen
+系类浏览器你会看到：</h4>
+<p><img src="/assets/2020.png" /><br />
+让我们点击依次点击：<br />
+<img src="/assets/2121.png" /><br />
+<img src="/assets/2323.png" /><br />
+<img src="/assets/2424.png" /><br />
+被箭头指向的两个数据，就是我们所需要的。<br />
+复制里面的值，分别填写到第一步的界面中，点击确认即可（如下）</p>
+<p><img src="/assets/1818.png" /></p>
+<p>静静等待，大功告成！<br />
+<img src="/assets/1919.png" /></p>
+]]></content>
+      <categories>
+        <category>技术分享</category>
+      </categories>
+      <tags>
+        <tag>杂谈</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>vscode配置教程</title>
     <url>/2025/06/15/vscode%E9%85%8D%E7%BD%AE/</url>
     <content><![CDATA[<h2 id="vscode-配置-cc编译运行环境">VScode 配置 C/C++编译运行环境</h2>
@@ -1405,61 +1720,6 @@ xcpc 竞赛向配置教程</a></p></li>
 <li>把报错发给 AI， 让 AI 看看</li>
 </ul></li>
 </ul>
-]]></content>
-      <categories>
-        <category>技术分享</category>
-      </categories>
-      <tags>
-        <tag>杂谈</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>vjudge 洛谷账号导入教程</title>
-    <url>/2025/10/30/vjudge%20%E6%B4%9B%E8%B0%B7%E8%B4%A6%E5%8F%B7%E5%AF%BC%E5%85%A5%E6%95%99%E7%A8%8B/</url>
-    <content><![CDATA[<p><strong>在此感谢本文主要笔者 25 级 xiaozhangup</strong></p>
-<h1 id="vjudge-洛谷账号导入教程">vjudge 洛谷账号导入教程</h1>
-<h2 id="先决条件">先决条件</h2>
-<ul>
-<li>你有一个<a
-href="https://www.luogu.com.cn/">洛谷</a>账号，并且已经在洛谷官网登录</li>
-<li>你会看图</li>
-</ul>
-<span id="more"></span>
-<h2 id="正式开始">正式开始</h2>
-<h3 id="第一步">第一步</h3>
-<p>点击此处的 <code>更新</code> 进入界面 <img src="/assets/1212.png" />
-<img src="/assets/1313.png" /></p>
-<h3 id="第二步">第二步</h3>
-<p>前往洛谷官网，可以点击上图的蓝色 <a
-href="https://www.luogu.com.cn/">洛谷</a>
-二字进入。进入后记得登录你的洛谷账号！<br />
-登陆后在洛谷的任何界面都行，让我们按下键盘上的 <code>F12</code>
-按钮。<br />
-该按钮通常在键盘的最上端一行，这里给出几个例图：<br />
-<img src="/assets/1414.png" /> <img src="/assets/1515.png" /></p>
-<h3 id="第三步">第三步</h3>
-<p>按下后，我们会看到浏览器弹出如下的界面（记得查看你使用的浏览器类型，如果不知道，那就看哪个和你看到的界面最像即可）:</p>
-<h4 id="对于-edgechrome360-安全浏览器qq-浏览器你会看到类似如下的界面">①
-对于 Edge，Chrome，360 安全浏览器，QQ 浏览器你会看到类似如下的界面</h4>
-<p>跟随红色箭头的指引，依次点击：<br />
-<img src="/assets/1616.png" /> <img src="/assets/1717.png" /><br />
-此处便是我们所需要填写的内容。<br />
-复制里面的值，分别填写到第一步的界面中，点击确认即可（如下）</p>
-<p><img src="/assets/1818.png" /></p>
-<p>静静等待，大功告成！<br />
-<img src="/assets/1919.png" /></p>
-<h4 id="对于-firefoxzen-系类浏览器你会看到">② 对于 Firefox，Zen
-系类浏览器你会看到：</h4>
-<p><img src="/assets/2020.png" /><br />
-让我们点击依次点击：<br />
-<img src="/assets/2121.png" /><br />
-<img src="/assets/2323.png" /><br />
-<img src="/assets/2424.png" /><br />
-被箭头指向的两个数据，就是我们所需要的。<br />
-复制里面的值，分别填写到第一步的界面中，点击确认即可（如下）</p>
-<p><img src="/assets/1818.png" /></p>
-<p>静静等待，大功告成！<br />
-<img src="/assets/1919.png" /></p>
 ]]></content>
       <categories>
         <category>技术分享</category>
@@ -2537,6 +2797,114 @@ class="math inline"><em>F</em>(<em>x</em>,<em>y</em>) = 0</span></p>
       </categories>
   </entry>
   <entry>
+    <title>图解二维差分和前缀和</title>
+    <url>/2025/11/30/%E5%9B%BE%E8%A7%A3%E4%BA%8C%E7%BB%B4%E5%B7%AE%E5%88%86%E5%92%8C%E5%89%8D%E7%BC%80%E5%92%8C/</url>
+    <content><![CDATA[<p><strong>在此感谢本文主要笔者 25 级 xiaozhangup</strong></p>
+<h1 id="图解二维差分和前缀和">图解二维差分和前缀和</h1>
+<h2 id="前情提要">前情提要</h2>
+<p>本文档中所有表格的左上角格子定义为 <code>(0, 0)</code>，暂且把它称为
+<code>原格</code>；表格的最左上角的点，我们把它称为
+<code>原点</code>。向右和向下为正方向。<br />
+本文旨在通过几何图像直观介绍二维前缀和和差分的概念，仅关注 “它是什么” 和
+“它表示什么” ，不涉及具体代码实现细节。<br />
+你必须先理解一维前缀和和一维差分才可以顺畅阅读本教程。</p>
+<span id="more"></span>
+<h2 id="对于二维前缀和">对于二维前缀和</h2>
+<p>我们如图定义一个 <code>5*5</code>
+的二维数值矩阵，这也将是我们存储前缀和的矩阵。<br />
+<img src="/assets/20251106-0.png" /></p>
+<p>那么，前缀和是什么？ 简单概括一下：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">我们定义黄色色块所在的格子是 (x,y)，那么:</span><br><span class="line">黄色格子(x,y) 内的数值就是从 ```原数组``` 的原格到黄色格子(x,y) ，所覆盖的格子(红色+黄色) 内的所有数字的和。</span><br></pre></td></tr></table></figure>
+<p><img src="/assets/20251106-1.png" /></p>
+<p>来用一个更好懂的图片来描述：<br />
+从黄色格子(x, y)
+作为原格右下角点出发，向其左和上方做射线，所形成的区域包含的所有格子内
+<code>原数组数值</code> 的和就是这个黄色格子内的数值，我们给出两个例图：
+<img src="/assets/20251106-2.png" /> <img
+src="/assets/20251106-3.png" /></p>
+<p>这就是前缀和二维数组中每个格子的含义。<br />
+那么，快速求和是什么逻辑？<br />
+我们可以把它简单理解为图形的割补。<br />
+现在，抛开之前的所有定义，我们仅仅从几何的角度来进行分析：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">我每次只能切或者补一个一定包含原点为其其中一个顶点的矩形，</span><br><span class="line">我们需要几步把图中的这个灰色矩形切出来？</span><br></pre></td></tr></table></figure>
+<p><img src="/assets/20251106-4.png" /></p>
+<p>很简单，按照如图的 3 步即可达到我们的目的！<br />
+第一步：<br />
+取全部的绿色部分<br />
+<img src="/assets/20251106-5.png" /></p>
+<p>第二步：<br />
+割掉红色的那两个部分<br />
+初见端倪，为什么左上角颜色更深？<br />
+因为左上角那一块我们切割了两次！ <img
+src="/assets/20251106-6.png" /></p>
+<p>第三步：<br />
+把切割了两次的红色区域补上一块 (红色变浅了)。<br />
+如此一来，剩下的绿色不就是我们想要的区域了吗？<br />
+<img src="/assets/20251106-7.png" /></p>
+<p>那么，根据我们切割的步骤，把他用数学逻辑表示出来：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">S(绿色的面积) = S(绿色右下角点到原点构成的矩形) - S(绿色左下角点到原点构成的矩形) - S(绿色右上角点到原点构成的矩形) + S(绿色左上角点到原点构成的矩形)</span><br></pre></td></tr></table></figure>
+<p>我们这里所谓的 “面积”，不正是前缀和矩阵中格子的数值吗？<br />
+用程序代码表示一下，那就是：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> prefix[<span class="number">5</span>][<span class="number">5</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">// x1, y1, x2, y2 分别是矩形左上角和右下角坐标</span></span><br><span class="line"><span class="comment">// 这里的算式和上面的文字顺序是一一对应的</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">sum</span><span class="params">(<span class="type">int</span> x1, <span class="type">int</span> y1, <span class="type">int</span> x2, <span class="type">int</span> y2)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> prefix[x2][y2] - prefix[x1 - <span class="number">1</span>][y2] - prefix[x2][y1 - <span class="number">1</span>] + prefix[x1 - <span class="number">1</span>][y1 - <span class="number">1</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>如此一来，我们就完成了区域的和计算。</p>
+<h2 id="对于二维差分">对于二维差分</h2>
+<p>我们如图定义一个 <code>5*5</code>
+的二维数值矩阵，这也将是我们存储二维差分的矩阵。<br />
+<img src="/assets/20251106-0.png" /></p>
+<p>那么，差分是什么？ 简单概括一下：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">我们定义黄色色块所在的格子是 (x,y)，那么:</span><br><span class="line">黄色格子(x,y) 内的数值就是被黄色覆盖的 ```原数组``` 内的所有数字和相较于被红色覆盖的 ```原数组``` 内的所有数字和的变化量。</span><br><span class="line">例如红色部分的和是 18，黄色部分的和是 20，多了 2，那么 ```差分数组``` 中黄色格子内的值就是 +2；</span><br><span class="line">如果红色部分的和是 18，黄色部分的和是 16，少了 2，那么 ```差分数组``` 中黄色格子内的值就是 -2；</span><br></pre></td></tr></table></figure>
+<p><img src="/assets/20251106-13.png" /> <img
+src="/assets/20251106-14.png" />
+这就是差分二维数组中每个格子的含义。</p>
+<p>那么，快速批量修改数组中间的某一块的数值是什么逻辑？<br />
+我们只需要记住这一点就可以快速理解二位差分的原理了：<br />
+<code>对每一个格子操作所带来的影响都是面性的，影响其右下角范围内的所有格子</code></p>
+<p>看图更易于理解：<br />
+这里我们假设我们修改了黄色格子内的差分数值，那么被该修改影响的矩形范围如下(类似前缀和，这里也是射线！)<br />
+<img src="/assets/20251106-8.png" /> 如果我们对黄色
++8，那么灰色区域全部都会被 +8。这一整个面内的格子都被抬升了 8。<br />
+相反的，如果我们对黄色 -8，那么灰色区域全部都会被
+-8。这一整个面内的格子都被下降了 8。</p>
+<p>那么，范围性修改又是怎么做到的呢？<br />
+现在再次忘掉前缀和，只关注最简单的平面几何：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">我每次只能切或者补一个无限向右下角延申的矩形，</span><br><span class="line">需要几步把图中的这个灰色矩形切出来？</span><br></pre></td></tr></table></figure>
+<p>和我们前面对前缀和的几何化理解逻辑一样，但这次我们更自由了，不需要盯着原点不放了。
+<img src="/assets/20251106-9.png" /></p>
+<p>依然只需要三步，和之前大同小异！<br />
+第一步：<br />
+从灰色矩形的左上角点取全部的矩形<br />
+<img src="/assets/20251106-10.png" /></p>
+<p>第二步：<br />
+从灰色的右上角点和左下角点取两个矩形割掉<br />
+再见端倪，为什么右下角颜色更深？<br />
+因为右下角那一块我们切割了两次！ <img
+src="/assets/20251106-11.png" /></p>
+<p>第三步：<br />
+把切割了两次的右下角区域补上一块 (右下角变浅了)。<br />
+类似我们取绿色块的操作，给变浅的那一块加上这个数即可影响到右下角的所有被切割了两次的块。<br />
+<img src="/assets/20251106-12.png" /></p>
+<p>红绿重叠的部分相互抵消
+(因为我们加减了相同的数值)，现在只剩下原先的灰色块了。<br />
+至此，区域修改完成！只有我们想要的格子们被改变，其他格子没有被改变。</p>
+<p>如图中那样，我们其实只改变了四个格子的数值：</p>
+<ul>
+<li>灰色块中的左上块</li>
+<li>灰色块中右上块的右边一块</li>
+<li>灰色块中左下块的下边一块</li>
+<li>灰色块中右下块的右下块 用程序代码来表示一下：</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> diff[<span class="number">5</span>][<span class="number">5</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">// x1, y1, x2, y2 分别是灰色块左上角和右下角坐标</span></span><br><span class="line"><span class="comment">// val 是你修改的数值</span></span><br><span class="line"><span class="comment">// 这里的修改顺序和上面的文字顺序是一一对应的</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">add</span><span class="params">(<span class="type">int</span> x1, <span class="type">int</span> y1, <span class="type">int</span> x2, <span class="type">int</span> y2, <span class="type">int</span> val)</span> </span>&#123;</span><br><span class="line">    diff[x1][y1] += val;</span><br><span class="line">    diff[x2 + <span class="number">1</span>][y1] -= val;</span><br><span class="line">    diff[x1][y2 + <span class="number">1</span>] -= val;</span><br><span class="line">    diff[x2 + <span class="number">1</span>][y2 + <span class="number">1</span>] += val;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>如此一来，我们就完成了差分的区域修改。</p>
+<h4 id="教程完感谢阅读">教程完，感谢阅读！</h4>
+]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>前缀和与差分</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>多元函数微分</title>
     <url>/2025/06/15/%E5%A4%9A%E5%85%83%E5%87%BD%E6%95%B0%E5%BE%AE%E5%88%86/</url>
     <content><![CDATA[<h1 id="多元函数微分学">多元函数微分学</h1>
@@ -2908,114 +3276,6 @@ class="math inline"><em>L</em>(<em>x</em>,<em>y</em>)</span>
       <categories>
         <category>高数</category>
       </categories>
-  </entry>
-  <entry>
-    <title>图解二维差分和前缀和</title>
-    <url>/2025/11/30/%E5%9B%BE%E8%A7%A3%E4%BA%8C%E7%BB%B4%E5%B7%AE%E5%88%86%E5%92%8C%E5%89%8D%E7%BC%80%E5%92%8C/</url>
-    <content><![CDATA[<p><strong>在此感谢本文主要笔者 25 级 xiaozhangup</strong></p>
-<h1 id="图解二维差分和前缀和">图解二维差分和前缀和</h1>
-<h2 id="前情提要">前情提要</h2>
-<p>本文档中所有表格的左上角格子定义为 <code>(0, 0)</code>，暂且把它称为
-<code>原格</code>；表格的最左上角的点，我们把它称为
-<code>原点</code>。向右和向下为正方向。<br />
-本文旨在通过几何图像直观介绍二维前缀和和差分的概念，仅关注 “它是什么” 和
-“它表示什么” ，不涉及具体代码实现细节。<br />
-你必须先理解一维前缀和和一维差分才可以顺畅阅读本教程。</p>
-<span id="more"></span>
-<h2 id="对于二维前缀和">对于二维前缀和</h2>
-<p>我们如图定义一个 <code>5*5</code>
-的二维数值矩阵，这也将是我们存储前缀和的矩阵。<br />
-<img src="/assets/20251106-0.png" /></p>
-<p>那么，前缀和是什么？ 简单概括一下：</p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">我们定义黄色色块所在的格子是 (x,y)，那么:</span><br><span class="line">黄色格子(x,y) 内的数值就是从 ```原数组``` 的原格到黄色格子(x,y) ，所覆盖的格子(红色+黄色) 内的所有数字的和。</span><br></pre></td></tr></table></figure>
-<p><img src="/assets/20251106-1.png" /></p>
-<p>来用一个更好懂的图片来描述：<br />
-从黄色格子(x, y)
-作为原格右下角点出发，向其左和上方做射线，所形成的区域包含的所有格子内
-<code>原数组数值</code> 的和就是这个黄色格子内的数值，我们给出两个例图：
-<img src="/assets/20251106-2.png" /> <img
-src="/assets/20251106-3.png" /></p>
-<p>这就是前缀和二维数组中每个格子的含义。<br />
-那么，快速求和是什么逻辑？<br />
-我们可以把它简单理解为图形的割补。<br />
-现在，抛开之前的所有定义，我们仅仅从几何的角度来进行分析：</p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">我每次只能切或者补一个一定包含原点为其其中一个顶点的矩形，</span><br><span class="line">我们需要几步把图中的这个灰色矩形切出来？</span><br></pre></td></tr></table></figure>
-<p><img src="/assets/20251106-4.png" /></p>
-<p>很简单，按照如图的 3 步即可达到我们的目的！<br />
-第一步：<br />
-取全部的绿色部分<br />
-<img src="/assets/20251106-5.png" /></p>
-<p>第二步：<br />
-割掉红色的那两个部分<br />
-初见端倪，为什么左上角颜色更深？<br />
-因为左上角那一块我们切割了两次！ <img
-src="/assets/20251106-6.png" /></p>
-<p>第三步：<br />
-把切割了两次的红色区域补上一块 (红色变浅了)。<br />
-如此一来，剩下的绿色不就是我们想要的区域了吗？<br />
-<img src="/assets/20251106-7.png" /></p>
-<p>那么，根据我们切割的步骤，把他用数学逻辑表示出来：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">S(绿色的面积) = S(绿色右下角点到原点构成的矩形) - S(绿色左下角点到原点构成的矩形) - S(绿色右上角点到原点构成的矩形) + S(绿色左上角点到原点构成的矩形)</span><br></pre></td></tr></table></figure>
-<p>我们这里所谓的 “面积”，不正是前缀和矩阵中格子的数值吗？<br />
-用程序代码表示一下，那就是：</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> prefix[<span class="number">5</span>][<span class="number">5</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">// x1, y1, x2, y2 分别是矩形左上角和右下角坐标</span></span><br><span class="line"><span class="comment">// 这里的算式和上面的文字顺序是一一对应的</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">sum</span><span class="params">(<span class="type">int</span> x1, <span class="type">int</span> y1, <span class="type">int</span> x2, <span class="type">int</span> y2)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> prefix[x2][y2] - prefix[x1 - <span class="number">1</span>][y2] - prefix[x2][y1 - <span class="number">1</span>] + prefix[x1 - <span class="number">1</span>][y1 - <span class="number">1</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>如此一来，我们就完成了区域的和计算。</p>
-<h2 id="对于二维差分">对于二维差分</h2>
-<p>我们如图定义一个 <code>5*5</code>
-的二维数值矩阵，这也将是我们存储二维差分的矩阵。<br />
-<img src="/assets/20251106-0.png" /></p>
-<p>那么，差分是什么？ 简单概括一下：</p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">我们定义黄色色块所在的格子是 (x,y)，那么:</span><br><span class="line">黄色格子(x,y) 内的数值就是被黄色覆盖的 ```原数组``` 内的所有数字和相较于被红色覆盖的 ```原数组``` 内的所有数字和的变化量。</span><br><span class="line">例如红色部分的和是 18，黄色部分的和是 20，多了 2，那么 ```差分数组``` 中黄色格子内的值就是 +2；</span><br><span class="line">如果红色部分的和是 18，黄色部分的和是 16，少了 2，那么 ```差分数组``` 中黄色格子内的值就是 -2；</span><br></pre></td></tr></table></figure>
-<p><img src="/assets/20251106-13.png" /> <img
-src="/assets/20251106-14.png" />
-这就是差分二维数组中每个格子的含义。</p>
-<p>那么，快速批量修改数组中间的某一块的数值是什么逻辑？<br />
-我们只需要记住这一点就可以快速理解二位差分的原理了：<br />
-<code>对每一个格子操作所带来的影响都是面性的，影响其右下角范围内的所有格子</code></p>
-<p>看图更易于理解：<br />
-这里我们假设我们修改了黄色格子内的差分数值，那么被该修改影响的矩形范围如下(类似前缀和，这里也是射线！)<br />
-<img src="/assets/20251106-8.png" /> 如果我们对黄色
-+8，那么灰色区域全部都会被 +8。这一整个面内的格子都被抬升了 8。<br />
-相反的，如果我们对黄色 -8，那么灰色区域全部都会被
--8。这一整个面内的格子都被下降了 8。</p>
-<p>那么，范围性修改又是怎么做到的呢？<br />
-现在再次忘掉前缀和，只关注最简单的平面几何：</p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">我每次只能切或者补一个无限向右下角延申的矩形，</span><br><span class="line">需要几步把图中的这个灰色矩形切出来？</span><br></pre></td></tr></table></figure>
-<p>和我们前面对前缀和的几何化理解逻辑一样，但这次我们更自由了，不需要盯着原点不放了。
-<img src="/assets/20251106-9.png" /></p>
-<p>依然只需要三步，和之前大同小异！<br />
-第一步：<br />
-从灰色矩形的左上角点取全部的矩形<br />
-<img src="/assets/20251106-10.png" /></p>
-<p>第二步：<br />
-从灰色的右上角点和左下角点取两个矩形割掉<br />
-再见端倪，为什么右下角颜色更深？<br />
-因为右下角那一块我们切割了两次！ <img
-src="/assets/20251106-11.png" /></p>
-<p>第三步：<br />
-把切割了两次的右下角区域补上一块 (右下角变浅了)。<br />
-类似我们取绿色块的操作，给变浅的那一块加上这个数即可影响到右下角的所有被切割了两次的块。<br />
-<img src="/assets/20251106-12.png" /></p>
-<p>红绿重叠的部分相互抵消
-(因为我们加减了相同的数值)，现在只剩下原先的灰色块了。<br />
-至此，区域修改完成！只有我们想要的格子们被改变，其他格子没有被改变。</p>
-<p>如图中那样，我们其实只改变了四个格子的数值：</p>
-<ul>
-<li>灰色块中的左上块</li>
-<li>灰色块中右上块的右边一块</li>
-<li>灰色块中左下块的下边一块</li>
-<li>灰色块中右下块的右下块 用程序代码来表示一下：</li>
-</ul>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> diff[<span class="number">5</span>][<span class="number">5</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">// x1, y1, x2, y2 分别是灰色块左上角和右下角坐标</span></span><br><span class="line"><span class="comment">// val 是你修改的数值</span></span><br><span class="line"><span class="comment">// 这里的修改顺序和上面的文字顺序是一一对应的</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">add</span><span class="params">(<span class="type">int</span> x1, <span class="type">int</span> y1, <span class="type">int</span> x2, <span class="type">int</span> y2, <span class="type">int</span> val)</span> </span>&#123;</span><br><span class="line">    diff[x1][y1] += val;</span><br><span class="line">    diff[x2 + <span class="number">1</span>][y1] -= val;</span><br><span class="line">    diff[x1][y2 + <span class="number">1</span>] -= val;</span><br><span class="line">    diff[x2 + <span class="number">1</span>][y2 + <span class="number">1</span>] += val;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>如此一来，我们就完成了差分的区域修改。</p>
-<h4 id="教程完感谢阅读">教程完，感谢阅读！</h4>
-]]></content>
-      <categories>
-        <category>算法</category>
-      </categories>
-      <tags>
-        <tag>前缀和与差分</tag>
-      </tags>
   </entry>
   <entry>
     <title>多校1题解I/区间dp</title>
@@ -3534,6 +3794,77 @@ class="math inline"><em>x</em>′ = 1, <em>y</em>′ = 0</span>
       </tags>
   </entry>
   <entry>
+    <title>数字dfs</title>
+    <url>/2025/06/15/%E6%95%B0%E5%AD%97dfs/</url>
+    <content><![CDATA[<h1 id="数字-dfs">数字 dfs</h1>
+<ul>
+<li><p><strong>处理[l, r]区间内满足某种性质 P 的数</strong></p></li>
+<li><p><strong>一般 l &lt; r &lt; 1e18,我们无法直接 for(l,
+r)</strong></p></li>
+<li><p><strong>这时我们可以转移视角，不看这个数字，而是看数位，即看成
+string,这时 1e18 也只有 19 位而已</strong></p></li>
+</ul>
+<hr />
+<h2 id="华农"><a
+href="https://ac.nowcoder.com/acm/contest/104226/G">华农</a></h2>
+<span id="more"></span>
+<p><em>波奇酱确实不喜欢数学，所以他希望可以从一个区间中找出一些他喜欢的数。</em>
+<em>如果一个数所有的相邻位数的差的绝对值为 1,
+那么波奇酱就会喜欢它。特别地，所有一位数都是波奇酱喜欢的数。</em></p>
+<p><em>给定区间 [L,R]，请求出在这个区间内波奇酱喜欢的数的数量。</em></p>
+<p><em>L,R(1≤L≤R≤1e18)，表示给定的区间。</em></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">ll  l, r;</span><br><span class="line"><span class="type">int</span> ans;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">dfs</span><span class="params">(ll num)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(num &gt; r)<span class="keyword">return</span>;</span><br><span class="line">    <span class="keyword">if</span>(num&gt;=l &amp;&amp; num&lt;=r)ans++;</span><br><span class="line">    ll d = num%<span class="number">10</span>;</span><br><span class="line">    <span class="keyword">if</span>(d<span class="number">-1</span>&gt;=<span class="number">0</span>)<span class="built_in">dfs</span>(num*<span class="number">10</span>+d<span class="number">-1</span>);</span><br><span class="line">    <span class="keyword">if</span>(d<span class="number">+1</span>&lt;=<span class="number">9</span>)<span class="built_in">dfs</span>(num*<span class="number">10</span>+d<span class="number">+1</span>);</span><br><span class="line">    <span class="keyword">return</span> ;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span></span>&#123;</span><br><span class="line">    cin &gt;&gt; l &gt;&gt; r;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt;= <span class="number">9</span>; i++)&#123;</span><br><span class="line">        <span class="built_in">dfs</span>(i);</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; ans &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">    <span class="keyword">return</span> ;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="天梯"><a
+href="https://pintia.cn/problem-sets/994805046380707840/exam/problems/type/7?problemSetProblemId=1913922872972247051&amp;page=1">天梯</a></h2>
+<p><em>本题就请你对任一给定的 n，求出给定区间内被 n 整除的 n
+位数。</em></p>
+<p><em>输入格式：</em> <em>输入在一行中给出 3
+个正整数：n（1&lt;n≤15），以及闭区间端点 a 和
+b（1≤a≤b&lt;1e15）</em></p>
+<p><em>输出格式：</em> <em>按递增序输出区间 [a,b] 内被 n 整除的 n
+位数，每个数字占一行。</em></p>
+<p><em>若给定区间内没有解，则输出 No Solution</em></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">ll n, prel[N], prer[N];</span><br><span class="line">vector&lt;ll&gt;ans;</span><br><span class="line">string l, r;</span><br><span class="line"></span><br><span class="line"><span class="function">ll <span class="title">qpow</span><span class="params">(ll a, ll b)</span></span>&#123;</span><br><span class="line">	ll res = <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">while</span>(b)&#123;</span><br><span class="line">		<span class="keyword">if</span>(b&amp;<span class="number">1</span>)res = a * res;</span><br><span class="line">		a = a * a;</span><br><span class="line">		b &gt;&gt;= <span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">string <span class="title">zh</span><span class="params">(ll sum)</span></span>&#123;</span><br><span class="line">	string s;</span><br><span class="line">	<span class="keyword">while</span>(sum)&#123;</span><br><span class="line">		s.<span class="built_in">push_back</span>(sum%<span class="number">10</span>+<span class="string">&#x27;0&#x27;</span>);<span class="comment">//加&#x27;0&#x27;转字符串</span></span><br><span class="line">		sum/=<span class="number">10</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">reverse</span>(s.<span class="built_in">begin</span>(), s.<span class="built_in">end</span>());</span><br><span class="line">	<span class="keyword">return</span> s;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">dfs</span><span class="params">(ll val, ll pos)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(pos == n + <span class="number">1</span>)&#123;</span><br><span class="line">		ans.<span class="built_in">push_back</span>(val);</span><br><span class="line">		<span class="keyword">return</span> ;</span><br><span class="line">	&#125;</span><br><span class="line">	ll sum = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span>(ll i = <span class="number">0</span>; i &lt;= <span class="number">9</span>; i++)&#123;</span><br><span class="line">		sum = val * <span class="number">10</span> + i;</span><br><span class="line">		<span class="keyword">if</span>(sum &gt;= prel[pos] &amp;&amp; sum &lt;= prer[pos])&#123;</span><br><span class="line">			<span class="keyword">if</span>(sum%pos==<span class="number">0</span>)<span class="built_in">dfs</span>(sum, pos<span class="number">+1</span>);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> ;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span></span>&#123;</span><br><span class="line">	cin &gt;&gt; n &gt;&gt; l &gt;&gt; r;</span><br><span class="line">	ll op = <span class="number">10</span>;</span><br><span class="line">	<span class="keyword">if</span>(r.<span class="built_in">size</span>() &lt; n || l.<span class="built_in">size</span>() &gt; n)&#123;</span><br><span class="line">		cout &lt;&lt; <span class="string">&quot;No Solution&quot;</span> &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">		<span class="keyword">return</span> ;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span>(l.<span class="built_in">size</span>() &lt; n)&#123;</span><br><span class="line">		l = <span class="built_in">zh</span>(<span class="built_in">qpow</span>(<span class="number">10</span>, n<span class="number">-1</span>));</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span>(r.<span class="built_in">size</span>() &gt; n)&#123;</span><br><span class="line">		r = <span class="built_in">zh</span>(<span class="built_in">qpow</span>(<span class="number">10</span>, n) - <span class="number">1</span>);</span><br><span class="line">	&#125;</span><br><span class="line">    <span class="comment">//特判处理</span></span><br><span class="line">    <span class="comment">// 3 10 1000 -&gt; 3 100 999</span></span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; (<span class="type">int</span>)l.<span class="built_in">size</span>(); i++)&#123;</span><br><span class="line">		prel[i + <span class="number">1</span>] = (l[i]-<span class="string">&#x27;0&#x27;</span>) + prel[i] *op;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; (<span class="type">int</span>)r.<span class="built_in">size</span>(); i++)&#123;</span><br><span class="line">		prer[i + <span class="number">1</span>] = (r[i]-<span class="string">&#x27;0&#x27;</span>) + prer[i] *op;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">dfs</span>(<span class="number">0</span>, <span class="number">1</span>);</span><br><span class="line">	<span class="keyword">if</span>(ans.<span class="built_in">size</span>()==<span class="number">0</span>)&#123;</span><br><span class="line">		cout &lt;&lt; <span class="string">&quot;No Solution&quot;</span> &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">		<span class="keyword">return</span> ;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(ll v : ans)cout &lt;&lt; v &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">	<span class="keyword">return</span> ;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="蓝桥"><a
+href="%5BP12835%20%5B蓝桥杯%202025%20国%20B%5D%20蓝桥星数字%20-%20洛谷%5D(https://www.luogu.com.cn/problem/P12835)">蓝桥</a></h2>
+<p><strong>求第 n 个奇偶交替的数</strong></p>
+<p><strong>1&lt;=n&lt;=1e12</strong></p>
+<p><strong>注意到这种求满足特定要求的数的问题，大部分都可以考虑数位
+dfs</strong></p>
+<p><strong>本题有点小不同，且听我慢慢道来</strong></p>
+<p>题目要我们求第 n
+个数，显然从最低位去考虑是不行的，无法求出确实当前位后有多少数</p>
+<p>所以我们考虑从最高位开始，一般数位 dfs 也都是从最高位开始</p>
+<p>接下来我们手写几个数来看看</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="number">10</span>  <span class="number">21</span> ... <span class="number">101</span>  <span class="number">121</span> ...</span><br><span class="line"><span class="number">12</span>  <span class="number">23</span>     <span class="number">103</span>  <span class="number">123</span></span><br><span class="line"><span class="number">14</span>  <span class="number">25</span>     <span class="number">105</span>  <span class="number">125</span></span><br><span class="line"><span class="number">16</span>  <span class="number">27</span>     <span class="number">107</span>  <span class="number">127</span></span><br><span class="line"><span class="number">18</span>  <span class="number">29</span>     <span class="number">109</span>  <span class="number">129</span></span><br></pre></td></tr></table></figure>
+<p>可以看出，对于 cnt 位的数 q，它的最高位可以取 1~9，其余的每一位可以取
+0，2，4，6，8 或 1，3，5，7，9</p>
+<p>即每一位有 5 种可能</p>
+<p>接下来我们求第 n 个数有多少位</p>
+<p>注意到 cnt 位的数有 9 * <span
+class="math inline">5<sup><em>c</em><em>n</em><em>t</em> − 1</sup></span>个数
+n &lt;= 1e12, cnt &lt;= 17，所以我们累加即可</p>
+<p>我们记 q 为要求的第 n 个数</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">ll sum = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">2</span>; i &lt;= <span class="number">17</span>; i++)&#123;</span><br><span class="line">	sum += <span class="number">9</span> * <span class="built_in">qpow</span>(<span class="number">5</span>, i<span class="number">-1</span>);</span><br><span class="line">	<span class="keyword">if</span>(sum&gt;=n)&#123;</span><br><span class="line">		cnt = i;</span><br><span class="line">		<span class="keyword">break</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(cnt!=<span class="number">2</span>)n -= (sum - <span class="number">9</span> * <span class="built_in">qpow</span>(<span class="number">5</span>, cnt<span class="number">-1</span>));</span><br><span class="line"><span class="comment">//这里n变为q在cnt位的数中是第几个</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>接着我们来确定最高位的数 op</p>
+<p>同理，注意到 cnt 位，以 op 为最高位的数一共有<span
+class="math inline">5<sup><em>c</em><em>n</em><em>t</em> − 1</sup></span>个数，我们同样累加即可</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">sum = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= <span class="number">9</span>; i++)&#123;</span><br><span class="line">	sum += <span class="built_in">qpow</span>(<span class="number">5</span>, cnt - <span class="number">1</span>);</span><br><span class="line">	<span class="keyword">if</span>(sum &gt;= n)&#123;</span><br><span class="line">		op = i;</span><br><span class="line">		<span class="keyword">break</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span>(op!=<span class="number">1</span>)n -= (op<span class="number">-1</span>)*<span class="built_in">qpow</span>(<span class="number">5</span>, cnt<span class="number">-1</span>);</span><br><span class="line"><span class="comment">//这里同样的，我们把n变为q在cnt位，以op为最高位的数中是第几个</span></span><br><span class="line">cout &lt;&lt; op;</span><br><span class="line"><span class="comment">//这里我们直接把q当成字符串输出</span></span><br></pre></td></tr></table></figure>
+<p>接下来求其余位上的数，由于它们的取值都是一样的，我们开始我们的
+dfs</p>
+<p>同理，注意到 cnt 位，以 op 为最高位，op’为次高位的数一共有<span
+class="math inline">5<sup><em>p</em><em>o</em><em>s</em> − 1</sup></span>个数，我们同样累加即可</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">dfs</span><span class="params">(<span class="type">int</span> pos)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(!pos)<span class="keyword">return</span> ;</span><br><span class="line">	ll sum = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= <span class="number">5</span>; i++)&#123;</span><br><span class="line">		sum += <span class="built_in">qpow</span>(<span class="number">5</span>, pos<span class="number">-1</span>);</span><br><span class="line">		<span class="keyword">if</span>(sum&gt;=n)&#123;</span><br><span class="line">			<span class="keyword">if</span>(op&amp;<span class="number">1</span>)op = i * <span class="number">2</span> - <span class="number">2</span>;</span><br><span class="line">			<span class="keyword">else</span> op = i * <span class="number">2</span> - <span class="number">1</span>;</span><br><span class="line">            <span class="comment">//这里可以把op设为全局变量,也可以把dfs写成两个变量的</span></span><br><span class="line">			cout &lt;&lt; op;</span><br><span class="line">            <span class="comment">//这里同理直接把q当成字符串输出</span></span><br><span class="line">			<span class="keyword">if</span>(i!=<span class="number">1</span>)n -= (i<span class="number">-1</span>)*<span class="built_in">qpow</span>(<span class="number">5</span>, pos<span class="number">-1</span>);</span><br><span class="line">            <span class="comment">//同样的，我们把n变为q在cnt位，以op为最高位，op&#x27;为次高位的数中是第几个</span></span><br><span class="line">			<span class="built_in">dfs</span>(pos<span class="number">-1</span>);</span><br><span class="line">			<span class="keyword">return</span> ;</span><br><span class="line">            <span class="comment">//注意这里一定要return，因为这里q是唯一确定的数，这也是与之前的数位dfs不同的地方</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">ll n, m, op, cnt;</span><br><span class="line"></span><br><span class="line"><span class="function">ll <span class="title">qpow</span><span class="params">(ll a, ll b)</span></span>&#123;</span><br><span class="line">	ll res = <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">while</span>(b)&#123;</span><br><span class="line">		<span class="keyword">if</span>(b&amp;<span class="number">1</span>)res = res * a;</span><br><span class="line">		a = a * a;</span><br><span class="line">		b &gt;&gt;= <span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">dfs</span><span class="params">(<span class="type">int</span> pos)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(!pos)<span class="keyword">return</span> ;</span><br><span class="line">	ll sum = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= <span class="number">5</span>; i++)&#123;</span><br><span class="line">		sum += <span class="built_in">qpow</span>(<span class="number">5</span>, pos<span class="number">-1</span>);</span><br><span class="line">		<span class="keyword">if</span>(sum&gt;=n)&#123;</span><br><span class="line">			<span class="keyword">if</span>(op&amp;<span class="number">1</span>)op = i * <span class="number">2</span> - <span class="number">2</span>;</span><br><span class="line">			<span class="keyword">else</span> op = i * <span class="number">2</span> - <span class="number">1</span>;</span><br><span class="line">			cout &lt;&lt; op;</span><br><span class="line">			<span class="keyword">if</span>(i!=<span class="number">1</span>)n -= (i<span class="number">-1</span>)*<span class="built_in">qpow</span>(<span class="number">5</span>, pos<span class="number">-1</span>);</span><br><span class="line">			<span class="built_in">dfs</span>(pos<span class="number">-1</span>);</span><br><span class="line">			<span class="keyword">return</span> ;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span></span>&#123;</span><br><span class="line">	cin &gt;&gt; n;</span><br><span class="line">	ll sum = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">2</span>; i &lt;= <span class="number">17</span>; i++)&#123;</span><br><span class="line">		sum += <span class="number">9</span> * <span class="built_in">qpow</span>(<span class="number">5</span>, i<span class="number">-1</span>);</span><br><span class="line">		<span class="keyword">if</span>(sum&gt;=n)&#123;</span><br><span class="line">			cnt = i;</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span>(cnt!=<span class="number">2</span>)n -= (sum - <span class="number">9</span> * <span class="built_in">qpow</span>(<span class="number">5</span>, cnt<span class="number">-1</span>));</span><br><span class="line">	sum = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= <span class="number">9</span>; i++)&#123;</span><br><span class="line">		sum += <span class="built_in">qpow</span>(<span class="number">5</span>, cnt - <span class="number">1</span>);</span><br><span class="line">		<span class="keyword">if</span>(sum &gt;= n)&#123;</span><br><span class="line">			op = i;</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span>(op!=<span class="number">1</span>)n -= (op<span class="number">-1</span>)*<span class="built_in">qpow</span>(<span class="number">5</span>, cnt<span class="number">-1</span>);</span><br><span class="line">	cout &lt;&lt; op;</span><br><span class="line">	<span class="built_in">dfs</span>(cnt<span class="number">-1</span>);</span><br><span class="line">	<span class="keyword">return</span>  ;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>dfs</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>曼哈顿距离与切比雪夫距离的转换</title>
     <url>/2025/06/15/%E6%9B%BC%E5%93%88%E9%A1%BF%E8%B7%9D%E7%A6%BB%E4%B8%8E%E5%88%87%E6%AF%94%E9%9B%AA%E5%A4%AB%E8%B7%9D%E7%A6%BB%E7%9A%84%E8%BD%AC%E6%8D%A2/</url>
     <content><![CDATA[<h1
@@ -3831,77 +4162,6 @@ class="math inline"><em>A</em>/<em>R</em> = {[1]<sub><em>R</em></sub>, [2]
       </categories>
   </entry>
   <entry>
-    <title>数字dfs</title>
-    <url>/2025/06/15/%E6%95%B0%E5%AD%97dfs/</url>
-    <content><![CDATA[<h1 id="数字-dfs">数字 dfs</h1>
-<ul>
-<li><p><strong>处理[l, r]区间内满足某种性质 P 的数</strong></p></li>
-<li><p><strong>一般 l &lt; r &lt; 1e18,我们无法直接 for(l,
-r)</strong></p></li>
-<li><p><strong>这时我们可以转移视角，不看这个数字，而是看数位，即看成
-string,这时 1e18 也只有 19 位而已</strong></p></li>
-</ul>
-<hr />
-<h2 id="华农"><a
-href="https://ac.nowcoder.com/acm/contest/104226/G">华农</a></h2>
-<span id="more"></span>
-<p><em>波奇酱确实不喜欢数学，所以他希望可以从一个区间中找出一些他喜欢的数。</em>
-<em>如果一个数所有的相邻位数的差的绝对值为 1,
-那么波奇酱就会喜欢它。特别地，所有一位数都是波奇酱喜欢的数。</em></p>
-<p><em>给定区间 [L,R]，请求出在这个区间内波奇酱喜欢的数的数量。</em></p>
-<p><em>L,R(1≤L≤R≤1e18)，表示给定的区间。</em></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">ll  l, r;</span><br><span class="line"><span class="type">int</span> ans;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">dfs</span><span class="params">(ll num)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(num &gt; r)<span class="keyword">return</span>;</span><br><span class="line">    <span class="keyword">if</span>(num&gt;=l &amp;&amp; num&lt;=r)ans++;</span><br><span class="line">    ll d = num%<span class="number">10</span>;</span><br><span class="line">    <span class="keyword">if</span>(d<span class="number">-1</span>&gt;=<span class="number">0</span>)<span class="built_in">dfs</span>(num*<span class="number">10</span>+d<span class="number">-1</span>);</span><br><span class="line">    <span class="keyword">if</span>(d<span class="number">+1</span>&lt;=<span class="number">9</span>)<span class="built_in">dfs</span>(num*<span class="number">10</span>+d<span class="number">+1</span>);</span><br><span class="line">    <span class="keyword">return</span> ;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span></span>&#123;</span><br><span class="line">    cin &gt;&gt; l &gt;&gt; r;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt;= <span class="number">9</span>; i++)&#123;</span><br><span class="line">        <span class="built_in">dfs</span>(i);</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; ans &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">    <span class="keyword">return</span> ;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="天梯"><a
-href="https://pintia.cn/problem-sets/994805046380707840/exam/problems/type/7?problemSetProblemId=1913922872972247051&amp;page=1">天梯</a></h2>
-<p><em>本题就请你对任一给定的 n，求出给定区间内被 n 整除的 n
-位数。</em></p>
-<p><em>输入格式：</em> <em>输入在一行中给出 3
-个正整数：n（1&lt;n≤15），以及闭区间端点 a 和
-b（1≤a≤b&lt;1e15）</em></p>
-<p><em>输出格式：</em> <em>按递增序输出区间 [a,b] 内被 n 整除的 n
-位数，每个数字占一行。</em></p>
-<p><em>若给定区间内没有解，则输出 No Solution</em></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">ll n, prel[N], prer[N];</span><br><span class="line">vector&lt;ll&gt;ans;</span><br><span class="line">string l, r;</span><br><span class="line"></span><br><span class="line"><span class="function">ll <span class="title">qpow</span><span class="params">(ll a, ll b)</span></span>&#123;</span><br><span class="line">	ll res = <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">while</span>(b)&#123;</span><br><span class="line">		<span class="keyword">if</span>(b&amp;<span class="number">1</span>)res = a * res;</span><br><span class="line">		a = a * a;</span><br><span class="line">		b &gt;&gt;= <span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">string <span class="title">zh</span><span class="params">(ll sum)</span></span>&#123;</span><br><span class="line">	string s;</span><br><span class="line">	<span class="keyword">while</span>(sum)&#123;</span><br><span class="line">		s.<span class="built_in">push_back</span>(sum%<span class="number">10</span>+<span class="string">&#x27;0&#x27;</span>);<span class="comment">//加&#x27;0&#x27;转字符串</span></span><br><span class="line">		sum/=<span class="number">10</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">reverse</span>(s.<span class="built_in">begin</span>(), s.<span class="built_in">end</span>());</span><br><span class="line">	<span class="keyword">return</span> s;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">dfs</span><span class="params">(ll val, ll pos)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(pos == n + <span class="number">1</span>)&#123;</span><br><span class="line">		ans.<span class="built_in">push_back</span>(val);</span><br><span class="line">		<span class="keyword">return</span> ;</span><br><span class="line">	&#125;</span><br><span class="line">	ll sum = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span>(ll i = <span class="number">0</span>; i &lt;= <span class="number">9</span>; i++)&#123;</span><br><span class="line">		sum = val * <span class="number">10</span> + i;</span><br><span class="line">		<span class="keyword">if</span>(sum &gt;= prel[pos] &amp;&amp; sum &lt;= prer[pos])&#123;</span><br><span class="line">			<span class="keyword">if</span>(sum%pos==<span class="number">0</span>)<span class="built_in">dfs</span>(sum, pos<span class="number">+1</span>);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> ;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span></span>&#123;</span><br><span class="line">	cin &gt;&gt; n &gt;&gt; l &gt;&gt; r;</span><br><span class="line">	ll op = <span class="number">10</span>;</span><br><span class="line">	<span class="keyword">if</span>(r.<span class="built_in">size</span>() &lt; n || l.<span class="built_in">size</span>() &gt; n)&#123;</span><br><span class="line">		cout &lt;&lt; <span class="string">&quot;No Solution&quot;</span> &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">		<span class="keyword">return</span> ;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span>(l.<span class="built_in">size</span>() &lt; n)&#123;</span><br><span class="line">		l = <span class="built_in">zh</span>(<span class="built_in">qpow</span>(<span class="number">10</span>, n<span class="number">-1</span>));</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span>(r.<span class="built_in">size</span>() &gt; n)&#123;</span><br><span class="line">		r = <span class="built_in">zh</span>(<span class="built_in">qpow</span>(<span class="number">10</span>, n) - <span class="number">1</span>);</span><br><span class="line">	&#125;</span><br><span class="line">    <span class="comment">//特判处理</span></span><br><span class="line">    <span class="comment">// 3 10 1000 -&gt; 3 100 999</span></span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; (<span class="type">int</span>)l.<span class="built_in">size</span>(); i++)&#123;</span><br><span class="line">		prel[i + <span class="number">1</span>] = (l[i]-<span class="string">&#x27;0&#x27;</span>) + prel[i] *op;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; (<span class="type">int</span>)r.<span class="built_in">size</span>(); i++)&#123;</span><br><span class="line">		prer[i + <span class="number">1</span>] = (r[i]-<span class="string">&#x27;0&#x27;</span>) + prer[i] *op;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">dfs</span>(<span class="number">0</span>, <span class="number">1</span>);</span><br><span class="line">	<span class="keyword">if</span>(ans.<span class="built_in">size</span>()==<span class="number">0</span>)&#123;</span><br><span class="line">		cout &lt;&lt; <span class="string">&quot;No Solution&quot;</span> &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">		<span class="keyword">return</span> ;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(ll v : ans)cout &lt;&lt; v &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">	<span class="keyword">return</span> ;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h2 id="蓝桥"><a
-href="%5BP12835%20%5B蓝桥杯%202025%20国%20B%5D%20蓝桥星数字%20-%20洛谷%5D(https://www.luogu.com.cn/problem/P12835)">蓝桥</a></h2>
-<p><strong>求第 n 个奇偶交替的数</strong></p>
-<p><strong>1&lt;=n&lt;=1e12</strong></p>
-<p><strong>注意到这种求满足特定要求的数的问题，大部分都可以考虑数位
-dfs</strong></p>
-<p><strong>本题有点小不同，且听我慢慢道来</strong></p>
-<p>题目要我们求第 n
-个数，显然从最低位去考虑是不行的，无法求出确实当前位后有多少数</p>
-<p>所以我们考虑从最高位开始，一般数位 dfs 也都是从最高位开始</p>
-<p>接下来我们手写几个数来看看</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="number">10</span>  <span class="number">21</span> ... <span class="number">101</span>  <span class="number">121</span> ...</span><br><span class="line"><span class="number">12</span>  <span class="number">23</span>     <span class="number">103</span>  <span class="number">123</span></span><br><span class="line"><span class="number">14</span>  <span class="number">25</span>     <span class="number">105</span>  <span class="number">125</span></span><br><span class="line"><span class="number">16</span>  <span class="number">27</span>     <span class="number">107</span>  <span class="number">127</span></span><br><span class="line"><span class="number">18</span>  <span class="number">29</span>     <span class="number">109</span>  <span class="number">129</span></span><br></pre></td></tr></table></figure>
-<p>可以看出，对于 cnt 位的数 q，它的最高位可以取 1~9，其余的每一位可以取
-0，2，4，6，8 或 1，3，5，7，9</p>
-<p>即每一位有 5 种可能</p>
-<p>接下来我们求第 n 个数有多少位</p>
-<p>注意到 cnt 位的数有 9 * <span
-class="math inline">5<sup><em>c</em><em>n</em><em>t</em> − 1</sup></span>个数
-n &lt;= 1e12, cnt &lt;= 17，所以我们累加即可</p>
-<p>我们记 q 为要求的第 n 个数</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">ll sum = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">2</span>; i &lt;= <span class="number">17</span>; i++)&#123;</span><br><span class="line">	sum += <span class="number">9</span> * <span class="built_in">qpow</span>(<span class="number">5</span>, i<span class="number">-1</span>);</span><br><span class="line">	<span class="keyword">if</span>(sum&gt;=n)&#123;</span><br><span class="line">		cnt = i;</span><br><span class="line">		<span class="keyword">break</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(cnt!=<span class="number">2</span>)n -= (sum - <span class="number">9</span> * <span class="built_in">qpow</span>(<span class="number">5</span>, cnt<span class="number">-1</span>));</span><br><span class="line"><span class="comment">//这里n变为q在cnt位的数中是第几个</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>接着我们来确定最高位的数 op</p>
-<p>同理，注意到 cnt 位，以 op 为最高位的数一共有<span
-class="math inline">5<sup><em>c</em><em>n</em><em>t</em> − 1</sup></span>个数，我们同样累加即可</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">sum = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= <span class="number">9</span>; i++)&#123;</span><br><span class="line">	sum += <span class="built_in">qpow</span>(<span class="number">5</span>, cnt - <span class="number">1</span>);</span><br><span class="line">	<span class="keyword">if</span>(sum &gt;= n)&#123;</span><br><span class="line">		op = i;</span><br><span class="line">		<span class="keyword">break</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span>(op!=<span class="number">1</span>)n -= (op<span class="number">-1</span>)*<span class="built_in">qpow</span>(<span class="number">5</span>, cnt<span class="number">-1</span>);</span><br><span class="line"><span class="comment">//这里同样的，我们把n变为q在cnt位，以op为最高位的数中是第几个</span></span><br><span class="line">cout &lt;&lt; op;</span><br><span class="line"><span class="comment">//这里我们直接把q当成字符串输出</span></span><br></pre></td></tr></table></figure>
-<p>接下来求其余位上的数，由于它们的取值都是一样的，我们开始我们的
-dfs</p>
-<p>同理，注意到 cnt 位，以 op 为最高位，op’为次高位的数一共有<span
-class="math inline">5<sup><em>p</em><em>o</em><em>s</em> − 1</sup></span>个数，我们同样累加即可</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">dfs</span><span class="params">(<span class="type">int</span> pos)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(!pos)<span class="keyword">return</span> ;</span><br><span class="line">	ll sum = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= <span class="number">5</span>; i++)&#123;</span><br><span class="line">		sum += <span class="built_in">qpow</span>(<span class="number">5</span>, pos<span class="number">-1</span>);</span><br><span class="line">		<span class="keyword">if</span>(sum&gt;=n)&#123;</span><br><span class="line">			<span class="keyword">if</span>(op&amp;<span class="number">1</span>)op = i * <span class="number">2</span> - <span class="number">2</span>;</span><br><span class="line">			<span class="keyword">else</span> op = i * <span class="number">2</span> - <span class="number">1</span>;</span><br><span class="line">            <span class="comment">//这里可以把op设为全局变量,也可以把dfs写成两个变量的</span></span><br><span class="line">			cout &lt;&lt; op;</span><br><span class="line">            <span class="comment">//这里同理直接把q当成字符串输出</span></span><br><span class="line">			<span class="keyword">if</span>(i!=<span class="number">1</span>)n -= (i<span class="number">-1</span>)*<span class="built_in">qpow</span>(<span class="number">5</span>, pos<span class="number">-1</span>);</span><br><span class="line">            <span class="comment">//同样的，我们把n变为q在cnt位，以op为最高位，op&#x27;为次高位的数中是第几个</span></span><br><span class="line">			<span class="built_in">dfs</span>(pos<span class="number">-1</span>);</span><br><span class="line">			<span class="keyword">return</span> ;</span><br><span class="line">            <span class="comment">//注意这里一定要return，因为这里q是唯一确定的数，这也是与之前的数位dfs不同的地方</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">ll n, m, op, cnt;</span><br><span class="line"></span><br><span class="line"><span class="function">ll <span class="title">qpow</span><span class="params">(ll a, ll b)</span></span>&#123;</span><br><span class="line">	ll res = <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">while</span>(b)&#123;</span><br><span class="line">		<span class="keyword">if</span>(b&amp;<span class="number">1</span>)res = res * a;</span><br><span class="line">		a = a * a;</span><br><span class="line">		b &gt;&gt;= <span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">dfs</span><span class="params">(<span class="type">int</span> pos)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(!pos)<span class="keyword">return</span> ;</span><br><span class="line">	ll sum = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= <span class="number">5</span>; i++)&#123;</span><br><span class="line">		sum += <span class="built_in">qpow</span>(<span class="number">5</span>, pos<span class="number">-1</span>);</span><br><span class="line">		<span class="keyword">if</span>(sum&gt;=n)&#123;</span><br><span class="line">			<span class="keyword">if</span>(op&amp;<span class="number">1</span>)op = i * <span class="number">2</span> - <span class="number">2</span>;</span><br><span class="line">			<span class="keyword">else</span> op = i * <span class="number">2</span> - <span class="number">1</span>;</span><br><span class="line">			cout &lt;&lt; op;</span><br><span class="line">			<span class="keyword">if</span>(i!=<span class="number">1</span>)n -= (i<span class="number">-1</span>)*<span class="built_in">qpow</span>(<span class="number">5</span>, pos<span class="number">-1</span>);</span><br><span class="line">			<span class="built_in">dfs</span>(pos<span class="number">-1</span>);</span><br><span class="line">			<span class="keyword">return</span> ;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span></span>&#123;</span><br><span class="line">	cin &gt;&gt; n;</span><br><span class="line">	ll sum = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">2</span>; i &lt;= <span class="number">17</span>; i++)&#123;</span><br><span class="line">		sum += <span class="number">9</span> * <span class="built_in">qpow</span>(<span class="number">5</span>, i<span class="number">-1</span>);</span><br><span class="line">		<span class="keyword">if</span>(sum&gt;=n)&#123;</span><br><span class="line">			cnt = i;</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span>(cnt!=<span class="number">2</span>)n -= (sum - <span class="number">9</span> * <span class="built_in">qpow</span>(<span class="number">5</span>, cnt<span class="number">-1</span>));</span><br><span class="line">	sum = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= <span class="number">9</span>; i++)&#123;</span><br><span class="line">		sum += <span class="built_in">qpow</span>(<span class="number">5</span>, cnt - <span class="number">1</span>);</span><br><span class="line">		<span class="keyword">if</span>(sum &gt;= n)&#123;</span><br><span class="line">			op = i;</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span>(op!=<span class="number">1</span>)n -= (op<span class="number">-1</span>)*<span class="built_in">qpow</span>(<span class="number">5</span>, cnt<span class="number">-1</span>);</span><br><span class="line">	cout &lt;&lt; op;</span><br><span class="line">	<span class="built_in">dfs</span>(cnt<span class="number">-1</span>);</span><br><span class="line">	<span class="keyword">return</span>  ;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>算法</category>
-      </categories>
-      <tags>
-        <tag>dfs</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>算法入门第一课</title>
     <url>/2025/10/10/%E7%AE%97%E6%B3%95%E5%85%A5%E9%97%A8%E7%AC%AC%E4%B8%80%E8%AF%BE/</url>
     <content><![CDATA[<h1 id="introduction-lec-01-2024.11.11">Introduction Lec 01 /
@@ -4127,6 +4387,74 @@ cl.exe。</p>
       </tags>
   </entry>
   <entry>
+    <title>自动刷课</title>
+    <url>/2025/06/15/%E8%87%AA%E5%8A%A8%E5%88%B7%E8%AF%BE/</url>
+    <content><![CDATA[<h1 id="补充">2025.6.5 补充！！！</h1>
+<p>软件最新更新，无需使用任何外在浏览器（不用下载谷歌浏览器了），需要下载最新版软件，选择软件自带的内置浏览器即可正常使用！
+最新脚本软件：https://cdn.ocsjs.com/app/download/ocs-2.8.3-setup-win-x64.exe</p>
+<span id="more"></span>
+<h1 id="补充-1">2025.4.15 补充！！！</h1>
+<p>这段时间按照下面操作仍无法使用
+解决方法，按照下面操作执行后运行页面后，页面右上角提示“脚本猫已关闭…”，点击管理扩展程序进入，将页面右上方开发者模式打开，并且将页面下方脚本猫的按钮也打开，然后关闭网页，重启软件即可恢复正常使用。</p>
+<h2
+id="如果你要解决的软件不在下面这几个之中请移步另一篇博文自动刷题刷课">如果你要解决的软件不在下面这几个之中，请移步另一篇博文“自动刷题刷课”</h2>
+<figure>
+<img src="/assets/4226c9c52a7a78678e8f0076a35ab0c0.png" alt="图" />
+<figcaption aria-hidden="true">图</figcaption>
+</figure>
+<h3 id="必要说明">必要说明</h3>
+<p>1.网课脚本不要开倍速！有的会系统识别用时过短然后清理你的记录还要重新看！对于网课，脚本便利在于可以自动下集，也就是说可以开着挂一个晚上就刷好了。（当然有些水课没管就可以高倍速速通，可以自己试一下，一段时间后如果清零就老实不开倍速挂着）</p>
+<p>2.题目练习脚本大多是依靠题库，而题库可能会出现有的题目没有，或者题库答案不准确，正确率无法保证！不同脚本正确率有的相差巨大，建议多试几个。</p>
+<p>使用前务必看完“必要说明”</p>
+<h2
+id="本脚本与我没有任何关系只不过刚好找到它并将它记录下来方便身边同学使用">本脚本与我没有任何关系，只不过刚好找到它，并将它记录下来，方便身边同学使用</h2>
+<h3
+id="一.确保电脑有谷歌浏览器edge-不行如果没有在下面链接下载一个">一.确保电脑有谷歌浏览器（edge
+不行！）如果没有，在下面链接下载一个</h3>
+<p>谷歌：https://www.google.cn/intl/zh-CN/chrome/</p>
+<h3
+id="二.在电脑下载脚本运行软件点击下面链接或者复制至浏览器下载-windows-版本">二.在电脑下载脚本运行软件，点击下面链接（或者复制至浏览器）下载
+windows 版本</h3>
+<p>脚本软件：https://cdn.ocsjs.com/app/download/ocs-2.6.7-setup-win-x64.exe</p>
+<h3
+id="三.打开刚刚下载的软件跟着顶部视频操作即可简单实用">三.打开刚刚下载的软件，跟着顶部视频操作即可，简单实用</h3>
+<div class="video-container">
+<iframe src="//player.bilibili.com/player.html?isOutside=true&amp;aid=114076092996360&amp;bvid=BV1Sp9AYAEQT&amp;cid=28606400676&amp;p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true">
+</iframe>
+</div>
+<style>
+<p>.video-container { position: relative; width: 100%; padding-top:
+56.25%; /* 16:9 aspect ratio (height/width = 9/16 * 100%) */ }</p>
+<p>.video-container iframe { position: absolute; top: 0; left: 0; width:
+100%; height: 100%; }</p>
+<div class="video-container">
+<iframe src="//player.bilibili.com/player.html?isOutside=true&amp;aid=114076092996360&amp;bvid=BV1Sp9AYAEQT&amp;cid=28606400676&amp;p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true">
+</iframe>
+</div>
+<style>
+.video-container {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%; /* 16:9 aspect ratio (height/width = 9/16 * 100%) */
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+</style>
+]]></content>
+      <categories>
+        <category>技术分享</category>
+      </categories>
+      <tags>
+        <tag>杂谈</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>课外小读物</title>
     <url>/2025/10/10/%E8%AF%BE%E5%A4%96%E5%B0%8F%E8%AF%BB%E7%89%A9/</url>
     <content><![CDATA[<h3 id="阅读前须知">阅读前须知</h3>
@@ -4302,74 +4630,6 @@ Image Installation</a></p>
 <h3 id="练习答案">练习答案</h3>
 <h4 id="x11-cat-程序">0x11 Cat 程序</h4>
 <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">(<span class="type">const</span> <span class="type">int</span> argc, <span class="type">const</span> <span class="type">char</span>* argv[])</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (argc &lt; <span class="number">2</span>) &#123;</span><br><span class="line">        <span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">&quot;Usage: %s &lt;filename&gt;\n&quot;</span>, argv[<span class="number">0</span>]);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt; argc; i++) &#123;</span><br><span class="line">        FILE* file = fopen(argv[i], <span class="string">&quot;r&quot;</span>);</span><br><span class="line">        <span class="keyword">if</span> (file == <span class="literal">NULL</span>) &#123;</span><br><span class="line">            <span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">&quot;Error opening file %s\n&quot;</span>, argv[i]);</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="type">char</span> buffer[<span class="number">1024</span>];</span><br><span class="line">        <span class="keyword">while</span> (fgets(buffer, <span class="keyword">sizeof</span>(buffer), file) != <span class="literal">NULL</span>) &#123;</span><br><span class="line">            <span class="built_in">fprintf</span>(<span class="built_in">stdout</span>, <span class="string">&quot;%s&quot;</span>, buffer);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        fclose(file);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>技术分享</category>
-      </categories>
-      <tags>
-        <tag>杂谈</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>自动刷课</title>
-    <url>/2025/06/15/%E8%87%AA%E5%8A%A8%E5%88%B7%E8%AF%BE/</url>
-    <content><![CDATA[<h1 id="补充">2025.6.5 补充！！！</h1>
-<p>软件最新更新，无需使用任何外在浏览器（不用下载谷歌浏览器了），需要下载最新版软件，选择软件自带的内置浏览器即可正常使用！
-最新脚本软件：https://cdn.ocsjs.com/app/download/ocs-2.8.3-setup-win-x64.exe</p>
-<span id="more"></span>
-<h1 id="补充-1">2025.4.15 补充！！！</h1>
-<p>这段时间按照下面操作仍无法使用
-解决方法，按照下面操作执行后运行页面后，页面右上角提示“脚本猫已关闭…”，点击管理扩展程序进入，将页面右上方开发者模式打开，并且将页面下方脚本猫的按钮也打开，然后关闭网页，重启软件即可恢复正常使用。</p>
-<h2
-id="如果你要解决的软件不在下面这几个之中请移步另一篇博文自动刷题刷课">如果你要解决的软件不在下面这几个之中，请移步另一篇博文“自动刷题刷课”</h2>
-<figure>
-<img src="/assets/4226c9c52a7a78678e8f0076a35ab0c0.png" alt="图" />
-<figcaption aria-hidden="true">图</figcaption>
-</figure>
-<h3 id="必要说明">必要说明</h3>
-<p>1.网课脚本不要开倍速！有的会系统识别用时过短然后清理你的记录还要重新看！对于网课，脚本便利在于可以自动下集，也就是说可以开着挂一个晚上就刷好了。（当然有些水课没管就可以高倍速速通，可以自己试一下，一段时间后如果清零就老实不开倍速挂着）</p>
-<p>2.题目练习脚本大多是依靠题库，而题库可能会出现有的题目没有，或者题库答案不准确，正确率无法保证！不同脚本正确率有的相差巨大，建议多试几个。</p>
-<p>使用前务必看完“必要说明”</p>
-<h2
-id="本脚本与我没有任何关系只不过刚好找到它并将它记录下来方便身边同学使用">本脚本与我没有任何关系，只不过刚好找到它，并将它记录下来，方便身边同学使用</h2>
-<h3
-id="一.确保电脑有谷歌浏览器edge-不行如果没有在下面链接下载一个">一.确保电脑有谷歌浏览器（edge
-不行！）如果没有，在下面链接下载一个</h3>
-<p>谷歌：https://www.google.cn/intl/zh-CN/chrome/</p>
-<h3
-id="二.在电脑下载脚本运行软件点击下面链接或者复制至浏览器下载-windows-版本">二.在电脑下载脚本运行软件，点击下面链接（或者复制至浏览器）下载
-windows 版本</h3>
-<p>脚本软件：https://cdn.ocsjs.com/app/download/ocs-2.6.7-setup-win-x64.exe</p>
-<h3
-id="三.打开刚刚下载的软件跟着顶部视频操作即可简单实用">三.打开刚刚下载的软件，跟着顶部视频操作即可，简单实用</h3>
-<div class="video-container">
-<iframe src="//player.bilibili.com/player.html?isOutside=true&amp;aid=114076092996360&amp;bvid=BV1Sp9AYAEQT&amp;cid=28606400676&amp;p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true">
-</iframe>
-</div>
-<style>
-<p>.video-container { position: relative; width: 100%; padding-top:
-56.25%; /* 16:9 aspect ratio (height/width = 9/16 * 100%) */ }</p>
-<p>.video-container iframe { position: absolute; top: 0; left: 0; width:
-100%; height: 100%; }</p>
-<div class="video-container">
-<iframe src="//player.bilibili.com/player.html?isOutside=true&amp;aid=114076092996360&amp;bvid=BV1Sp9AYAEQT&amp;cid=28606400676&amp;p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true">
-</iframe>
-</div>
-<style>
-.video-container {
-    position: relative;
-    width: 100%;
-    padding-top: 56.25%; /* 16:9 aspect ratio (height/width = 9/16 * 100%) */
-}
-
-.video-container iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}
-</style>
 ]]></content>
       <categories>
         <category>技术分享</category>
