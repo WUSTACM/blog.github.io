@@ -571,7 +571,7 @@ comments:
   # Setting `true` means remembering the comment system selected by the visitor.
   storage: true
   # Lazyload all comment systems.
-  lazyload: false
+  lazyload: true
   # Modify texts or order for any navs, here are some examples.
   nav:
     #disqus:
@@ -602,10 +602,13 @@ disqusjs:
   shortname: # See: https://disqus.com/admin/settings/general/
 
 # Changyan
+# changyan
 changyan:
-  enable: false
-  appid:
-  appkey:
+  enable: true
+  appid: cyyhozec9
+  appkey: e4885d2957e9b9155692fa1b0a88ab99
+  count: true
+
   #post_meta_order: 0
 
 # Valine

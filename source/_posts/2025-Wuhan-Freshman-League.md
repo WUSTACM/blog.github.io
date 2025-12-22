@@ -18,7 +18,7 @@ mermaid:
 katex:
 author: everlasting
 references:
-comments:
+comments: true
 indexing:
 breadcrumb:
 leftbar:
