@@ -20,15 +20,15 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":"flat"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="向量代数与空间解析几何向量相关方向角一向量 **r **与 $x,y,z$ 轴正向的夹角 $\alpha、\beta、\gamma$ 称为其方向角，方向角的余弦成为其方向余弦。 设 r&#x3D;($x,y,z$) 那么有 ​ $cos\alpha &#x3D; \frac{x}{|r|}, cos\beta &#x3D; \frac{y}{r}, cos\gamma &#x3D; \frac{z">
+  <meta name="description" content="向量代数与空间解析几何 向量相关 方向角 一向量 r 与 x, y, z 轴正向的夹角 α、β、γ 称为其方向角，方向角的余弦成为其方向余弦。 设 r&#x3D;(x, y, z) 那么有 ​ $cos&#x3D; , cos&#x3D; , cos&#x3D; $ 进而有 ​ $cos^2+ cos^2+ cos^2&#x3D; 1 $">
 <meta property="og:type" content="article">
 <meta property="og:title" content="向量代数与空间解析几何">
 <meta property="og:url" content="http://example.com/2025/12/22/%E5%90%91%E9%87%8F%E4%BB%A3%E6%95%B0%E4%B8%8E%E7%A9%BA%E9%97%B4%E8%A7%A3%E6%9E%90%E5%87%A0%E4%BD%95/index.html">
 <meta property="og:site_name" content="WUSTACM">
-<meta property="og:description" content="向量代数与空间解析几何向量相关方向角一向量 **r **与 $x,y,z$ 轴正向的夹角 $\alpha、\beta、\gamma$ 称为其方向角，方向角的余弦成为其方向余弦。 设 r&#x3D;($x,y,z$) 那么有 ​ $cos\alpha &#x3D; \frac{x}{|r|}, cos\beta &#x3D; \frac{y}{r}, cos\gamma &#x3D; \frac{z">
+<meta property="og:description" content="向量代数与空间解析几何 向量相关 方向角 一向量 r 与 x, y, z 轴正向的夹角 α、β、γ 称为其方向角，方向角的余弦成为其方向余弦。 设 r&#x3D;(x, y, z) 那么有 ​ $cos&#x3D; , cos&#x3D; , cos&#x3D; $ 进而有 ​ $cos^2+ cos^2+ cos^2&#x3D; 1 $">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2025-12-22T07:00:40.898Z">
-<meta property="article:modified_time" content="2025-12-22T07:00:40.898Z">
+<meta property="article:published_time" content="2025-12-22T07:14:48.801Z">
+<meta property="article:modified_time" content="2025-12-22T07:14:48.801Z">
 <meta property="article:author" content="Blog">
 <meta name="twitter:card" content="summary">
 
@@ -219,7 +219,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2025-12-22 07:00:40" itemprop="dateCreated datePublished" datetime="2025-12-22T07:00:40+00:00">2025-12-22</time>
+              <time title="创建时间：2025-12-22 07:14:48" itemprop="dateCreated datePublished" datetime="2025-12-22T07:14:48+00:00">2025-12-22</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -256,162 +256,284 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="向量代数与空间解析几何"><a href="#向量代数与空间解析几何" class="headerlink" title="向量代数与空间解析几何"></a>向量代数与空间解析几何</h1><h2 id="向量相关"><a href="#向量相关" class="headerlink" title="向量相关"></a>向量相关</h2><h3 id="方向角"><a href="#方向角" class="headerlink" title="方向角"></a>方向角</h3><p>一向量 **r **与 $x,y,z$ 轴正向的夹角 $\alpha、\beta、\gamma$ 称为其方向角，方向角的余弦成为其方向余弦。</p>
-<p>设 <strong>r</strong>&#x3D;($x,y,z$)</p>
+        <h1 id="向量代数与空间解析几何">向量代数与空间解析几何</h1>
+<h2 id="向量相关">向量相关</h2>
+<h3 id="方向角">方向角</h3>
+<p>一向量 <strong>r </strong>与 <span
+class="math inline"><em>x</em>, <em>y</em>, <em>z</em></span>
+轴正向的夹角 <span
+class="math inline"><em>α</em>、<em>β</em>、<em>γ</em></span>
+称为其方向角，方向角的余弦成为其方向余弦。</p>
+<p>设 <strong>r</strong>=(<span
+class="math inline"><em>x</em>, <em>y</em>, <em>z</em></span>)</p>
 <p>那么有</p>
-<p>​ $cos\alpha &#x3D; \frac{x}{|r|}, cos\beta &#x3D; \frac{y}{r}, cos\gamma &#x3D; \frac{z}{r} $</p>
+<p>​ $cos= , cos= , cos= $</p>
 <p>进而有</p>
-<p>​ $cos^2\alpha + cos^2\beta + cos^2\gamma &#x3D; 1 $</p>
+<p>​ $cos^2+ cos^2+ cos^2= 1 $</p>
 <span id="more"></span>
-
-<h3 id="投影"><a href="#投影" class="headerlink" title="投影"></a>投影</h3><p>将向量 <strong>r</strong> 在 $u$ 轴上的投影记为：$prj_ur$ 或 $(r)_u$</p>
-<p>设向量 <strong>r</strong> 与 $u$ 轴正向的夹角为 $\theta$，则：</p>
+<h3 id="投影">投影</h3>
+<p>将向量 <strong>r</strong> 在 <span
+class="math inline"><em>u</em></span> 轴上的投影记为：<span
+class="math inline"><em>p</em><em>r</em><em>j</em><sub><em>u</em></sub><em>r</em></span>
+或 <span
+class="math inline">(<em>r</em>)<sub><em>u</em></sub></span></p>
+<p>设向量 <strong>r</strong> 与 <span
+class="math inline"><em>u</em></span> 轴正向的夹角为 <span
+class="math inline"><em>θ</em></span>，则：</p>
 <ul>
-<li><p>(<strong>a</strong>)$_u &#x3D; |a|cos\theta$</p>
-</li>
-<li><p>(<strong>a</strong> + <strong>b</strong>)$u$ &#x3D; (<strong>a</strong>)$_u$ + (<strong>b</strong>)$_u$</p>
-</li>
+<li><p>(<strong>a</strong>)<span
+class="math inline"><sub><em>u</em></sub> = |<em>a</em>|<em>c</em><em>o</em><em>s</em><em>θ</em></span></p></li>
+<li><p>(<strong>a</strong> + <strong>b</strong>)<span
+class="math inline"><em>u</em></span> = (<strong>a</strong>)<span
+class="math inline"><sub><em>u</em></sub></span> +
+(<strong>b</strong>)<span
+class="math inline"><sub><em>u</em></sub></span></p></li>
 </ul>
-<h3 id="向量积"><a href="#向量积" class="headerlink" title="向量积"></a>向量积</h3><p><strong>c</strong> 为 <strong>a</strong>，<strong>b</strong>的向量积记为 <strong>c</strong> &#x3D; <strong>a</strong> $\times$ <strong>b</strong>.</p>
+<h3 id="向量积">向量积</h3>
+<p><strong>c</strong> 为
+<strong>a</strong>，<strong>b</strong>的向量积记为 <strong>c</strong> =
+<strong>a</strong> <span class="math inline">×</span>
+<strong>b</strong>.</p>
 <p><strong>c</strong> 满足：</p>
 <ul>
-<li>|<strong>c</strong>| &#x3D; |<strong>a</strong>||<strong>b</strong>|$sin\theta$</li>
-<li><strong>c</strong>$ \perp $<strong>a</strong>，<strong>c</strong>$ \perp $<strong>b</strong>，且三者满足右手法则</li>
+<li>|<strong>c</strong>| = |<strong>a</strong>||<strong>b</strong>|<span
+class="math inline"><em>s</em><em>i</em><em>n</em><em>θ</em></span></li>
+<li><strong>c</strong>$ <span
+class="math inline"> *  * <em>a</em> *  * ， *  * <em>c</em> * *</span>
+$<strong>b</strong>，且三者满足右手法则</li>
 </ul>
 <blockquote>
 <p>右手法则：</p>
-<p>右手四指指向<strong>a</strong> ，向<strong>b</strong>内旋，拇指方向为<strong>c</strong>的方向</p>
+<p>右手四指指向<strong>a</strong>
+，向<strong>b</strong>内旋，拇指方向为<strong>c</strong>的方向</p>
 </blockquote>
 <p>向量积的性质</p>
 <ul>
-<li><strong>a</strong> $\times$<strong>a</strong> &#x3D; <strong>0</strong></li>
-<li><strong>a</strong> $\parallel$ <strong>b</strong> $\Leftrightarrow$ <strong>a</strong> $\times$ <strong>b</strong> &#x3D; <strong>0</strong></li>
+<li><strong>a</strong> <span
+class="math inline">×</span><strong>a</strong> = <strong>0</strong></li>
+<li><strong>a</strong> <span class="math inline">∥</span>
+<strong>b</strong> <span class="math inline">⇔</span> <strong>a</strong>
+<span class="math inline">×</span> <strong>b</strong> =
+<strong>0</strong></li>
 </ul>
 <p>向量积的运算律</p>
-<ol>
-<li><strong>反交换律</strong> ：<strong>b</strong> $\times$ <strong>a</strong> &#x3D; $-$<strong>a</strong> $\times$ <strong>b</strong></li>
-<li><strong>分配律</strong>：(<strong>a</strong> + <strong>b</strong>) $\times$ <strong>c</strong> &#x3D; <strong>a</strong> $\times$ <strong>c</strong> + <strong>a</strong> $\times$ <strong>c</strong></li>
-<li><strong>结合律</strong>：($\lambda$<strong>a</strong>) $\times$ <strong>b</strong> &#x3D; $\lambda$(<strong>a</strong> $\times$ <strong>b</strong>)</li>
+<ol type="1">
+<li><strong>反交换律</strong> ：<strong>b</strong> <span
+class="math inline">×</span> <strong>a</strong> = <span
+class="math inline">−</span><strong>a</strong> <span
+class="math inline">×</span> <strong>b</strong></li>
+<li><strong>分配律</strong>：(<strong>a</strong> + <strong>b</strong>)
+<span class="math inline">×</span> <strong>c</strong> =
+<strong>a</strong> <span class="math inline">×</span> <strong>c</strong>
++ <strong>a</strong> <span class="math inline">×</span>
+<strong>c</strong></li>
+<li><strong>结合律</strong>：(<span
+class="math inline"><em>λ</em></span><strong>a</strong>) <span
+class="math inline">×</span> <strong>b</strong> = <span
+class="math inline"><em>λ</em></span>(<strong>a</strong> <span
+class="math inline">×</span> <strong>b</strong>)</li>
 </ol>
 <p>向量积的坐标计算</p>
-<p>​ <strong>a</strong> $\times$ <strong>b</strong> &#x3D; $\begin{vmatrix} i&amp;j&amp;k \ a_x&amp;a_y&amp;a_z \ b_x&amp;b_y&amp;b_z \end{vmatrix}$</p>
+<p>​ <strong>a</strong> <span class="math inline">×</span>
+<strong>b</strong> = <span class="math inline">$\begin{vmatrix}
+i&amp;j&amp;k \\ a_x&amp;a_y&amp;a_z \\ b_x&amp;b_y&amp;b_z
+\end{vmatrix}$</span></p>
 <p>计算时可以写为</p>
-<p>​ $\begin{matrix} a_y&amp;a_z&amp;a_x&amp;a_y \ b_y&amp;b_z&amp;b_x&amp;b_y \end{matrix}$</p>
+<p>​ <span class="math inline">$\begin{matrix}
+a_y&amp;a_z&amp;a_x&amp;a_y \\ b_y&amp;b_z&amp;b_x&amp;b_y
+\end{matrix}$</span></p>
 <p>交叉相乘可得到三个值，对应 i，j，k 的参数</p>
-<p>$a_y\times b_z - a_z \times b_y$</p>
-<p>$a_z\times b_x - a_x \times b_z$</p>
-<p>$a_x\times b_y - a_y \times b_x$</p>
-<h2 id="平面及其方程"><a href="#平面及其方程" class="headerlink" title="平面及其方程"></a>平面及其方程</h2><h3 id="方程"><a href="#方程" class="headerlink" title="方程"></a>方程</h3><p>设平面的一个法向量为 <strong>n</strong> &#x3D; $(A,B,C)$</p>
+<p><span
+class="math inline"><em>a</em><sub><em>y</em></sub> × <em>b</em><sub><em>z</em></sub> − <em>a</em><sub><em>z</em></sub> × <em>b</em><sub><em>y</em></sub></span></p>
+<p><span
+class="math inline"><em>a</em><sub><em>z</em></sub> × <em>b</em><sub><em>x</em></sub> − <em>a</em><sub><em>x</em></sub> × <em>b</em><sub><em>z</em></sub></span></p>
+<p><span
+class="math inline"><em>a</em><sub><em>x</em></sub> × <em>b</em><sub><em>y</em></sub> − <em>a</em><sub><em>y</em></sub> × <em>b</em><sub><em>x</em></sub></span></p>
+<h2 id="平面及其方程">平面及其方程</h2>
+<h3 id="方程">方程</h3>
+<p>设平面的一个法向量为 <strong>n</strong> = <span
+class="math inline">(<em>A</em>,<em>B</em>,<em>C</em>)</span></p>
 <p><strong>一般方程</strong></p>
-<p>​ $Ax+By+Cz+D&#x3D;0$</p>
+<p>​ <span
+class="math inline"><em>A</em><em>x</em> + <em>B</em><em>y</em> + <em>C</em><em>z</em> + <em>D</em> = 0</span></p>
 <p><strong>点法式方程</strong></p>
-<p>该平面过点 $P_0(x_0,y_0,z_0)$</p>
+<p>该平面过点 <span
+class="math inline"><em>P</em><sub>0</sub>(<em>x</em><sub>0</sub>,<em>y</em><sub>0</sub>,<em>z</em><sub>0</sub>)</span></p>
 <p>则方程为</p>
-<p>​ $A(x-x_0)+B(y-y_0)+C(z-z_0) &#x3D; 0$</p>
+<p>​ <span
+class="math inline"><em>A</em>(<em>x</em>−<em>x</em><sub>0</sub>) + <em>B</em>(<em>y</em>−<em>y</em><sub>0</sub>) + <em>C</em>(<em>z</em>−<em>z</em><sub>0</sub>) = 0</span></p>
 <p><strong>截距式方程</strong></p>
-<p>设平面与$x,y,z$ 轴的交点为$a,b,c$</p>
+<p>设平面与<span
+class="math inline"><em>x</em>, <em>y</em>, <em>z</em></span>
+轴的交点为<span
+class="math inline"><em>a</em>, <em>b</em>, <em>c</em></span></p>
 <p>则该方程为</p>
-<p>​ $\frac{x}{a} + \frac{y}{b} + \frac{z}{c} &#x3D;  1$</p>
-<h3 id="平面关系"><a href="#平面关系" class="headerlink" title="平面关系"></a>平面关系</h3><p>设有两平面</p>
-<p>​ $\Pi_1:A_1x+B_1y+C_1z+D_1&#x3D;0$</p>
-<p>​ $\Pi_2:A_2x+B_2y+C_2z+D_2&#x3D;0$</p>
+<p>​ <span class="math inline">$\frac{x}{a} + \frac{y}{b} + \frac{z}{c} =
+1$</span></p>
+<h3 id="平面关系">平面关系</h3>
+<p>设有两平面</p>
+<p>​ <span
+class="math inline"><em>Π</em><sub>1</sub> : <em>A</em><sub>1</sub><em>x</em> + <em>B</em><sub>1</sub><em>y</em> + <em>C</em><sub>1</sub><em>z</em> + <em>D</em><sub>1</sub> = 0</span></p>
+<p>​ <span
+class="math inline"><em>Π</em><sub>2</sub> : <em>A</em><sub>2</sub><em>x</em> + <em>B</em><sub>2</sub><em>y</em> + <em>C</em><sub>2</sub><em>z</em> + <em>D</em><sub>2</sub> = 0</span></p>
 <p>其法向量为</p>
-<p>​ <strong>n</strong>$_1&#x3D;(A_1,B_1,C_1)$</p>
-<p>​ <strong>n</strong>$_2&#x3D;(A_2,B_2,C_2)$</p>
+<p>​ <strong>n</strong><span
+class="math inline"><sub>1</sub> = (<em>A</em><sub>1</sub>,<em>B</em><sub>1</sub>,<em>C</em><sub>1</sub>)</span></p>
+<p>​ <strong>n</strong><span
+class="math inline"><sub>2</sub> = (<em>A</em><sub>2</sub>,<em>B</em><sub>2</sub>,<em>C</em><sub>2</sub>)</span></p>
 <p>则两面的夹角：</p>
-<p>​ $cos\theta &#x3D; \frac{|n_1·n_2|}{|n_1||n_2|}$</p>
+<p>​ <span class="math inline">$cos\theta =
+\frac{|n_1·n_2|}{|n_1||n_2|}$</span></p>
 <p>特别的：</p>
-<p>$\Pi_1\perp\Pi_2\Leftrightarrow A_1A_2+B_1B_2+C_1C_2&#x3D;0$</p>
-<p>$\Pi_1\parallel\Pi_2\Leftrightarrow \frac{A_1}{A_2}&#x3D;\frac{B_1}{B_2}&#x3D;\frac{C_1}{C_2}$</p>
-<h3 id="点面距离"><a href="#点面距离" class="headerlink" title="点面距离"></a>点面距离</h3><p>设有平面$\Pi:Ax+By+Cz+D&#x3D;0$，点$P_0(x_0,y_0,z_0)$</p>
+<p><span
+class="math inline"><em>Π</em><sub>1</sub> ⊥ <em>Π</em><sub>2</sub> ⇔ <em>A</em><sub>1</sub><em>A</em><sub>2</sub> + <em>B</em><sub>1</sub><em>B</em><sub>2</sub> + <em>C</em><sub>1</sub><em>C</em><sub>2</sub> = 0</span></p>
+<p><span class="math inline">$\Pi_1\parallel\Pi_2\Leftrightarrow
+\frac{A_1}{A_2}=\frac{B_1}{B_2}=\frac{C_1}{C_2}$</span></p>
+<h3 id="点面距离">点面距离</h3>
+<p>设有平面<span
+class="math inline"><em>Π</em> : <em>A</em><em>x</em> + <em>B</em><em>y</em> + <em>C</em><em>z</em> + <em>D</em> = 0</span>，点<span
+class="math inline"><em>P</em><sub>0</sub>(<em>x</em><sub>0</sub>,<em>y</em><sub>0</sub>,<em>z</em><sub>0</sub>)</span></p>
 <p>则点到平面的距离为</p>
-<p>​ $\frac{|Ax_0+By_0+Cz_0+D|}{\sqrt{A^2+B^2+C^2}}$</p>
-<h2 id="直线及其方程"><a href="#直线及其方程" class="headerlink" title="直线及其方程"></a>直线及其方程</h2><h3 id="方程-1"><a href="#方程-1" class="headerlink" title="方程"></a>方程</h3><p><strong>一般方程</strong></p>
-<p>设直线 <em>L</em> 是平面 $A_1x+B_1y+C_1z+D_1&#x3D;0$ 和 $A_2x+B_2y+C_2z+D_2&#x3D;0$的交线</p>
+<p>​ <span
+class="math inline">$\frac{|Ax_0+By_0+Cz_0+D|}{\sqrt{A^2+B^2+C^2}}$</span></p>
+<h2 id="直线及其方程">直线及其方程</h2>
+<h3 id="方程-1">方程</h3>
+<p><strong>一般方程</strong></p>
+<p>设直线 <em>L</em> 是平面 <span
+class="math inline"><em>A</em><sub>1</sub><em>x</em> + <em>B</em><sub>1</sub><em>y</em> + <em>C</em><sub>1</sub><em>z</em> + <em>D</em><sub>1</sub> = 0</span>
+和 <span
+class="math inline"><em>A</em><sub>2</sub><em>x</em> + <em>B</em><sub>2</sub><em>y</em> + <em>C</em><sub>2</sub><em>z</em> + <em>D</em><sub>2</sub> = 0</span>的交线</p>
 <p>那么可以写为</p>
-<p>​ $A_1x+B_1y+C_1z+D_1&#x3D;0$</p>
-<p>​ $A_2x+B_2y+C_2z+D_2&#x3D;0$</p>
+<p>​ <span
+class="math inline"><em>A</em><sub>1</sub><em>x</em> + <em>B</em><sub>1</sub><em>y</em> + <em>C</em><sub>1</sub><em>z</em> + <em>D</em><sub>1</sub> = 0</span></p>
+<p>​ <span
+class="math inline"><em>A</em><sub>2</sub><em>x</em> + <em>B</em><sub>2</sub><em>y</em> + <em>C</em><sub>2</sub><em>z</em> + <em>D</em><sub>2</sub> = 0</span></p>
 <p><strong>对称式方程</strong></p>
-<p>设直线的方向向量为$s&#x3D;(m,n,p)$，且直线过点$(x_0,y_0,z_0)$</p>
+<p>设直线的方向向量为<span
+class="math inline"><em>s</em> = (<em>m</em>,<em>n</em>,<em>p</em>)</span>，且直线过点<span
+class="math inline">(<em>x</em><sub>0</sub>,<em>y</em><sub>0</sub>,<em>z</em><sub>0</sub>)</span></p>
 <p>那么对称式方程可以写为</p>
-<p>​ $\frac{x-x_0}{m}&#x3D;\frac{y-y_0}{n}&#x3D;\frac{z-z_0}{p}$</p>
+<p>​ <span
+class="math inline">$\frac{x-x_0}{m}=\frac{y-y_0}{n}=\frac{z-z_0}{p}$</span></p>
 <p><strong>参数式方程</strong></p>
 <p>对于对称式方程，设其比值为 t，那么就有</p>
-<p>​ $x&#x3D;x_0+mt$</p>
-<p>​ $y&#x3D;y_0+nt$</p>
-<p>​ $z&#x3D;z_0+pt$</p>
-<h3 id="直线关系"><a href="#直线关系" class="headerlink" title="直线关系"></a>直线关系</h3><p><strong>线线关系</strong></p>
+<p>​ <span
+class="math inline"><em>x</em> = <em>x</em><sub>0</sub> + <em>m</em><em>t</em></span></p>
+<p>​ <span
+class="math inline"><em>y</em> = <em>y</em><sub>0</sub> + <em>n</em><em>t</em></span></p>
+<p>​ <span
+class="math inline"><em>z</em> = <em>z</em><sub>0</sub> + <em>p</em><em>t</em></span></p>
+<h3 id="直线关系">直线关系</h3>
+<p><strong>线线关系</strong></p>
 <p>设有直线：</p>
-<p>​ $L_1:\frac{x-x_1}{m_1}&#x3D;\frac{y-y_1}{n_1}&#x3D;\frac{z-z_1}{p_1}$</p>
-<p>​ $L_2:\frac{x-x_2}{m_2}&#x3D;\frac{y-y_2}{n_2}&#x3D;\frac{z-z_2}{p_2}$</p>
-<p>方向向量分别为：<strong>s</strong>$_1$，<strong>s</strong>$_2$</p>
-<p>设两线夹角为$\theta$，则</p>
-<p>​ $cos\theta&#x3D;\frac{|s_1·s_2|}{|s_1||s_2|}$</p>
+<p>​ <span
+class="math inline">$L_1:\frac{x-x_1}{m_1}=\frac{y-y_1}{n_1}=\frac{z-z_1}{p_1}$</span></p>
+<p>​ <span
+class="math inline">$L_2:\frac{x-x_2}{m_2}=\frac{y-y_2}{n_2}=\frac{z-z_2}{p_2}$</span></p>
+<p>方向向量分别为：<strong>s</strong><span
+class="math inline"><sub>1</sub></span>，<strong>s</strong><span
+class="math inline"><sub>2</sub></span></p>
+<p>设两线夹角为<span class="math inline"><em>θ</em></span>，则</p>
+<p>​ <span
+class="math inline">$cos\theta=\frac{|s_1·s_2|}{|s_1||s_2|}$</span></p>
 <p>特别的：</p>
-<p>​ $L_1\perp L_2\Leftrightarrow m_1m_2+n_1n_2+p_1p_2&#x3D;0$</p>
-<p>​ $L_1\parallel L_2\Leftrightarrow \frac{m_1}{m_2}&#x3D;\frac{n_1}{n_2}&#x3D;\frac{p_1}{p_2}$</p>
+<p>​ <span
+class="math inline"><em>L</em><sub>1</sub> ⊥ <em>L</em><sub>2</sub> ⇔ <em>m</em><sub>1</sub><em>m</em><sub>2</sub> + <em>n</em><sub>1</sub><em>n</em><sub>2</sub> + <em>p</em><sub>1</sub><em>p</em><sub>2</sub> = 0</span></p>
+<p>​ <span class="math inline">$L_1\parallel L_2\Leftrightarrow
+\frac{m_1}{m_2}=\frac{n_1}{n_2}=\frac{p_1}{p_2}$</span></p>
 <p><strong>线面关系</strong></p>
 <p>设有直线和平面：</p>
-<p>​ $L:\frac{x-x_0}{m}&#x3D;\frac{y-y_0}{n}&#x3D;\frac{z-z_0}{p}$</p>
-<p>​ $\Pi:Ax+By+Cz+D&#x3D;0$</p>
-<p>方向向量：$s&#x3D;(n,m,p)$</p>
-<p>法向量： $n&#x3D;(A,B,C)$</p>
-<p>设线面夹角为$\theta$，则</p>
-<p>​ $sin\theta &#x3D; \frac{n·s}{|n||s|}$</p>
+<p>​ <span
+class="math inline">$L:\frac{x-x_0}{m}=\frac{y-y_0}{n}=\frac{z-z_0}{p}$</span></p>
+<p>​ <span
+class="math inline"><em>Π</em> : <em>A</em><em>x</em> + <em>B</em><em>y</em> + <em>C</em><em>z</em> + <em>D</em> = 0</span></p>
+<p>方向向量：<span
+class="math inline"><em>s</em> = (<em>n</em>,<em>m</em>,<em>p</em>)</span></p>
+<p>法向量： <span
+class="math inline"><em>n</em> = (<em>A</em>,<em>B</em>,<em>C</em>)</span></p>
+<p>设线面夹角为<span class="math inline"><em>θ</em></span>，则</p>
+<p>​ <span class="math inline">$sin\theta =
+\frac{n·s}{|n||s|}$</span></p>
 <p>特别的：</p>
-<p>​ $L\perp \Pi\Leftrightarrow \frac{A}{m}&#x3D;\frac{B}{n}&#x3D;\frac{C}{p}$</p>
-<p>​ $L\parallel \Pi\Leftrightarrow Am+Bn+Cp&#x3D;0$</p>
-<h3 id="点线距离"><a href="#点线距离" class="headerlink" title="点线距离"></a>点线距离</h3><p>点线距离可利用公式 $|\frac{|AP \times d|}{|d|}|$ 计算，其中，A 为线上任一点，<strong>d</strong> 为直线方向向量。$AP\times b$ 求得的是 AP 与 <strong>d</strong> 构成的平行四边形的面积，除去 **d ** 的模后得到的就是高，即点线距离。</p>
-<h2 id="曲面及其方程"><a href="#曲面及其方程" class="headerlink" title="曲面及其方程"></a>曲面及其方程</h2><h3 id="旋转曲面的方程"><a href="#旋转曲面的方程" class="headerlink" title="旋转曲面的方程"></a>旋转曲面的方程</h3><table>
+<p>​ <span class="math inline">$L\perp \Pi\Leftrightarrow
+\frac{A}{m}=\frac{B}{n}=\frac{C}{p}$</span></p>
+<p>​ <span
+class="math inline"><em>L</em> ∥ <em>Π</em> ⇔ <em>A</em><em>m</em> + <em>B</em><em>n</em> + <em>C</em><em>p</em> = 0</span></p>
+<h3 id="点线距离">点线距离</h3>
+<p>点线距离可利用公式 <span class="math inline">$|\frac{|AP \times
+d|}{|d|}|$</span> 计算，其中，A 为线上任一点，<strong>d</strong>
+为直线方向向量。<span
+class="math inline"><em>A</em><em>P</em> × <em>b</em></span> 求得的是 AP
+与 <strong>d</strong> 构成的平行四边形的面积，除去 <strong>d </strong>
+的模后得到的就是高，即点线距离。</p>
+<h2 id="曲面及其方程">曲面及其方程</h2>
+<h3 id="旋转曲面的方程">旋转曲面的方程</h3>
+<table>
 <thead>
-<tr>
+<tr class="header">
 <th>曲线所在坐标面</th>
 <th>曲线方程</th>
 <th>旋转轴</th>
 <th>旋转曲面方程</th>
 </tr>
 </thead>
-<tbody><tr>
-<td>$yoz$</td>
-<td>$f(y,z)&#x3D;0$</td>
-<td>$z$轴</td>
-<td>$f(\pm\sqrt{x^2+y^2},z)$</td>
+<tbody>
+<tr class="odd">
+<td><span class="math inline"><em>y</em><em>o</em><em>z</em></span></td>
+<td><span
+class="math inline"><em>f</em>(<em>y</em>,<em>z</em>) = 0</span></td>
+<td><span class="math inline"><em>z</em></span>轴</td>
+<td><span class="math inline">$f(\pm\sqrt{x^2+y^2},z)$</span></td>
 </tr>
-<tr>
-<td>$yoz$</td>
-<td>$f(y,z)&#x3D;0$</td>
-<td>$y$轴</td>
-<td>$f(y,\pm\sqrt{x^2+z^2})$</td>
+<tr class="even">
+<td><span class="math inline"><em>y</em><em>o</em><em>z</em></span></td>
+<td><span
+class="math inline"><em>f</em>(<em>y</em>,<em>z</em>) = 0</span></td>
+<td><span class="math inline"><em>y</em></span>轴</td>
+<td><span class="math inline">$f(y,\pm\sqrt{x^2+z^2})$</span></td>
 </tr>
-<tr>
-<td>$xoz$</td>
-<td>$f(x,z)&#x3D;0$</td>
-<td>$x$轴</td>
-<td>$f(x,\pm\sqrt{y^2+z^2})$</td>
+<tr class="odd">
+<td><span class="math inline"><em>x</em><em>o</em><em>z</em></span></td>
+<td><span
+class="math inline"><em>f</em>(<em>x</em>,<em>z</em>) = 0</span></td>
+<td><span class="math inline"><em>x</em></span>轴</td>
+<td><span class="math inline">$f(x,\pm\sqrt{y^2+z^2})$</span></td>
 </tr>
-<tr>
-<td>$xoz$</td>
-<td>$f(x,z)&#x3D;0 $</td>
-<td>$z$轴</td>
-<td>$f(\pm\sqrt{x^2+y^2},z)$</td>
+<tr class="even">
+<td><span class="math inline"><em>x</em><em>o</em><em>z</em></span></td>
+<td>$f(x,z)=0 $</td>
+<td><span class="math inline"><em>z</em></span>轴</td>
+<td><span class="math inline">$f(\pm\sqrt{x^2+y^2},z)$</span></td>
 </tr>
-<tr>
-<td>$xoy$</td>
-<td>$f(x,y)&#x3D;0$</td>
-<td>$x$轴</td>
-<td>$f(x,\pm\sqrt{y^2+z^2})$</td>
+<tr class="odd">
+<td><span class="math inline"><em>x</em><em>o</em><em>y</em></span></td>
+<td><span
+class="math inline"><em>f</em>(<em>x</em>,<em>y</em>) = 0</span></td>
+<td><span class="math inline"><em>x</em></span>轴</td>
+<td><span class="math inline">$f(x,\pm\sqrt{y^2+z^2})$</span></td>
 </tr>
-<tr>
-<td>$xoy$</td>
-<td>$f(x,y)&#x3D;0$</td>
-<td>$y$轴</td>
-<td>$f(\pm\sqrt{x^2+z^2}, y)$</td>
+<tr class="even">
+<td><span class="math inline"><em>x</em><em>o</em><em>y</em></span></td>
+<td><span
+class="math inline"><em>f</em>(<em>x</em>,<em>y</em>) = 0</span></td>
+<td><span class="math inline"><em>y</em></span>轴</td>
+<td><span class="math inline">$f(\pm\sqrt{x^2+z^2}, y)$</span></td>
 </tr>
-</tbody></table>
-<h3 id="柱面"><a href="#柱面" class="headerlink" title="柱面"></a>柱面</h3><p>一直线 $l$ 沿着曲线 $C$ 平行移动形成的轨迹叫做柱面。其中，$l$ 被称作母线、 $C$ 被称作准线。</p>
-<p>对于准线在 $xoy$ 平面， $l$ 平行于 $z$ 轴的曲线，可以表示为：</p>
-<p>​ $F(x,y)&#x3D;0$</p>
-<p>​ $z&#x3D;0$</p>
+</tbody>
+</table>
+<h3 id="柱面">柱面</h3>
+<p>一直线 <span class="math inline"><em>l</em></span> 沿着曲线 <span
+class="math inline"><em>C</em></span>
+平行移动形成的轨迹叫做柱面。其中，<span
+class="math inline"><em>l</em></span> 被称作母线、 <span
+class="math inline"><em>C</em></span> 被称作准线。</p>
+<p>对于准线在 <span
+class="math inline"><em>x</em><em>o</em><em>y</em></span> 平面， <span
+class="math inline"><em>l</em></span> 平行于 <span
+class="math inline"><em>z</em></span> 轴的曲线，可以表示为：</p>
+<p>​ <span
+class="math inline"><em>F</em>(<em>x</em>,<em>y</em>) = 0</span></p>
+<p>​ <span class="math inline"><em>z</em> = 0</span></p>
 
     </div>
 
@@ -448,8 +570,8 @@
       <i class="fa fa-chevron-left"></i> 图解二维差分和前缀和
     </a></div>
       <div class="post-nav-item">
-    <a href="/2025/12/22/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/" rel="next" title="博客搭建教程">
-      博客搭建教程 <i class="fa fa-chevron-right"></i>
+    <a href="/2025/12/22/%E4%BA%8C%E5%88%86-%E4%B8%89%E5%88%86/" rel="next" title="二分\三分">
+      二分\三分 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
