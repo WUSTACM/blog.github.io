@@ -1086,6 +1086,61 @@ aria-hidden="true">6d138c55-6761-4fb8-b76b-898a9f9d6935</figcaption>
       </tags>
   </entry>
   <entry>
+    <title>vjudge 洛谷账号导入教程</title>
+    <url>/2025/10/30/vjudge%20%E6%B4%9B%E8%B0%B7%E8%B4%A6%E5%8F%B7%E5%AF%BC%E5%85%A5%E6%95%99%E7%A8%8B/</url>
+    <content><![CDATA[<p><strong>在此感谢本文主要笔者 25 级 xiaozhangup</strong></p>
+<h1 id="vjudge-洛谷账号导入教程">vjudge 洛谷账号导入教程</h1>
+<h2 id="先决条件">先决条件</h2>
+<ul>
+<li>你有一个<a
+href="https://www.luogu.com.cn/">洛谷</a>账号，并且已经在洛谷官网登录</li>
+<li>你会看图</li>
+</ul>
+<span id="more"></span>
+<h2 id="正式开始">正式开始</h2>
+<h3 id="第一步">第一步</h3>
+<p>点击此处的 <code>更新</code> 进入界面 <img src="/assets/1212.png" />
+<img src="/assets/1313.png" /></p>
+<h3 id="第二步">第二步</h3>
+<p>前往洛谷官网，可以点击上图的蓝色 <a
+href="https://www.luogu.com.cn/">洛谷</a>
+二字进入。进入后记得登录你的洛谷账号！<br />
+登陆后在洛谷的任何界面都行，让我们按下键盘上的 <code>F12</code>
+按钮。<br />
+该按钮通常在键盘的最上端一行，这里给出几个例图：<br />
+<img src="/assets/1414.png" /> <img src="/assets/1515.png" /></p>
+<h3 id="第三步">第三步</h3>
+<p>按下后，我们会看到浏览器弹出如下的界面（记得查看你使用的浏览器类型，如果不知道，那就看哪个和你看到的界面最像即可）:</p>
+<h4 id="对于-edgechrome360-安全浏览器qq-浏览器你会看到类似如下的界面">①
+对于 Edge，Chrome，360 安全浏览器，QQ 浏览器你会看到类似如下的界面</h4>
+<p>跟随红色箭头的指引，依次点击：<br />
+<img src="/assets/1616.png" /> <img src="/assets/1717.png" /><br />
+此处便是我们所需要填写的内容。<br />
+复制里面的值，分别填写到第一步的界面中，点击确认即可（如下）</p>
+<p><img src="/assets/1818.png" /></p>
+<p>静静等待，大功告成！<br />
+<img src="/assets/1919.png" /></p>
+<h4 id="对于-firefoxzen-系类浏览器你会看到">② 对于 Firefox，Zen
+系类浏览器你会看到：</h4>
+<p><img src="/assets/2020.png" /><br />
+让我们点击依次点击：<br />
+<img src="/assets/2121.png" /><br />
+<img src="/assets/2323.png" /><br />
+<img src="/assets/2424.png" /><br />
+被箭头指向的两个数据，就是我们所需要的。<br />
+复制里面的值，分别填写到第一步的界面中，点击确认即可（如下）</p>
+<p><img src="/assets/1818.png" /></p>
+<p>静静等待，大功告成！<br />
+<img src="/assets/1919.png" /></p>
+]]></content>
+      <categories>
+        <category>技术分享</category>
+      </categories>
+      <tags>
+        <tag>杂谈</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>everlasting.关于2025菜鸟杯的个人题解</title>
     <url>/2025/12/15/everlasting%E7%9A%84%E4%B8%AA%E4%BA%BA%E9%A2%98%E8%A7%A3/</url>
     <content><![CDATA[<h1 id="everlasting.的个人题解">everlasting.的个人题解</h1>
@@ -1214,61 +1269,6 @@ href="https://blog.wustacm.org/2025/12/15/2025%E8%8F%9C%E9%B8%9F%E6%9D%AF%E9%A2%
       </categories>
       <tags>
         <tag>题解</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>vjudge 洛谷账号导入教程</title>
-    <url>/2025/10/30/vjudge%20%E6%B4%9B%E8%B0%B7%E8%B4%A6%E5%8F%B7%E5%AF%BC%E5%85%A5%E6%95%99%E7%A8%8B/</url>
-    <content><![CDATA[<p><strong>在此感谢本文主要笔者 25 级 xiaozhangup</strong></p>
-<h1 id="vjudge-洛谷账号导入教程">vjudge 洛谷账号导入教程</h1>
-<h2 id="先决条件">先决条件</h2>
-<ul>
-<li>你有一个<a
-href="https://www.luogu.com.cn/">洛谷</a>账号，并且已经在洛谷官网登录</li>
-<li>你会看图</li>
-</ul>
-<span id="more"></span>
-<h2 id="正式开始">正式开始</h2>
-<h3 id="第一步">第一步</h3>
-<p>点击此处的 <code>更新</code> 进入界面 <img src="/assets/1212.png" />
-<img src="/assets/1313.png" /></p>
-<h3 id="第二步">第二步</h3>
-<p>前往洛谷官网，可以点击上图的蓝色 <a
-href="https://www.luogu.com.cn/">洛谷</a>
-二字进入。进入后记得登录你的洛谷账号！<br />
-登陆后在洛谷的任何界面都行，让我们按下键盘上的 <code>F12</code>
-按钮。<br />
-该按钮通常在键盘的最上端一行，这里给出几个例图：<br />
-<img src="/assets/1414.png" /> <img src="/assets/1515.png" /></p>
-<h3 id="第三步">第三步</h3>
-<p>按下后，我们会看到浏览器弹出如下的界面（记得查看你使用的浏览器类型，如果不知道，那就看哪个和你看到的界面最像即可）:</p>
-<h4 id="对于-edgechrome360-安全浏览器qq-浏览器你会看到类似如下的界面">①
-对于 Edge，Chrome，360 安全浏览器，QQ 浏览器你会看到类似如下的界面</h4>
-<p>跟随红色箭头的指引，依次点击：<br />
-<img src="/assets/1616.png" /> <img src="/assets/1717.png" /><br />
-此处便是我们所需要填写的内容。<br />
-复制里面的值，分别填写到第一步的界面中，点击确认即可（如下）</p>
-<p><img src="/assets/1818.png" /></p>
-<p>静静等待，大功告成！<br />
-<img src="/assets/1919.png" /></p>
-<h4 id="对于-firefoxzen-系类浏览器你会看到">② 对于 Firefox，Zen
-系类浏览器你会看到：</h4>
-<p><img src="/assets/2020.png" /><br />
-让我们点击依次点击：<br />
-<img src="/assets/2121.png" /><br />
-<img src="/assets/2323.png" /><br />
-<img src="/assets/2424.png" /><br />
-被箭头指向的两个数据，就是我们所需要的。<br />
-复制里面的值，分别填写到第一步的界面中，点击确认即可（如下）</p>
-<p><img src="/assets/1818.png" /></p>
-<p>静静等待，大功告成！<br />
-<img src="/assets/1919.png" /></p>
-]]></content>
-      <categories>
-        <category>技术分享</category>
-      </categories>
-      <tags>
-        <tag>杂谈</tag>
       </tags>
   </entry>
   <entry>
@@ -2645,6 +2645,77 @@ src="/assets/20251106-11.png" /></p>
       </tags>
   </entry>
   <entry>
+    <title>多校1题解I/区间dp</title>
+    <url>/2025/06/15/%E5%A4%9A%E6%A0%A11%E9%A2%98%E8%A7%A3I/</url>
+    <content><![CDATA[<h2 id="区间-dp-豪题">区间 DP 豪题！</h2>
+<h3 id="题面"><a
+href="https://ac.nowcoder.com/acm/contest/108298/I">题面</a></h3>
+<span id="more"></span>
+<p>这道题目我们首先看 n
+的取值范围<code>n &lt;= 420</code>所以我们可以用<strong>区间
+dp</strong>来解决这道题目</p>
+<p>首先，我们定义一个数据类型为<code>pair&lt;int, int&gt;</code>（也可以用
+<code>array&lt;int, 2&gt;</code> 都是一个道理的
+）的<strong>三维</strong>数组，<code>pair&lt;int, int&gt;</code> 的
+<code>first</code>代表的是不平衡度 <code>b</code>，
+<code>second</code>代表的是代价，<strong>重点</strong>：<code>dp[i][j][k]</code>
+中的 <code>k</code>代表的是有多少个 <code>pair&lt;int, int&gt;</code>
+数据，每一个数据代表的是第 <code>i</code> 个铁棒到第 <code>j</code>
+个铁棒这一个长铁棒，用两个小铁棒组成当前长铁棒<strong>平衡度小于等于</strong>
+<code>dp[i][j][k].first</code>
+的<strong>最小代价</strong><code>dp[i][j][k].second</code>是多少，所以我们每次在结束状态转移的后，我们会对
+<code>dp[i][j]</code> 按照 <code>dp[i][j][k].first</code>
+从小到大进行排序，然后遍历一遍将当前数据的
+<code>dp[i][j][k].second</code> 与前一个数据进行 <code>min</code>
+操作。</p>
+<p>然后，我可以遍历一遍长铁棒的“长度”（就是由几个铁棒组成），长铁棒的起始点，还有长铁棒分成两个短铁棒的切割位置（前一段短铁棒到哪个位置），这个就是我们代码中的。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="type">int</span> len = <span class="number">1</span>; len &lt;= n; len ++) &#123;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i  = <span class="number">1</span>; i + len - <span class="number">1</span> &lt;= n; i ++) &#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> k = i; k &lt; j; k ++) &#123;</span><br><span class="line">			<span class="type">int</span> x = k;</span><br><span class="line">			<span class="comment">//前一段短铁棒就是第i个铁棒到第x个铁棒</span></span><br><span class="line">			<span class="comment">//后一段短铁棒就是第x + 1个铁棒到第j个铁棒</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>我们很好想到，假如 <code>len == 1</code>
+的情况下实际上是不需要任何代价的，所以我们只需要向其中加入
+<code>{0, 0}</code>即可。但是当 <code>len != 1</code>
+时，我们就要找到我们的状态转移方程了，首先我们需要计算出他们的平衡度
+<code>b</code>
+我们需要求出两段短铁棒的长度，但是一个一个加很明显不是一个明智的选择，所以我们使用前缀和来进行优化，<code>sum[i]</code>代表前
+i 个铁棒的长度和。那么我们就可以得出他们的平衡度应该是
+<code>b = (sum[j] - sum[x] - (sum[x] - sum[i - 1])) = sum[j] + sum[i -1] - sum[x] * 2</code>，然后我们就计算他们的<strong>代价</strong>
+<code>cost = i到x这个铁棒平衡度小于等于b且最接近b的情况下的最小代价 + (x + 1)到j这个铁棒平衡度小于等于b且最接近b的情况下的最小代价 + 当前切割代价</code>。那么我们该如何得到”<strong>i
+到 x 这个铁棒平衡度小于等于 b 且最接近 b
+的情况下的最小代价</strong>“呢？这个就要追溯到我们前面讲的
+<code>dp[i][j][k]</code> 的意义了，这个代表的是从第 <code>i</code>
+个铁棒到第 <code>j</code>
+个铁棒组成的长铁棒，在用两个小铁棒组成长铁棒<strong>平衡度</strong>小于等于
+<code>dp[i][j][k].first</code> 的情况下所需要的最小代价是
+<code>dp[i][j][k].second</code>。这里可能很多朋友回想我这两个小铁棒的<strong>平衡度</strong>
+<code>dp[i][j][k].first</code>会不会起冲突，这个肯定是不会的，题目中要求平衡度
+<code>b1 &gt; b2 &gt;...... &gt; bn - 1</code>，但是谁先谁后又没有规定，谁大谁先呗，反正他们的<strong>平衡度</strong>肯定都是<strong>小于等于</strong>我当前两小铁棍的<strong>平衡度</strong>，所以我们不需要担心这个问题。还有一点我们为什么要找<strong>平衡度</strong>最接近
+<code>b</code>的数据呢，因为数据越多代价数据也就越多，可能我想要的<strong>最小代价</strong>就在最近
+<code>b</code>的<strong>平衡度</strong>的位置呢，所以我为了找到这个数据，我使用二分查找来找（我的
+<code>dp[i][j]</code>中的数据是有序的）。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">auto</span> find = [&amp;](<span class="type">int</span> i, <span class="type">int</span> j, <span class="type">int</span> b) -&gt; <span class="type">int</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (dp[i][j].<span class="built_in">empty</span>()) <span class="keyword">return</span> INF;</span><br><span class="line">    <span class="keyword">if</span> (dp[i][j][<span class="number">0</span>][<span class="number">0</span>] &gt; b) <span class="keyword">return</span> INF;</span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> l = <span class="number">0</span>, r = (<span class="type">int</span>)dp[i][j].<span class="built_in">size</span>() - <span class="number">1</span>;</span><br><span class="line">    <span class="type">int</span> ans = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (l &lt;= r) &#123;</span><br><span class="line">        <span class="type">int</span> mid = l + (r - l) / <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">if</span> (dp[i][j][mid][<span class="number">0</span>] &lt;= b) &#123;</span><br><span class="line">            l   = mid + <span class="number">1</span>;</span><br><span class="line">            ans = mid;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            r = mid - <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> dp[i][j][ans][<span class="number">1</span>];</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>那么，我的 <code>find(i, x, b)</code> 代表的就是 ”<strong>i 到 x
+这个铁棒平衡度小于等于 b 且最接近 b
+的情况下的最小代价</strong>“，那我的代价应该是
+<code>find(i, x, b) + find(x + 1, j, b) + min(sum[j] - sum[x], sum[x] - sum[i - 1]) * log2((sum[j] - sum[i - 1]) * 2 - 1)</code>，然后将这一组
+<code>{b, cost}</code>数据 <code>push_back</code> 到
+<code>dp[i][j]</code>中。</p>
+<p>最后，我们对 <code>dp[i][j]</code>进行排序，然后从头到尾遍历
+<code>dp[i][j][k].second = min(dp[i][j][k].second, dp[i][j][k - 1].second)</code>。</p>
+<p>其他的就没啥问题了，我们要找的答案应该是从第 1 个铁棒到第
+<code>n</code>个铁棒，从第 k 个铁棒截断，所需要的最小价值，也就是
+<code>find(i, k, b) + find(x + 1, n, b) + log2(...) * min(...)</code>。</p>
+<p>下面是源代码：</p>
+<p>我用的是<code>array&lt;int, 2&gt;</code>，要是要用
+<code>pair&lt;int, int&gt;</code> 的话可以自己换一下。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="meta">#<span class="keyword">define</span> int long long</span></span><br><span class="line"><span class="keyword">using</span> ll  = <span class="type">long</span> <span class="type">long</span>;</span><br><span class="line"><span class="keyword">using</span> ull = <span class="type">unsigned</span> <span class="type">long</span> <span class="type">long</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">2e5</span> + <span class="number">5</span>;</span><br><span class="line"><span class="comment">// const int M   = 1e2 + 5;</span></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> MOD = <span class="number">998244353</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> INF = <span class="number">1e15</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> n;</span><br><span class="line">    cin &gt;&gt; n;</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">sum</span><span class="params">(n + <span class="number">5</span>, <span class="number">0</span>)</span></span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;</span><br><span class="line">        cin &gt;&gt; sum[i];</span><br><span class="line">        sum[i] += sum[i - <span class="number">1</span>];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function">vector <span class="title">dp</span><span class="params">(n + <span class="number">5</span>, vector&lt;vector&lt;array&lt;<span class="type">int</span>, <span class="number">2</span>&gt;&gt;&gt;(n + <span class="number">5</span>))</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">auto</span> find = [&amp;](<span class="type">int</span> i, <span class="type">int</span> j, <span class="type">int</span> b) -&gt; <span class="type">int</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (dp[i][j].<span class="built_in">empty</span>()) <span class="keyword">return</span> INF;</span><br><span class="line">        <span class="keyword">if</span> (dp[i][j][<span class="number">0</span>][<span class="number">0</span>] &gt; b) <span class="keyword">return</span> INF;</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> l = <span class="number">0</span>, r = (<span class="type">int</span>)dp[i][j].<span class="built_in">size</span>() - <span class="number">1</span>;</span><br><span class="line">        <span class="type">int</span> ans = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (l &lt;= r) &#123;</span><br><span class="line">            <span class="type">int</span> mid = l + (r - l) / <span class="number">2</span>;</span><br><span class="line">            <span class="keyword">if</span> (dp[i][j][mid][<span class="number">0</span>] &lt;= b) &#123;</span><br><span class="line">                l   = mid + <span class="number">1</span>;</span><br><span class="line">                ans = mid;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                r = mid - <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dp[i][j][ans][<span class="number">1</span>];</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">ans</span><span class="params">(n + <span class="number">5</span>, INF)</span></span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> len = <span class="number">1</span>; len &lt;= n; len++) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i + len - <span class="number">1</span> &lt;= n; i++) &#123;</span><br><span class="line">            <span class="type">int</span> j = i + len - <span class="number">1</span>;</span><br><span class="line">            <span class="comment">// cout &lt;&lt; i &lt;&lt; &quot; &quot; &lt;&lt; j &lt;&lt; &quot;\n&quot;;</span></span><br><span class="line">            <span class="keyword">if</span> (len == <span class="number">1</span>)</span><br><span class="line">                dp[i][j].<span class="built_in">push_back</span>(&#123;<span class="number">0</span>, <span class="number">0</span>&#125;);</span><br><span class="line">            <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="comment">// int p = dp[i][j].size();</span></span><br><span class="line">                <span class="comment">// cout &lt;&lt; p &lt;&lt; &quot;f\n&quot;;</span></span><br><span class="line">                <span class="keyword">for</span> (<span class="type">int</span> k = i; k &lt; j; k++) &#123;</span><br><span class="line">                    <span class="type">int</span> x   = k;</span><br><span class="line">                    <span class="type">int</span> b   = <span class="built_in">abs</span>(sum[j] + sum[i - <span class="number">1</span>] - <span class="number">2</span> * sum[x]);</span><br><span class="line">                    <span class="type">int</span> lg = <span class="built_in">log2</span>((sum[j] - sum[i - <span class="number">1</span>]) * <span class="number">2</span> - <span class="number">1</span>);</span><br><span class="line">                    <span class="type">int</span> cost  = <span class="built_in">find</span>(i, x, b) + <span class="built_in">find</span>(x + <span class="number">1</span>, j, b) +</span><br><span class="line">                             <span class="built_in">min</span>(sum[j] - sum[x], sum[x] - sum[i - <span class="number">1</span>]) * lg;</span><br><span class="line">                    ans[k] = cost;</span><br><span class="line">                    ans[k] = <span class="built_in">min</span>(INF, ans[k]);</span><br><span class="line">                    dp[i][j].<span class="built_in">push_back</span>(&#123;b, cost&#125;);</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                <span class="built_in">sort</span>(dp[i][j].<span class="built_in">begin</span>(), dp[i][j].<span class="built_in">end</span>());</span><br><span class="line"></span><br><span class="line">                <span class="keyword">for</span> (<span class="type">int</span> k = <span class="number">1</span>; k &lt; dp[i][j].<span class="built_in">size</span>(); k++)</span><br><span class="line">                    dp[i][j][k][<span class="number">1</span>] = <span class="built_in">min</span>(dp[i][j][k][<span class="number">1</span>], dp[i][j][k - <span class="number">1</span>][<span class="number">1</span>]);</span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span> (i == <span class="number">1</span> &amp;&amp; j == n) &#123;</span><br><span class="line">                    <span class="keyword">for</span> (<span class="type">int</span> k = <span class="number">1</span>; k &lt; n; k++) &#123;</span><br><span class="line">                        <span class="keyword">if</span> (ans[k] == INF)</span><br><span class="line">                            cout &lt;&lt; <span class="string">&quot;-1 &quot;</span>;</span><br><span class="line">                        <span class="keyword">else</span></span><br><span class="line">                            cout &lt;&lt; ans[k] &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                    cout &lt;&lt; <span class="string">&quot;\n&quot;</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">signed</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line"><span class="meta">#<span class="keyword">ifdef</span> local</span></span><br><span class="line">    <span class="built_in">freopen</span>(<span class="string">&quot;in.txt&quot;</span>, <span class="string">&quot;r&quot;</span>, stdin);</span><br><span class="line">    <span class="built_in">freopen</span>(<span class="string">&quot;out.txt&quot;</span>, <span class="string">&quot;w&quot;</span>, stdout);</span><br><span class="line"><span class="meta">#<span class="keyword">endif</span></span></span><br><span class="line">    ios::<span class="built_in">sync_with_stdio</span>(<span class="literal">false</span>);</span><br><span class="line">    cin.<span class="built_in">tie</span>(<span class="number">0</span>), cout.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> __;</span><br><span class="line">    __ = <span class="number">1</span>;</span><br><span class="line">    cin &gt;&gt; __;</span><br><span class="line">    <span class="keyword">while</span> (__--) &#123;</span><br><span class="line">        <span class="built_in">solve</span>();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>题解</category>
+      </categories>
+      <tags>
+        <tag>题解</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>多元函数微分</title>
     <url>/2025/06/15/%E5%A4%9A%E5%85%83%E5%87%BD%E6%95%B0%E5%BE%AE%E5%88%86/</url>
     <content><![CDATA[<h1 id="多元函数微分学">多元函数微分学</h1>
@@ -3016,77 +3087,6 @@ class="math inline"><em>L</em>(<em>x</em>,<em>y</em>)</span>
       <categories>
         <category>高数</category>
       </categories>
-  </entry>
-  <entry>
-    <title>多校1题解I/区间dp</title>
-    <url>/2025/06/15/%E5%A4%9A%E6%A0%A11%E9%A2%98%E8%A7%A3I/</url>
-    <content><![CDATA[<h2 id="区间-dp-豪题">区间 DP 豪题！</h2>
-<h3 id="题面"><a
-href="https://ac.nowcoder.com/acm/contest/108298/I">题面</a></h3>
-<span id="more"></span>
-<p>这道题目我们首先看 n
-的取值范围<code>n &lt;= 420</code>所以我们可以用<strong>区间
-dp</strong>来解决这道题目</p>
-<p>首先，我们定义一个数据类型为<code>pair&lt;int, int&gt;</code>（也可以用
-<code>array&lt;int, 2&gt;</code> 都是一个道理的
-）的<strong>三维</strong>数组，<code>pair&lt;int, int&gt;</code> 的
-<code>first</code>代表的是不平衡度 <code>b</code>，
-<code>second</code>代表的是代价，<strong>重点</strong>：<code>dp[i][j][k]</code>
-中的 <code>k</code>代表的是有多少个 <code>pair&lt;int, int&gt;</code>
-数据，每一个数据代表的是第 <code>i</code> 个铁棒到第 <code>j</code>
-个铁棒这一个长铁棒，用两个小铁棒组成当前长铁棒<strong>平衡度小于等于</strong>
-<code>dp[i][j][k].first</code>
-的<strong>最小代价</strong><code>dp[i][j][k].second</code>是多少，所以我们每次在结束状态转移的后，我们会对
-<code>dp[i][j]</code> 按照 <code>dp[i][j][k].first</code>
-从小到大进行排序，然后遍历一遍将当前数据的
-<code>dp[i][j][k].second</code> 与前一个数据进行 <code>min</code>
-操作。</p>
-<p>然后，我可以遍历一遍长铁棒的“长度”（就是由几个铁棒组成），长铁棒的起始点，还有长铁棒分成两个短铁棒的切割位置（前一段短铁棒到哪个位置），这个就是我们代码中的。</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="type">int</span> len = <span class="number">1</span>; len &lt;= n; len ++) &#123;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i  = <span class="number">1</span>; i + len - <span class="number">1</span> &lt;= n; i ++) &#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> k = i; k &lt; j; k ++) &#123;</span><br><span class="line">			<span class="type">int</span> x = k;</span><br><span class="line">			<span class="comment">//前一段短铁棒就是第i个铁棒到第x个铁棒</span></span><br><span class="line">			<span class="comment">//后一段短铁棒就是第x + 1个铁棒到第j个铁棒</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>我们很好想到，假如 <code>len == 1</code>
-的情况下实际上是不需要任何代价的，所以我们只需要向其中加入
-<code>{0, 0}</code>即可。但是当 <code>len != 1</code>
-时，我们就要找到我们的状态转移方程了，首先我们需要计算出他们的平衡度
-<code>b</code>
-我们需要求出两段短铁棒的长度，但是一个一个加很明显不是一个明智的选择，所以我们使用前缀和来进行优化，<code>sum[i]</code>代表前
-i 个铁棒的长度和。那么我们就可以得出他们的平衡度应该是
-<code>b = (sum[j] - sum[x] - (sum[x] - sum[i - 1])) = sum[j] + sum[i -1] - sum[x] * 2</code>，然后我们就计算他们的<strong>代价</strong>
-<code>cost = i到x这个铁棒平衡度小于等于b且最接近b的情况下的最小代价 + (x + 1)到j这个铁棒平衡度小于等于b且最接近b的情况下的最小代价 + 当前切割代价</code>。那么我们该如何得到”<strong>i
-到 x 这个铁棒平衡度小于等于 b 且最接近 b
-的情况下的最小代价</strong>“呢？这个就要追溯到我们前面讲的
-<code>dp[i][j][k]</code> 的意义了，这个代表的是从第 <code>i</code>
-个铁棒到第 <code>j</code>
-个铁棒组成的长铁棒，在用两个小铁棒组成长铁棒<strong>平衡度</strong>小于等于
-<code>dp[i][j][k].first</code> 的情况下所需要的最小代价是
-<code>dp[i][j][k].second</code>。这里可能很多朋友回想我这两个小铁棒的<strong>平衡度</strong>
-<code>dp[i][j][k].first</code>会不会起冲突，这个肯定是不会的，题目中要求平衡度
-<code>b1 &gt; b2 &gt;...... &gt; bn - 1</code>，但是谁先谁后又没有规定，谁大谁先呗，反正他们的<strong>平衡度</strong>肯定都是<strong>小于等于</strong>我当前两小铁棍的<strong>平衡度</strong>，所以我们不需要担心这个问题。还有一点我们为什么要找<strong>平衡度</strong>最接近
-<code>b</code>的数据呢，因为数据越多代价数据也就越多，可能我想要的<strong>最小代价</strong>就在最近
-<code>b</code>的<strong>平衡度</strong>的位置呢，所以我为了找到这个数据，我使用二分查找来找（我的
-<code>dp[i][j]</code>中的数据是有序的）。</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">auto</span> find = [&amp;](<span class="type">int</span> i, <span class="type">int</span> j, <span class="type">int</span> b) -&gt; <span class="type">int</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (dp[i][j].<span class="built_in">empty</span>()) <span class="keyword">return</span> INF;</span><br><span class="line">    <span class="keyword">if</span> (dp[i][j][<span class="number">0</span>][<span class="number">0</span>] &gt; b) <span class="keyword">return</span> INF;</span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> l = <span class="number">0</span>, r = (<span class="type">int</span>)dp[i][j].<span class="built_in">size</span>() - <span class="number">1</span>;</span><br><span class="line">    <span class="type">int</span> ans = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (l &lt;= r) &#123;</span><br><span class="line">        <span class="type">int</span> mid = l + (r - l) / <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">if</span> (dp[i][j][mid][<span class="number">0</span>] &lt;= b) &#123;</span><br><span class="line">            l   = mid + <span class="number">1</span>;</span><br><span class="line">            ans = mid;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            r = mid - <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> dp[i][j][ans][<span class="number">1</span>];</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>那么，我的 <code>find(i, x, b)</code> 代表的就是 ”<strong>i 到 x
-这个铁棒平衡度小于等于 b 且最接近 b
-的情况下的最小代价</strong>“，那我的代价应该是
-<code>find(i, x, b) + find(x + 1, j, b) + min(sum[j] - sum[x], sum[x] - sum[i - 1]) * log2((sum[j] - sum[i - 1]) * 2 - 1)</code>，然后将这一组
-<code>{b, cost}</code>数据 <code>push_back</code> 到
-<code>dp[i][j]</code>中。</p>
-<p>最后，我们对 <code>dp[i][j]</code>进行排序，然后从头到尾遍历
-<code>dp[i][j][k].second = min(dp[i][j][k].second, dp[i][j][k - 1].second)</code>。</p>
-<p>其他的就没啥问题了，我们要找的答案应该是从第 1 个铁棒到第
-<code>n</code>个铁棒，从第 k 个铁棒截断，所需要的最小价值，也就是
-<code>find(i, k, b) + find(x + 1, n, b) + log2(...) * min(...)</code>。</p>
-<p>下面是源代码：</p>
-<p>我用的是<code>array&lt;int, 2&gt;</code>，要是要用
-<code>pair&lt;int, int&gt;</code> 的话可以自己换一下。</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="meta">#<span class="keyword">define</span> int long long</span></span><br><span class="line"><span class="keyword">using</span> ll  = <span class="type">long</span> <span class="type">long</span>;</span><br><span class="line"><span class="keyword">using</span> ull = <span class="type">unsigned</span> <span class="type">long</span> <span class="type">long</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">2e5</span> + <span class="number">5</span>;</span><br><span class="line"><span class="comment">// const int M   = 1e2 + 5;</span></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> MOD = <span class="number">998244353</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> INF = <span class="number">1e15</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> n;</span><br><span class="line">    cin &gt;&gt; n;</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">sum</span><span class="params">(n + <span class="number">5</span>, <span class="number">0</span>)</span></span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;</span><br><span class="line">        cin &gt;&gt; sum[i];</span><br><span class="line">        sum[i] += sum[i - <span class="number">1</span>];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function">vector <span class="title">dp</span><span class="params">(n + <span class="number">5</span>, vector&lt;vector&lt;array&lt;<span class="type">int</span>, <span class="number">2</span>&gt;&gt;&gt;(n + <span class="number">5</span>))</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">auto</span> find = [&amp;](<span class="type">int</span> i, <span class="type">int</span> j, <span class="type">int</span> b) -&gt; <span class="type">int</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (dp[i][j].<span class="built_in">empty</span>()) <span class="keyword">return</span> INF;</span><br><span class="line">        <span class="keyword">if</span> (dp[i][j][<span class="number">0</span>][<span class="number">0</span>] &gt; b) <span class="keyword">return</span> INF;</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> l = <span class="number">0</span>, r = (<span class="type">int</span>)dp[i][j].<span class="built_in">size</span>() - <span class="number">1</span>;</span><br><span class="line">        <span class="type">int</span> ans = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (l &lt;= r) &#123;</span><br><span class="line">            <span class="type">int</span> mid = l + (r - l) / <span class="number">2</span>;</span><br><span class="line">            <span class="keyword">if</span> (dp[i][j][mid][<span class="number">0</span>] &lt;= b) &#123;</span><br><span class="line">                l   = mid + <span class="number">1</span>;</span><br><span class="line">                ans = mid;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                r = mid - <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dp[i][j][ans][<span class="number">1</span>];</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">ans</span><span class="params">(n + <span class="number">5</span>, INF)</span></span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> len = <span class="number">1</span>; len &lt;= n; len++) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i + len - <span class="number">1</span> &lt;= n; i++) &#123;</span><br><span class="line">            <span class="type">int</span> j = i + len - <span class="number">1</span>;</span><br><span class="line">            <span class="comment">// cout &lt;&lt; i &lt;&lt; &quot; &quot; &lt;&lt; j &lt;&lt; &quot;\n&quot;;</span></span><br><span class="line">            <span class="keyword">if</span> (len == <span class="number">1</span>)</span><br><span class="line">                dp[i][j].<span class="built_in">push_back</span>(&#123;<span class="number">0</span>, <span class="number">0</span>&#125;);</span><br><span class="line">            <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="comment">// int p = dp[i][j].size();</span></span><br><span class="line">                <span class="comment">// cout &lt;&lt; p &lt;&lt; &quot;f\n&quot;;</span></span><br><span class="line">                <span class="keyword">for</span> (<span class="type">int</span> k = i; k &lt; j; k++) &#123;</span><br><span class="line">                    <span class="type">int</span> x   = k;</span><br><span class="line">                    <span class="type">int</span> b   = <span class="built_in">abs</span>(sum[j] + sum[i - <span class="number">1</span>] - <span class="number">2</span> * sum[x]);</span><br><span class="line">                    <span class="type">int</span> lg = <span class="built_in">log2</span>((sum[j] - sum[i - <span class="number">1</span>]) * <span class="number">2</span> - <span class="number">1</span>);</span><br><span class="line">                    <span class="type">int</span> cost  = <span class="built_in">find</span>(i, x, b) + <span class="built_in">find</span>(x + <span class="number">1</span>, j, b) +</span><br><span class="line">                             <span class="built_in">min</span>(sum[j] - sum[x], sum[x] - sum[i - <span class="number">1</span>]) * lg;</span><br><span class="line">                    ans[k] = cost;</span><br><span class="line">                    ans[k] = <span class="built_in">min</span>(INF, ans[k]);</span><br><span class="line">                    dp[i][j].<span class="built_in">push_back</span>(&#123;b, cost&#125;);</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                <span class="built_in">sort</span>(dp[i][j].<span class="built_in">begin</span>(), dp[i][j].<span class="built_in">end</span>());</span><br><span class="line"></span><br><span class="line">                <span class="keyword">for</span> (<span class="type">int</span> k = <span class="number">1</span>; k &lt; dp[i][j].<span class="built_in">size</span>(); k++)</span><br><span class="line">                    dp[i][j][k][<span class="number">1</span>] = <span class="built_in">min</span>(dp[i][j][k][<span class="number">1</span>], dp[i][j][k - <span class="number">1</span>][<span class="number">1</span>]);</span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span> (i == <span class="number">1</span> &amp;&amp; j == n) &#123;</span><br><span class="line">                    <span class="keyword">for</span> (<span class="type">int</span> k = <span class="number">1</span>; k &lt; n; k++) &#123;</span><br><span class="line">                        <span class="keyword">if</span> (ans[k] == INF)</span><br><span class="line">                            cout &lt;&lt; <span class="string">&quot;-1 &quot;</span>;</span><br><span class="line">                        <span class="keyword">else</span></span><br><span class="line">                            cout &lt;&lt; ans[k] &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                    cout &lt;&lt; <span class="string">&quot;\n&quot;</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">signed</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line"><span class="meta">#<span class="keyword">ifdef</span> local</span></span><br><span class="line">    <span class="built_in">freopen</span>(<span class="string">&quot;in.txt&quot;</span>, <span class="string">&quot;r&quot;</span>, stdin);</span><br><span class="line">    <span class="built_in">freopen</span>(<span class="string">&quot;out.txt&quot;</span>, <span class="string">&quot;w&quot;</span>, stdout);</span><br><span class="line"><span class="meta">#<span class="keyword">endif</span></span></span><br><span class="line">    ios::<span class="built_in">sync_with_stdio</span>(<span class="literal">false</span>);</span><br><span class="line">    cin.<span class="built_in">tie</span>(<span class="number">0</span>), cout.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> __;</span><br><span class="line">    __ = <span class="number">1</span>;</span><br><span class="line">    cin &gt;&gt; __;</span><br><span class="line">    <span class="keyword">while</span> (__--) &#123;</span><br><span class="line">        <span class="built_in">solve</span>();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>题解</category>
-      </categories>
-      <tags>
-        <tag>题解</tag>
-      </tags>
   </entry>
   <entry>
     <title>多校5题解e-j</title>
@@ -3687,222 +3687,65 @@ class="math display">(<em>d</em><sub>Chebyshev</sub>=<em>d</em><sub>Manhattan</s
       </tags>
   </entry>
   <entry>
-    <title>算法入门第一课</title>
-    <url>/2025/10/10/%E7%AE%97%E6%B3%95%E5%85%A5%E9%97%A8%E7%AC%AC%E4%B8%80%E8%AF%BE/</url>
-    <content><![CDATA[<h1 id="introduction-lec-01-2024.11.11">Introduction Lec 01 /
-2024.11.11</h1>
-<h2 id="阅读前须知">阅读前须知</h2>
-<p>本文是算法入门第一课，不是 0
-基础第一课，如果你是武科大想要学习算法的新生，请先保证自己有一定的代码基础（如刷够
-140 道 wustoj 上的入门题，并且初步了解 c 语言和 c++的区别…..</p>
-<h2 id="x01-动手实现一个可变长度数组">0x01 动手实现一个可变长度数组</h2>
-<blockquote>
-<p>前置要求：对 C 语言的指针和结构体有基本了解</p>
-</blockquote>
-<p>在 C 语言学习初期我们可能会有写动态长度的数组的想法，就像下面这样</p>
+    <title>自动刷课</title>
+    <url>/2025/06/15/%E8%87%AA%E5%8A%A8%E5%88%B7%E8%AF%BE/</url>
+    <content><![CDATA[<h1 id="补充">2025.6.5 补充！！！</h1>
+<p>软件最新更新，无需使用任何外在浏览器（不用下载谷歌浏览器了），需要下载最新版软件，选择软件自带的内置浏览器即可正常使用！
+最新脚本软件：https://cdn.ocsjs.com/app/download/ocs-2.8.3-setup-win-x64.exe</p>
 <span id="more"></span>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> n;  <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;n);</span><br><span class="line"><span class="type">int</span> arr[n];</span><br></pre></td></tr></table></figure>
-<p>这个东西叫 VLA，Variable Length Array 可变长度数组。C11 标准规定 VLA
-是一个可选项，不强制编译器实现
-<em>（虽然代码在你当前的编译器编过了，但换一个编译器可能就编挂了）</em>。尽管
-GCC 和 Clang 都支持 VLA，但是在 C++
-标准中没有规定编译器一定要实现这玩意儿。 此外，虽然对于现代编译器 VLA
-不会给性能和可移植性造成很大的负面影响，但是编码实践中我们通常不使用
-VLA。</p>
-<p>那么现在我们来自己尝试写一个可变长度的数组。</p>
-<p>我们跳过 C 的 <code>malloc</code> 函数，这里直接介绍 C++ 的
-<code>new</code> 和 <code>delete</code></p>
-<blockquote>
-<p>new 用于申请内存，delete 用于释放 new
-申请的内存。内存申请了要释放（回收），不然会漏内存。</p>
-<p>内存泄漏会导致程序占用越来越多的内存，最终可能耗尽系统资源，导致系统性能下降或程序崩溃。</p>
-</blockquote>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span>* arr = new <span class="type">int</span>[n];  <span class="comment">// 申请内存，new[] 可以接受一个运行时确定的变量</span></span><br><span class="line">delete[] arr;           <span class="comment">// 释放内存</span></span><br></pre></td></tr></table></figure>
-<h3 id="封装">封装</h3>
-<p>我们用结构体封一下这个行为。</p>
-<p>注意 C++ 的结构体是可以在里边写函数的，但 C 结构体不行。</p>
-<blockquote>
-<p>这是一个很重要的特性，C++
-结构体允许包含数据（成员）和函数（方法），使一组数据和它对应的行为能够被封装在一起，对外隐藏细节只暴露接口，使代码更加模块化易于维护。</p>
-<p>封装是面向对象编程的核心理念之一，还有两个是继承和多态。</p>
-</blockquote>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">VLArray</span> &#123;  <span class="comment">// Variable Length Array</span></span><br><span class="line">    <span class="type">int</span> len;</span><br><span class="line">    <span class="type">int</span>* data = <span class="literal">nullptr</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">alloc</span><span class="params">(<span class="type">int</span> n)</span> </span>&#123;         <span class="comment">// 申请内存</span></span><br><span class="line">        <span class="type">int</span>* newData = <span class="keyword">new</span> <span class="type">int</span>[n];</span><br><span class="line">        <span class="keyword">if</span>(data != <span class="literal">nullptr</span>) &#123;   <span class="comment">// 扩容或缩容，先拷贝已有数据</span></span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; (n &lt; len ? n : len); i++)</span><br><span class="line">                newData[i] = data[i];</span><br><span class="line">            <span class="built_in">free</span>();             <span class="comment">// 释放已持有的内存</span></span><br><span class="line">        &#125;</span><br><span class="line">        len = n;</span><br><span class="line">        data = newData;         <span class="comment">// data指向新申请的内存</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 类和结构体里面函数不用先定义后调用，留意一下</span></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">free</span><span class="params">()</span> </span>&#123;  <span class="comment">// 释放内存</span></span><br><span class="line">        <span class="keyword">delete</span>[] data;</span><br><span class="line">        data = <span class="literal">nullptr</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Usage 用法</span></span><br><span class="line">VLArray arr;</span><br><span class="line">arr.<span class="built_in">alloc</span>(<span class="number">100</span>);         <span class="comment">// 申请内存</span></span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">100</span>; i++)</span><br><span class="line">    arr.data[i] = i;    <span class="comment">// 0, 1, 2, ..., 99</span></span><br><span class="line">arr.<span class="built_in">alloc</span>(<span class="number">10</span>);          <span class="comment">// 0, 1, 2, ..., 9</span></span><br><span class="line">arr.<span class="built_in">free</span>();             <span class="comment">// 记得释放内存，不然会有内存泄漏的问题</span></span><br></pre></td></tr></table></figure>
-<p>看起来还行，我们已经实现了一个可变长度的数组，能伸缩的那种。但是有个很不好的地方：每次用之前都要手动
-调用 <code>alloc</code> ，用完了也不能忘记手动 <code>free</code>
-。能不能让它自动做这件事？</p>
-<h3 id="构造和析构">构造和析构</h3>
-<p>当然可以。这里需要介绍面向对象经常提到的构造函数和析构函数。构造函数在一个对象被创建时自动调用，析构函数在一个对象被销毁时自动调用，我们只需要把
-<code>alloc</code> 和 <code>free</code>
-写到构造函数和析构函数里就行。C++
-构造函数就是结构体（或者类）内的同名函数，析构函数是结构体（类）名前面加一个
-<code>~</code> 。</p>
-<p>修改后的代码如下</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">VLArray</span> &#123;  <span class="comment">// Variable Length Array</span></span><br><span class="line">    <span class="built_in">VLArray</span>(<span class="type">int</span> len) &#123; <span class="built_in">alloc</span>(len); &#125;    <span class="comment">// 构造函数</span></span><br><span class="line">    ~<span class="built_in">VLArray</span>() &#123; <span class="built_in">free</span>(); &#125;              <span class="comment">// 析构函数</span></span><br><span class="line">    <span class="comment">// ...省略同上</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Usage 用法</span></span><br><span class="line"><span class="function">VLArray <span class="title">arr</span><span class="params">(<span class="number">100</span>)</span></span>;       <span class="comment">// 这里隐式调用了构造函数</span></span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">100</span>; i++)</span><br><span class="line">    arr.data[i] = i;    <span class="comment">// 0, 1, 2, ..., 99</span></span><br><span class="line">arr.<span class="built_in">alloc</span>(<span class="number">10</span>);          <span class="comment">// 0, 1, 2, ..., 9</span></span><br></pre></td></tr></table></figure>
-<p>建议课后尝试在 Linux 下使用 Valgrind
-看看不手动释放且没有析构函数释放的内存泄漏。</p>
-<p>这个动态数组可以做的更好吗？显然，比如使用 <code>arr[]</code>
-直接访问里面的元素而不是用 <code>arr.data[]</code>
-（用运算符重载可以实现，自行了解），比如这个动态数组只支持
-<code>int</code> 类型，如果需要其他类型我们需要自己重新写一遍。</p>
-<p>关于它仅支持 <code>int</code> 类型这个问题，在 C++
-里通常会使用模板（一种泛型编程的实现方式）来解决。下一节我们会接触到。</p>
-<blockquote>
-<p>泛型编程（Generic
-Programming）是一种编程范式，它允许你写一份代码用来处理多种不同类型的数据，避免大量无意义的重复劳动。泛型编程的核心思想是将类型视作参数来实现代码的复用和灵活性。</p>
-</blockquote>
-<h2 id="x02-初识-stl">0x02 初识 STL</h2>
-<p>C++ STL（Standard Template Library，标准模板库）是 C++
-标准库的一部分，通过泛型编程的理念实现了一些常用算法和数据结构。</p>
-<h3 id="stdvector">std::vector</h3>
-<p>刚才我们讲了如何自己实现一个简易的可变长度数组，本质上可以算作是 STL
-中 <code>std::vector</code> 的一个子集。</p>
-<p><code>std::vector</code>
-是一个动态数组容器，能够自动管理内存，按需扩容和缩容。</p>
-<p>使用 <code>std::vector</code> 需要
-<code>#include &lt;vector&gt;</code></p>
-<p>一些常用操作如下</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line">std::vector&lt;<span class="type">int</span>&gt; v;     <span class="comment">// 声明一个vector，里边装的是int。容量为 0</span></span><br><span class="line"><span class="function">std::vector&lt;<span class="type">int</span>&gt; <span class="title">v</span><span class="params">(<span class="number">10</span>)</span></span>; <span class="comment">// 同上，但容量为 10， 所有元素初始值为 0</span></span><br><span class="line">std::vector&lt;<span class="type">int</span>&gt; v = &#123; <span class="number">1</span>, <span class="number">1</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">1</span>, <span class="number">4</span> &#125;; <span class="comment">// 容量为 6，有初始值</span></span><br><span class="line"></span><br><span class="line">v.<span class="built_in">push_back</span>(<span class="number">1</span>);     <span class="comment">// 在数组末尾添加一个 1</span></span><br><span class="line">v.<span class="built_in">pop_back</span>();       <span class="comment">// 删除尾部元素</span></span><br><span class="line"><span class="type">int</span> sz = v.<span class="built_in">size</span>();  <span class="comment">// 获取当前元素数量</span></span><br><span class="line"><span class="keyword">if</span>(v.<span class="built_in">empty</span>())       <span class="comment">// 判空</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 遍历输出每个元素</span></span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span> ; i &lt; v.<span class="built_in">size</span>() ; i++) std::cout &lt;&lt; v[i] &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line"><span class="comment">// C++ 11 引入的 Range-based for loop （基于范围的 for 循环）</span></span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span>&amp; x : v) std::cout &lt;&lt; x &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br></pre></td></tr></table></figure>
-<p>需要注意到最后一行 <code>for(int&amp; x : v)</code> 这个写法。这里的
-<code>int&amp;</code> 表示 <code>x</code> 是 <code>v</code>
-中元素的引用（别名），对 <code>x</code> 进行赋值操作会使 <code>v</code>
-中的元素被更改。如果是 <code>for(int x : v)</code> 那么 <code>x</code>
-就是 <code>v</code> 中元素的拷贝了，改变 <code>x</code> 不会影响到
-<code>v</code> 中的元素。</p>
-<h3 id="stdmap">std::map</h3>
-<p>这里再介绍一个 <code>std::map</code>
-。它是一个关联容器，存储键值对（key-value
-pairs），或者说存储多对映射关系。</p>
-<p>使用 <code>std::map</code> 需要 <code>#include &lt;map&gt;</code>
-，下面简单介绍一下用法</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">std::map&lt;char, int&gt; mp;         // 建立一个 char 到 int 的映射</span><br><span class="line">for(char ch = &#x27;A&#x27; ; ch &lt;= &#x27;Z&#x27; ; ch++)   mp[ch] = int(ch);</span><br><span class="line">std::cout &lt;&lt; mp[&#x27;A&#x27;] &lt;&lt; &quot;\n&quot;;   // 输出 65</span><br></pre></td></tr></table></figure>
-<p>需要注意的是，<code>std::map</code>
-的键（也就是第一个类型参数，上面代码
-<code>std::map&lt;char, int&gt;</code> 的
-<code>char</code>）是不允许重复的，值可以重复。<code>std::map</code>
-底层依赖红黑树实现，插入、查找、删除的复杂度都是优秀的 O(N)
-（关于复杂度后文再讲）。</p>
-<p>队列 <code>queue</code>，双端队列 <code>deque</code>，优先队列
-<code>priority_queue</code>，集合 <code>set</code>，链表
-<code>link</code> 也是常用的 STL 容器，建议课后自行了解。</p>
-<h3 id="stdsort">std::sort</h3>
-<p>STL 也实现了一些常用算法，这里讲个排序
-<code>std::sort</code>。用法很简单</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int arr[6] = &#123; 1, 1, 4, 5, 1, 4 &#125;;</span><br><span class="line">std::sort(arr, arr + 6);    // 第一个参数表示待排序的首元素，第二个参数表示待排序的末位元素的后一位</span><br><span class="line">std::vector&lt;int&gt; v = &#123; 1, 1, 4, 5, 1, 4 &#125;;</span><br><span class="line">std::sort(v.begin(), v.end());  // 这里 v.end() 也表示 v 的最后一个元素的后一位</span><br><span class="line"></span><br><span class="line">// std::sort 默认是从小到大排序，如果需要从大到小排序需要自己写一个排序规则</span><br><span class="line">bool cmp(int a, int b) &#123;</span><br><span class="line">    return a &gt; b;</span><br><span class="line">&#125;</span><br><span class="line">std::sort(arr, arr + 6, cmp);   // 这样就能实现从大到小排序</span><br></pre></td></tr></table></figure>
-<p><code>std::sort</code> 的实现方式类似于 Introsort
-内省排序，使用快排但限制递归层数，递归到小区间后根据区间内元素乱序程度采用堆排序或插入排序，保证最坏情况下能够做到
-O(N N) 。</p>
-<p>下面我们简单介绍一下时间复杂度。</p>
-<h2 id="x03-一种快速估测时间复杂度的方法">0x03
-一种快速估测时间复杂度的方法</h2>
-<p>在设计算法时，时间复杂度和空间复杂度是衡量一个算法效率的重要标准。</p>
-<p>时间复杂度指的是一个算法所用时间随着数据规模（比如输入数字的多少）增长的趋势。随着数据规模增长，算法用时增长越缓慢，那么这个算法的时间复杂度就越优秀。</p>
-<blockquote>
-<p>同一个算法在不同的计算机上运行需要的时间会有一定的差别，并且实际运行速度难以在理论上进行计算，实际去测量又比较麻烦，所以我们通常考虑的不是算法运行的实际用时，而是算法运行所需要进行的基本操作的数量。</p>
-<p>在普通的计算机上，加减乘除、访问变量（基本数据类型的变量，下同）、给变量赋值等都可以看作基本操作。对基本操作的计数或是估测可以作为评判算法用时的指标。
-（摘自 OI-WIKI）</p>
-</blockquote>
-<p>列举几个常见复杂度 <span class="math display">$$O(1) \ O(\log N) \
-O(\sqrt N) \ O(N) \ O(N \log N) \ O(n^2) \ O(2^n) \
-O(N!)$$</span>（按照随数据规模增长速度由慢到快排序）</p>
-<p>对时间复杂度进行快速估算时，可以关注算法中循环和递归的嵌套层数。通常，单层循环的时间复杂度为
-<span class="math display"><em>O</em>(<em>N</em>)</span>，双层嵌套循环为
-<span
-class="math display"><em>O</em>(<em>N</em><sup>2</sup>)</span>，以此类推。</p>
-<p>对于一段代码，可能有多个循环体、递归调用，把它们的复杂度相加可以得到一个多项式。通常我们只保留最高阶项并忽略常数系数。</p>
-<p>以下面这段代码为例</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">long</span> <span class="type">long</span> <span class="title">InnerProductSum</span><span class="params">(<span class="type">int</span> arr[], <span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">    <span class="type">long</span> <span class="type">long</span> ans = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span> ; i &lt; n ; i++)</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j = i + <span class="number">1</span> ; j &lt; n ; j++)</span><br><span class="line">            ans += arr[i] * arr[j];</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> arr1[N], arr2[N];                       <span class="comment">// 1</span></span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span> ; i &lt; N ; i++)    <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;arr1[i]);  <span class="comment">// N</span></span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span> ; i &lt; N ; i++)    <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;arr2[i]);  <span class="comment">// N</span></span><br><span class="line"><span class="type">long</span> <span class="type">long</span> sum1 = <span class="built_in">InnerProductSum</span>(arr1, N);  <span class="comment">// N^2</span></span><br><span class="line"><span class="type">long</span> <span class="type">long</span> sum2 = <span class="built_in">InnerProductSum</span>(arr2, N);  <span class="comment">// N^2</span></span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;%lld&quot;</span>, sum1 % sum2);                <span class="comment">// 1</span></span><br></pre></td></tr></table></figure>
-<p>不妨认为基本操作数是</p>
-<p><span
-class="math display"><em>f</em>(<em>n</em>) = 2 × <em>n</em><sup>2</sup> + 2 × <em>n</em> + 2</span></p>
-<p>在估算时我们忽略常数并保留最高阶项，认为其时间复杂度为 O(N^2)</p>
-<p><del>然后你把 N 代进去算一下 N^2 不超过 2e8 一般就能在 1s
-内跑过</del></p>
-<h2 id="x04-卡常关流同步和标准-io-重定向">0x04 卡常，关流同步和标准 IO
-重定向</h2>
-<blockquote>
-<p>前置要求：会用 C++ std::cin 和 std::cout</p>
-</blockquote>
-<h3 id="卡常">卡常</h3>
-<p>前文提到，对于一个算法计算最小操作数可以得到一个多项式，其中每一项都会有一个常数系数。通常我们不考虑常数对时间复杂度的影响，但是不排除少数情况下常数过大导致我们的程序无法在限定时间内通过所有测试用例——你的算法因为常数被卡掉了。</p>
-<p>我们认为，一道合理的题目应当考察时间复杂度是否正确，但不应在主观上故意用微小的常数优化区分参赛者的表现。</p>
-<p>通常在比赛中，C / C++ 语言的编译选项会开启 O2
-优化。编译器会进行函数内联、循环展开等操作以优化代码性能。现代编译器具备完善的机制处理各种情况，因此不必过分考虑常数优化问题。
-<del>高中生 OI 选手可能会手写一些东西避免使用 STL 因为 NOIP 不开 O2 而且
-STL 常数大</del></p>
-<h3 id="关闭流同步提升-io-性能">关闭流同步提升 IO 性能</h3>
-<p>有的题目可能会提示输入数据量较大需要使用较快的数据读入方式，这里介绍
-C++ 关闭 IO 流同步加快输入输出速度的方法和原理。默认情况下 C++ 的
-<code>std::cin</code> 和 <code>std::cout</code> 与 C
-标准库的输入输出函数保持同步（但会有额外性能开销）。为提高输入输出速度，可以关闭同步并解除绑定：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">std::ios::sync_with_stdio(false);   // 关闭 C++ 与 C 标准库的输入输出流同步</span><br></pre></td></tr></table></figure>
-<p>有的题目可能输出行数较多，用
-<code>std::cout &lt;&lt; std::endl</code> 进行换行输出会导致超时，原因是
-<code>std::endl</code> 包含了 <code>std::cout &lt;&lt; "\n"</code> 和
-<code>std::cout.flush()</code> 两个操作。其中
-<code>std::cout.flush()</code>
-会刷新输出缓冲区，频繁刷新缓冲区会消耗大量的时间，因此建议手动输出换行符。另外将
-<code>std::cin</code> 与 <code>std::cout</code>
-解绑也能够减少输出缓冲区的刷新。</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line">std::cin.<span class="built_in">tie</span>(<span class="literal">nullptr</span>);      <span class="comment">// std::cin 时不再刷新 std::cout 缓冲区</span></span><br><span class="line">std::cout &lt;&lt; ans &lt;&lt; <span class="string">&quot;\n&quot;</span>;   <span class="comment">// 手动输出换行符而不是 std::endl</span></span><br></pre></td></tr></table></figure>
-<h3 id="标准-io-重定向">标准 IO 重定向</h3>
-<p>目前绝大多数题目都使用标准
-IO，极少数题目可能会使用文件输入。另外，自己写题目的时候可以用文件输入避免每次都手动输入样例的麻烦。</p>
-<p><del>笔者舍近求远，</del>
-这里先介绍一下操作系统的文件描述符。文件描述符 File Descriptor
-可以理解为对当前进程打开的文件的编号，从 0 开始。通常 0，1，2
-分别对应了标准输入、输出和错误信息，此时如果再自己开一个文件，那么它的描述符就是
-3。</p>
-<p>通常我们写算法题的简单程序，在本地运行，文件描述符 0，1，2
-对应的都是控制台。</p>
-<p>我们可以使用 <code>freopen</code>
-函数将输入从控制台重定向到文件（输出不受影响）</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">freopen(<span class="string">&quot;./in.txt&quot;</span>, <span class="string">&quot;r&quot;</span>, <span class="built_in">stdin</span>);    <span class="comment">// 以只读方式打开 in.txt 作为标准输入</span></span><br></pre></td></tr></table></figure>
-<p>同理，将输出重定向到文件也是可行的。
-<del>但是一定一定一定要注意如果写了死循环里边还有输出可能会在 10s
-内写出一个 3GiB 的巨大 txt 文件然后把电脑卡住</del></p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">freopen(<span class="string">&quot;./out.txt&quot;</span>, <span class="string">&quot;w&quot;</span>, <span class="built_in">stdout</span>);</span><br></pre></td></tr></table></figure>
-<h4
-id="使用条件编译实现仅本地文件读入">使用条件编译实现仅本地文件读入</h4>
-<p>本地使用文件读入会有一个问题：OJ
-上的题目没要求用文件读入，交上去读不到数据。这个时候就需要代码在本地和
-OJ 上有不同的编译行为（本地编译执行 <code>freopen</code> ，但 OJ
-上不执行）。实现方法是通过某个宏定义是否存在来判断。</p>
-<p>在很多 OJ 上编译选项中都会包含一个 <code>-DONLINE_JUDGE</code> ，比如
-WUST OJ 上的编译选项</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">/usr/bin/g++ -DONLINE_JUDGE -O2 -w -fmax-errors=3 -std=c++14 &#123;src_path&#125; -lm -o &#123;exe_path&#125;</span><br></pre></td></tr></table></figure>
-<p>这个选项的意思是定义一个宏 <code>ONLINE_JUDGE</code>
-（我们本地是没有这个宏的），这样我们就可以利用这个宏来区分是 OJ
-还是本地环境。</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">ifndef</span> ONLINE_JUDGE    <span class="comment">// 如果没定义 ONLINE_JUDGE，是本地</span></span></span><br><span class="line">    freopen(<span class="string">&quot;./in.txt&quot;</span>, <span class="string">&quot;r&quot;</span>, <span class="built_in">stdin</span>);</span><br><span class="line"><span class="meta">#<span class="keyword">else</span>                   <span class="comment">// 定义了 ONLINE_JUDGE，是 OJ，关流加速</span></span></span><br><span class="line">    <span class="built_in">std</span>::ios::sync_with_stdio(<span class="literal">false</span>), <span class="built_in">std</span>::<span class="built_in">cin</span>.tie(nullptr);</span><br><span class="line"><span class="meta">#<span class="keyword">endif</span></span></span><br></pre></td></tr></table></figure>
-<p>当然我们也可以在本地修改编译选项，自己添加一个比如
-<code>-DNOT_OJ</code></p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">ifdef</span> NOT_OJ   <span class="comment">// 如果定义了 NOT_OJ，是本地</span></span></span><br><span class="line"><span class="comment">// ...省略</span></span><br></pre></td></tr></table></figure>
-<p>这样本地可以使用文件输入，提交到 OJ 也能正常运行。</p>
-<h2 id="x05-在命令行界面编译程序">0x05 在命令行界面编译程序</h2>
-<blockquote>
-<p>命令行界面 Command Line Interface，简称 CLI</p>
-<p>图形用户界面 Graphical User Interface，简称 GUI</p>
-<p>集成开发环境 Intergrated Development Environment，简称 IDE</p>
-<p>本节参考了 USTC Linux 101</p>
-</blockquote>
-<p>现在假设我们有一份源码文件 main.c，内容如下：</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="comment">// main.c</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span> &#123;</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">&quot;Hello World!\n&quot;</span>);</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>这是一个简单的 Hello World 程序。</p>
-<p>要将它编译成二进制可执行文件，在 Windows 或 Mac OS X 这样带有 GUI
-的系统上，可以使用 IDE 中的编译功能得到目标程序。这些带有图形界面的 IDE
-的编译通常是封装了各种提供命令行接口的编译器。自然，我们也可以在 CLI
-下手动去调用这些命令行接口进行编译。</p>
-<blockquote>
-<p>GCC 和 Clang 是 Linux 下常用的编译器。 其中 GCC 由 GNU
-组织维护，Clang 由 LLVM 组织维护的。</p>
-<p>Windows 下 Visual Studio 默认使用微软的 MSVC 工具集，它的编译器是
-cl.exe。</p>
-</blockquote>
-<h3 id="多文件的情况">多文件的情况</h3>
-<h3 id="使用构建工具">使用构建工具</h3>
-<h2 id="x06-扯一嘴代码风格">0x06 扯一嘴代码风格</h2>
-<p><br />
-</p>
+<h1 id="补充-1">2025.4.15 补充！！！</h1>
+<p>这段时间按照下面操作仍无法使用
+解决方法，按照下面操作执行后运行页面后，页面右上角提示“脚本猫已关闭…”，点击管理扩展程序进入，将页面右上方开发者模式打开，并且将页面下方脚本猫的按钮也打开，然后关闭网页，重启软件即可恢复正常使用。</p>
+<h2
+id="如果你要解决的软件不在下面这几个之中请移步另一篇博文自动刷题刷课">如果你要解决的软件不在下面这几个之中，请移步另一篇博文“自动刷题刷课”</h2>
+<figure>
+<img src="/assets/4226c9c52a7a78678e8f0076a35ab0c0.png" alt="图" />
+<figcaption aria-hidden="true">图</figcaption>
+</figure>
+<h3 id="必要说明">必要说明</h3>
+<p>1.网课脚本不要开倍速！有的会系统识别用时过短然后清理你的记录还要重新看！对于网课，脚本便利在于可以自动下集，也就是说可以开着挂一个晚上就刷好了。（当然有些水课没管就可以高倍速速通，可以自己试一下，一段时间后如果清零就老实不开倍速挂着）</p>
+<p>2.题目练习脚本大多是依靠题库，而题库可能会出现有的题目没有，或者题库答案不准确，正确率无法保证！不同脚本正确率有的相差巨大，建议多试几个。</p>
+<p>使用前务必看完“必要说明”</p>
+<h2
+id="本脚本与我没有任何关系只不过刚好找到它并将它记录下来方便身边同学使用">本脚本与我没有任何关系，只不过刚好找到它，并将它记录下来，方便身边同学使用</h2>
+<h3
+id="一.确保电脑有谷歌浏览器edge-不行如果没有在下面链接下载一个">一.确保电脑有谷歌浏览器（edge
+不行！）如果没有，在下面链接下载一个</h3>
+<p>谷歌：https://www.google.cn/intl/zh-CN/chrome/</p>
+<h3
+id="二.在电脑下载脚本运行软件点击下面链接或者复制至浏览器下载-windows-版本">二.在电脑下载脚本运行软件，点击下面链接（或者复制至浏览器）下载
+windows 版本</h3>
+<p>脚本软件：https://cdn.ocsjs.com/app/download/ocs-2.6.7-setup-win-x64.exe</p>
+<h3
+id="三.打开刚刚下载的软件跟着顶部视频操作即可简单实用">三.打开刚刚下载的软件，跟着顶部视频操作即可，简单实用</h3>
+<div class="video-container">
+<iframe src="//player.bilibili.com/player.html?isOutside=true&amp;aid=114076092996360&amp;bvid=BV1Sp9AYAEQT&amp;cid=28606400676&amp;p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true">
+</iframe>
+</div>
+<style>
+<p>.video-container { position: relative; width: 100%; padding-top:
+56.25%; /* 16:9 aspect ratio (height/width = 9/16 * 100%) */ }</p>
+<p>.video-container iframe { position: absolute; top: 0; left: 0; width:
+100%; height: 100%; }</p>
+<div class="video-container">
+<iframe src="//player.bilibili.com/player.html?isOutside=true&amp;aid=114076092996360&amp;bvid=BV1Sp9AYAEQT&amp;cid=28606400676&amp;p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true">
+</iframe>
+</div>
+<style>
+.video-container {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%; /* 16:9 aspect ratio (height/width = 9/16 * 100%) */
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+</style>
 ]]></content>
       <categories>
         <category>技术分享</category>
@@ -4127,65 +3970,222 @@ class="math inline"><em>A</em>/<em>R</em> = {[1]<sub><em>R</em></sub>, [2]
       </categories>
   </entry>
   <entry>
-    <title>自动刷课</title>
-    <url>/2025/06/15/%E8%87%AA%E5%8A%A8%E5%88%B7%E8%AF%BE/</url>
-    <content><![CDATA[<h1 id="补充">2025.6.5 补充！！！</h1>
-<p>软件最新更新，无需使用任何外在浏览器（不用下载谷歌浏览器了），需要下载最新版软件，选择软件自带的内置浏览器即可正常使用！
-最新脚本软件：https://cdn.ocsjs.com/app/download/ocs-2.8.3-setup-win-x64.exe</p>
+    <title>算法入门第一课</title>
+    <url>/2025/10/10/%E7%AE%97%E6%B3%95%E5%85%A5%E9%97%A8%E7%AC%AC%E4%B8%80%E8%AF%BE/</url>
+    <content><![CDATA[<h1 id="introduction-lec-01-2024.11.11">Introduction Lec 01 /
+2024.11.11</h1>
+<h2 id="阅读前须知">阅读前须知</h2>
+<p>本文是算法入门第一课，不是 0
+基础第一课，如果你是武科大想要学习算法的新生，请先保证自己有一定的代码基础（如刷够
+140 道 wustoj 上的入门题，并且初步了解 c 语言和 c++的区别…..</p>
+<h2 id="x01-动手实现一个可变长度数组">0x01 动手实现一个可变长度数组</h2>
+<blockquote>
+<p>前置要求：对 C 语言的指针和结构体有基本了解</p>
+</blockquote>
+<p>在 C 语言学习初期我们可能会有写动态长度的数组的想法，就像下面这样</p>
 <span id="more"></span>
-<h1 id="补充-1">2025.4.15 补充！！！</h1>
-<p>这段时间按照下面操作仍无法使用
-解决方法，按照下面操作执行后运行页面后，页面右上角提示“脚本猫已关闭…”，点击管理扩展程序进入，将页面右上方开发者模式打开，并且将页面下方脚本猫的按钮也打开，然后关闭网页，重启软件即可恢复正常使用。</p>
-<h2
-id="如果你要解决的软件不在下面这几个之中请移步另一篇博文自动刷题刷课">如果你要解决的软件不在下面这几个之中，请移步另一篇博文“自动刷题刷课”</h2>
-<figure>
-<img src="/assets/4226c9c52a7a78678e8f0076a35ab0c0.png" alt="图" />
-<figcaption aria-hidden="true">图</figcaption>
-</figure>
-<h3 id="必要说明">必要说明</h3>
-<p>1.网课脚本不要开倍速！有的会系统识别用时过短然后清理你的记录还要重新看！对于网课，脚本便利在于可以自动下集，也就是说可以开着挂一个晚上就刷好了。（当然有些水课没管就可以高倍速速通，可以自己试一下，一段时间后如果清零就老实不开倍速挂着）</p>
-<p>2.题目练习脚本大多是依靠题库，而题库可能会出现有的题目没有，或者题库答案不准确，正确率无法保证！不同脚本正确率有的相差巨大，建议多试几个。</p>
-<p>使用前务必看完“必要说明”</p>
-<h2
-id="本脚本与我没有任何关系只不过刚好找到它并将它记录下来方便身边同学使用">本脚本与我没有任何关系，只不过刚好找到它，并将它记录下来，方便身边同学使用</h2>
-<h3
-id="一.确保电脑有谷歌浏览器edge-不行如果没有在下面链接下载一个">一.确保电脑有谷歌浏览器（edge
-不行！）如果没有，在下面链接下载一个</h3>
-<p>谷歌：https://www.google.cn/intl/zh-CN/chrome/</p>
-<h3
-id="二.在电脑下载脚本运行软件点击下面链接或者复制至浏览器下载-windows-版本">二.在电脑下载脚本运行软件，点击下面链接（或者复制至浏览器）下载
-windows 版本</h3>
-<p>脚本软件：https://cdn.ocsjs.com/app/download/ocs-2.6.7-setup-win-x64.exe</p>
-<h3
-id="三.打开刚刚下载的软件跟着顶部视频操作即可简单实用">三.打开刚刚下载的软件，跟着顶部视频操作即可，简单实用</h3>
-<div class="video-container">
-<iframe src="//player.bilibili.com/player.html?isOutside=true&amp;aid=114076092996360&amp;bvid=BV1Sp9AYAEQT&amp;cid=28606400676&amp;p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true">
-</iframe>
-</div>
-<style>
-<p>.video-container { position: relative; width: 100%; padding-top:
-56.25%; /* 16:9 aspect ratio (height/width = 9/16 * 100%) */ }</p>
-<p>.video-container iframe { position: absolute; top: 0; left: 0; width:
-100%; height: 100%; }</p>
-<div class="video-container">
-<iframe src="//player.bilibili.com/player.html?isOutside=true&amp;aid=114076092996360&amp;bvid=BV1Sp9AYAEQT&amp;cid=28606400676&amp;p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true">
-</iframe>
-</div>
-<style>
-.video-container {
-    position: relative;
-    width: 100%;
-    padding-top: 56.25%; /* 16:9 aspect ratio (height/width = 9/16 * 100%) */
-}
-
-.video-container iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}
-</style>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> n;  <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;n);</span><br><span class="line"><span class="type">int</span> arr[n];</span><br></pre></td></tr></table></figure>
+<p>这个东西叫 VLA，Variable Length Array 可变长度数组。C11 标准规定 VLA
+是一个可选项，不强制编译器实现
+<em>（虽然代码在你当前的编译器编过了，但换一个编译器可能就编挂了）</em>。尽管
+GCC 和 Clang 都支持 VLA，但是在 C++
+标准中没有规定编译器一定要实现这玩意儿。 此外，虽然对于现代编译器 VLA
+不会给性能和可移植性造成很大的负面影响，但是编码实践中我们通常不使用
+VLA。</p>
+<p>那么现在我们来自己尝试写一个可变长度的数组。</p>
+<p>我们跳过 C 的 <code>malloc</code> 函数，这里直接介绍 C++ 的
+<code>new</code> 和 <code>delete</code></p>
+<blockquote>
+<p>new 用于申请内存，delete 用于释放 new
+申请的内存。内存申请了要释放（回收），不然会漏内存。</p>
+<p>内存泄漏会导致程序占用越来越多的内存，最终可能耗尽系统资源，导致系统性能下降或程序崩溃。</p>
+</blockquote>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span>* arr = new <span class="type">int</span>[n];  <span class="comment">// 申请内存，new[] 可以接受一个运行时确定的变量</span></span><br><span class="line">delete[] arr;           <span class="comment">// 释放内存</span></span><br></pre></td></tr></table></figure>
+<h3 id="封装">封装</h3>
+<p>我们用结构体封一下这个行为。</p>
+<p>注意 C++ 的结构体是可以在里边写函数的，但 C 结构体不行。</p>
+<blockquote>
+<p>这是一个很重要的特性，C++
+结构体允许包含数据（成员）和函数（方法），使一组数据和它对应的行为能够被封装在一起，对外隐藏细节只暴露接口，使代码更加模块化易于维护。</p>
+<p>封装是面向对象编程的核心理念之一，还有两个是继承和多态。</p>
+</blockquote>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">VLArray</span> &#123;  <span class="comment">// Variable Length Array</span></span><br><span class="line">    <span class="type">int</span> len;</span><br><span class="line">    <span class="type">int</span>* data = <span class="literal">nullptr</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">alloc</span><span class="params">(<span class="type">int</span> n)</span> </span>&#123;         <span class="comment">// 申请内存</span></span><br><span class="line">        <span class="type">int</span>* newData = <span class="keyword">new</span> <span class="type">int</span>[n];</span><br><span class="line">        <span class="keyword">if</span>(data != <span class="literal">nullptr</span>) &#123;   <span class="comment">// 扩容或缩容，先拷贝已有数据</span></span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; (n &lt; len ? n : len); i++)</span><br><span class="line">                newData[i] = data[i];</span><br><span class="line">            <span class="built_in">free</span>();             <span class="comment">// 释放已持有的内存</span></span><br><span class="line">        &#125;</span><br><span class="line">        len = n;</span><br><span class="line">        data = newData;         <span class="comment">// data指向新申请的内存</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 类和结构体里面函数不用先定义后调用，留意一下</span></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">free</span><span class="params">()</span> </span>&#123;  <span class="comment">// 释放内存</span></span><br><span class="line">        <span class="keyword">delete</span>[] data;</span><br><span class="line">        data = <span class="literal">nullptr</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Usage 用法</span></span><br><span class="line">VLArray arr;</span><br><span class="line">arr.<span class="built_in">alloc</span>(<span class="number">100</span>);         <span class="comment">// 申请内存</span></span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">100</span>; i++)</span><br><span class="line">    arr.data[i] = i;    <span class="comment">// 0, 1, 2, ..., 99</span></span><br><span class="line">arr.<span class="built_in">alloc</span>(<span class="number">10</span>);          <span class="comment">// 0, 1, 2, ..., 9</span></span><br><span class="line">arr.<span class="built_in">free</span>();             <span class="comment">// 记得释放内存，不然会有内存泄漏的问题</span></span><br></pre></td></tr></table></figure>
+<p>看起来还行，我们已经实现了一个可变长度的数组，能伸缩的那种。但是有个很不好的地方：每次用之前都要手动
+调用 <code>alloc</code> ，用完了也不能忘记手动 <code>free</code>
+。能不能让它自动做这件事？</p>
+<h3 id="构造和析构">构造和析构</h3>
+<p>当然可以。这里需要介绍面向对象经常提到的构造函数和析构函数。构造函数在一个对象被创建时自动调用，析构函数在一个对象被销毁时自动调用，我们只需要把
+<code>alloc</code> 和 <code>free</code>
+写到构造函数和析构函数里就行。C++
+构造函数就是结构体（或者类）内的同名函数，析构函数是结构体（类）名前面加一个
+<code>~</code> 。</p>
+<p>修改后的代码如下</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">VLArray</span> &#123;  <span class="comment">// Variable Length Array</span></span><br><span class="line">    <span class="built_in">VLArray</span>(<span class="type">int</span> len) &#123; <span class="built_in">alloc</span>(len); &#125;    <span class="comment">// 构造函数</span></span><br><span class="line">    ~<span class="built_in">VLArray</span>() &#123; <span class="built_in">free</span>(); &#125;              <span class="comment">// 析构函数</span></span><br><span class="line">    <span class="comment">// ...省略同上</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Usage 用法</span></span><br><span class="line"><span class="function">VLArray <span class="title">arr</span><span class="params">(<span class="number">100</span>)</span></span>;       <span class="comment">// 这里隐式调用了构造函数</span></span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">100</span>; i++)</span><br><span class="line">    arr.data[i] = i;    <span class="comment">// 0, 1, 2, ..., 99</span></span><br><span class="line">arr.<span class="built_in">alloc</span>(<span class="number">10</span>);          <span class="comment">// 0, 1, 2, ..., 9</span></span><br></pre></td></tr></table></figure>
+<p>建议课后尝试在 Linux 下使用 Valgrind
+看看不手动释放且没有析构函数释放的内存泄漏。</p>
+<p>这个动态数组可以做的更好吗？显然，比如使用 <code>arr[]</code>
+直接访问里面的元素而不是用 <code>arr.data[]</code>
+（用运算符重载可以实现，自行了解），比如这个动态数组只支持
+<code>int</code> 类型，如果需要其他类型我们需要自己重新写一遍。</p>
+<p>关于它仅支持 <code>int</code> 类型这个问题，在 C++
+里通常会使用模板（一种泛型编程的实现方式）来解决。下一节我们会接触到。</p>
+<blockquote>
+<p>泛型编程（Generic
+Programming）是一种编程范式，它允许你写一份代码用来处理多种不同类型的数据，避免大量无意义的重复劳动。泛型编程的核心思想是将类型视作参数来实现代码的复用和灵活性。</p>
+</blockquote>
+<h2 id="x02-初识-stl">0x02 初识 STL</h2>
+<p>C++ STL（Standard Template Library，标准模板库）是 C++
+标准库的一部分，通过泛型编程的理念实现了一些常用算法和数据结构。</p>
+<h3 id="stdvector">std::vector</h3>
+<p>刚才我们讲了如何自己实现一个简易的可变长度数组，本质上可以算作是 STL
+中 <code>std::vector</code> 的一个子集。</p>
+<p><code>std::vector</code>
+是一个动态数组容器，能够自动管理内存，按需扩容和缩容。</p>
+<p>使用 <code>std::vector</code> 需要
+<code>#include &lt;vector&gt;</code></p>
+<p>一些常用操作如下</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line">std::vector&lt;<span class="type">int</span>&gt; v;     <span class="comment">// 声明一个vector，里边装的是int。容量为 0</span></span><br><span class="line"><span class="function">std::vector&lt;<span class="type">int</span>&gt; <span class="title">v</span><span class="params">(<span class="number">10</span>)</span></span>; <span class="comment">// 同上，但容量为 10， 所有元素初始值为 0</span></span><br><span class="line">std::vector&lt;<span class="type">int</span>&gt; v = &#123; <span class="number">1</span>, <span class="number">1</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">1</span>, <span class="number">4</span> &#125;; <span class="comment">// 容量为 6，有初始值</span></span><br><span class="line"></span><br><span class="line">v.<span class="built_in">push_back</span>(<span class="number">1</span>);     <span class="comment">// 在数组末尾添加一个 1</span></span><br><span class="line">v.<span class="built_in">pop_back</span>();       <span class="comment">// 删除尾部元素</span></span><br><span class="line"><span class="type">int</span> sz = v.<span class="built_in">size</span>();  <span class="comment">// 获取当前元素数量</span></span><br><span class="line"><span class="keyword">if</span>(v.<span class="built_in">empty</span>())       <span class="comment">// 判空</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 遍历输出每个元素</span></span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span> ; i &lt; v.<span class="built_in">size</span>() ; i++) std::cout &lt;&lt; v[i] &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line"><span class="comment">// C++ 11 引入的 Range-based for loop （基于范围的 for 循环）</span></span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span>&amp; x : v) std::cout &lt;&lt; x &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br></pre></td></tr></table></figure>
+<p>需要注意到最后一行 <code>for(int&amp; x : v)</code> 这个写法。这里的
+<code>int&amp;</code> 表示 <code>x</code> 是 <code>v</code>
+中元素的引用（别名），对 <code>x</code> 进行赋值操作会使 <code>v</code>
+中的元素被更改。如果是 <code>for(int x : v)</code> 那么 <code>x</code>
+就是 <code>v</code> 中元素的拷贝了，改变 <code>x</code> 不会影响到
+<code>v</code> 中的元素。</p>
+<h3 id="stdmap">std::map</h3>
+<p>这里再介绍一个 <code>std::map</code>
+。它是一个关联容器，存储键值对（key-value
+pairs），或者说存储多对映射关系。</p>
+<p>使用 <code>std::map</code> 需要 <code>#include &lt;map&gt;</code>
+，下面简单介绍一下用法</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">std::map&lt;char, int&gt; mp;         // 建立一个 char 到 int 的映射</span><br><span class="line">for(char ch = &#x27;A&#x27; ; ch &lt;= &#x27;Z&#x27; ; ch++)   mp[ch] = int(ch);</span><br><span class="line">std::cout &lt;&lt; mp[&#x27;A&#x27;] &lt;&lt; &quot;\n&quot;;   // 输出 65</span><br></pre></td></tr></table></figure>
+<p>需要注意的是，<code>std::map</code>
+的键（也就是第一个类型参数，上面代码
+<code>std::map&lt;char, int&gt;</code> 的
+<code>char</code>）是不允许重复的，值可以重复。<code>std::map</code>
+底层依赖红黑树实现，插入、查找、删除的复杂度都是优秀的 O(N)
+（关于复杂度后文再讲）。</p>
+<p>队列 <code>queue</code>，双端队列 <code>deque</code>，优先队列
+<code>priority_queue</code>，集合 <code>set</code>，链表
+<code>link</code> 也是常用的 STL 容器，建议课后自行了解。</p>
+<h3 id="stdsort">std::sort</h3>
+<p>STL 也实现了一些常用算法，这里讲个排序
+<code>std::sort</code>。用法很简单</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int arr[6] = &#123; 1, 1, 4, 5, 1, 4 &#125;;</span><br><span class="line">std::sort(arr, arr + 6);    // 第一个参数表示待排序的首元素，第二个参数表示待排序的末位元素的后一位</span><br><span class="line">std::vector&lt;int&gt; v = &#123; 1, 1, 4, 5, 1, 4 &#125;;</span><br><span class="line">std::sort(v.begin(), v.end());  // 这里 v.end() 也表示 v 的最后一个元素的后一位</span><br><span class="line"></span><br><span class="line">// std::sort 默认是从小到大排序，如果需要从大到小排序需要自己写一个排序规则</span><br><span class="line">bool cmp(int a, int b) &#123;</span><br><span class="line">    return a &gt; b;</span><br><span class="line">&#125;</span><br><span class="line">std::sort(arr, arr + 6, cmp);   // 这样就能实现从大到小排序</span><br></pre></td></tr></table></figure>
+<p><code>std::sort</code> 的实现方式类似于 Introsort
+内省排序，使用快排但限制递归层数，递归到小区间后根据区间内元素乱序程度采用堆排序或插入排序，保证最坏情况下能够做到
+O(N N) 。</p>
+<p>下面我们简单介绍一下时间复杂度。</p>
+<h2 id="x03-一种快速估测时间复杂度的方法">0x03
+一种快速估测时间复杂度的方法</h2>
+<p>在设计算法时，时间复杂度和空间复杂度是衡量一个算法效率的重要标准。</p>
+<p>时间复杂度指的是一个算法所用时间随着数据规模（比如输入数字的多少）增长的趋势。随着数据规模增长，算法用时增长越缓慢，那么这个算法的时间复杂度就越优秀。</p>
+<blockquote>
+<p>同一个算法在不同的计算机上运行需要的时间会有一定的差别，并且实际运行速度难以在理论上进行计算，实际去测量又比较麻烦，所以我们通常考虑的不是算法运行的实际用时，而是算法运行所需要进行的基本操作的数量。</p>
+<p>在普通的计算机上，加减乘除、访问变量（基本数据类型的变量，下同）、给变量赋值等都可以看作基本操作。对基本操作的计数或是估测可以作为评判算法用时的指标。
+（摘自 OI-WIKI）</p>
+</blockquote>
+<p>列举几个常见复杂度 <span class="math display">$$O(1) \ O(\log N) \
+O(\sqrt N) \ O(N) \ O(N \log N) \ O(n^2) \ O(2^n) \
+O(N!)$$</span>（按照随数据规模增长速度由慢到快排序）</p>
+<p>对时间复杂度进行快速估算时，可以关注算法中循环和递归的嵌套层数。通常，单层循环的时间复杂度为
+<span class="math display"><em>O</em>(<em>N</em>)</span>，双层嵌套循环为
+<span
+class="math display"><em>O</em>(<em>N</em><sup>2</sup>)</span>，以此类推。</p>
+<p>对于一段代码，可能有多个循环体、递归调用，把它们的复杂度相加可以得到一个多项式。通常我们只保留最高阶项并忽略常数系数。</p>
+<p>以下面这段代码为例</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">long</span> <span class="type">long</span> <span class="title">InnerProductSum</span><span class="params">(<span class="type">int</span> arr[], <span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">    <span class="type">long</span> <span class="type">long</span> ans = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span> ; i &lt; n ; i++)</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j = i + <span class="number">1</span> ; j &lt; n ; j++)</span><br><span class="line">            ans += arr[i] * arr[j];</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> arr1[N], arr2[N];                       <span class="comment">// 1</span></span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span> ; i &lt; N ; i++)    <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;arr1[i]);  <span class="comment">// N</span></span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span> ; i &lt; N ; i++)    <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;arr2[i]);  <span class="comment">// N</span></span><br><span class="line"><span class="type">long</span> <span class="type">long</span> sum1 = <span class="built_in">InnerProductSum</span>(arr1, N);  <span class="comment">// N^2</span></span><br><span class="line"><span class="type">long</span> <span class="type">long</span> sum2 = <span class="built_in">InnerProductSum</span>(arr2, N);  <span class="comment">// N^2</span></span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;%lld&quot;</span>, sum1 % sum2);                <span class="comment">// 1</span></span><br></pre></td></tr></table></figure>
+<p>不妨认为基本操作数是</p>
+<p><span
+class="math display"><em>f</em>(<em>n</em>) = 2 × <em>n</em><sup>2</sup> + 2 × <em>n</em> + 2</span></p>
+<p>在估算时我们忽略常数并保留最高阶项，认为其时间复杂度为 O(N^2)</p>
+<p><del>然后你把 N 代进去算一下 N^2 不超过 2e8 一般就能在 1s
+内跑过</del></p>
+<h2 id="x04-卡常关流同步和标准-io-重定向">0x04 卡常，关流同步和标准 IO
+重定向</h2>
+<blockquote>
+<p>前置要求：会用 C++ std::cin 和 std::cout</p>
+</blockquote>
+<h3 id="卡常">卡常</h3>
+<p>前文提到，对于一个算法计算最小操作数可以得到一个多项式，其中每一项都会有一个常数系数。通常我们不考虑常数对时间复杂度的影响，但是不排除少数情况下常数过大导致我们的程序无法在限定时间内通过所有测试用例——你的算法因为常数被卡掉了。</p>
+<p>我们认为，一道合理的题目应当考察时间复杂度是否正确，但不应在主观上故意用微小的常数优化区分参赛者的表现。</p>
+<p>通常在比赛中，C / C++ 语言的编译选项会开启 O2
+优化。编译器会进行函数内联、循环展开等操作以优化代码性能。现代编译器具备完善的机制处理各种情况，因此不必过分考虑常数优化问题。
+<del>高中生 OI 选手可能会手写一些东西避免使用 STL 因为 NOIP 不开 O2 而且
+STL 常数大</del></p>
+<h3 id="关闭流同步提升-io-性能">关闭流同步提升 IO 性能</h3>
+<p>有的题目可能会提示输入数据量较大需要使用较快的数据读入方式，这里介绍
+C++ 关闭 IO 流同步加快输入输出速度的方法和原理。默认情况下 C++ 的
+<code>std::cin</code> 和 <code>std::cout</code> 与 C
+标准库的输入输出函数保持同步（但会有额外性能开销）。为提高输入输出速度，可以关闭同步并解除绑定：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">std::ios::sync_with_stdio(false);   // 关闭 C++ 与 C 标准库的输入输出流同步</span><br></pre></td></tr></table></figure>
+<p>有的题目可能输出行数较多，用
+<code>std::cout &lt;&lt; std::endl</code> 进行换行输出会导致超时，原因是
+<code>std::endl</code> 包含了 <code>std::cout &lt;&lt; "\n"</code> 和
+<code>std::cout.flush()</code> 两个操作。其中
+<code>std::cout.flush()</code>
+会刷新输出缓冲区，频繁刷新缓冲区会消耗大量的时间，因此建议手动输出换行符。另外将
+<code>std::cin</code> 与 <code>std::cout</code>
+解绑也能够减少输出缓冲区的刷新。</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line">std::cin.<span class="built_in">tie</span>(<span class="literal">nullptr</span>);      <span class="comment">// std::cin 时不再刷新 std::cout 缓冲区</span></span><br><span class="line">std::cout &lt;&lt; ans &lt;&lt; <span class="string">&quot;\n&quot;</span>;   <span class="comment">// 手动输出换行符而不是 std::endl</span></span><br></pre></td></tr></table></figure>
+<h3 id="标准-io-重定向">标准 IO 重定向</h3>
+<p>目前绝大多数题目都使用标准
+IO，极少数题目可能会使用文件输入。另外，自己写题目的时候可以用文件输入避免每次都手动输入样例的麻烦。</p>
+<p><del>笔者舍近求远，</del>
+这里先介绍一下操作系统的文件描述符。文件描述符 File Descriptor
+可以理解为对当前进程打开的文件的编号，从 0 开始。通常 0，1，2
+分别对应了标准输入、输出和错误信息，此时如果再自己开一个文件，那么它的描述符就是
+3。</p>
+<p>通常我们写算法题的简单程序，在本地运行，文件描述符 0，1，2
+对应的都是控制台。</p>
+<p>我们可以使用 <code>freopen</code>
+函数将输入从控制台重定向到文件（输出不受影响）</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">freopen(<span class="string">&quot;./in.txt&quot;</span>, <span class="string">&quot;r&quot;</span>, <span class="built_in">stdin</span>);    <span class="comment">// 以只读方式打开 in.txt 作为标准输入</span></span><br></pre></td></tr></table></figure>
+<p>同理，将输出重定向到文件也是可行的。
+<del>但是一定一定一定要注意如果写了死循环里边还有输出可能会在 10s
+内写出一个 3GiB 的巨大 txt 文件然后把电脑卡住</del></p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">freopen(<span class="string">&quot;./out.txt&quot;</span>, <span class="string">&quot;w&quot;</span>, <span class="built_in">stdout</span>);</span><br></pre></td></tr></table></figure>
+<h4
+id="使用条件编译实现仅本地文件读入">使用条件编译实现仅本地文件读入</h4>
+<p>本地使用文件读入会有一个问题：OJ
+上的题目没要求用文件读入，交上去读不到数据。这个时候就需要代码在本地和
+OJ 上有不同的编译行为（本地编译执行 <code>freopen</code> ，但 OJ
+上不执行）。实现方法是通过某个宏定义是否存在来判断。</p>
+<p>在很多 OJ 上编译选项中都会包含一个 <code>-DONLINE_JUDGE</code> ，比如
+WUST OJ 上的编译选项</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">/usr/bin/g++ -DONLINE_JUDGE -O2 -w -fmax-errors=3 -std=c++14 &#123;src_path&#125; -lm -o &#123;exe_path&#125;</span><br></pre></td></tr></table></figure>
+<p>这个选项的意思是定义一个宏 <code>ONLINE_JUDGE</code>
+（我们本地是没有这个宏的），这样我们就可以利用这个宏来区分是 OJ
+还是本地环境。</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">ifndef</span> ONLINE_JUDGE    <span class="comment">// 如果没定义 ONLINE_JUDGE，是本地</span></span></span><br><span class="line">    freopen(<span class="string">&quot;./in.txt&quot;</span>, <span class="string">&quot;r&quot;</span>, <span class="built_in">stdin</span>);</span><br><span class="line"><span class="meta">#<span class="keyword">else</span>                   <span class="comment">// 定义了 ONLINE_JUDGE，是 OJ，关流加速</span></span></span><br><span class="line">    <span class="built_in">std</span>::ios::sync_with_stdio(<span class="literal">false</span>), <span class="built_in">std</span>::<span class="built_in">cin</span>.tie(nullptr);</span><br><span class="line"><span class="meta">#<span class="keyword">endif</span></span></span><br></pre></td></tr></table></figure>
+<p>当然我们也可以在本地修改编译选项，自己添加一个比如
+<code>-DNOT_OJ</code></p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">ifdef</span> NOT_OJ   <span class="comment">// 如果定义了 NOT_OJ，是本地</span></span></span><br><span class="line"><span class="comment">// ...省略</span></span><br></pre></td></tr></table></figure>
+<p>这样本地可以使用文件输入，提交到 OJ 也能正常运行。</p>
+<h2 id="x05-在命令行界面编译程序">0x05 在命令行界面编译程序</h2>
+<blockquote>
+<p>命令行界面 Command Line Interface，简称 CLI</p>
+<p>图形用户界面 Graphical User Interface，简称 GUI</p>
+<p>集成开发环境 Intergrated Development Environment，简称 IDE</p>
+<p>本节参考了 USTC Linux 101</p>
+</blockquote>
+<p>现在假设我们有一份源码文件 main.c，内容如下：</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="comment">// main.c</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span> &#123;</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">&quot;Hello World!\n&quot;</span>);</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这是一个简单的 Hello World 程序。</p>
+<p>要将它编译成二进制可执行文件，在 Windows 或 Mac OS X 这样带有 GUI
+的系统上，可以使用 IDE 中的编译功能得到目标程序。这些带有图形界面的 IDE
+的编译通常是封装了各种提供命令行接口的编译器。自然，我们也可以在 CLI
+下手动去调用这些命令行接口进行编译。</p>
+<blockquote>
+<p>GCC 和 Clang 是 Linux 下常用的编译器。 其中 GCC 由 GNU
+组织维护，Clang 由 LLVM 组织维护的。</p>
+<p>Windows 下 Visual Studio 默认使用微软的 MSVC 工具集，它的编译器是
+cl.exe。</p>
+</blockquote>
+<h3 id="多文件的情况">多文件的情况</h3>
+<h3 id="使用构建工具">使用构建工具</h3>
+<h2 id="x06-扯一嘴代码风格">0x06 扯一嘴代码风格</h2>
+<p><br />
+</p>
 ]]></content>
       <categories>
         <category>技术分享</category>
