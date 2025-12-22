@@ -1086,61 +1086,6 @@ aria-hidden="true">6d138c55-6761-4fb8-b76b-898a9f9d6935</figcaption>
       </tags>
   </entry>
   <entry>
-    <title>vjudge 洛谷账号导入教程</title>
-    <url>/2025/10/30/vjudge%20%E6%B4%9B%E8%B0%B7%E8%B4%A6%E5%8F%B7%E5%AF%BC%E5%85%A5%E6%95%99%E7%A8%8B/</url>
-    <content><![CDATA[<p><strong>在此感谢本文主要笔者 25 级 xiaozhangup</strong></p>
-<h1 id="vjudge-洛谷账号导入教程">vjudge 洛谷账号导入教程</h1>
-<h2 id="先决条件">先决条件</h2>
-<ul>
-<li>你有一个<a
-href="https://www.luogu.com.cn/">洛谷</a>账号，并且已经在洛谷官网登录</li>
-<li>你会看图</li>
-</ul>
-<span id="more"></span>
-<h2 id="正式开始">正式开始</h2>
-<h3 id="第一步">第一步</h3>
-<p>点击此处的 <code>更新</code> 进入界面 <img src="/assets/1212.png" />
-<img src="/assets/1313.png" /></p>
-<h3 id="第二步">第二步</h3>
-<p>前往洛谷官网，可以点击上图的蓝色 <a
-href="https://www.luogu.com.cn/">洛谷</a>
-二字进入。进入后记得登录你的洛谷账号！<br />
-登陆后在洛谷的任何界面都行，让我们按下键盘上的 <code>F12</code>
-按钮。<br />
-该按钮通常在键盘的最上端一行，这里给出几个例图：<br />
-<img src="/assets/1414.png" /> <img src="/assets/1515.png" /></p>
-<h3 id="第三步">第三步</h3>
-<p>按下后，我们会看到浏览器弹出如下的界面（记得查看你使用的浏览器类型，如果不知道，那就看哪个和你看到的界面最像即可）:</p>
-<h4 id="对于-edgechrome360-安全浏览器qq-浏览器你会看到类似如下的界面">①
-对于 Edge，Chrome，360 安全浏览器，QQ 浏览器你会看到类似如下的界面</h4>
-<p>跟随红色箭头的指引，依次点击：<br />
-<img src="/assets/1616.png" /> <img src="/assets/1717.png" /><br />
-此处便是我们所需要填写的内容。<br />
-复制里面的值，分别填写到第一步的界面中，点击确认即可（如下）</p>
-<p><img src="/assets/1818.png" /></p>
-<p>静静等待，大功告成！<br />
-<img src="/assets/1919.png" /></p>
-<h4 id="对于-firefoxzen-系类浏览器你会看到">② 对于 Firefox，Zen
-系类浏览器你会看到：</h4>
-<p><img src="/assets/2020.png" /><br />
-让我们点击依次点击：<br />
-<img src="/assets/2121.png" /><br />
-<img src="/assets/2323.png" /><br />
-<img src="/assets/2424.png" /><br />
-被箭头指向的两个数据，就是我们所需要的。<br />
-复制里面的值，分别填写到第一步的界面中，点击确认即可（如下）</p>
-<p><img src="/assets/1818.png" /></p>
-<p>静静等待，大功告成！<br />
-<img src="/assets/1919.png" /></p>
-]]></content>
-      <categories>
-        <category>技术分享</category>
-      </categories>
-      <tags>
-        <tag>杂谈</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>everlasting.关于2025菜鸟杯的个人题解</title>
     <url>/2025/12/15/everlasting%E7%9A%84%E4%B8%AA%E4%BA%BA%E9%A2%98%E8%A7%A3/</url>
     <content><![CDATA[<h1 id="everlasting.的个人题解">everlasting.的个人题解</h1>
@@ -1269,6 +1214,61 @@ href="https://blog.wustacm.org/2025/12/15/2025%E8%8F%9C%E9%B8%9F%E6%9D%AF%E9%A2%
       </categories>
       <tags>
         <tag>题解</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>vjudge 洛谷账号导入教程</title>
+    <url>/2025/10/30/vjudge%20%E6%B4%9B%E8%B0%B7%E8%B4%A6%E5%8F%B7%E5%AF%BC%E5%85%A5%E6%95%99%E7%A8%8B/</url>
+    <content><![CDATA[<p><strong>在此感谢本文主要笔者 25 级 xiaozhangup</strong></p>
+<h1 id="vjudge-洛谷账号导入教程">vjudge 洛谷账号导入教程</h1>
+<h2 id="先决条件">先决条件</h2>
+<ul>
+<li>你有一个<a
+href="https://www.luogu.com.cn/">洛谷</a>账号，并且已经在洛谷官网登录</li>
+<li>你会看图</li>
+</ul>
+<span id="more"></span>
+<h2 id="正式开始">正式开始</h2>
+<h3 id="第一步">第一步</h3>
+<p>点击此处的 <code>更新</code> 进入界面 <img src="/assets/1212.png" />
+<img src="/assets/1313.png" /></p>
+<h3 id="第二步">第二步</h3>
+<p>前往洛谷官网，可以点击上图的蓝色 <a
+href="https://www.luogu.com.cn/">洛谷</a>
+二字进入。进入后记得登录你的洛谷账号！<br />
+登陆后在洛谷的任何界面都行，让我们按下键盘上的 <code>F12</code>
+按钮。<br />
+该按钮通常在键盘的最上端一行，这里给出几个例图：<br />
+<img src="/assets/1414.png" /> <img src="/assets/1515.png" /></p>
+<h3 id="第三步">第三步</h3>
+<p>按下后，我们会看到浏览器弹出如下的界面（记得查看你使用的浏览器类型，如果不知道，那就看哪个和你看到的界面最像即可）:</p>
+<h4 id="对于-edgechrome360-安全浏览器qq-浏览器你会看到类似如下的界面">①
+对于 Edge，Chrome，360 安全浏览器，QQ 浏览器你会看到类似如下的界面</h4>
+<p>跟随红色箭头的指引，依次点击：<br />
+<img src="/assets/1616.png" /> <img src="/assets/1717.png" /><br />
+此处便是我们所需要填写的内容。<br />
+复制里面的值，分别填写到第一步的界面中，点击确认即可（如下）</p>
+<p><img src="/assets/1818.png" /></p>
+<p>静静等待，大功告成！<br />
+<img src="/assets/1919.png" /></p>
+<h4 id="对于-firefoxzen-系类浏览器你会看到">② 对于 Firefox，Zen
+系类浏览器你会看到：</h4>
+<p><img src="/assets/2020.png" /><br />
+让我们点击依次点击：<br />
+<img src="/assets/2121.png" /><br />
+<img src="/assets/2323.png" /><br />
+<img src="/assets/2424.png" /><br />
+被箭头指向的两个数据，就是我们所需要的。<br />
+复制里面的值，分别填写到第一步的界面中，点击确认即可（如下）</p>
+<p><img src="/assets/1818.png" /></p>
+<p>静静等待，大功告成！<br />
+<img src="/assets/1919.png" /></p>
+]]></content>
+      <categories>
+        <category>技术分享</category>
+      </categories>
+      <tags>
+        <tag>杂谈</tag>
       </tags>
   </entry>
   <entry>
@@ -2645,77 +2645,6 @@ src="/assets/20251106-11.png" /></p>
       </tags>
   </entry>
   <entry>
-    <title>多校1题解I/区间dp</title>
-    <url>/2025/06/15/%E5%A4%9A%E6%A0%A11%E9%A2%98%E8%A7%A3I/</url>
-    <content><![CDATA[<h2 id="区间-dp-豪题">区间 DP 豪题！</h2>
-<h3 id="题面"><a
-href="https://ac.nowcoder.com/acm/contest/108298/I">题面</a></h3>
-<span id="more"></span>
-<p>这道题目我们首先看 n
-的取值范围<code>n &lt;= 420</code>所以我们可以用<strong>区间
-dp</strong>来解决这道题目</p>
-<p>首先，我们定义一个数据类型为<code>pair&lt;int, int&gt;</code>（也可以用
-<code>array&lt;int, 2&gt;</code> 都是一个道理的
-）的<strong>三维</strong>数组，<code>pair&lt;int, int&gt;</code> 的
-<code>first</code>代表的是不平衡度 <code>b</code>，
-<code>second</code>代表的是代价，<strong>重点</strong>：<code>dp[i][j][k]</code>
-中的 <code>k</code>代表的是有多少个 <code>pair&lt;int, int&gt;</code>
-数据，每一个数据代表的是第 <code>i</code> 个铁棒到第 <code>j</code>
-个铁棒这一个长铁棒，用两个小铁棒组成当前长铁棒<strong>平衡度小于等于</strong>
-<code>dp[i][j][k].first</code>
-的<strong>最小代价</strong><code>dp[i][j][k].second</code>是多少，所以我们每次在结束状态转移的后，我们会对
-<code>dp[i][j]</code> 按照 <code>dp[i][j][k].first</code>
-从小到大进行排序，然后遍历一遍将当前数据的
-<code>dp[i][j][k].second</code> 与前一个数据进行 <code>min</code>
-操作。</p>
-<p>然后，我可以遍历一遍长铁棒的“长度”（就是由几个铁棒组成），长铁棒的起始点，还有长铁棒分成两个短铁棒的切割位置（前一段短铁棒到哪个位置），这个就是我们代码中的。</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="type">int</span> len = <span class="number">1</span>; len &lt;= n; len ++) &#123;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i  = <span class="number">1</span>; i + len - <span class="number">1</span> &lt;= n; i ++) &#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> k = i; k &lt; j; k ++) &#123;</span><br><span class="line">			<span class="type">int</span> x = k;</span><br><span class="line">			<span class="comment">//前一段短铁棒就是第i个铁棒到第x个铁棒</span></span><br><span class="line">			<span class="comment">//后一段短铁棒就是第x + 1个铁棒到第j个铁棒</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>我们很好想到，假如 <code>len == 1</code>
-的情况下实际上是不需要任何代价的，所以我们只需要向其中加入
-<code>{0, 0}</code>即可。但是当 <code>len != 1</code>
-时，我们就要找到我们的状态转移方程了，首先我们需要计算出他们的平衡度
-<code>b</code>
-我们需要求出两段短铁棒的长度，但是一个一个加很明显不是一个明智的选择，所以我们使用前缀和来进行优化，<code>sum[i]</code>代表前
-i 个铁棒的长度和。那么我们就可以得出他们的平衡度应该是
-<code>b = (sum[j] - sum[x] - (sum[x] - sum[i - 1])) = sum[j] + sum[i -1] - sum[x] * 2</code>，然后我们就计算他们的<strong>代价</strong>
-<code>cost = i到x这个铁棒平衡度小于等于b且最接近b的情况下的最小代价 + (x + 1)到j这个铁棒平衡度小于等于b且最接近b的情况下的最小代价 + 当前切割代价</code>。那么我们该如何得到”<strong>i
-到 x 这个铁棒平衡度小于等于 b 且最接近 b
-的情况下的最小代价</strong>“呢？这个就要追溯到我们前面讲的
-<code>dp[i][j][k]</code> 的意义了，这个代表的是从第 <code>i</code>
-个铁棒到第 <code>j</code>
-个铁棒组成的长铁棒，在用两个小铁棒组成长铁棒<strong>平衡度</strong>小于等于
-<code>dp[i][j][k].first</code> 的情况下所需要的最小代价是
-<code>dp[i][j][k].second</code>。这里可能很多朋友回想我这两个小铁棒的<strong>平衡度</strong>
-<code>dp[i][j][k].first</code>会不会起冲突，这个肯定是不会的，题目中要求平衡度
-<code>b1 &gt; b2 &gt;...... &gt; bn - 1</code>，但是谁先谁后又没有规定，谁大谁先呗，反正他们的<strong>平衡度</strong>肯定都是<strong>小于等于</strong>我当前两小铁棍的<strong>平衡度</strong>，所以我们不需要担心这个问题。还有一点我们为什么要找<strong>平衡度</strong>最接近
-<code>b</code>的数据呢，因为数据越多代价数据也就越多，可能我想要的<strong>最小代价</strong>就在最近
-<code>b</code>的<strong>平衡度</strong>的位置呢，所以我为了找到这个数据，我使用二分查找来找（我的
-<code>dp[i][j]</code>中的数据是有序的）。</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">auto</span> find = [&amp;](<span class="type">int</span> i, <span class="type">int</span> j, <span class="type">int</span> b) -&gt; <span class="type">int</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (dp[i][j].<span class="built_in">empty</span>()) <span class="keyword">return</span> INF;</span><br><span class="line">    <span class="keyword">if</span> (dp[i][j][<span class="number">0</span>][<span class="number">0</span>] &gt; b) <span class="keyword">return</span> INF;</span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> l = <span class="number">0</span>, r = (<span class="type">int</span>)dp[i][j].<span class="built_in">size</span>() - <span class="number">1</span>;</span><br><span class="line">    <span class="type">int</span> ans = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (l &lt;= r) &#123;</span><br><span class="line">        <span class="type">int</span> mid = l + (r - l) / <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">if</span> (dp[i][j][mid][<span class="number">0</span>] &lt;= b) &#123;</span><br><span class="line">            l   = mid + <span class="number">1</span>;</span><br><span class="line">            ans = mid;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            r = mid - <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> dp[i][j][ans][<span class="number">1</span>];</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>那么，我的 <code>find(i, x, b)</code> 代表的就是 ”<strong>i 到 x
-这个铁棒平衡度小于等于 b 且最接近 b
-的情况下的最小代价</strong>“，那我的代价应该是
-<code>find(i, x, b) + find(x + 1, j, b) + min(sum[j] - sum[x], sum[x] - sum[i - 1]) * log2((sum[j] - sum[i - 1]) * 2 - 1)</code>，然后将这一组
-<code>{b, cost}</code>数据 <code>push_back</code> 到
-<code>dp[i][j]</code>中。</p>
-<p>最后，我们对 <code>dp[i][j]</code>进行排序，然后从头到尾遍历
-<code>dp[i][j][k].second = min(dp[i][j][k].second, dp[i][j][k - 1].second)</code>。</p>
-<p>其他的就没啥问题了，我们要找的答案应该是从第 1 个铁棒到第
-<code>n</code>个铁棒，从第 k 个铁棒截断，所需要的最小价值，也就是
-<code>find(i, k, b) + find(x + 1, n, b) + log2(...) * min(...)</code>。</p>
-<p>下面是源代码：</p>
-<p>我用的是<code>array&lt;int, 2&gt;</code>，要是要用
-<code>pair&lt;int, int&gt;</code> 的话可以自己换一下。</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="meta">#<span class="keyword">define</span> int long long</span></span><br><span class="line"><span class="keyword">using</span> ll  = <span class="type">long</span> <span class="type">long</span>;</span><br><span class="line"><span class="keyword">using</span> ull = <span class="type">unsigned</span> <span class="type">long</span> <span class="type">long</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">2e5</span> + <span class="number">5</span>;</span><br><span class="line"><span class="comment">// const int M   = 1e2 + 5;</span></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> MOD = <span class="number">998244353</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> INF = <span class="number">1e15</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> n;</span><br><span class="line">    cin &gt;&gt; n;</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">sum</span><span class="params">(n + <span class="number">5</span>, <span class="number">0</span>)</span></span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;</span><br><span class="line">        cin &gt;&gt; sum[i];</span><br><span class="line">        sum[i] += sum[i - <span class="number">1</span>];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function">vector <span class="title">dp</span><span class="params">(n + <span class="number">5</span>, vector&lt;vector&lt;array&lt;<span class="type">int</span>, <span class="number">2</span>&gt;&gt;&gt;(n + <span class="number">5</span>))</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">auto</span> find = [&amp;](<span class="type">int</span> i, <span class="type">int</span> j, <span class="type">int</span> b) -&gt; <span class="type">int</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (dp[i][j].<span class="built_in">empty</span>()) <span class="keyword">return</span> INF;</span><br><span class="line">        <span class="keyword">if</span> (dp[i][j][<span class="number">0</span>][<span class="number">0</span>] &gt; b) <span class="keyword">return</span> INF;</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> l = <span class="number">0</span>, r = (<span class="type">int</span>)dp[i][j].<span class="built_in">size</span>() - <span class="number">1</span>;</span><br><span class="line">        <span class="type">int</span> ans = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (l &lt;= r) &#123;</span><br><span class="line">            <span class="type">int</span> mid = l + (r - l) / <span class="number">2</span>;</span><br><span class="line">            <span class="keyword">if</span> (dp[i][j][mid][<span class="number">0</span>] &lt;= b) &#123;</span><br><span class="line">                l   = mid + <span class="number">1</span>;</span><br><span class="line">                ans = mid;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                r = mid - <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dp[i][j][ans][<span class="number">1</span>];</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">ans</span><span class="params">(n + <span class="number">5</span>, INF)</span></span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> len = <span class="number">1</span>; len &lt;= n; len++) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i + len - <span class="number">1</span> &lt;= n; i++) &#123;</span><br><span class="line">            <span class="type">int</span> j = i + len - <span class="number">1</span>;</span><br><span class="line">            <span class="comment">// cout &lt;&lt; i &lt;&lt; &quot; &quot; &lt;&lt; j &lt;&lt; &quot;\n&quot;;</span></span><br><span class="line">            <span class="keyword">if</span> (len == <span class="number">1</span>)</span><br><span class="line">                dp[i][j].<span class="built_in">push_back</span>(&#123;<span class="number">0</span>, <span class="number">0</span>&#125;);</span><br><span class="line">            <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="comment">// int p = dp[i][j].size();</span></span><br><span class="line">                <span class="comment">// cout &lt;&lt; p &lt;&lt; &quot;f\n&quot;;</span></span><br><span class="line">                <span class="keyword">for</span> (<span class="type">int</span> k = i; k &lt; j; k++) &#123;</span><br><span class="line">                    <span class="type">int</span> x   = k;</span><br><span class="line">                    <span class="type">int</span> b   = <span class="built_in">abs</span>(sum[j] + sum[i - <span class="number">1</span>] - <span class="number">2</span> * sum[x]);</span><br><span class="line">                    <span class="type">int</span> lg = <span class="built_in">log2</span>((sum[j] - sum[i - <span class="number">1</span>]) * <span class="number">2</span> - <span class="number">1</span>);</span><br><span class="line">                    <span class="type">int</span> cost  = <span class="built_in">find</span>(i, x, b) + <span class="built_in">find</span>(x + <span class="number">1</span>, j, b) +</span><br><span class="line">                             <span class="built_in">min</span>(sum[j] - sum[x], sum[x] - sum[i - <span class="number">1</span>]) * lg;</span><br><span class="line">                    ans[k] = cost;</span><br><span class="line">                    ans[k] = <span class="built_in">min</span>(INF, ans[k]);</span><br><span class="line">                    dp[i][j].<span class="built_in">push_back</span>(&#123;b, cost&#125;);</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                <span class="built_in">sort</span>(dp[i][j].<span class="built_in">begin</span>(), dp[i][j].<span class="built_in">end</span>());</span><br><span class="line"></span><br><span class="line">                <span class="keyword">for</span> (<span class="type">int</span> k = <span class="number">1</span>; k &lt; dp[i][j].<span class="built_in">size</span>(); k++)</span><br><span class="line">                    dp[i][j][k][<span class="number">1</span>] = <span class="built_in">min</span>(dp[i][j][k][<span class="number">1</span>], dp[i][j][k - <span class="number">1</span>][<span class="number">1</span>]);</span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span> (i == <span class="number">1</span> &amp;&amp; j == n) &#123;</span><br><span class="line">                    <span class="keyword">for</span> (<span class="type">int</span> k = <span class="number">1</span>; k &lt; n; k++) &#123;</span><br><span class="line">                        <span class="keyword">if</span> (ans[k] == INF)</span><br><span class="line">                            cout &lt;&lt; <span class="string">&quot;-1 &quot;</span>;</span><br><span class="line">                        <span class="keyword">else</span></span><br><span class="line">                            cout &lt;&lt; ans[k] &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                    cout &lt;&lt; <span class="string">&quot;\n&quot;</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">signed</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line"><span class="meta">#<span class="keyword">ifdef</span> local</span></span><br><span class="line">    <span class="built_in">freopen</span>(<span class="string">&quot;in.txt&quot;</span>, <span class="string">&quot;r&quot;</span>, stdin);</span><br><span class="line">    <span class="built_in">freopen</span>(<span class="string">&quot;out.txt&quot;</span>, <span class="string">&quot;w&quot;</span>, stdout);</span><br><span class="line"><span class="meta">#<span class="keyword">endif</span></span></span><br><span class="line">    ios::<span class="built_in">sync_with_stdio</span>(<span class="literal">false</span>);</span><br><span class="line">    cin.<span class="built_in">tie</span>(<span class="number">0</span>), cout.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> __;</span><br><span class="line">    __ = <span class="number">1</span>;</span><br><span class="line">    cin &gt;&gt; __;</span><br><span class="line">    <span class="keyword">while</span> (__--) &#123;</span><br><span class="line">        <span class="built_in">solve</span>();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>题解</category>
-      </categories>
-      <tags>
-        <tag>题解</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>多元函数微分</title>
     <url>/2025/06/15/%E5%A4%9A%E5%85%83%E5%87%BD%E6%95%B0%E5%BE%AE%E5%88%86/</url>
     <content><![CDATA[<h1 id="多元函数微分学">多元函数微分学</h1>
@@ -3087,6 +3016,77 @@ class="math inline"><em>L</em>(<em>x</em>,<em>y</em>)</span>
       <categories>
         <category>高数</category>
       </categories>
+  </entry>
+  <entry>
+    <title>多校1题解I/区间dp</title>
+    <url>/2025/06/15/%E5%A4%9A%E6%A0%A11%E9%A2%98%E8%A7%A3I/</url>
+    <content><![CDATA[<h2 id="区间-dp-豪题">区间 DP 豪题！</h2>
+<h3 id="题面"><a
+href="https://ac.nowcoder.com/acm/contest/108298/I">题面</a></h3>
+<span id="more"></span>
+<p>这道题目我们首先看 n
+的取值范围<code>n &lt;= 420</code>所以我们可以用<strong>区间
+dp</strong>来解决这道题目</p>
+<p>首先，我们定义一个数据类型为<code>pair&lt;int, int&gt;</code>（也可以用
+<code>array&lt;int, 2&gt;</code> 都是一个道理的
+）的<strong>三维</strong>数组，<code>pair&lt;int, int&gt;</code> 的
+<code>first</code>代表的是不平衡度 <code>b</code>，
+<code>second</code>代表的是代价，<strong>重点</strong>：<code>dp[i][j][k]</code>
+中的 <code>k</code>代表的是有多少个 <code>pair&lt;int, int&gt;</code>
+数据，每一个数据代表的是第 <code>i</code> 个铁棒到第 <code>j</code>
+个铁棒这一个长铁棒，用两个小铁棒组成当前长铁棒<strong>平衡度小于等于</strong>
+<code>dp[i][j][k].first</code>
+的<strong>最小代价</strong><code>dp[i][j][k].second</code>是多少，所以我们每次在结束状态转移的后，我们会对
+<code>dp[i][j]</code> 按照 <code>dp[i][j][k].first</code>
+从小到大进行排序，然后遍历一遍将当前数据的
+<code>dp[i][j][k].second</code> 与前一个数据进行 <code>min</code>
+操作。</p>
+<p>然后，我可以遍历一遍长铁棒的“长度”（就是由几个铁棒组成），长铁棒的起始点，还有长铁棒分成两个短铁棒的切割位置（前一段短铁棒到哪个位置），这个就是我们代码中的。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="type">int</span> len = <span class="number">1</span>; len &lt;= n; len ++) &#123;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i  = <span class="number">1</span>; i + len - <span class="number">1</span> &lt;= n; i ++) &#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> k = i; k &lt; j; k ++) &#123;</span><br><span class="line">			<span class="type">int</span> x = k;</span><br><span class="line">			<span class="comment">//前一段短铁棒就是第i个铁棒到第x个铁棒</span></span><br><span class="line">			<span class="comment">//后一段短铁棒就是第x + 1个铁棒到第j个铁棒</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>我们很好想到，假如 <code>len == 1</code>
+的情况下实际上是不需要任何代价的，所以我们只需要向其中加入
+<code>{0, 0}</code>即可。但是当 <code>len != 1</code>
+时，我们就要找到我们的状态转移方程了，首先我们需要计算出他们的平衡度
+<code>b</code>
+我们需要求出两段短铁棒的长度，但是一个一个加很明显不是一个明智的选择，所以我们使用前缀和来进行优化，<code>sum[i]</code>代表前
+i 个铁棒的长度和。那么我们就可以得出他们的平衡度应该是
+<code>b = (sum[j] - sum[x] - (sum[x] - sum[i - 1])) = sum[j] + sum[i -1] - sum[x] * 2</code>，然后我们就计算他们的<strong>代价</strong>
+<code>cost = i到x这个铁棒平衡度小于等于b且最接近b的情况下的最小代价 + (x + 1)到j这个铁棒平衡度小于等于b且最接近b的情况下的最小代价 + 当前切割代价</code>。那么我们该如何得到”<strong>i
+到 x 这个铁棒平衡度小于等于 b 且最接近 b
+的情况下的最小代价</strong>“呢？这个就要追溯到我们前面讲的
+<code>dp[i][j][k]</code> 的意义了，这个代表的是从第 <code>i</code>
+个铁棒到第 <code>j</code>
+个铁棒组成的长铁棒，在用两个小铁棒组成长铁棒<strong>平衡度</strong>小于等于
+<code>dp[i][j][k].first</code> 的情况下所需要的最小代价是
+<code>dp[i][j][k].second</code>。这里可能很多朋友回想我这两个小铁棒的<strong>平衡度</strong>
+<code>dp[i][j][k].first</code>会不会起冲突，这个肯定是不会的，题目中要求平衡度
+<code>b1 &gt; b2 &gt;...... &gt; bn - 1</code>，但是谁先谁后又没有规定，谁大谁先呗，反正他们的<strong>平衡度</strong>肯定都是<strong>小于等于</strong>我当前两小铁棍的<strong>平衡度</strong>，所以我们不需要担心这个问题。还有一点我们为什么要找<strong>平衡度</strong>最接近
+<code>b</code>的数据呢，因为数据越多代价数据也就越多，可能我想要的<strong>最小代价</strong>就在最近
+<code>b</code>的<strong>平衡度</strong>的位置呢，所以我为了找到这个数据，我使用二分查找来找（我的
+<code>dp[i][j]</code>中的数据是有序的）。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">auto</span> find = [&amp;](<span class="type">int</span> i, <span class="type">int</span> j, <span class="type">int</span> b) -&gt; <span class="type">int</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (dp[i][j].<span class="built_in">empty</span>()) <span class="keyword">return</span> INF;</span><br><span class="line">    <span class="keyword">if</span> (dp[i][j][<span class="number">0</span>][<span class="number">0</span>] &gt; b) <span class="keyword">return</span> INF;</span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> l = <span class="number">0</span>, r = (<span class="type">int</span>)dp[i][j].<span class="built_in">size</span>() - <span class="number">1</span>;</span><br><span class="line">    <span class="type">int</span> ans = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (l &lt;= r) &#123;</span><br><span class="line">        <span class="type">int</span> mid = l + (r - l) / <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">if</span> (dp[i][j][mid][<span class="number">0</span>] &lt;= b) &#123;</span><br><span class="line">            l   = mid + <span class="number">1</span>;</span><br><span class="line">            ans = mid;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            r = mid - <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> dp[i][j][ans][<span class="number">1</span>];</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>那么，我的 <code>find(i, x, b)</code> 代表的就是 ”<strong>i 到 x
+这个铁棒平衡度小于等于 b 且最接近 b
+的情况下的最小代价</strong>“，那我的代价应该是
+<code>find(i, x, b) + find(x + 1, j, b) + min(sum[j] - sum[x], sum[x] - sum[i - 1]) * log2((sum[j] - sum[i - 1]) * 2 - 1)</code>，然后将这一组
+<code>{b, cost}</code>数据 <code>push_back</code> 到
+<code>dp[i][j]</code>中。</p>
+<p>最后，我们对 <code>dp[i][j]</code>进行排序，然后从头到尾遍历
+<code>dp[i][j][k].second = min(dp[i][j][k].second, dp[i][j][k - 1].second)</code>。</p>
+<p>其他的就没啥问题了，我们要找的答案应该是从第 1 个铁棒到第
+<code>n</code>个铁棒，从第 k 个铁棒截断，所需要的最小价值，也就是
+<code>find(i, k, b) + find(x + 1, n, b) + log2(...) * min(...)</code>。</p>
+<p>下面是源代码：</p>
+<p>我用的是<code>array&lt;int, 2&gt;</code>，要是要用
+<code>pair&lt;int, int&gt;</code> 的话可以自己换一下。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="meta">#<span class="keyword">define</span> int long long</span></span><br><span class="line"><span class="keyword">using</span> ll  = <span class="type">long</span> <span class="type">long</span>;</span><br><span class="line"><span class="keyword">using</span> ull = <span class="type">unsigned</span> <span class="type">long</span> <span class="type">long</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">2e5</span> + <span class="number">5</span>;</span><br><span class="line"><span class="comment">// const int M   = 1e2 + 5;</span></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> MOD = <span class="number">998244353</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> INF = <span class="number">1e15</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> n;</span><br><span class="line">    cin &gt;&gt; n;</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">sum</span><span class="params">(n + <span class="number">5</span>, <span class="number">0</span>)</span></span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;</span><br><span class="line">        cin &gt;&gt; sum[i];</span><br><span class="line">        sum[i] += sum[i - <span class="number">1</span>];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function">vector <span class="title">dp</span><span class="params">(n + <span class="number">5</span>, vector&lt;vector&lt;array&lt;<span class="type">int</span>, <span class="number">2</span>&gt;&gt;&gt;(n + <span class="number">5</span>))</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">auto</span> find = [&amp;](<span class="type">int</span> i, <span class="type">int</span> j, <span class="type">int</span> b) -&gt; <span class="type">int</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (dp[i][j].<span class="built_in">empty</span>()) <span class="keyword">return</span> INF;</span><br><span class="line">        <span class="keyword">if</span> (dp[i][j][<span class="number">0</span>][<span class="number">0</span>] &gt; b) <span class="keyword">return</span> INF;</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> l = <span class="number">0</span>, r = (<span class="type">int</span>)dp[i][j].<span class="built_in">size</span>() - <span class="number">1</span>;</span><br><span class="line">        <span class="type">int</span> ans = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (l &lt;= r) &#123;</span><br><span class="line">            <span class="type">int</span> mid = l + (r - l) / <span class="number">2</span>;</span><br><span class="line">            <span class="keyword">if</span> (dp[i][j][mid][<span class="number">0</span>] &lt;= b) &#123;</span><br><span class="line">                l   = mid + <span class="number">1</span>;</span><br><span class="line">                ans = mid;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                r = mid - <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dp[i][j][ans][<span class="number">1</span>];</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">ans</span><span class="params">(n + <span class="number">5</span>, INF)</span></span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> len = <span class="number">1</span>; len &lt;= n; len++) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i + len - <span class="number">1</span> &lt;= n; i++) &#123;</span><br><span class="line">            <span class="type">int</span> j = i + len - <span class="number">1</span>;</span><br><span class="line">            <span class="comment">// cout &lt;&lt; i &lt;&lt; &quot; &quot; &lt;&lt; j &lt;&lt; &quot;\n&quot;;</span></span><br><span class="line">            <span class="keyword">if</span> (len == <span class="number">1</span>)</span><br><span class="line">                dp[i][j].<span class="built_in">push_back</span>(&#123;<span class="number">0</span>, <span class="number">0</span>&#125;);</span><br><span class="line">            <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="comment">// int p = dp[i][j].size();</span></span><br><span class="line">                <span class="comment">// cout &lt;&lt; p &lt;&lt; &quot;f\n&quot;;</span></span><br><span class="line">                <span class="keyword">for</span> (<span class="type">int</span> k = i; k &lt; j; k++) &#123;</span><br><span class="line">                    <span class="type">int</span> x   = k;</span><br><span class="line">                    <span class="type">int</span> b   = <span class="built_in">abs</span>(sum[j] + sum[i - <span class="number">1</span>] - <span class="number">2</span> * sum[x]);</span><br><span class="line">                    <span class="type">int</span> lg = <span class="built_in">log2</span>((sum[j] - sum[i - <span class="number">1</span>]) * <span class="number">2</span> - <span class="number">1</span>);</span><br><span class="line">                    <span class="type">int</span> cost  = <span class="built_in">find</span>(i, x, b) + <span class="built_in">find</span>(x + <span class="number">1</span>, j, b) +</span><br><span class="line">                             <span class="built_in">min</span>(sum[j] - sum[x], sum[x] - sum[i - <span class="number">1</span>]) * lg;</span><br><span class="line">                    ans[k] = cost;</span><br><span class="line">                    ans[k] = <span class="built_in">min</span>(INF, ans[k]);</span><br><span class="line">                    dp[i][j].<span class="built_in">push_back</span>(&#123;b, cost&#125;);</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                <span class="built_in">sort</span>(dp[i][j].<span class="built_in">begin</span>(), dp[i][j].<span class="built_in">end</span>());</span><br><span class="line"></span><br><span class="line">                <span class="keyword">for</span> (<span class="type">int</span> k = <span class="number">1</span>; k &lt; dp[i][j].<span class="built_in">size</span>(); k++)</span><br><span class="line">                    dp[i][j][k][<span class="number">1</span>] = <span class="built_in">min</span>(dp[i][j][k][<span class="number">1</span>], dp[i][j][k - <span class="number">1</span>][<span class="number">1</span>]);</span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span> (i == <span class="number">1</span> &amp;&amp; j == n) &#123;</span><br><span class="line">                    <span class="keyword">for</span> (<span class="type">int</span> k = <span class="number">1</span>; k &lt; n; k++) &#123;</span><br><span class="line">                        <span class="keyword">if</span> (ans[k] == INF)</span><br><span class="line">                            cout &lt;&lt; <span class="string">&quot;-1 &quot;</span>;</span><br><span class="line">                        <span class="keyword">else</span></span><br><span class="line">                            cout &lt;&lt; ans[k] &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                    cout &lt;&lt; <span class="string">&quot;\n&quot;</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">signed</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line"><span class="meta">#<span class="keyword">ifdef</span> local</span></span><br><span class="line">    <span class="built_in">freopen</span>(<span class="string">&quot;in.txt&quot;</span>, <span class="string">&quot;r&quot;</span>, stdin);</span><br><span class="line">    <span class="built_in">freopen</span>(<span class="string">&quot;out.txt&quot;</span>, <span class="string">&quot;w&quot;</span>, stdout);</span><br><span class="line"><span class="meta">#<span class="keyword">endif</span></span></span><br><span class="line">    ios::<span class="built_in">sync_with_stdio</span>(<span class="literal">false</span>);</span><br><span class="line">    cin.<span class="built_in">tie</span>(<span class="number">0</span>), cout.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> __;</span><br><span class="line">    __ = <span class="number">1</span>;</span><br><span class="line">    cin &gt;&gt; __;</span><br><span class="line">    <span class="keyword">while</span> (__--) &#123;</span><br><span class="line">        <span class="built_in">solve</span>();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>题解</category>
+      </categories>
+      <tags>
+        <tag>题解</tag>
+      </tags>
   </entry>
   <entry>
     <title>多校5题解e-j</title>
@@ -3687,289 +3687,6 @@ class="math display">(<em>d</em><sub>Chebyshev</sub>=<em>d</em><sub>Manhattan</s
       </tags>
   </entry>
   <entry>
-    <title>自动刷课</title>
-    <url>/2025/06/15/%E8%87%AA%E5%8A%A8%E5%88%B7%E8%AF%BE/</url>
-    <content><![CDATA[<h1 id="补充">2025.6.5 补充！！！</h1>
-<p>软件最新更新，无需使用任何外在浏览器（不用下载谷歌浏览器了），需要下载最新版软件，选择软件自带的内置浏览器即可正常使用！
-最新脚本软件：https://cdn.ocsjs.com/app/download/ocs-2.8.3-setup-win-x64.exe</p>
-<span id="more"></span>
-<h1 id="补充-1">2025.4.15 补充！！！</h1>
-<p>这段时间按照下面操作仍无法使用
-解决方法，按照下面操作执行后运行页面后，页面右上角提示“脚本猫已关闭…”，点击管理扩展程序进入，将页面右上方开发者模式打开，并且将页面下方脚本猫的按钮也打开，然后关闭网页，重启软件即可恢复正常使用。</p>
-<h2
-id="如果你要解决的软件不在下面这几个之中请移步另一篇博文自动刷题刷课">如果你要解决的软件不在下面这几个之中，请移步另一篇博文“自动刷题刷课”</h2>
-<figure>
-<img src="/assets/4226c9c52a7a78678e8f0076a35ab0c0.png" alt="图" />
-<figcaption aria-hidden="true">图</figcaption>
-</figure>
-<h3 id="必要说明">必要说明</h3>
-<p>1.网课脚本不要开倍速！有的会系统识别用时过短然后清理你的记录还要重新看！对于网课，脚本便利在于可以自动下集，也就是说可以开着挂一个晚上就刷好了。（当然有些水课没管就可以高倍速速通，可以自己试一下，一段时间后如果清零就老实不开倍速挂着）</p>
-<p>2.题目练习脚本大多是依靠题库，而题库可能会出现有的题目没有，或者题库答案不准确，正确率无法保证！不同脚本正确率有的相差巨大，建议多试几个。</p>
-<p>使用前务必看完“必要说明”</p>
-<h2
-id="本脚本与我没有任何关系只不过刚好找到它并将它记录下来方便身边同学使用">本脚本与我没有任何关系，只不过刚好找到它，并将它记录下来，方便身边同学使用</h2>
-<h3
-id="一.确保电脑有谷歌浏览器edge-不行如果没有在下面链接下载一个">一.确保电脑有谷歌浏览器（edge
-不行！）如果没有，在下面链接下载一个</h3>
-<p>谷歌：https://www.google.cn/intl/zh-CN/chrome/</p>
-<h3
-id="二.在电脑下载脚本运行软件点击下面链接或者复制至浏览器下载-windows-版本">二.在电脑下载脚本运行软件，点击下面链接（或者复制至浏览器）下载
-windows 版本</h3>
-<p>脚本软件：https://cdn.ocsjs.com/app/download/ocs-2.6.7-setup-win-x64.exe</p>
-<h3
-id="三.打开刚刚下载的软件跟着顶部视频操作即可简单实用">三.打开刚刚下载的软件，跟着顶部视频操作即可，简单实用</h3>
-<div class="video-container">
-<iframe src="//player.bilibili.com/player.html?isOutside=true&amp;aid=114076092996360&amp;bvid=BV1Sp9AYAEQT&amp;cid=28606400676&amp;p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true">
-</iframe>
-</div>
-<style>
-<p>.video-container { position: relative; width: 100%; padding-top:
-56.25%; /* 16:9 aspect ratio (height/width = 9/16 * 100%) */ }</p>
-<p>.video-container iframe { position: absolute; top: 0; left: 0; width:
-100%; height: 100%; }</p>
-<div class="video-container">
-<iframe src="//player.bilibili.com/player.html?isOutside=true&amp;aid=114076092996360&amp;bvid=BV1Sp9AYAEQT&amp;cid=28606400676&amp;p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true">
-</iframe>
-</div>
-<style>
-.video-container {
-    position: relative;
-    width: 100%;
-    padding-top: 56.25%; /* 16:9 aspect ratio (height/width = 9/16 * 100%) */
-}
-
-.video-container iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}
-</style>
-]]></content>
-      <categories>
-        <category>技术分享</category>
-      </categories>
-      <tags>
-        <tag>杂谈</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>离散数学序理论</title>
-    <url>/2025/06/15/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6%E5%BA%8F%E7%90%86%E8%AE%BA/</url>
-    <content><![CDATA[<h2 id="序理论">序理论</h2>
-<blockquote>
-<p>序理论是利用二元关系来将「次序」这一概念严格化的数学分支 —oi wiki</p>
-</blockquote>
-<hr />
-<h3 id="二元关系">二元关系</h3>
-<span id="more"></span>
-<blockquote>
-<p>有序偶对(序偶) ： 两元素按一定的次序组成的二元组，记为 &lt; x , y
-&gt;</p>
-</blockquote>
-<p>对于两集合 <span class="math inline"><em>A</em></span> 和 <span
-class="math inline"><em>B</em></span>， 称集合 <span
-class="math inline"><em>A</em> × <em>B</em></span>
-为二者的<strong>笛卡尔积</strong>。</p>
-<p>笛卡尔积满足： <span
-class="math inline"><em>A</em> × <em>B</em> = { &lt; <em>x</em>, <em>y</em> &gt; |<em>x</em> ∈ <em>A</em> ∧ <em>y</em> ∈ <em>B</em>}</span></p>
-<blockquote>
-<p>若存在一个集合 <span class="math inline"><em>S</em></span> , 设 <span
-class="math inline">|<em>S</em>| = <em>n</em></span> ，那么 <span
-class="math inline"><em>S</em></span> 上不同的二元关系的个数为：</p>
-<ul>
-<li>集合 <span class="math inline"><em>S</em></span> 上的二元关系是
-<span class="math inline"><em>S</em> × <em>S</em></span> 的一个子集</li>
-<li>集合 <span class="math inline"><em>S</em></span>
-上的二元关系数量即是 <span
-class="math inline"><em>S</em> × <em>S</em></span> 的子集数量（<span
-class="math inline">2<sup><em>n</em><sup>2</sup></sup></span>）</li>
-</ul>
-</blockquote>
-<p>那么对于一个<span class="math inline"><em>A</em> × <em>B</em></span>
-上的关系 <span class="math inline"><em>R</em></span></p>
-<ul>
-<li><span
-class="math inline"><em>R</em> = <em>ϕ</em> ⇔ <em>R</em></span> 为 <span
-class="math inline"><em>A</em> × <em>B</em></span>
-上的<strong>空关系</strong></li>
-<li><span
-class="math inline"><em>R</em> = <em>A</em> × <em>B</em> ⇔ <em>R</em></span>
-为 <span class="math inline"><em>A</em> × <em>B</em></span>
-上的<strong>全关系</strong></li>
-<li><span
-class="math inline"><em>R</em> = <em>I</em><sub><em>A</em></sub> = { &lt; <em>x</em>, <em>y</em> &gt; | <em>x</em> ∈ <em>A</em> } ⇔ <em>R</em></span>
-为 <span class="math inline"><em>A</em></span>
-上的<strong>恒等关系</strong></li>
-</ul>
-<h4 id="关系的运算">关系的运算</h4>
-<ol type="1">
-<li><p>复合运算：<span
-class="math inline"><em>R</em> ∘ <em>S</em> = { &lt; <em>x</em>, <em>y</em>&gt; | <em>x</em> ∈ <em>A</em> ∧ <em>z</em> ∈ <em>C</em>  ∧ (∃<em>y</em>)(<em>y</em>∈<em>B</em>∧<em>x</em><em>R</em><em>y</em>∧<em>y</em><em>S</em><em>z</em>)}</span></p>
-<blockquote>
-<p>简而言之 <span class="math inline"><em>R</em></span> 中有 &lt; x , y
-&gt; <span class="math inline"><em>S</em></span> 中有 &lt; y , z
-&gt;，那么二者的复合为 &lt; x , z &gt;</p>
-</blockquote></li>
-<li><p>逆运算：<span
-class="math inline">(<em>A</em>×<em>B</em>)<sup>−1</sup> = <em>B</em> × <em>A</em></span></p></li>
-<li><p>幂运算：<span class="math inline">$R^n = R^{n-1}\circ R \\R^0 =
-I_A$</span></p></li>
-</ol>
-<h4 id="关系的性质">关系的性质</h4>
-<ul>
-<li>自反性 <span
-class="math inline">(∀<em>x</em>)(<em>x</em>∈<em>A</em>→&lt;<em>x</em>,<em>x</em>&gt;∈<em>R</em>) = 1</span></li>
-<li>反自反性 <span
-class="math inline">(∀<em>x</em>)(<em>x</em>∈<em>A</em>→&lt;<em>x</em>,<em>x</em>&gt;∉<em>R</em>) = 1</span></li>
-<li>对称性 <span
-class="math inline">(∀<em>x</em>)(∀<em>y</em>)((<em>x</em>∈<em>A</em>)∧(<em>y</em>∈<em>A</em>)∧(&lt;<em>x</em>,<em>y</em>&gt;∈<em>R</em> → &lt;<em>y</em>,<em>x</em>&gt;∈<em>R</em>)) = 1</span></li>
-<li>反对称性 <span
-class="math inline">(∀<em>x</em>)(∀<em>y</em>)((<em>x</em>∈<em>A</em>)∧(<em>y</em>∈<em>A</em>)∧(&lt;<em>x</em>,<em>y</em>&gt;∈<em>R</em>)∧(&lt;<em>y</em>,<em>x</em>&gt;∈<em>R</em>→<em>x</em>=<em>y</em>)) = 1</span></li>
-<li>传递性 <span
-class="math inline">(∀<em>x</em>)(∀<em>y</em>)(∀<em>z</em>)((<em>x</em>∈<em>A</em>)∧(<em>y</em>∈<em>A</em>)∧(<em>z</em>∈<em>A</em>)∧((&lt;<em>x</em>,<em>y</em>&gt;∈<em>R</em>)∧(&lt;<em>y</em>,<em>z</em>&gt;∈<em>R</em>)→(&lt;<em>x</em>,<em>z</em>&gt;∈<em>R</em>))) = 1</span></li>
-</ul>
-<blockquote>
-<p>从关系图的角度理解会更简单：</p>
-<ul>
-<li>自反性：全是自环</li>
-<li>反自反性：没自环</li>
-<li>对称性：两点间只要存在边，就必须是双边（x=y 时即自环也满足</li>
-<li>反对称性：两点间只要存在边，除了自环都不能有双边</li>
-<li>传递性：参考向量的合成，<strong>需要注意自环</strong></li>
-</ul>
-</blockquote>
-<h4 id="关系的闭包">关系的闭包</h4>
-<p>闭包运算，简单来说就是将一个关系增加最少的元素，使得该关系具有某一性质</p>
-<p>自反、对称、传递闭包分别用<span
-class="math inline"><em>r</em>(<em>R</em>) <em>s</em>(<em>R</em>) <em>t</em>(<em>R</em>)</span>表示</p>
-<p>更具体的计算：</p>
-<p><span
-class="math inline"><em>r</em>(<em>R</em>) = <em>R</em> ∪ <em>I</em><sub><em>A</em></sub></span></p>
-<p><span
-class="math inline"><em>s</em>(<em>R</em>) = <em>R</em> ∪ <em>R</em><sup>−1</sup></span></p>
-<p><span
-class="math inline"><em>t</em>(<em>R</em>) = ∪<sub><em>i</em> = 1</sub><sup>|<em>A</em>|</sup> <em>R</em><sup><em>i</em></sup></span></p>
-<hr />
-<h3 id="特殊关系">特殊关系</h3>
-<table>
-<colgroup>
-<col style="width: 48%" />
-<col style="width: 9%" />
-<col style="width: 12%" />
-<col style="width: 9%" />
-<col style="width: 12%" />
-<col style="width: 9%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;">二元关系</th>
-<th style="text-align: left;">自反性</th>
-<th style="text-align: left;">反自反性</th>
-<th style="text-align: left;">对称性</th>
-<th style="text-align: left;">反对称性</th>
-<th style="text-align: left;">传递性</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">等价关系（equivalence relation）</td>
-<td style="text-align: left;">√</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;">√</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;">√</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">拟序关系 (quasi-order set)</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;">√</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;">√</td>
-<td style="text-align: left;">√</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">偏序（partial order）</td>
-<td style="text-align: left;">√</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;">√</td>
-<td style="text-align: left;">√</td>
-</tr>
-</tbody>
-</table>
-<h4 id="等价">等价</h4>
-<blockquote>
-<p>集合的划分：</p>
-<p>一个集合的划分，就是将该集合视为几个交集为空的非空真子集的并集。</p>
-<p>再简单些，可以将它理解为把一个集合切成几个非空的小集合。</p>
-</blockquote>
-<p><strong>等价类：</strong></p>
-<p>设 <strong>R</strong> 是非空集合 <strong>A</strong> 上的等价关系</p>
-<p>那么对于 <span
-class="math inline">∀<em>x</em> ∈ <em>A</em></span>，称集合 <span
-class="math inline">[<em>x</em>]<sub><em>R</em></sub> = {<em>y</em>|<em>y</em> ∈ <em>A</em> ∧  &lt; <em>x</em>, <em>y</em> &gt;  ∈ <em>R</em>}</span>
-为 x 关于 <strong>R</strong> 的等价类。</p>
-<blockquote>
-<p>所以，R 上所有的等价类构成的集合就是一个依据等价关系进行的 A
-的划分</p>
-<p>于是就引出了商集的概念</p>
-</blockquote>
-<p><strong>商集：</strong></p>
-<p>设 <strong>R</strong> 是非空集合 <strong>A</strong>
-上的等价关系，那么由 <strong>R</strong>
-确定的等价类的集合就称为(<strong>A</strong>上关于<strong>R</strong>的)商集，记为
-<strong>A/R</strong></p>
-<blockquote>
-<p>不妨举个例子：</p>
-<p>有一集合
-<strong>A</strong>={1,2,3,5,7,9}，<strong>R</strong>为其上的以 4
-为模的同余关系</p>
-<p>那么等价类有：</p>
-<p><span
-class="math inline">[1]<sub><em>R</em></sub> = [5]<sub><em>R</em></sub> = [9]<sub><em>R</em></sub> = {1, 5, 9}</span></p>
-<p><span
-class="math inline">[3]<sub><em>R</em></sub> = [7]<sub><em>R</em></sub> = {3, 7}</span></p>
-<p><span class="math inline">[2]<sub><em>R</em></sub> = {2}</span></p>
-<p>商集为：</p>
-<p><span
-class="math inline"><em>A</em>/<em>R</em> = {[1]<sub><em>R</em></sub>, [2]<sub><em>R</em></sub>, [3]<sub><em>R</em></sub>} = {{1, 5, 9}, {2}, {3, 7}}</span></p>
-</blockquote>
-<h4 id="偏序">偏序</h4>
-<p>为更好研究偏序关系，我们常会使用<strong>哈斯图</strong>来描述</p>
-<p>确定元素之间的覆盖关系, 如果 a 覆盖 b, 那么 b 就在 a 上方并链接;</p>
-<blockquote>
-<p>有集合 S = {2, 3, 6,12}对于在 S 上的整除关系:</p>
-<p>6 能覆盖 2 和 3</p>
-<p>12 能覆盖 2,3,6</p>
-<p>因此哈斯图表示为</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">graph LR</span><br><span class="line">A((12))--&gt;B((6))</span><br><span class="line">B((6))--&gt;C((2))</span><br><span class="line">B((6))--&gt;D((3))</span><br></pre></td></tr></table></figure>
-</blockquote>
-<p><strong>特殊元素</strong></p>
-<p>设 <strong>A</strong> 是一个偏序集, <strong>B</strong>
-是其上的某一个子集，那么有:</p>
-<ul>
-<li>最大(小)元：在 <strong>B</strong> 中，该元素满足
-“覆盖”任意元素/被任意元素”覆盖”</li>
-<li>极大(小)元：在 <strong>B</strong> 中，该元素满足
-不被任一元素”覆盖“/不“覆盖”任一元素</li>
-<li>上(下)界：在 <strong>A</strong> 中，该元素满足 “覆盖”
-<strong>B</strong> 中的任意元素/被 <strong>B</strong>
-中的任意元素“覆盖”</li>
-<li>上(下)确界：在上界所有元素中， 该元素满足 被任一元素“覆盖”/
-“覆盖”任一元素</li>
-</ul>
-<blockquote>
-<p>注意：本文借以哈斯图描述中的“覆盖”一词来描述
-<strong>两元素之间满足的某一关系</strong>，以避免直接带入符号理解定义而导致误解的可能。</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>离散数学</category>
-      </categories>
-  </entry>
-  <entry>
     <title>算法入门第一课</title>
     <url>/2025/10/10/%E7%AE%97%E6%B3%95%E5%85%A5%E9%97%A8%E7%AC%AC%E4%B8%80%E8%AF%BE/</url>
     <content><![CDATA[<h1 id="introduction-lec-01-2024.11.11">Introduction Lec 01 /
@@ -4186,6 +3903,74 @@ cl.exe。</p>
 <h2 id="x06-扯一嘴代码风格">0x06 扯一嘴代码风格</h2>
 <p><br />
 </p>
+]]></content>
+      <categories>
+        <category>技术分享</category>
+      </categories>
+      <tags>
+        <tag>杂谈</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>自动刷课</title>
+    <url>/2025/06/15/%E8%87%AA%E5%8A%A8%E5%88%B7%E8%AF%BE/</url>
+    <content><![CDATA[<h1 id="补充">2025.6.5 补充！！！</h1>
+<p>软件最新更新，无需使用任何外在浏览器（不用下载谷歌浏览器了），需要下载最新版软件，选择软件自带的内置浏览器即可正常使用！
+最新脚本软件：https://cdn.ocsjs.com/app/download/ocs-2.8.3-setup-win-x64.exe</p>
+<span id="more"></span>
+<h1 id="补充-1">2025.4.15 补充！！！</h1>
+<p>这段时间按照下面操作仍无法使用
+解决方法，按照下面操作执行后运行页面后，页面右上角提示“脚本猫已关闭…”，点击管理扩展程序进入，将页面右上方开发者模式打开，并且将页面下方脚本猫的按钮也打开，然后关闭网页，重启软件即可恢复正常使用。</p>
+<h2
+id="如果你要解决的软件不在下面这几个之中请移步另一篇博文自动刷题刷课">如果你要解决的软件不在下面这几个之中，请移步另一篇博文“自动刷题刷课”</h2>
+<figure>
+<img src="/assets/4226c9c52a7a78678e8f0076a35ab0c0.png" alt="图" />
+<figcaption aria-hidden="true">图</figcaption>
+</figure>
+<h3 id="必要说明">必要说明</h3>
+<p>1.网课脚本不要开倍速！有的会系统识别用时过短然后清理你的记录还要重新看！对于网课，脚本便利在于可以自动下集，也就是说可以开着挂一个晚上就刷好了。（当然有些水课没管就可以高倍速速通，可以自己试一下，一段时间后如果清零就老实不开倍速挂着）</p>
+<p>2.题目练习脚本大多是依靠题库，而题库可能会出现有的题目没有，或者题库答案不准确，正确率无法保证！不同脚本正确率有的相差巨大，建议多试几个。</p>
+<p>使用前务必看完“必要说明”</p>
+<h2
+id="本脚本与我没有任何关系只不过刚好找到它并将它记录下来方便身边同学使用">本脚本与我没有任何关系，只不过刚好找到它，并将它记录下来，方便身边同学使用</h2>
+<h3
+id="一.确保电脑有谷歌浏览器edge-不行如果没有在下面链接下载一个">一.确保电脑有谷歌浏览器（edge
+不行！）如果没有，在下面链接下载一个</h3>
+<p>谷歌：https://www.google.cn/intl/zh-CN/chrome/</p>
+<h3
+id="二.在电脑下载脚本运行软件点击下面链接或者复制至浏览器下载-windows-版本">二.在电脑下载脚本运行软件，点击下面链接（或者复制至浏览器）下载
+windows 版本</h3>
+<p>脚本软件：https://cdn.ocsjs.com/app/download/ocs-2.6.7-setup-win-x64.exe</p>
+<h3
+id="三.打开刚刚下载的软件跟着顶部视频操作即可简单实用">三.打开刚刚下载的软件，跟着顶部视频操作即可，简单实用</h3>
+<div class="video-container">
+<iframe src="//player.bilibili.com/player.html?isOutside=true&amp;aid=114076092996360&amp;bvid=BV1Sp9AYAEQT&amp;cid=28606400676&amp;p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true">
+</iframe>
+</div>
+<style>
+<p>.video-container { position: relative; width: 100%; padding-top:
+56.25%; /* 16:9 aspect ratio (height/width = 9/16 * 100%) */ }</p>
+<p>.video-container iframe { position: absolute; top: 0; left: 0; width:
+100%; height: 100%; }</p>
+<div class="video-container">
+<iframe src="//player.bilibili.com/player.html?isOutside=true&amp;aid=114076092996360&amp;bvid=BV1Sp9AYAEQT&amp;cid=28606400676&amp;p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true">
+</iframe>
+</div>
+<style>
+.video-container {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%; /* 16:9 aspect ratio (height/width = 9/16 * 100%) */
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+</style>
 ]]></content>
       <categories>
         <category>技术分享</category>
@@ -4445,5 +4230,220 @@ c++可以处理的数据内，进行加法运算相当简单（下面代码用 c
       <tags>
         <tag>模拟</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>离散数学序理论</title>
+    <url>/2025/06/15/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6%E5%BA%8F%E7%90%86%E8%AE%BA/</url>
+    <content><![CDATA[<h2 id="序理论">序理论</h2>
+<blockquote>
+<p>序理论是利用二元关系来将「次序」这一概念严格化的数学分支 —oi wiki</p>
+</blockquote>
+<hr />
+<h3 id="二元关系">二元关系</h3>
+<span id="more"></span>
+<blockquote>
+<p>有序偶对(序偶) ： 两元素按一定的次序组成的二元组，记为 &lt; x , y
+&gt;</p>
+</blockquote>
+<p>对于两集合 <span class="math inline"><em>A</em></span> 和 <span
+class="math inline"><em>B</em></span>， 称集合 <span
+class="math inline"><em>A</em> × <em>B</em></span>
+为二者的<strong>笛卡尔积</strong>。</p>
+<p>笛卡尔积满足： <span
+class="math inline"><em>A</em> × <em>B</em> = { &lt; <em>x</em>, <em>y</em> &gt; |<em>x</em> ∈ <em>A</em> ∧ <em>y</em> ∈ <em>B</em>}</span></p>
+<blockquote>
+<p>若存在一个集合 <span class="math inline"><em>S</em></span> , 设 <span
+class="math inline">|<em>S</em>| = <em>n</em></span> ，那么 <span
+class="math inline"><em>S</em></span> 上不同的二元关系的个数为：</p>
+<ul>
+<li>集合 <span class="math inline"><em>S</em></span> 上的二元关系是
+<span class="math inline"><em>S</em> × <em>S</em></span> 的一个子集</li>
+<li>集合 <span class="math inline"><em>S</em></span>
+上的二元关系数量即是 <span
+class="math inline"><em>S</em> × <em>S</em></span> 的子集数量（<span
+class="math inline">2<sup><em>n</em><sup>2</sup></sup></span>）</li>
+</ul>
+</blockquote>
+<p>那么对于一个<span class="math inline"><em>A</em> × <em>B</em></span>
+上的关系 <span class="math inline"><em>R</em></span></p>
+<ul>
+<li><span
+class="math inline"><em>R</em> = <em>ϕ</em> ⇔ <em>R</em></span> 为 <span
+class="math inline"><em>A</em> × <em>B</em></span>
+上的<strong>空关系</strong></li>
+<li><span
+class="math inline"><em>R</em> = <em>A</em> × <em>B</em> ⇔ <em>R</em></span>
+为 <span class="math inline"><em>A</em> × <em>B</em></span>
+上的<strong>全关系</strong></li>
+<li><span
+class="math inline"><em>R</em> = <em>I</em><sub><em>A</em></sub> = { &lt; <em>x</em>, <em>y</em> &gt; | <em>x</em> ∈ <em>A</em> } ⇔ <em>R</em></span>
+为 <span class="math inline"><em>A</em></span>
+上的<strong>恒等关系</strong></li>
+</ul>
+<h4 id="关系的运算">关系的运算</h4>
+<ol type="1">
+<li><p>复合运算：<span
+class="math inline"><em>R</em> ∘ <em>S</em> = { &lt; <em>x</em>, <em>y</em>&gt; | <em>x</em> ∈ <em>A</em> ∧ <em>z</em> ∈ <em>C</em>  ∧ (∃<em>y</em>)(<em>y</em>∈<em>B</em>∧<em>x</em><em>R</em><em>y</em>∧<em>y</em><em>S</em><em>z</em>)}</span></p>
+<blockquote>
+<p>简而言之 <span class="math inline"><em>R</em></span> 中有 &lt; x , y
+&gt; <span class="math inline"><em>S</em></span> 中有 &lt; y , z
+&gt;，那么二者的复合为 &lt; x , z &gt;</p>
+</blockquote></li>
+<li><p>逆运算：<span
+class="math inline">(<em>A</em>×<em>B</em>)<sup>−1</sup> = <em>B</em> × <em>A</em></span></p></li>
+<li><p>幂运算：<span class="math inline">$R^n = R^{n-1}\circ R \\R^0 =
+I_A$</span></p></li>
+</ol>
+<h4 id="关系的性质">关系的性质</h4>
+<ul>
+<li>自反性 <span
+class="math inline">(∀<em>x</em>)(<em>x</em>∈<em>A</em>→&lt;<em>x</em>,<em>x</em>&gt;∈<em>R</em>) = 1</span></li>
+<li>反自反性 <span
+class="math inline">(∀<em>x</em>)(<em>x</em>∈<em>A</em>→&lt;<em>x</em>,<em>x</em>&gt;∉<em>R</em>) = 1</span></li>
+<li>对称性 <span
+class="math inline">(∀<em>x</em>)(∀<em>y</em>)((<em>x</em>∈<em>A</em>)∧(<em>y</em>∈<em>A</em>)∧(&lt;<em>x</em>,<em>y</em>&gt;∈<em>R</em> → &lt;<em>y</em>,<em>x</em>&gt;∈<em>R</em>)) = 1</span></li>
+<li>反对称性 <span
+class="math inline">(∀<em>x</em>)(∀<em>y</em>)((<em>x</em>∈<em>A</em>)∧(<em>y</em>∈<em>A</em>)∧(&lt;<em>x</em>,<em>y</em>&gt;∈<em>R</em>)∧(&lt;<em>y</em>,<em>x</em>&gt;∈<em>R</em>→<em>x</em>=<em>y</em>)) = 1</span></li>
+<li>传递性 <span
+class="math inline">(∀<em>x</em>)(∀<em>y</em>)(∀<em>z</em>)((<em>x</em>∈<em>A</em>)∧(<em>y</em>∈<em>A</em>)∧(<em>z</em>∈<em>A</em>)∧((&lt;<em>x</em>,<em>y</em>&gt;∈<em>R</em>)∧(&lt;<em>y</em>,<em>z</em>&gt;∈<em>R</em>)→(&lt;<em>x</em>,<em>z</em>&gt;∈<em>R</em>))) = 1</span></li>
+</ul>
+<blockquote>
+<p>从关系图的角度理解会更简单：</p>
+<ul>
+<li>自反性：全是自环</li>
+<li>反自反性：没自环</li>
+<li>对称性：两点间只要存在边，就必须是双边（x=y 时即自环也满足</li>
+<li>反对称性：两点间只要存在边，除了自环都不能有双边</li>
+<li>传递性：参考向量的合成，<strong>需要注意自环</strong></li>
+</ul>
+</blockquote>
+<h4 id="关系的闭包">关系的闭包</h4>
+<p>闭包运算，简单来说就是将一个关系增加最少的元素，使得该关系具有某一性质</p>
+<p>自反、对称、传递闭包分别用<span
+class="math inline"><em>r</em>(<em>R</em>) <em>s</em>(<em>R</em>) <em>t</em>(<em>R</em>)</span>表示</p>
+<p>更具体的计算：</p>
+<p><span
+class="math inline"><em>r</em>(<em>R</em>) = <em>R</em> ∪ <em>I</em><sub><em>A</em></sub></span></p>
+<p><span
+class="math inline"><em>s</em>(<em>R</em>) = <em>R</em> ∪ <em>R</em><sup>−1</sup></span></p>
+<p><span
+class="math inline"><em>t</em>(<em>R</em>) = ∪<sub><em>i</em> = 1</sub><sup>|<em>A</em>|</sup> <em>R</em><sup><em>i</em></sup></span></p>
+<hr />
+<h3 id="特殊关系">特殊关系</h3>
+<table>
+<colgroup>
+<col style="width: 48%" />
+<col style="width: 9%" />
+<col style="width: 12%" />
+<col style="width: 9%" />
+<col style="width: 12%" />
+<col style="width: 9%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">二元关系</th>
+<th style="text-align: left;">自反性</th>
+<th style="text-align: left;">反自反性</th>
+<th style="text-align: left;">对称性</th>
+<th style="text-align: left;">反对称性</th>
+<th style="text-align: left;">传递性</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">等价关系（equivalence relation）</td>
+<td style="text-align: left;">√</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">√</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">√</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">拟序关系 (quasi-order set)</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">√</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">√</td>
+<td style="text-align: left;">√</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">偏序（partial order）</td>
+<td style="text-align: left;">√</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">√</td>
+<td style="text-align: left;">√</td>
+</tr>
+</tbody>
+</table>
+<h4 id="等价">等价</h4>
+<blockquote>
+<p>集合的划分：</p>
+<p>一个集合的划分，就是将该集合视为几个交集为空的非空真子集的并集。</p>
+<p>再简单些，可以将它理解为把一个集合切成几个非空的小集合。</p>
+</blockquote>
+<p><strong>等价类：</strong></p>
+<p>设 <strong>R</strong> 是非空集合 <strong>A</strong> 上的等价关系</p>
+<p>那么对于 <span
+class="math inline">∀<em>x</em> ∈ <em>A</em></span>，称集合 <span
+class="math inline">[<em>x</em>]<sub><em>R</em></sub> = {<em>y</em>|<em>y</em> ∈ <em>A</em> ∧  &lt; <em>x</em>, <em>y</em> &gt;  ∈ <em>R</em>}</span>
+为 x 关于 <strong>R</strong> 的等价类。</p>
+<blockquote>
+<p>所以，R 上所有的等价类构成的集合就是一个依据等价关系进行的 A
+的划分</p>
+<p>于是就引出了商集的概念</p>
+</blockquote>
+<p><strong>商集：</strong></p>
+<p>设 <strong>R</strong> 是非空集合 <strong>A</strong>
+上的等价关系，那么由 <strong>R</strong>
+确定的等价类的集合就称为(<strong>A</strong>上关于<strong>R</strong>的)商集，记为
+<strong>A/R</strong></p>
+<blockquote>
+<p>不妨举个例子：</p>
+<p>有一集合
+<strong>A</strong>={1,2,3,5,7,9}，<strong>R</strong>为其上的以 4
+为模的同余关系</p>
+<p>那么等价类有：</p>
+<p><span
+class="math inline">[1]<sub><em>R</em></sub> = [5]<sub><em>R</em></sub> = [9]<sub><em>R</em></sub> = {1, 5, 9}</span></p>
+<p><span
+class="math inline">[3]<sub><em>R</em></sub> = [7]<sub><em>R</em></sub> = {3, 7}</span></p>
+<p><span class="math inline">[2]<sub><em>R</em></sub> = {2}</span></p>
+<p>商集为：</p>
+<p><span
+class="math inline"><em>A</em>/<em>R</em> = {[1]<sub><em>R</em></sub>, [2]<sub><em>R</em></sub>, [3]<sub><em>R</em></sub>} = {{1, 5, 9}, {2}, {3, 7}}</span></p>
+</blockquote>
+<h4 id="偏序">偏序</h4>
+<p>为更好研究偏序关系，我们常会使用<strong>哈斯图</strong>来描述</p>
+<p>确定元素之间的覆盖关系, 如果 a 覆盖 b, 那么 b 就在 a 上方并链接;</p>
+<blockquote>
+<p>有集合 S = {2, 3, 6,12}对于在 S 上的整除关系:</p>
+<p>6 能覆盖 2 和 3</p>
+<p>12 能覆盖 2,3,6</p>
+<p>因此哈斯图表示为</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">graph LR</span><br><span class="line">A((12))--&gt;B((6))</span><br><span class="line">B((6))--&gt;C((2))</span><br><span class="line">B((6))--&gt;D((3))</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p><strong>特殊元素</strong></p>
+<p>设 <strong>A</strong> 是一个偏序集, <strong>B</strong>
+是其上的某一个子集，那么有:</p>
+<ul>
+<li>最大(小)元：在 <strong>B</strong> 中，该元素满足
+“覆盖”任意元素/被任意元素”覆盖”</li>
+<li>极大(小)元：在 <strong>B</strong> 中，该元素满足
+不被任一元素”覆盖“/不“覆盖”任一元素</li>
+<li>上(下)界：在 <strong>A</strong> 中，该元素满足 “覆盖”
+<strong>B</strong> 中的任意元素/被 <strong>B</strong>
+中的任意元素“覆盖”</li>
+<li>上(下)确界：在上界所有元素中， 该元素满足 被任一元素“覆盖”/
+“覆盖”任一元素</li>
+</ul>
+<blockquote>
+<p>注意：本文借以哈斯图描述中的“覆盖”一词来描述
+<strong>两元素之间满足的某一关系</strong>，以避免直接带入符号理解定义而导致误解的可能。</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>离散数学</category>
+      </categories>
   </entry>
 </search>
