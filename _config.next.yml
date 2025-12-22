@@ -177,6 +177,7 @@ site_state: true
 # Value before `||` delimiter is the target permalink, value after `||` delimiter is the name of Font Awesome icon.
 social:
   GitHub: https://github.com/WUSTACM/blog.github.io || fab fa-github
+  wiki: https://wustacm.scandidreams.top/wiki/ || fab fa-bilibili
   #E-Mail: mailto:yourname@gmail.com || fa fa-envelope
   #Weibo: https://weibo.com/yourname || fab fa-weibo
   #Google: https://plus.google.com/yourname || fab fa-google
@@ -272,6 +273,7 @@ reward:
 # Subscribe through Telegram Channel, Twitter, etc.
 # Usage: `Key: permalink || icon` (Font Awesome)
 follow_me:
+  wiki: https://wustacm.scandidreams.top/wiki/  || fab fa-wiki
   #Twitter: https://twitter.com/username || fab fa-twitter
   #Telegram: https://t.me/channel_name || fab fa-telegram
   #WeChat: /images/wechat_channel.jpg || fab fa-weixin
@@ -350,12 +352,14 @@ codeblock:
   #   # Code Highlight theme
   #   # Available values: normal | night | night eighties | night blue | night bright | solarized | solarized dark | galactic
   #   # See: https://github.com/chriskempson/tomorrow-theme
+  codeblock:
   theme:
-    light: default
+    light: stackoverflow-dark
     dark: stackoverflow-dark
   prism:
-    light: prism
+    light: prism-dark
     dark: prism-dark
+
   #   # Add copy button on codeblock
   copy_button:
     enable: true
