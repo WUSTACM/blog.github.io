@@ -1,7 +1,8 @@
 ---
 title: 数字dfs
+date: 2025-6-15
 tags: [dfs]
-categories: []
+categories: [算法]
 topic: 算法
 headline: 大标题
 caption: 标题下方的小字

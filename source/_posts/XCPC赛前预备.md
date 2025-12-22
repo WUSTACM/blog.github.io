@@ -1,6 +1,7 @@
 ---
 title: XCPC赛前预备
-tags: []
+date: 2025-10-15
+tags: [杂谈]
 categories: [技术分享]
 cover: https://i.postimg.cc/ZnCzZKvr/2cb79efe667b08d4b12e3b103d67653.jpg
 banner: https://i.postimg.cc/ZnCzZKvr/2cb79efe667b08d4b12e3b103d67653.jpg

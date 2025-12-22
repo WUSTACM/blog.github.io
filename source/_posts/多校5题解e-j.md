@@ -1,6 +1,7 @@
 ---
 title: 多校5题解e-j
-tags: []
+date: 2025-6-15
+tags: [题解]
 categories: [题解]
 cover: https://i.postimg.cc/ZnCzZKvr/2cb79efe667b08d4b12e3b103d67653.jpg
 banner: https://i.postimg.cc/ZnCzZKvr/2cb79efe667b08d4b12e3b103d67653.jpg

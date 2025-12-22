@@ -1,5 +1,6 @@
 ---
 title: wustoj-cpp参考代码
+date: 2025-6-15
 tags: [作业]
 categories: [cpp]
 cover: https://i.postimg.cc/ZnCzZKvr/2cb79efe667b08d4b12e3b103d67653.jpg

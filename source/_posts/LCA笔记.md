@@ -1,5 +1,6 @@
 ---
 title: LCA笔记
+date: 2025-6-15
 tags: [LCA]
 categories: [算法]
 cover: https://i.postimg.cc/ZnCzZKvr/2cb79efe667b08d4b12e3b103d67653.jpg

@@ -1,6 +1,7 @@
 ---
 title: everlasting.关于2025菜鸟杯的个人题解
-tags: []
+date: 2025-12-15
+tags: [题解]
 categories: [题解]
 cover: https://i.postimg.cc/ZnCzZKvr/2cb79efe667b08d4b12e3b103d67653.jpg
 banner: https://i.postimg.cc/ZnCzZKvr/2cb79efe667b08d4b12e3b103d67653.jpg

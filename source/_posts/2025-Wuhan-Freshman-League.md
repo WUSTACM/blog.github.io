@@ -1,6 +1,6 @@
 ---
 title: 2025武汉新生赛部分题解及游记
-date: 2026-12-22
+date: 2025-12-22
 tags: [题解]
 categories: [题解]
 cover: https://i.postimg.cc/ZnCzZKvr/2cb79efe667b08d4b12e3b103d67653.jpg

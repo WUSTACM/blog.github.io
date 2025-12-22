@@ -1,6 +1,7 @@
 ---
 title: vjudge 洛谷账号导入教程
-tags: []
+date: 2025-10-30
+tags: [杂谈]
 categories: [技术分享]
 cover: https://i.postimg.cc/ZnCzZKvr/2cb79efe667b08d4b12e3b103d67653.jpg
 banner: https://i.postimg.cc/ZnCzZKvr/2cb79efe667b08d4b12e3b103d67653.jpg
