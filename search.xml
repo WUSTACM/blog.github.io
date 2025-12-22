@@ -2,7 +2,7 @@
 <search>
   <entry>
     <title>2025菜鸟杯题解</title>
-    <url>/2025/12/21/2025%E8%8F%9C%E9%B8%9F%E6%9D%AF%E9%A2%98%E8%A7%A3/</url>
+    <url>/2025/12/22/2025%E8%8F%9C%E9%B8%9F%E6%9D%AF%E9%A2%98%E8%A7%A3/</url>
     <content><![CDATA[<h1 id="官方题解">官方题解</h1>
 <h2 id="b-题题解">B 题题解</h2>
 <p>本题是一个纯数学思维题，难度中等，侧重考察数学思维能力</p>
@@ -310,142 +310,10 @@ class="math inline"> : <em>O</em>(6<sup>7</sup>)</span></p>
       </categories>
   </entry>
   <entry>
-    <title>AI翻译插件配置教程</title>
-    <url>/2025/12/21/AI%E7%BF%BB%E8%AF%91%E6%8F%92%E4%BB%B6%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B/</url>
-    <content><![CDATA[<h1 id="ai-翻译插件配置">ai 翻译插件配置</h1>
-<h2 id="前言">前言</h2>
-<h3 id="必要性">必要性：</h3>
-<p>无论是在算法学习或者学习 csdiy
-的课程，与英文文档打交道都是不可避免的，但是往往浏览器自带的机翻，非常差劲，毕竟对于大量的专业名词动词，机翻往往不能翻译恰当。这些都是计算机学习的第一道障碍……</p>
-<span id="more"></span>
-<h3 id="功能">功能：</h3>
-<p>而 ai 翻译插件，是通过调用 ai 接口，实现 ai 智能翻译，ai
-的优势在于，它可以根据情景翻译出恰当的语义，并且下面介绍的插件翻译，实现的是一段一翻，也就是说，会有一段原文紧接着一段译文，这样也方便使用者对比适当学习英语<del>如果你愿意的话</del></p>
-<h2 id="配置教程">配置教程</h2>
-<h3 id="首先获取-ai-的接口">首先获取 ai 的接口</h3>
-<p>（前言：ai
-接口的使用是需要付费的，按照用量计费，但实际上非常便宜，实测 1
-美元可以使用三个月以上<del>我一开始不常用的话，可以用四五个月…..</del>）</p>
-<ul>
-<li>打开下面网站</li>
-</ul>
-<p><a href="https://aihubmix.com">AI</a></p>
-<p>（如下图所示</p>
-<figure>
-<img src="/assets/12.png" alt="1" />
-<figcaption aria-hidden="true">1</figcaption>
-</figure>
-<ul>
-<li>然后注册一个自己的账号</li>
-<li>点击【充值】界面，先买一美刀</li>
-<li>点击【模型】界面 （如下图所示</li>
-</ul>
-<figure>
-<img src="/assets/13.png" alt="1" />
-<figcaption aria-hidden="true">1</figcaption>
-</figure>
-<ul>
-<li>找一些输入/输出 Tokens 花费较少的 ai
-即可，我用的是<code>gpt-5-nano</code> （如下图所示</li>
-</ul>
-<figure>
-<img src="/assets/14.png" alt="1" />
-<figcaption aria-hidden="true">1</figcaption>
-</figure>
-<ul>
-<li>然后记住你选择的 ai，再回到最上面，点击【秘钥】 （如下图所示</li>
-</ul>
-<figure>
-<img src="/assets/16.png" alt="1" />
-<figcaption aria-hidden="true">1</figcaption>
-</figure>
-<ul>
-<li>点击【创建
-key】，自己可以随便设置<code>key名称</code>，主要是要点击【高级设置】展开
-（如下图所示</li>
-</ul>
-<figure>
-<img src="/assets/17.png" alt="1" />
-<figcaption aria-hidden="true">1</figcaption>
-</figure>
-<ul>
-<li><p>【模型范围】选择刚才找到的合适的 ai 接口（如
-我这里选择较便宜的<code>gpt-5-nano</code> ） 然后点击提交即可</p></li>
-<li><p>然后保留这个页面，新建页面进行后续操作</p></li>
-</ul>
-<h3 id="下载插件">下载插件</h3>
-<ul>
-<li><a
-href="https://microsoftedge.microsoft.com/addons/detail/%E6%B2%89%E6%B5%B8%E5%BC%8F%E7%BF%BB%E8%AF%91-%E7%BD%91%E9%A1%B5%E7%BF%BB%E8%AF%91%E6%8F%92%E4%BB%B6-pdf%E7%BF%BB%E8%AF%91-/amkbmndfnliijdhojkpoglbnaaahippg">沉浸式翻译</a>
-打开这个插件，并点击【获取】，获取成功后，右上角拓展中就可以找到它了
-（如下图所示</li>
-</ul>
-<figure>
-<img src="/assets/18.png" alt="1" />
-<figcaption aria-hidden="true">1</figcaption>
-</figure>
-<ul>
-<li>点击【沉浸式翻译】打开, - 点击左下角【设置】打开设置界面
-（如下图所示</li>
-</ul>
-<figure>
-<img src="/assets/19.png" alt="1" />
-<figcaption aria-hidden="true">1</figcaption>
-</figure>
-<ul>
-<li>在左侧栏目中，找到【翻译服务】，再在页面的模型中找到【其他/自定义】，打开并选择【OpenAI
-1】 （如下图所示</li>
-</ul>
-<figure>
-<img src="/assets/21.png" alt="1" />
-<figcaption aria-hidden="true">1</figcaption>
-</figure>
-<ul>
-<li>这时候回到刚才保留的页面中，将刚才创建的接口的<code>key</code>复制一下，然后粘贴到新页面的【APIKEY】中。并选择模型为刚刚自己创建的
-key 的模型（如我这里是<code>gpt-5-nano</code>）</li>
-<li>然后接着往下看，可以找到【自定义 API
-接口地址】，将原先内容删除，并把下面这段，复制上去</li>
-</ul>
-<p><code>https://aihubmix.com/v1/chat/completions</code></p>
-<ul>
-<li>到此基本配置完成，看到页面最上方，有个【点击测试服务】，点击后即可知道是否配置成功啦</li>
-</ul>
-<h2 id="使用设置">使用设置</h2>
-<ul>
-<li>接下来随便打开一个含有外语网页 （如下图所示</li>
-</ul>
-<figure>
-<img src="/assets/23.png" alt="1" />
-<figcaption aria-hidden="true">1</figcaption>
-</figure>
-<ul>
-<li>不难发现右侧有个粉色小按钮，鼠标移动至按钮上方（不点击）
-（如下图所示</li>
-</ul>
-<figure>
-<img src="/assets/24.png" alt="1" />
-<figcaption aria-hidden="true">1</figcaption>
-</figure>
-<ul>
-<li>点击设置打开，并将【翻译服务】设置为【OpenAI 1】</li>
-</ul>
-<figure>
-<img src="/assets/25.png" alt="1" />
-<figcaption aria-hidden="true">1</figcaption>
-</figure>
-<ul>
-<li>至此彻底完成配置，之后再使用翻译只需点击这个粉色小按钮稍待即可翻译成功！</li>
-</ul>
-]]></content>
-      <categories>
-        <category>技术分享</category>
-      </categories>
-  </entry>
-  <entry>
     <title>LCA笔记</title>
-    <url>/2025/12/21/LCA%E7%AC%94%E8%AE%B0/</url>
+    <url>/2025/12/22/LCA%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[<h1 id="lca-问题">LCA 问题</h1>
-<p><a href="https://www.luogu.com.cn/problem/P3379">模板题</a></p>
+<p><span class="exturl" data-url="aHR0cHM6Ly93d3cubHVvZ3UuY29tLmNuL3Byb2JsZW0vUDMzNzk=">模板题<i class="fa fa-external-link-alt"></i></span></p>
 <blockquote>
 <p>最近公共祖先简称 LCA（Lowest Common
 Ancestor）。两个节点的最近公共祖先，就是这两个点的公共祖先里面，离根最远的那个。
@@ -565,7 +433,7 @@ LCA。</li>
   </entry>
   <entry>
     <title>Markdown使用方法</title>
-    <url>/2025/12/21/Markdown%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/</url>
+    <url>/2025/12/22/Markdown%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/</url>
     <content><![CDATA[<h1 id="markdown-使用方法">Markdown 使用方法</h1>
 <p>Markdown
 是一种轻量级标记语言，常用于格式化文本。它易于阅读和编写，并且可以转换为有效的
@@ -866,7 +734,7 @@ class="math inline">∫<sub><em>a</em></sub><sup><em>b</em></sup></span>
   </entry>
   <entry>
     <title>XCPC赛前预备</title>
-    <url>/2025/12/21/XCPC%E8%B5%9B%E5%89%8D%E9%A2%84%E5%A4%87/</url>
+    <url>/2025/12/22/XCPC%E8%B5%9B%E5%89%8D%E9%A2%84%E5%A4%87/</url>
     <content><![CDATA[<p>这里我们仅介绍在<code>ubuntu</code>环境中给了一个什么都没有<code>vscode</code>如何用指令方便的<code>coding</code>。</p>
 <h2 id="第一步">第一步</h2>
 <p>创建一个新的文件夹并且右键点击 <code>Open in Terminal</code> 输入</p>
@@ -910,7 +778,7 @@ aria-hidden="true">6d138c55-6761-4fb8-b76b-898a9f9d6935</figcaption>
   </entry>
   <entry>
     <title>everlasting.关于2025菜鸟杯的个人题解</title>
-    <url>/2025/12/21/everlasting%E7%9A%84%E4%B8%AA%E4%BA%BA%E9%A2%98%E8%A7%A3/</url>
+    <url>/2025/12/22/everlasting%E7%9A%84%E4%B8%AA%E4%BA%BA%E9%A2%98%E8%A7%A3/</url>
     <content><![CDATA[<h1 id="everlasting.的个人题解">everlasting.的个人题解</h1>
 <h2 id="a---hello">A - hello</h2>
 <h3 id="题意">题意：</h3>
@@ -1038,7 +906,7 @@ href="https://blog.wustacm.org/2025/12/15/2025%E8%8F%9C%E9%B8%9F%E6%9D%AF%E9%A2%
   </entry>
   <entry>
     <title>vjudge 洛谷账号导入教程</title>
-    <url>/2025/12/21/vjudge%20%E6%B4%9B%E8%B0%B7%E8%B4%A6%E5%8F%B7%E5%AF%BC%E5%85%A5%E6%95%99%E7%A8%8B/</url>
+    <url>/2025/12/22/vjudge%20%E6%B4%9B%E8%B0%B7%E8%B4%A6%E5%8F%B7%E5%AF%BC%E5%85%A5%E6%95%99%E7%A8%8B/</url>
     <content><![CDATA[<p><strong>在此感谢本文主要笔者 25 级 xiaozhangup</strong></p>
 <h1 id="vjudge-洛谷账号导入教程">vjudge 洛谷账号导入教程</h1>
 <h2 id="先决条件">先决条件</h2>
@@ -1090,7 +958,7 @@ href="https://www.luogu.com.cn/">洛谷</a>
   </entry>
   <entry>
     <title>vscode配置教程</title>
-    <url>/2025/12/21/vscode%E9%85%8D%E7%BD%AE/</url>
+    <url>/2025/12/22/vscode%E9%85%8D%E7%BD%AE/</url>
     <content><![CDATA[<h2 id="vscode-配置-cc编译运行环境">VScode 配置 C/C++编译运行环境</h2>
 <h3 id="效果预览">效果预览</h3>
 <p>本文旨在通过介绍个人对 VScode 的配置及使用来帮助大家理解 VScode
@@ -1283,8 +1151,87 @@ xcpc 竞赛向配置教程</a></p></li>
       </categories>
   </entry>
   <entry>
+    <title>二分&#92;三分</title>
+    <url>/2025/12/22/%E4%BA%8C%E5%88%86-%E4%B8%89%E5%88%86/</url>
+    <content><![CDATA[<h2 id="二分手搓">二分(手搓)</h2>
+<h3 id="一.找出第一个大于等于-x-的元素">一.找出第一个大于等于 x
+的元素</h3>
+<span id="more"></span>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">int</span> a[<span class="number">200005</span>];</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="type">int</span> n, x;</span><br><span class="line">	cin &gt;&gt; n &gt;&gt; x;</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">		cin &gt;&gt; a[i];</span><br><span class="line">	<span class="type">int</span> z = <span class="number">1</span>, y = n;</span><br><span class="line">  <span class="comment">//核心代码</span></span><br><span class="line">	<span class="keyword">while</span> (z &lt;= y)</span><br><span class="line">	&#123;</span><br><span class="line">    <span class="comment">//这里其实mid = (z + y) / 2，而下面的写法是为了防止有时候爆int</span></span><br><span class="line">		<span class="type">int</span> mid = z + (y - z) / <span class="number">2</span>;</span><br><span class="line">    <span class="comment">//下面两个条件判断，哪个不取等，就输出哪个</span></span><br><span class="line">		<span class="keyword">if</span> (a[mid] &gt;= x) y = mid - <span class="number">1</span>;</span><br><span class="line">		<span class="keyword">else</span> z = mid + <span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	cout &lt;&lt; z; <span class="comment">//cout &lt;&lt; y + 1;</span></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3
+id="二.找出最后一个小于等于-x-的元素这里只展示核心代码与一进行比较">二.找出最后一个小于等于
+x 的元素这里只展示核心代码，与一进行比较</h3>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> z = <span class="number">1</span>, y = n;</span><br><span class="line">  <span class="comment">//核心代码</span></span><br><span class="line"><span class="keyword">while</span> (z &lt;= y)</span><br><span class="line">&#123;</span><br><span class="line">  <span class="comment">//这里其实mid = (z + y) / 2，而下面的写法是为了防止有时候爆int</span></span><br><span class="line">  <span class="type">int</span> mid = z + (y - z) / <span class="number">2</span>;</span><br><span class="line">  <span class="comment">//下面两个条件判断，哪个不取等，就输出哪个</span></span><br><span class="line">  <span class="keyword">if</span> (a[mid] &lt;= x) z = mid + <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">else</span> y = mid - <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line">cout &lt;&lt; y; <span class="comment">//cout &lt;&lt; z - 1;</span></span><br></pre></td></tr></table></figure>
+<h3
+id="简单记忆区分两种情况在于先判断哪种情况">简单记忆区分两种情况在于先判断哪种情况</h3>
+<h2 id="二分stl">二分(STL)</h2>
+<pre><code>binary_search 返回 bool 值， 是否存在
+lower_bound 返回第一个大于等于 x 元素的地址
+upper_bound 返回第一个大于 x 的元素的地址
+这三个的参数(a, a + n, x)</code></pre>
+<h2 id="答案检验法">答案检验法</h2>
+<p>一种使用二分思想的方法，给出答案可能的最小值 z ，最大值
+y，然后对答案进行二分，假设每次二分的结果就是最后的正确答案，然后循环内部进行
+judge
+函数判断是否满足，从而进行不同的左右区间缩减。最终找到真正的正确答案。</p>
+<h3 id="分数规划-的解法就是使用答案检验法">01 分数规划
+的解法就是使用答案检验法</h3>
+<p><a
+href="https://ac.nowcoder.com/acm/contest/22353/1011">模板题</a></p>
+<p>题解：假设每次二分的答案为 x，现在要验证 x 的正确性 (v1 + v2 + v3 +
+……vk) / (w1 + w2 + w3 + ……wk) 是否&gt; x</p>
+<p>即 (v1 + v2 + v3 + ……vk) 是否&gt; (w1 + w2 + w3 + ……wk) * x</p>
+<p>即(v1 + v2 + v3 + ……vk) - (w1 + w2 + w3 + ……wk) * x 是否&gt; 0</p>
+<p>即 (i=1 到 i=k 项的和) vi- x * wi 是否&gt; 0</p>
+<p>ac 代码如下：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">double</span> y = <span class="number">0</span>;</span><br><span class="line"><span class="type">int</span> n, k;</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">ty</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="type">double</span> w, v;</span><br><span class="line">	<span class="type">double</span> m;</span><br><span class="line">&#125;a[<span class="number">500010</span>];</span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">cmp</span><span class="params">(ty a, ty b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> a.m &gt; b.m;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">judge</span><span class="params">(<span class="type">double</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">		a[i].m = a[i].v - a[i].w * x;</span><br><span class="line">	<span class="built_in">sort</span>(a + <span class="number">1</span>, a + <span class="number">1</span> + n, cmp);</span><br><span class="line">	<span class="type">double</span> sum = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= k; i++)</span><br><span class="line">		sum += a[i].m;</span><br><span class="line">	<span class="keyword">if</span> (sum &gt;= <span class="number">0</span>) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	cin &gt;&gt; n &gt;&gt; k;</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		cin &gt;&gt; a[i].w &gt;&gt; a[i].v;</span><br><span class="line">		y += a[i].w;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="type">double</span> z = <span class="number">0</span>;</span><br><span class="line">	<span class="type">int</span> t = <span class="number">100</span>;</span><br><span class="line">	<span class="keyword">while</span> (t--)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="type">double</span> mid = (z + y) / <span class="number">2</span>;</span><br><span class="line">		<span class="keyword">if</span> (<span class="built_in">judge</span>(mid)) z = mid;</span><br><span class="line">		<span class="keyword">else</span> y = mid;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;%.9lf&quot;</span>, (z + y) / <span class="number">2</span>);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="三分">三分</h2>
+<h3
+id="三分法用来解决单峰单谷问题经典二次函数型的变化时可以使用三分优化">三分法用来解决单峰单谷问题，经典二次函数型的变化时，可以使用三分优化</h3>
+<h3
+id="当问题是解决一堆都是整数的问题时较为简单模板代码如下">当问题是解决一堆都是整数的问题时，较为简单，模板代码如下：</h3>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="comment">//下面就是要寻找的二次函数型数组，目标是找到其中的最大值</span></span><br><span class="line"><span class="type">int</span> a[<span class="number">10</span>] = &#123; <span class="number">0</span>, <span class="number">3</span>, <span class="number">25</span>, <span class="number">21</span>, <span class="number">20</span>, <span class="number">14</span>, <span class="number">12</span>, <span class="number">7</span>, <span class="number">2</span>, <span class="number">1</span> &#125;;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="type">int</span> z = <span class="number">0</span>, y = <span class="number">9</span>;</span><br><span class="line">	<span class="keyword">while</span> (z &lt;= y)</span><br><span class="line">	&#123;</span><br><span class="line">    <span class="comment">//三分，就是将区间尽量平均分成三份</span></span><br><span class="line">		<span class="type">int</span> mid1 = z + (y - z) / <span class="number">3</span>;</span><br><span class="line">		<span class="type">int</span> mid2 = y - (y - z) / <span class="number">3</span>;</span><br><span class="line">    <span class="comment">//判断两者中的较大值，那么较小值的一方的元素都不可能是最大值，直接舍去</span></span><br><span class="line">		<span class="keyword">if</span> (a[mid1] &gt;= a[mid2]) y = mid2 - <span class="number">1</span>;</span><br><span class="line">		<span class="keyword">else</span> z = mid1 + <span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">  <span class="comment">//最终结果位置与二分类似</span></span><br><span class="line">	cout &lt;&lt; a[z] &lt;&lt; endl;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3
+id="但是要使用三分思路解决的问题往往是要求到实数问题的变化过程往往是一段连续实数的函数而不是像数列那样的连续整数那会有什么变化吗">但是要使用三分思路解决的问题往往是要求到实数，问题的变化过程往往是一段连续实数的函数，而不是像数列那样的连续整数，那会有什么变化吗？</h3>
+<p>上面模板中的循环判断 while(z &lt;= y) 是通过整数 z 和
+y，也就是下标的序数进行更替判断，我们知道整数在进行除法会有自动向下取整，但是
+double
+类型会有一定的小数精确，但是这个精确度是不够用的，在经过多次运算误差就会越来越大，最后很可能就改变答案导致错误！</p>
+<h2 id="这里给出三种解决思路">这里给出三种解决思路</h2>
+<h3
+id="一.直接使用数据本身进行循环判断既然实数多次计算有误差while-直接用来判断每次两者差值小于某个-epsilon例如-1e-7来控制循环结束这时候数据已经细分很小可以直接近似得到最值了具体精度控制看题目要求">一.直接使用数据本身进行循环判断，既然实数多次计算有误差，while
+直接用来判断每次两者差值小于某个 epsilon（例如
+1e-7），来控制循环结束（这时候数据已经细分很小，可以直接近似得到最值了）具体精度控制看题目要求</h3>
+<p>代码如下：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">double</span> <span class="title">f</span><span class="params">(<span class="type">double</span> x)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 示例函数，此处替换为实际函数</span></span><br><span class="line">    <span class="keyword">return</span> -x*x + <span class="number">2</span>*x + <span class="number">3</span>; <span class="comment">// 极大值在x=1处</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 精度控制</span></span><br><span class="line"><span class="type">const</span> <span class="type">double</span> eps = <span class="number">1e-9</span>;</span><br><span class="line"><span class="keyword">while</span> (r - l &gt; eps)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">double</span> m1 = l + (r - l) / <span class="number">3</span>;</span><br><span class="line">    <span class="type">double</span> m2 = r - (r - l) / <span class="number">3</span>;</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">f</span>(m1) &lt; <span class="built_in">f</span>(m2))</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// 求极大值，若求极小值则改为&gt;,极值在[m1, r]</span></span><br><span class="line">        l = m1;</span><br><span class="line">    &#125; <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">      <span class="comment">// 极值在[l, m2]</span></span><br><span class="line">        r = m2;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 返回近似极值点</span></span><br><span class="line"><span class="keyword">return</span> (l + r) / <span class="number">2</span>;</span><br></pre></td></tr></table></figure>
+<h3
+id="二.我们发现当每一次三分数据总数都会缩小三分之一那么当循环次数达到一定多时剩余数据就能够在误差范围内得到正确答案所以可以固定循环次数为循环条件进行三分">二.我们发现当每一次三分数据总数都会缩小三分之一，那么当循环次数达到一定多时，剩余数据就能够在误差范围内得到正确答案！所以可以固定循环次数为循环条件进行三分！</h3>
+<p>代码如下：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> T = <span class="number">100</span>; <span class="comment">// 迭代次数，确保精度</span></span><br><span class="line"><span class="function"><span class="type">double</span> <span class="title">f</span><span class="params">(<span class="type">double</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> -x*x + <span class="number">2</span>*x + <span class="number">3</span>; <span class="comment">// 示例函数，极大值在x=1</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">double</span> <span class="title">ternary_search_fixed_loop</span><span class="params">(<span class="type">double</span> l, <span class="type">double</span> r, <span class="type">int</span> T)</span> </span>&#123;</span><br><span class="line"><span class="keyword">while</span> (T--)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">double</span> m1 = l + (r - l) / <span class="number">3</span>;</span><br><span class="line">    <span class="type">double</span> m2 = r - (r - l) / <span class="number">3</span>;</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">f</span>(m1) &lt; <span class="built_in">f</span>(m2))</span><br><span class="line">    &#123; <span class="comment">// 求极大值</span></span><br><span class="line">        l = m1; <span class="comment">// 极值在右区间</span></span><br><span class="line">    &#125; <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        r = m2; <span class="comment">// 极值在左区间</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">return</span> (l + r) / <span class="number">2</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3
+id="三.将要求的实数区间存放在整数数组中例如给定一段长度的两端值我们主动将这段长度均分为-n-份n-可能是-500010000..这时候就可以将问题转换为最简单的模板类型解决">三.将要求的实数区间存放在整数数组中，例如：给定一段长度的两端值，我们主动将这段长度均分为
+N 份(N 可能是
+5000，10000…..)，这时候就可以将问题转换为最简单的模板类型解决！</h3>
+<p>此情况直接附上题目进行理解吧</p>
+<h3 id="例题"><a
+href="https://ac.nowcoder.com/acm/contest/22353/1025">例题</a></h3>
+<p>本题较为复杂，涉及两个三分嵌套，并将三分问题按照法三转换为整数型模板！</p>
+<p>ac 代码如下：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">5005</span>;</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">ty</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="type">double</span> x, y;</span><br><span class="line">&#125;a, b, c, d, e[N + <span class="number">5</span>], f[N + <span class="number">5</span>];</span><br><span class="line"><span class="comment">//t1是当前点到A点所需的时间，t2是当前点到D点所需的时间</span></span><br><span class="line"><span class="type">double</span> t1[N + <span class="number">5</span>], t2[N + <span class="number">5</span>];</span><br><span class="line"><span class="type">double</span> p, q, r;</span><br><span class="line"><span class="comment">//计算距离的函数</span></span><br><span class="line"><span class="function"><span class="type">double</span> <span class="title">dis</span><span class="params">(ty a, ty b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="built_in">sqrt</span>((a.x - b.x) * (a.x - b.x) + (a.y - b.y) * (a.y - b.y));</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//第二个三分，用于嵌套在第一个三分内部，返回总时间最小的情况</span></span><br><span class="line"><span class="function"><span class="type">double</span> <span class="title">sol</span><span class="params">(<span class="type">int</span> mid)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="type">int</span> z2 = <span class="number">0</span>, y2 = N;</span><br><span class="line">	<span class="keyword">while</span> (z2 &lt;= y2)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="type">int</span> mid1 = z2 + (y2 - z2) / <span class="number">3</span>;</span><br><span class="line">		<span class="type">int</span> mid2 = y2 - (y2 - z2) / <span class="number">3</span>;</span><br><span class="line">		<span class="keyword">if</span> ((t1[mid] + t2[mid1] + (<span class="built_in">dis</span>(e[mid], f[mid1]) / r)) &lt;= (t1[mid] + t2[mid2] + (<span class="built_in">dis</span>(e[mid], f[mid2]) / r)))</span><br><span class="line">			y2 = mid2 - <span class="number">1</span>;</span><br><span class="line">		<span class="keyword">else</span> z2 = mid1 + <span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> (t1[mid] + t2[z2] + (<span class="built_in">dis</span>(e[mid], f[z2]) / r));</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	cin &gt;&gt; a.x &gt;&gt; a.y &gt;&gt; b.x &gt;&gt; b.y;</span><br><span class="line">	cin &gt;&gt; c.x &gt;&gt; c.y &gt;&gt; d.x &gt;&gt; d.y;</span><br><span class="line">	cin &gt;&gt; p &gt;&gt; q &gt;&gt; r;</span><br><span class="line">  <span class="comment">//关键步骤！！！用于将实数三分转换为整数型三分，最后分别存放于数组 e 和 f 中。</span></span><br><span class="line">	<span class="type">double</span> dx = (b.x - a.x) / N, dy = (b.y - a.y) / N;</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt;= N; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		e[i].x = a.x + dx * i, e[i].y = a.y + dy * i;</span><br><span class="line">		t1[i] = <span class="built_in">dis</span>(a, e[i]) / p;</span><br><span class="line">	&#125;</span><br><span class="line">	dx = (d.x - c.x) / N, dy = (d.y - c.y) / N;</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt;= N; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		f[i].x = c.x + dx * i, f[i].y = c.y + dy * i;</span><br><span class="line">		t2[i] = <span class="built_in">dis</span>(d, f[i]) / q;</span><br><span class="line">	&#125;</span><br><span class="line">  <span class="comment">//外层三分循环，枚举AB段的情况，再结合sol函数，最终求出时间最小的情况！</span></span><br><span class="line">	<span class="type">int</span> z1 = <span class="number">0</span>, y1 = N;</span><br><span class="line">	<span class="keyword">while</span> (z1 &lt;= y1)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="type">int</span> mid1 = z1 + (y1 - z1) / <span class="number">3</span>;</span><br><span class="line">		<span class="type">int</span> mid2 = y1 - (y1 - z1) / <span class="number">3</span>;</span><br><span class="line">		<span class="keyword">if</span> (<span class="built_in">sol</span>(mid1) &lt;= <span class="built_in">sol</span>(mid2)) y1 = mid2 - <span class="number">1</span>;</span><br><span class="line">		<span class="keyword">else</span> z1 = mid1 + <span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">  <span class="comment">//按照题目要求精度输出即可</span></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;%.2f\n&quot;</span>, <span class="built_in">sol</span>(z1));</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3
+id="其实还有一种妙法就是求导利用定义求导dy-dx-当-dx-极小时整个就是当前点的导数值这样就可以将三分问题转换为二分求零点的问题这里留给读者思考因为我自己其实也没试过怕写错了误导大家">其实还有一种妙法！就是求导！利用定义求导，(dy
+/ dx) 当 dx
+极小时，整个就是当前点的导数值。这样就可以将三分问题转换为二分求零点的问题！这里留给读者思考（因为我自己其实也没试过，怕写错了误导大家~</h3>
+<p>再附上一道三分例题：<a
+href="https://ac.nowcoder.com/acm/contest/22353/1009">例题</a></p>
+]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+  </entry>
+  <entry>
     <title>wustoj-cpp参考代码</title>
-    <url>/2025/12/21/wustoj-cpp%E5%8F%82%E8%80%83%E4%BB%A3%E7%A0%81/</url>
+    <url>/2025/12/22/wustoj-cpp%E5%8F%82%E8%80%83%E4%BB%A3%E7%A0%81/</url>
     <content><![CDATA[<h2
 id="代码旨在直接解决题目要求代码格式不规范请谅解">代码旨在直接解决题目要求，代码格式不规范请谅解</h2>
 <h2 id="类和对象">1.类和对象</h2>
@@ -1453,87 +1400,8 @@ Furniture 家具类派生）</h3>
       </tags>
   </entry>
   <entry>
-    <title>二分&#92;三分</title>
-    <url>/2025/12/21/%E4%BA%8C%E5%88%86-%E4%B8%89%E5%88%86/</url>
-    <content><![CDATA[<h2 id="二分手搓">二分(手搓)</h2>
-<h3 id="一.找出第一个大于等于-x-的元素">一.找出第一个大于等于 x
-的元素</h3>
-<span id="more"></span>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">int</span> a[<span class="number">200005</span>];</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="type">int</span> n, x;</span><br><span class="line">	cin &gt;&gt; n &gt;&gt; x;</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">		cin &gt;&gt; a[i];</span><br><span class="line">	<span class="type">int</span> z = <span class="number">1</span>, y = n;</span><br><span class="line">  <span class="comment">//核心代码</span></span><br><span class="line">	<span class="keyword">while</span> (z &lt;= y)</span><br><span class="line">	&#123;</span><br><span class="line">    <span class="comment">//这里其实mid = (z + y) / 2，而下面的写法是为了防止有时候爆int</span></span><br><span class="line">		<span class="type">int</span> mid = z + (y - z) / <span class="number">2</span>;</span><br><span class="line">    <span class="comment">//下面两个条件判断，哪个不取等，就输出哪个</span></span><br><span class="line">		<span class="keyword">if</span> (a[mid] &gt;= x) y = mid - <span class="number">1</span>;</span><br><span class="line">		<span class="keyword">else</span> z = mid + <span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	cout &lt;&lt; z; <span class="comment">//cout &lt;&lt; y + 1;</span></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3
-id="二.找出最后一个小于等于-x-的元素这里只展示核心代码与一进行比较">二.找出最后一个小于等于
-x 的元素这里只展示核心代码，与一进行比较</h3>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> z = <span class="number">1</span>, y = n;</span><br><span class="line">  <span class="comment">//核心代码</span></span><br><span class="line"><span class="keyword">while</span> (z &lt;= y)</span><br><span class="line">&#123;</span><br><span class="line">  <span class="comment">//这里其实mid = (z + y) / 2，而下面的写法是为了防止有时候爆int</span></span><br><span class="line">  <span class="type">int</span> mid = z + (y - z) / <span class="number">2</span>;</span><br><span class="line">  <span class="comment">//下面两个条件判断，哪个不取等，就输出哪个</span></span><br><span class="line">  <span class="keyword">if</span> (a[mid] &lt;= x) z = mid + <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">else</span> y = mid - <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line">cout &lt;&lt; y; <span class="comment">//cout &lt;&lt; z - 1;</span></span><br></pre></td></tr></table></figure>
-<h3
-id="简单记忆区分两种情况在于先判断哪种情况">简单记忆区分两种情况在于先判断哪种情况</h3>
-<h2 id="二分stl">二分(STL)</h2>
-<pre><code>binary_search 返回 bool 值， 是否存在
-lower_bound 返回第一个大于等于 x 元素的地址
-upper_bound 返回第一个大于 x 的元素的地址
-这三个的参数(a, a + n, x)</code></pre>
-<h2 id="答案检验法">答案检验法</h2>
-<p>一种使用二分思想的方法，给出答案可能的最小值 z ，最大值
-y，然后对答案进行二分，假设每次二分的结果就是最后的正确答案，然后循环内部进行
-judge
-函数判断是否满足，从而进行不同的左右区间缩减。最终找到真正的正确答案。</p>
-<h3 id="分数规划-的解法就是使用答案检验法">01 分数规划
-的解法就是使用答案检验法</h3>
-<p><a
-href="https://ac.nowcoder.com/acm/contest/22353/1011">模板题</a></p>
-<p>题解：假设每次二分的答案为 x，现在要验证 x 的正确性 (v1 + v2 + v3 +
-……vk) / (w1 + w2 + w3 + ……wk) 是否&gt; x</p>
-<p>即 (v1 + v2 + v3 + ……vk) 是否&gt; (w1 + w2 + w3 + ……wk) * x</p>
-<p>即(v1 + v2 + v3 + ……vk) - (w1 + w2 + w3 + ……wk) * x 是否&gt; 0</p>
-<p>即 (i=1 到 i=k 项的和) vi- x * wi 是否&gt; 0</p>
-<p>ac 代码如下：</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">double</span> y = <span class="number">0</span>;</span><br><span class="line"><span class="type">int</span> n, k;</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">ty</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="type">double</span> w, v;</span><br><span class="line">	<span class="type">double</span> m;</span><br><span class="line">&#125;a[<span class="number">500010</span>];</span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">cmp</span><span class="params">(ty a, ty b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> a.m &gt; b.m;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">judge</span><span class="params">(<span class="type">double</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">		a[i].m = a[i].v - a[i].w * x;</span><br><span class="line">	<span class="built_in">sort</span>(a + <span class="number">1</span>, a + <span class="number">1</span> + n, cmp);</span><br><span class="line">	<span class="type">double</span> sum = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= k; i++)</span><br><span class="line">		sum += a[i].m;</span><br><span class="line">	<span class="keyword">if</span> (sum &gt;= <span class="number">0</span>) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	cin &gt;&gt; n &gt;&gt; k;</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		cin &gt;&gt; a[i].w &gt;&gt; a[i].v;</span><br><span class="line">		y += a[i].w;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="type">double</span> z = <span class="number">0</span>;</span><br><span class="line">	<span class="type">int</span> t = <span class="number">100</span>;</span><br><span class="line">	<span class="keyword">while</span> (t--)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="type">double</span> mid = (z + y) / <span class="number">2</span>;</span><br><span class="line">		<span class="keyword">if</span> (<span class="built_in">judge</span>(mid)) z = mid;</span><br><span class="line">		<span class="keyword">else</span> y = mid;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;%.9lf&quot;</span>, (z + y) / <span class="number">2</span>);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="三分">三分</h2>
-<h3
-id="三分法用来解决单峰单谷问题经典二次函数型的变化时可以使用三分优化">三分法用来解决单峰单谷问题，经典二次函数型的变化时，可以使用三分优化</h3>
-<h3
-id="当问题是解决一堆都是整数的问题时较为简单模板代码如下">当问题是解决一堆都是整数的问题时，较为简单，模板代码如下：</h3>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="comment">//下面就是要寻找的二次函数型数组，目标是找到其中的最大值</span></span><br><span class="line"><span class="type">int</span> a[<span class="number">10</span>] = &#123; <span class="number">0</span>, <span class="number">3</span>, <span class="number">25</span>, <span class="number">21</span>, <span class="number">20</span>, <span class="number">14</span>, <span class="number">12</span>, <span class="number">7</span>, <span class="number">2</span>, <span class="number">1</span> &#125;;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="type">int</span> z = <span class="number">0</span>, y = <span class="number">9</span>;</span><br><span class="line">	<span class="keyword">while</span> (z &lt;= y)</span><br><span class="line">	&#123;</span><br><span class="line">    <span class="comment">//三分，就是将区间尽量平均分成三份</span></span><br><span class="line">		<span class="type">int</span> mid1 = z + (y - z) / <span class="number">3</span>;</span><br><span class="line">		<span class="type">int</span> mid2 = y - (y - z) / <span class="number">3</span>;</span><br><span class="line">    <span class="comment">//判断两者中的较大值，那么较小值的一方的元素都不可能是最大值，直接舍去</span></span><br><span class="line">		<span class="keyword">if</span> (a[mid1] &gt;= a[mid2]) y = mid2 - <span class="number">1</span>;</span><br><span class="line">		<span class="keyword">else</span> z = mid1 + <span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">  <span class="comment">//最终结果位置与二分类似</span></span><br><span class="line">	cout &lt;&lt; a[z] &lt;&lt; endl;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3
-id="但是要使用三分思路解决的问题往往是要求到实数问题的变化过程往往是一段连续实数的函数而不是像数列那样的连续整数那会有什么变化吗">但是要使用三分思路解决的问题往往是要求到实数，问题的变化过程往往是一段连续实数的函数，而不是像数列那样的连续整数，那会有什么变化吗？</h3>
-<p>上面模板中的循环判断 while(z &lt;= y) 是通过整数 z 和
-y，也就是下标的序数进行更替判断，我们知道整数在进行除法会有自动向下取整，但是
-double
-类型会有一定的小数精确，但是这个精确度是不够用的，在经过多次运算误差就会越来越大，最后很可能就改变答案导致错误！</p>
-<h2 id="这里给出三种解决思路">这里给出三种解决思路</h2>
-<h3
-id="一.直接使用数据本身进行循环判断既然实数多次计算有误差while-直接用来判断每次两者差值小于某个-epsilon例如-1e-7来控制循环结束这时候数据已经细分很小可以直接近似得到最值了具体精度控制看题目要求">一.直接使用数据本身进行循环判断，既然实数多次计算有误差，while
-直接用来判断每次两者差值小于某个 epsilon（例如
-1e-7），来控制循环结束（这时候数据已经细分很小，可以直接近似得到最值了）具体精度控制看题目要求</h3>
-<p>代码如下：</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">double</span> <span class="title">f</span><span class="params">(<span class="type">double</span> x)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 示例函数，此处替换为实际函数</span></span><br><span class="line">    <span class="keyword">return</span> -x*x + <span class="number">2</span>*x + <span class="number">3</span>; <span class="comment">// 极大值在x=1处</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 精度控制</span></span><br><span class="line"><span class="type">const</span> <span class="type">double</span> eps = <span class="number">1e-9</span>;</span><br><span class="line"><span class="keyword">while</span> (r - l &gt; eps)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">double</span> m1 = l + (r - l) / <span class="number">3</span>;</span><br><span class="line">    <span class="type">double</span> m2 = r - (r - l) / <span class="number">3</span>;</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">f</span>(m1) &lt; <span class="built_in">f</span>(m2))</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// 求极大值，若求极小值则改为&gt;,极值在[m1, r]</span></span><br><span class="line">        l = m1;</span><br><span class="line">    &#125; <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">      <span class="comment">// 极值在[l, m2]</span></span><br><span class="line">        r = m2;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 返回近似极值点</span></span><br><span class="line"><span class="keyword">return</span> (l + r) / <span class="number">2</span>;</span><br></pre></td></tr></table></figure>
-<h3
-id="二.我们发现当每一次三分数据总数都会缩小三分之一那么当循环次数达到一定多时剩余数据就能够在误差范围内得到正确答案所以可以固定循环次数为循环条件进行三分">二.我们发现当每一次三分数据总数都会缩小三分之一，那么当循环次数达到一定多时，剩余数据就能够在误差范围内得到正确答案！所以可以固定循环次数为循环条件进行三分！</h3>
-<p>代码如下：</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> T = <span class="number">100</span>; <span class="comment">// 迭代次数，确保精度</span></span><br><span class="line"><span class="function"><span class="type">double</span> <span class="title">f</span><span class="params">(<span class="type">double</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> -x*x + <span class="number">2</span>*x + <span class="number">3</span>; <span class="comment">// 示例函数，极大值在x=1</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">double</span> <span class="title">ternary_search_fixed_loop</span><span class="params">(<span class="type">double</span> l, <span class="type">double</span> r, <span class="type">int</span> T)</span> </span>&#123;</span><br><span class="line"><span class="keyword">while</span> (T--)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">double</span> m1 = l + (r - l) / <span class="number">3</span>;</span><br><span class="line">    <span class="type">double</span> m2 = r - (r - l) / <span class="number">3</span>;</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">f</span>(m1) &lt; <span class="built_in">f</span>(m2))</span><br><span class="line">    &#123; <span class="comment">// 求极大值</span></span><br><span class="line">        l = m1; <span class="comment">// 极值在右区间</span></span><br><span class="line">    &#125; <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        r = m2; <span class="comment">// 极值在左区间</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">return</span> (l + r) / <span class="number">2</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3
-id="三.将要求的实数区间存放在整数数组中例如给定一段长度的两端值我们主动将这段长度均分为-n-份n-可能是-500010000..这时候就可以将问题转换为最简单的模板类型解决">三.将要求的实数区间存放在整数数组中，例如：给定一段长度的两端值，我们主动将这段长度均分为
-N 份(N 可能是
-5000，10000…..)，这时候就可以将问题转换为最简单的模板类型解决！</h3>
-<p>此情况直接附上题目进行理解吧</p>
-<h3 id="例题"><a
-href="https://ac.nowcoder.com/acm/contest/22353/1025">例题</a></h3>
-<p>本题较为复杂，涉及两个三分嵌套，并将三分问题按照法三转换为整数型模板！</p>
-<p>ac 代码如下：</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">5005</span>;</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">ty</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="type">double</span> x, y;</span><br><span class="line">&#125;a, b, c, d, e[N + <span class="number">5</span>], f[N + <span class="number">5</span>];</span><br><span class="line"><span class="comment">//t1是当前点到A点所需的时间，t2是当前点到D点所需的时间</span></span><br><span class="line"><span class="type">double</span> t1[N + <span class="number">5</span>], t2[N + <span class="number">5</span>];</span><br><span class="line"><span class="type">double</span> p, q, r;</span><br><span class="line"><span class="comment">//计算距离的函数</span></span><br><span class="line"><span class="function"><span class="type">double</span> <span class="title">dis</span><span class="params">(ty a, ty b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="built_in">sqrt</span>((a.x - b.x) * (a.x - b.x) + (a.y - b.y) * (a.y - b.y));</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//第二个三分，用于嵌套在第一个三分内部，返回总时间最小的情况</span></span><br><span class="line"><span class="function"><span class="type">double</span> <span class="title">sol</span><span class="params">(<span class="type">int</span> mid)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="type">int</span> z2 = <span class="number">0</span>, y2 = N;</span><br><span class="line">	<span class="keyword">while</span> (z2 &lt;= y2)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="type">int</span> mid1 = z2 + (y2 - z2) / <span class="number">3</span>;</span><br><span class="line">		<span class="type">int</span> mid2 = y2 - (y2 - z2) / <span class="number">3</span>;</span><br><span class="line">		<span class="keyword">if</span> ((t1[mid] + t2[mid1] + (<span class="built_in">dis</span>(e[mid], f[mid1]) / r)) &lt;= (t1[mid] + t2[mid2] + (<span class="built_in">dis</span>(e[mid], f[mid2]) / r)))</span><br><span class="line">			y2 = mid2 - <span class="number">1</span>;</span><br><span class="line">		<span class="keyword">else</span> z2 = mid1 + <span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> (t1[mid] + t2[z2] + (<span class="built_in">dis</span>(e[mid], f[z2]) / r));</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	cin &gt;&gt; a.x &gt;&gt; a.y &gt;&gt; b.x &gt;&gt; b.y;</span><br><span class="line">	cin &gt;&gt; c.x &gt;&gt; c.y &gt;&gt; d.x &gt;&gt; d.y;</span><br><span class="line">	cin &gt;&gt; p &gt;&gt; q &gt;&gt; r;</span><br><span class="line">  <span class="comment">//关键步骤！！！用于将实数三分转换为整数型三分，最后分别存放于数组 e 和 f 中。</span></span><br><span class="line">	<span class="type">double</span> dx = (b.x - a.x) / N, dy = (b.y - a.y) / N;</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt;= N; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		e[i].x = a.x + dx * i, e[i].y = a.y + dy * i;</span><br><span class="line">		t1[i] = <span class="built_in">dis</span>(a, e[i]) / p;</span><br><span class="line">	&#125;</span><br><span class="line">	dx = (d.x - c.x) / N, dy = (d.y - c.y) / N;</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt;= N; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		f[i].x = c.x + dx * i, f[i].y = c.y + dy * i;</span><br><span class="line">		t2[i] = <span class="built_in">dis</span>(d, f[i]) / q;</span><br><span class="line">	&#125;</span><br><span class="line">  <span class="comment">//外层三分循环，枚举AB段的情况，再结合sol函数，最终求出时间最小的情况！</span></span><br><span class="line">	<span class="type">int</span> z1 = <span class="number">0</span>, y1 = N;</span><br><span class="line">	<span class="keyword">while</span> (z1 &lt;= y1)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="type">int</span> mid1 = z1 + (y1 - z1) / <span class="number">3</span>;</span><br><span class="line">		<span class="type">int</span> mid2 = y1 - (y1 - z1) / <span class="number">3</span>;</span><br><span class="line">		<span class="keyword">if</span> (<span class="built_in">sol</span>(mid1) &lt;= <span class="built_in">sol</span>(mid2)) y1 = mid2 - <span class="number">1</span>;</span><br><span class="line">		<span class="keyword">else</span> z1 = mid1 + <span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">  <span class="comment">//按照题目要求精度输出即可</span></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;%.2f\n&quot;</span>, <span class="built_in">sol</span>(z1));</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3
-id="其实还有一种妙法就是求导利用定义求导dy-dx-当-dx-极小时整个就是当前点的导数值这样就可以将三分问题转换为二分求零点的问题这里留给读者思考因为我自己其实也没试过怕写错了误导大家">其实还有一种妙法！就是求导！利用定义求导，(dy
-/ dx) 当 dx
-极小时，整个就是当前点的导数值。这样就可以将三分问题转换为二分求零点的问题！这里留给读者思考（因为我自己其实也没试过，怕写错了误导大家~</h3>
-<p>再附上一道三分例题：<a
-href="https://ac.nowcoder.com/acm/contest/22353/1009">例题</a></p>
-]]></content>
-      <categories>
-        <category>算法</category>
-      </categories>
-  </entry>
-  <entry>
     <title>优化网上冲浪体验的 Z 种办法</title>
-    <url>/2025/12/21/%E4%BC%98%E5%8C%96%E7%BD%91%E4%B8%8A%E5%86%B2%E6%B5%AA%E4%BD%93%E9%AA%8C%E7%9A%84%20Z%20%E7%A7%8D%E5%8A%9E%E6%B3%95/</url>
+    <url>/2025/12/22/%E4%BC%98%E5%8C%96%E7%BD%91%E4%B8%8A%E5%86%B2%E6%B5%AA%E4%BD%93%E9%AA%8C%E7%9A%84%20Z%20%E7%A7%8D%E5%8A%9E%E6%B3%95/</url>
     <content><![CDATA[<p><strong>在此感谢本文主要笔者 25 级 xiaozhangup</strong></p>
 <h1 id="优化网上冲浪体验的-z-种办法">优化网上冲浪体验的 Z 种办法</h1>
 <p>网上的各种神秘广告何脑溢血限制很烦人，让我们一起一步步把他们火葬了<br />
@@ -1601,26 +1469,26 @@ href="https://greasyfork.org/zh-CN">GreasyFork (油叉)</a> 。
 你可以在这里搜索你想要的功能，一般都会有你想要的功能。<br />
 为了效率，我在这里推荐一些几乎是必装的脚本：</p>
 <ul>
-<li><a href="https://greasyfork.org/scripts/467078">(必装) Greasy Fork
-增强</a></li>
-<li><a href="https://greasyfork.org/scripts/378351">(必装)
+<li><span class="exturl" data-url="aHR0cHM6Ly9ncmVhc3lmb3JrLm9yZy9zY3JpcHRzLzQ2NzA3OA==">(必装) Greasy Fork
+增强<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9ncmVhc3lmb3JrLm9yZy9zY3JpcHRzLzM3ODM1MQ==">(必装)
 「CSDNGreener」🍃CSDN
-广告完全过滤|免登录|个性化排版|最强老牌脚本|持续更新</a></li>
-<li><a href="https://greasyfork.org/scripts/416195">(必装) Copying
-Lifted 解除复制限制</a></li>
-<li><a href="https://greasyfork.org/scripts/549231">(必装)
-解除网站不允许复制的限制，专治流氓</a></li>
-<li><a href="https://greasyfork.org/scripts/416338">(必装) redirect
-外链跳转</a></li>
-<li><a href="https://greasyfork.org/scripts/372673">(推荐)
-计时器掌控者|视频广告跳过|视频广告加速器</a></li>
-<li><a href="https://greasyfork.org/scripts/505207">(推荐)解除 CSDN
-登录复制</a></li>
-<li><a href="https://greasyfork.org/scripts/519970">(可选) qk
+广告完全过滤|免登录|个性化排版|最强老牌脚本|持续更新<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9ncmVhc3lmb3JrLm9yZy9zY3JpcHRzLzQxNjE5NQ==">(必装) Copying
+Lifted 解除复制限制<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9ncmVhc3lmb3JrLm9yZy9zY3JpcHRzLzU0OTIzMQ==">(必装)
+解除网站不允许复制的限制，专治流氓<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9ncmVhc3lmb3JrLm9yZy9zY3JpcHRzLzQxNjMzOA==">(必装) redirect
+外链跳转<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9ncmVhc3lmb3JrLm9yZy9zY3JpcHRzLzM3MjY3Mw==">(推荐)
+计时器掌控者|视频广告跳过|视频广告加速器<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9ncmVhc3lmb3JrLm9yZy9zY3JpcHRzLzUwNTIwNw==">(推荐)解除 CSDN
+登录复制<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9ncmVhc3lmb3JrLm9yZy9zY3JpcHRzLzUxOTk3MA==">(可选) qk
 文章资源共享｜ CSDN ｜专栏｜会员文章｜ C 知道｜文件下载｜ CSDN
-积分</a></li>
-<li><a href="https://greasyfork.org/scripts/438684">(可选)
-东方永页机</a></li>
+积分<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9ncmVhc3lmb3JrLm9yZy9zY3JpcHRzLzQzODY4NA==">(可选)
+东方永页机<i class="fa fa-external-link-alt"></i></span></li>
 </ul>
 <p>这些基本是必装的脚本，能大大优化你的各类网站浏览体验。<br />
 为什么有些看似功能重复的脚本？为了防止网页的一些更新导致旧脚本功能暴毙。<br />
@@ -1658,7 +1526,7 @@ id="感谢你的观看希望能起到一些作用">感谢你的观看，希望�
   </entry>
   <entry>
     <title>博客搭建教程</title>
-    <url>/2025/12/21/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/</url>
+    <url>/2025/12/22/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/</url>
     <content><![CDATA[<h1
 id="本博文记录搭建类似本博客网站的方式可以-0-经济成本完成">本博文记录搭建类似本博客网站的方式，可以
 0 经济成本完成</h1>
@@ -1666,7 +1534,7 @@ id="本博文记录搭建类似本博客网站的方式可以-0-经济成本完�
 GitHub Pages 和 Cloudflare Pages 上。</p>
 <span id="more"></span>
 <h2 id="准备阶段">1.准备阶段</h2>
-<p>1.（必须）你需要注册一个 <a href="https://github.com/">GitHub</a>
+<p>1.（必须）你需要注册一个 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tLw==">GitHub<i class="fa fa-external-link-alt"></i></span>
 账号（如果无法直接打开 github 试试 <a
 href="https://hoa.moe/blog/access-github/">这个小玩意</a></p>
 <p>2.（非必需）你可以注册一个<a
@@ -1924,7 +1792,7 @@ ai 详细描述你的困境，一般都能解决（我就是这样子。。。</
   </entry>
   <entry>
     <title>向量代数与空间解析几何</title>
-    <url>/2025/12/21/%E5%90%91%E9%87%8F%E4%BB%A3%E6%95%B0%E4%B8%8E%E7%A9%BA%E9%97%B4%E8%A7%A3%E6%9E%90%E5%87%A0%E4%BD%95/</url>
+    <url>/2025/12/22/%E5%90%91%E9%87%8F%E4%BB%A3%E6%95%B0%E4%B8%8E%E7%A9%BA%E9%97%B4%E8%A7%A3%E6%9E%90%E5%87%A0%E4%BD%95/</url>
     <content><![CDATA[<h1 id="向量代数与空间解析几何">向量代数与空间解析几何</h1>
 <h2 id="向量相关">向量相关</h2>
 <h3 id="方向角">方向角</h3>
@@ -2210,7 +2078,7 @@ class="math inline"><em>F</em>(<em>x</em>,<em>y</em>) = 0</span></p>
   </entry>
   <entry>
     <title>图解二维差分和前缀和</title>
-    <url>/2025/12/21/%E5%9B%BE%E8%A7%A3%E4%BA%8C%E7%BB%B4%E5%B7%AE%E5%88%86%E5%92%8C%E5%89%8D%E7%BC%80%E5%92%8C/</url>
+    <url>/2025/12/22/%E5%9B%BE%E8%A7%A3%E4%BA%8C%E7%BB%B4%E5%B7%AE%E5%88%86%E5%92%8C%E5%89%8D%E7%BC%80%E5%92%8C/</url>
     <content><![CDATA[<p><strong>在此感谢本文主要笔者 25 级 xiaozhangup</strong></p>
 <h1 id="图解二维差分和前缀和">图解二维差分和前缀和</h1>
 <h2 id="前情提要">前情提要</h2>
@@ -2315,7 +2183,7 @@ src="/assets/20251106-11.png" /></p>
   </entry>
   <entry>
     <title>多元函数微分</title>
-    <url>/2025/12/21/%E5%A4%9A%E5%85%83%E5%87%BD%E6%95%B0%E5%BE%AE%E5%88%86/</url>
+    <url>/2025/12/22/%E5%A4%9A%E5%85%83%E5%87%BD%E6%95%B0%E5%BE%AE%E5%88%86/</url>
     <content><![CDATA[<h1 id="多元函数微分学">多元函数微分学</h1>
 <h2 id="偏导数">偏导数</h2>
 <h3 id="定义">定义</h3>
@@ -2688,7 +2556,7 @@ class="math inline"><em>L</em>(<em>x</em>,<em>y</em>)</span>
   </entry>
   <entry>
     <title>多校1题解I/区间dp</title>
-    <url>/2025/12/21/%E5%A4%9A%E6%A0%A11%E9%A2%98%E8%A7%A3I/</url>
+    <url>/2025/12/22/%E5%A4%9A%E6%A0%A11%E9%A2%98%E8%A7%A3I/</url>
     <content><![CDATA[<h2 id="区间-dp-豪题">区间 DP 豪题！</h2>
 <h3 id="题面"><a
 href="https://ac.nowcoder.com/acm/contest/108298/I">题面</a></h3>
@@ -2756,7 +2624,7 @@ i 个铁棒的长度和。那么我们就可以得出他们的平衡度应该是
   </entry>
   <entry>
     <title>多校5题解e-j</title>
-    <url>/2025/12/21/%E5%A4%9A%E6%A0%A15%E9%A2%98%E8%A7%A3e-j/</url>
+    <url>/2025/12/22/%E5%A4%9A%E6%A0%A15%E9%A2%98%E8%A7%A3e-j/</url>
     <content><![CDATA[<h2 id="暑期多校-5e"><a
 href="https://ac.nowcoder.com/acm/contest/108302/E">暑期多校 5E</a></h2>
 <span id="more"></span>
@@ -2816,7 +2684,7 @@ class="math inline">≤</span> i - j + d</p>
   </entry>
   <entry>
     <title>对拍</title>
-    <url>/2025/12/21/%E5%AF%B9%E6%8B%8D/</url>
+    <url>/2025/12/22/%E5%AF%B9%E6%8B%8D/</url>
     <content><![CDATA[<h1 id="对拍">对拍</h1>
 <h2 id="介绍">介绍</h2>
 <p>当我们写完一段代码但不确定对不对的时候，就可以来个对拍来看看代码的正确性。如果代码有大问题，那马上就可以知道了，但如果代码只是有点小问题，那就要看运气了。</p>
@@ -2931,7 +2799,7 @@ WA，但只能在黑框框里面实现，重定向输出就不行了，下面会
   </entry>
   <entry>
     <title>将军的题解(2025菜鸟杯</title>
-    <url>/2025/12/21/%E5%B0%86%E5%86%9B%E7%9A%84%E9%A2%98%E8%A7%A3/</url>
+    <url>/2025/12/22/%E5%B0%86%E5%86%9B%E7%9A%84%E9%A2%98%E8%A7%A3/</url>
     <content><![CDATA[<h1 id="将军-の-题解">将军 の 题解</h1>
 <p>赛时只用了 C 和 Python3 提交代码。这里提供一份纯 C
 题解，便于语法没学多少 / 只会 C
@@ -3032,7 +2900,7 @@ class="math inline">7</span> 层 <code>for</code> 循环呀</strong></p>
   </entry>
   <entry>
     <title>并查集</title>
-    <url>/2025/12/21/%E5%B9%B6%E6%9F%A5%E9%9B%86/</url>
+    <url>/2025/12/22/%E5%B9%B6%E6%9F%A5%E9%9B%86/</url>
     <content><![CDATA[<h2 id="并查集定义">并查集定义</h2>
 <p>并查集是一种树型的数据结构，用于处理一些不相交集合的合并及查询问题（即所谓的并、查）</p>
 <span id="more"></span>
@@ -3062,8 +2930,8 @@ find 函数）</p>
 <h3 id="例题-路径压缩"><a
 href="https://ac.nowcoder.com/acm/contest/22904/1021">例题
 路径压缩</a></h3>
-<h3 id="例题-按秩合并"><a href="http://poj.org/problem?id=1988">例题
-按秩合并</a></h3>
+<h3 id="例题-按秩合并"><span class="exturl" data-url="aHR0cDovL3Bvai5vcmcvcHJvYmxlbT9pZD0xOTg4">例题
+按秩合并<i class="fa fa-external-link-alt"></i></span></h3>
 ]]></content>
       <categories>
         <category>算法</category>
@@ -3071,7 +2939,7 @@ href="https://ac.nowcoder.com/acm/contest/22904/1021">例题
   </entry>
   <entry>
     <title>快速幂-逆元-取余公式</title>
-    <url>/2025/12/21/%E5%BF%AB%E9%80%9F%E5%B9%82-%E9%80%86%E5%85%83-%E5%8F%96%E4%BD%99%E5%85%AC%E5%BC%8F/</url>
+    <url>/2025/12/22/%E5%BF%AB%E9%80%9F%E5%B9%82-%E9%80%86%E5%85%83-%E5%8F%96%E4%BD%99%E5%85%AC%E5%BC%8F/</url>
     <content><![CDATA[<h2 id="取余公式">取余公式</h2>
 <pre><code>(a + b) % p = (a % p + b % p) % p
 (a - b) % p = (a % p - b % p ) % p
@@ -3152,7 +3020,7 @@ class="math inline"><em>x</em>′ = 1, <em>y</em>′ = 0</span>
   </entry>
   <entry>
     <title>排序算法</title>
-    <url>/2025/12/21/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/</url>
+    <url>/2025/12/22/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/</url>
     <content><![CDATA[<h1 id="八种排序">八种排序</h1>
 <pre><code>三种 O(n ^ 2)的排序：冒泡，选择，插入
 三种不基于比较的排序：桶，基数，计数
@@ -3186,7 +3054,7 @@ class="math inline"><em>x</em>′ = 1, <em>y</em>′ = 0</span>
   </entry>
   <entry>
     <title>数字dfs</title>
-    <url>/2025/12/21/%E6%95%B0%E5%AD%97dfs/</url>
+    <url>/2025/12/22/%E6%95%B0%E5%AD%97dfs/</url>
     <content><![CDATA[<h1 id="数字-dfs">数字 dfs</h1>
 <ul>
 <li><p><strong>处理[l, r]区间内满足某种性质 P 的数</strong></p></li>
@@ -3254,7 +3122,7 @@ class="math inline">5<sup><em>p</em><em>o</em><em>s</em> − 1</sup></span>�
   </entry>
   <entry>
     <title>曼哈顿距离与切比雪夫距离的转换</title>
-    <url>/2025/12/21/%E6%9B%BC%E5%93%88%E9%A1%BF%E8%B7%9D%E7%A6%BB%E4%B8%8E%E5%88%87%E6%AF%94%E9%9B%AA%E5%A4%AB%E8%B7%9D%E7%A6%BB%E7%9A%84%E8%BD%AC%E6%8D%A2/</url>
+    <url>/2025/12/22/%E6%9B%BC%E5%93%88%E9%A1%BF%E8%B7%9D%E7%A6%BB%E4%B8%8E%E5%88%87%E6%AF%94%E9%9B%AA%E5%A4%AB%E8%B7%9D%E7%A6%BB%E7%9A%84%E8%BD%AC%E6%8D%A2/</url>
     <content><![CDATA[<h1
 id="曼哈顿距离与切比雪夫距离的转换">曼哈顿距离与切比雪夫距离的转换</h1>
 <h2 id="曼哈顿距离">曼哈顿距离</h2>
@@ -3324,16 +3192,148 @@ class="math display">(<em>d</em><sub>Chebyshev</sub>=<em>d</em><sub>Manhattan</s
 <p>这些变换可将两种距离问题<strong>相互转换</strong>，利用不同距离在算法中的优势（如曼哈顿距离计算简单、切比雪夫距离在网格问题中直观
 ），简化解题。</p>
 <h3 id="例题-c-总辖之愿_金山杯-2025-年武汉理工大学程序设计竞赛">例题 (
-<a href="https://ac.nowcoder.com/acm/contest/112692/C">C-总辖之愿_金山杯
-2025 年武汉理工大学程序设计竞赛</a> )</h3>
+<span class="exturl" data-url="aHR0cHM6Ly9hYy5ub3djb2Rlci5jb20vYWNtL2NvbnRlc3QvMTEyNjkyL0M=">C-总辖之愿_金山杯
+2025 年武汉理工大学程序设计竞赛<i class="fa fa-external-link-alt"></i></span> )</h3>
 ]]></content>
       <categories>
         <category>技巧</category>
       </categories>
   </entry>
   <entry>
+    <title>AI翻译插件配置教程</title>
+    <url>/2025/12/22/AI%E7%BF%BB%E8%AF%91%E6%8F%92%E4%BB%B6%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B/</url>
+    <content><![CDATA[<h1 id="ai-翻译插件配置">ai 翻译插件配置</h1>
+<h2 id="前言">前言</h2>
+<h3 id="必要性">必要性：</h3>
+<p>无论是在算法学习或者学习 csdiy
+的课程，与英文文档打交道都是不可避免的，但是往往浏览器自带的机翻，非常差劲，毕竟对于大量的专业名词动词，机翻往往不能翻译恰当。这些都是计算机学习的第一道障碍……</p>
+<span id="more"></span>
+<h3 id="功能">功能：</h3>
+<p>而 ai 翻译插件，是通过调用 ai 接口，实现 ai 智能翻译，ai
+的优势在于，它可以根据情景翻译出恰当的语义，并且下面介绍的插件翻译，实现的是一段一翻，也就是说，会有一段原文紧接着一段译文，这样也方便使用者对比适当学习英语<del>如果你愿意的话</del></p>
+<h2 id="配置教程">配置教程</h2>
+<h3 id="首先获取-ai-的接口">首先获取 ai 的接口</h3>
+<p>（前言：ai
+接口的使用是需要付费的，按照用量计费，但实际上非常便宜，实测 1
+美元可以使用三个月以上<del>我一开始不常用的话，可以用四五个月…..</del>）</p>
+<ul>
+<li>打开下面网站</li>
+</ul>
+<p><span class="exturl" data-url="aHR0cHM6Ly9haWh1Ym1peC5jb20=">AI<i class="fa fa-external-link-alt"></i></span></p>
+<p>（如下图所示</p>
+<figure>
+<img src="/assets/12.png" alt="1" />
+<figcaption aria-hidden="true">1</figcaption>
+</figure>
+<ul>
+<li>然后注册一个自己的账号</li>
+<li>点击【充值】界面，先买一美刀</li>
+<li>点击【模型】界面 （如下图所示</li>
+</ul>
+<figure>
+<img src="/assets/13.png" alt="1" />
+<figcaption aria-hidden="true">1</figcaption>
+</figure>
+<ul>
+<li>找一些输入/输出 Tokens 花费较少的 ai
+即可，我用的是<code>gpt-5-nano</code> （如下图所示</li>
+</ul>
+<figure>
+<img src="/assets/14.png" alt="1" />
+<figcaption aria-hidden="true">1</figcaption>
+</figure>
+<ul>
+<li>然后记住你选择的 ai，再回到最上面，点击【秘钥】 （如下图所示</li>
+</ul>
+<figure>
+<img src="/assets/16.png" alt="1" />
+<figcaption aria-hidden="true">1</figcaption>
+</figure>
+<ul>
+<li>点击【创建
+key】，自己可以随便设置<code>key名称</code>，主要是要点击【高级设置】展开
+（如下图所示</li>
+</ul>
+<figure>
+<img src="/assets/17.png" alt="1" />
+<figcaption aria-hidden="true">1</figcaption>
+</figure>
+<ul>
+<li><p>【模型范围】选择刚才找到的合适的 ai 接口（如
+我这里选择较便宜的<code>gpt-5-nano</code> ） 然后点击提交即可</p></li>
+<li><p>然后保留这个页面，新建页面进行后续操作</p></li>
+</ul>
+<h3 id="下载插件">下载插件</h3>
+<ul>
+<li><a
+href="https://microsoftedge.microsoft.com/addons/detail/%E6%B2%89%E6%B5%B8%E5%BC%8F%E7%BF%BB%E8%AF%91-%E7%BD%91%E9%A1%B5%E7%BF%BB%E8%AF%91%E6%8F%92%E4%BB%B6-pdf%E7%BF%BB%E8%AF%91-/amkbmndfnliijdhojkpoglbnaaahippg">沉浸式翻译</a>
+打开这个插件，并点击【获取】，获取成功后，右上角拓展中就可以找到它了
+（如下图所示</li>
+</ul>
+<figure>
+<img src="/assets/18.png" alt="1" />
+<figcaption aria-hidden="true">1</figcaption>
+</figure>
+<ul>
+<li>点击【沉浸式翻译】打开, - 点击左下角【设置】打开设置界面
+（如下图所示</li>
+</ul>
+<figure>
+<img src="/assets/19.png" alt="1" />
+<figcaption aria-hidden="true">1</figcaption>
+</figure>
+<ul>
+<li>在左侧栏目中，找到【翻译服务】，再在页面的模型中找到【其他/自定义】，打开并选择【OpenAI
+1】 （如下图所示</li>
+</ul>
+<figure>
+<img src="/assets/21.png" alt="1" />
+<figcaption aria-hidden="true">1</figcaption>
+</figure>
+<ul>
+<li>这时候回到刚才保留的页面中，将刚才创建的接口的<code>key</code>复制一下，然后粘贴到新页面的【APIKEY】中。并选择模型为刚刚自己创建的
+key 的模型（如我这里是<code>gpt-5-nano</code>）</li>
+<li>然后接着往下看，可以找到【自定义 API
+接口地址】，将原先内容删除，并把下面这段，复制上去</li>
+</ul>
+<p><code>https://aihubmix.com/v1/chat/completions</code></p>
+<ul>
+<li>到此基本配置完成，看到页面最上方，有个【点击测试服务】，点击后即可知道是否配置成功啦</li>
+</ul>
+<h2 id="使用设置">使用设置</h2>
+<ul>
+<li>接下来随便打开一个含有外语网页 （如下图所示</li>
+</ul>
+<figure>
+<img src="/assets/23.png" alt="1" />
+<figcaption aria-hidden="true">1</figcaption>
+</figure>
+<ul>
+<li>不难发现右侧有个粉色小按钮，鼠标移动至按钮上方（不点击）
+（如下图所示</li>
+</ul>
+<figure>
+<img src="/assets/24.png" alt="1" />
+<figcaption aria-hidden="true">1</figcaption>
+</figure>
+<ul>
+<li>点击设置打开，并将【翻译服务】设置为【OpenAI 1】</li>
+</ul>
+<figure>
+<img src="/assets/25.png" alt="1" />
+<figcaption aria-hidden="true">1</figcaption>
+</figure>
+<ul>
+<li>至此彻底完成配置，之后再使用翻译只需点击这个粉色小按钮稍待即可翻译成功！</li>
+</ul>
+]]></content>
+      <categories>
+        <category>技术分享</category>
+      </categories>
+  </entry>
+  <entry>
     <title>离散数学序理论</title>
-    <url>/2025/12/21/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6%E5%BA%8F%E7%90%86%E8%AE%BA/</url>
+    <url>/2025/12/22/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6%E5%BA%8F%E7%90%86%E8%AE%BA/</url>
     <content><![CDATA[<h2 id="序理论">序理论</h2>
 <blockquote>
 <p>序理论是利用二元关系来将「次序」这一概念严格化的数学分支 —oi wiki</p>
@@ -3548,7 +3548,7 @@ class="math inline"><em>A</em>/<em>R</em> = {[1]<sub><em>R</em></sub>, [2]
   </entry>
   <entry>
     <title>算法入门第一课</title>
-    <url>/2025/12/21/%E7%AE%97%E6%B3%95%E5%85%A5%E9%97%A8%E7%AC%AC%E4%B8%80%E8%AF%BE/</url>
+    <url>/2025/12/22/%E7%AE%97%E6%B3%95%E5%85%A5%E9%97%A8%E7%AC%AC%E4%B8%80%E8%AF%BE/</url>
     <content><![CDATA[<h1 id="introduction-lec-01-2024.11.11">Introduction Lec 01 /
 2024.11.11</h1>
 <h2 id="阅读前须知">阅读前须知</h2>
@@ -3769,76 +3769,8 @@ cl.exe。</p>
       </tags>
   </entry>
   <entry>
-    <title>自动刷课</title>
-    <url>/2025/12/21/%E8%87%AA%E5%8A%A8%E5%88%B7%E8%AF%BE/</url>
-    <content><![CDATA[<h1 id="补充">2025.6.5 补充！！！</h1>
-<p>软件最新更新，无需使用任何外在浏览器（不用下载谷歌浏览器了），需要下载最新版软件，选择软件自带的内置浏览器即可正常使用！
-最新脚本软件：https://cdn.ocsjs.com/app/download/ocs-2.8.3-setup-win-x64.exe</p>
-<span id="more"></span>
-<h1 id="补充-1">2025.4.15 补充！！！</h1>
-<p>这段时间按照下面操作仍无法使用
-解决方法，按照下面操作执行后运行页面后，页面右上角提示“脚本猫已关闭…”，点击管理扩展程序进入，将页面右上方开发者模式打开，并且将页面下方脚本猫的按钮也打开，然后关闭网页，重启软件即可恢复正常使用。</p>
-<h2
-id="如果你要解决的软件不在下面这几个之中请移步另一篇博文自动刷题刷课">如果你要解决的软件不在下面这几个之中，请移步另一篇博文“自动刷题刷课”</h2>
-<figure>
-<img src="/assets/4226c9c52a7a78678e8f0076a35ab0c0.png" alt="图" />
-<figcaption aria-hidden="true">图</figcaption>
-</figure>
-<h3 id="必要说明">必要说明</h3>
-<p>1.网课脚本不要开倍速！有的会系统识别用时过短然后清理你的记录还要重新看！对于网课，脚本便利在于可以自动下集，也就是说可以开着挂一个晚上就刷好了。（当然有些水课没管就可以高倍速速通，可以自己试一下，一段时间后如果清零就老实不开倍速挂着）</p>
-<p>2.题目练习脚本大多是依靠题库，而题库可能会出现有的题目没有，或者题库答案不准确，正确率无法保证！不同脚本正确率有的相差巨大，建议多试几个。</p>
-<p>使用前务必看完“必要说明”</p>
-<h2
-id="本脚本与我没有任何关系只不过刚好找到它并将它记录下来方便身边同学使用">本脚本与我没有任何关系，只不过刚好找到它，并将它记录下来，方便身边同学使用</h2>
-<h3
-id="一.确保电脑有谷歌浏览器edge-不行如果没有在下面链接下载一个">一.确保电脑有谷歌浏览器（edge
-不行！）如果没有，在下面链接下载一个</h3>
-<p>谷歌：https://www.google.cn/intl/zh-CN/chrome/</p>
-<h3
-id="二.在电脑下载脚本运行软件点击下面链接或者复制至浏览器下载-windows-版本">二.在电脑下载脚本运行软件，点击下面链接（或者复制至浏览器）下载
-windows 版本</h3>
-<p>脚本软件：https://cdn.ocsjs.com/app/download/ocs-2.6.7-setup-win-x64.exe</p>
-<h3
-id="三.打开刚刚下载的软件跟着顶部视频操作即可简单实用">三.打开刚刚下载的软件，跟着顶部视频操作即可，简单实用</h3>
-<div class="video-container">
-<iframe src="//player.bilibili.com/player.html?isOutside=true&amp;aid=114076092996360&amp;bvid=BV1Sp9AYAEQT&amp;cid=28606400676&amp;p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true">
-</iframe>
-</div>
-<style>
-<p>.video-container { position: relative; width: 100%; padding-top:
-56.25%; /* 16:9 aspect ratio (height/width = 9/16 * 100%) */ }</p>
-<p>.video-container iframe { position: absolute; top: 0; left: 0; width:
-100%; height: 100%; }</p>
-<div class="video-container">
-<iframe src="//player.bilibili.com/player.html?isOutside=true&amp;aid=114076092996360&amp;bvid=BV1Sp9AYAEQT&amp;cid=28606400676&amp;p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true">
-</iframe>
-</div>
-<style>
-.video-container {
-    position: relative;
-    width: 100%;
-    padding-top: 56.25%; /* 16:9 aspect ratio (height/width = 9/16 * 100%) */
-}
-
-.video-container iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}
-</style>
-]]></content>
-      <categories>
-        <category>技术分享</category>
-      </categories>
-      <tags>
-        <tag>作业</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>课外小读物</title>
-    <url>/2025/12/21/%E8%AF%BE%E5%A4%96%E5%B0%8F%E8%AF%BB%E7%89%A9/</url>
+    <url>/2025/12/22/%E8%AF%BE%E5%A4%96%E5%B0%8F%E8%AF%BB%E7%89%A9/</url>
     <content><![CDATA[<h3 id="阅读前须知">阅读前须知</h3>
 <p>本文讲述了命令行，环境变量，vscode
 配置调试功能，这些对于新生理解都较为困难。不过对于新生都是些有趣的新玩意，尽力理解和尝试，也可以让你对程序的了解更进一步。恭喜开始见识到神秘的计算机….
@@ -3954,8 +3886,8 @@ class="math inline"><em>P</em><em>A</em><em>T</em><em>H</em> *  * <em>�
 里寻找它们依赖的工具。</p>
 <h3 id="x13-在-windows-下使用-vs-code-配置-c-调试环境">0x13 在 Windows
 下使用 VS Code 配置 C++ 调试环境</h3>
-<p>Why VS Code ? <a href="https://www.bilibili.com/video/BV1y2421w7NK">B
-站 绿导师</a></p>
+<p>Why VS Code ? <span class="exturl" data-url="aHR0cHM6Ly93d3cuYmlsaWJpbGkuY29tL3ZpZGVvL0JWMXkyNDIxdzdOSw==">B
+站 绿导师<i class="fa fa-external-link-alt"></i></span></p>
 <p>下载并安装 vs code 之后记得在扩展里搜索
 <code>Simplified Chinese</code> 并下载以启用简体中文。</p>
 <p><strong>请确保你已经将 <code>g++</code> 添加到环境变量</strong></p>
@@ -4019,7 +3951,7 @@ Image Installation</a></p>
   </entry>
   <entry>
     <title>高精度算法</title>
-    <url>/2025/12/21/%E9%AB%98%E7%B2%BE%E5%BA%A6%E7%AE%97%E6%B3%95/</url>
+    <url>/2025/12/22/%E9%AB%98%E7%B2%BE%E5%BA%A6%E7%AE%97%E6%B3%95/</url>
     <content><![CDATA[<h2 id="前言">前言</h2>
 <p>大一上学期刚刚开始学习算法，第一课就是模拟，模拟的第一题就是高精度加法，随后又有乘法，减法，除法。刚开始手搓起来相当难受，没有总结，每一道新题的高精度算法都像是在第一次写，费时间不说，还常常出错，现在刚好找个时间在此总结一下。</p>
 <span id="more"></span>
@@ -4081,5 +4013,73 @@ c++可以处理的数据内，进行加法运算相当简单（下面代码用 c
       <categories>
         <category>算法</category>
       </categories>
+  </entry>
+  <entry>
+    <title>自动刷课</title>
+    <url>/2025/12/22/%E8%87%AA%E5%8A%A8%E5%88%B7%E8%AF%BE/</url>
+    <content><![CDATA[<h1 id="补充">2025.6.5 补充！！！</h1>
+<p>软件最新更新，无需使用任何外在浏览器（不用下载谷歌浏览器了），需要下载最新版软件，选择软件自带的内置浏览器即可正常使用！
+最新脚本软件：https://cdn.ocsjs.com/app/download/ocs-2.8.3-setup-win-x64.exe</p>
+<span id="more"></span>
+<h1 id="补充-1">2025.4.15 补充！！！</h1>
+<p>这段时间按照下面操作仍无法使用
+解决方法，按照下面操作执行后运行页面后，页面右上角提示“脚本猫已关闭…”，点击管理扩展程序进入，将页面右上方开发者模式打开，并且将页面下方脚本猫的按钮也打开，然后关闭网页，重启软件即可恢复正常使用。</p>
+<h2
+id="如果你要解决的软件不在下面这几个之中请移步另一篇博文自动刷题刷课">如果你要解决的软件不在下面这几个之中，请移步另一篇博文“自动刷题刷课”</h2>
+<figure>
+<img src="/assets/4226c9c52a7a78678e8f0076a35ab0c0.png" alt="图" />
+<figcaption aria-hidden="true">图</figcaption>
+</figure>
+<h3 id="必要说明">必要说明</h3>
+<p>1.网课脚本不要开倍速！有的会系统识别用时过短然后清理你的记录还要重新看！对于网课，脚本便利在于可以自动下集，也就是说可以开着挂一个晚上就刷好了。（当然有些水课没管就可以高倍速速通，可以自己试一下，一段时间后如果清零就老实不开倍速挂着）</p>
+<p>2.题目练习脚本大多是依靠题库，而题库可能会出现有的题目没有，或者题库答案不准确，正确率无法保证！不同脚本正确率有的相差巨大，建议多试几个。</p>
+<p>使用前务必看完“必要说明”</p>
+<h2
+id="本脚本与我没有任何关系只不过刚好找到它并将它记录下来方便身边同学使用">本脚本与我没有任何关系，只不过刚好找到它，并将它记录下来，方便身边同学使用</h2>
+<h3
+id="一.确保电脑有谷歌浏览器edge-不行如果没有在下面链接下载一个">一.确保电脑有谷歌浏览器（edge
+不行！）如果没有，在下面链接下载一个</h3>
+<p>谷歌：https://www.google.cn/intl/zh-CN/chrome/</p>
+<h3
+id="二.在电脑下载脚本运行软件点击下面链接或者复制至浏览器下载-windows-版本">二.在电脑下载脚本运行软件，点击下面链接（或者复制至浏览器）下载
+windows 版本</h3>
+<p>脚本软件：https://cdn.ocsjs.com/app/download/ocs-2.6.7-setup-win-x64.exe</p>
+<h3
+id="三.打开刚刚下载的软件跟着顶部视频操作即可简单实用">三.打开刚刚下载的软件，跟着顶部视频操作即可，简单实用</h3>
+<div class="video-container">
+<iframe src="//player.bilibili.com/player.html?isOutside=true&amp;aid=114076092996360&amp;bvid=BV1Sp9AYAEQT&amp;cid=28606400676&amp;p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true">
+</iframe>
+</div>
+<style>
+<p>.video-container { position: relative; width: 100%; padding-top:
+56.25%; /* 16:9 aspect ratio (height/width = 9/16 * 100%) */ }</p>
+<p>.video-container iframe { position: absolute; top: 0; left: 0; width:
+100%; height: 100%; }</p>
+<div class="video-container">
+<iframe src="//player.bilibili.com/player.html?isOutside=true&amp;aid=114076092996360&amp;bvid=BV1Sp9AYAEQT&amp;cid=28606400676&amp;p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true">
+</iframe>
+</div>
+<style>
+.video-container {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%; /* 16:9 aspect ratio (height/width = 9/16 * 100%) */
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+</style>
+]]></content>
+      <categories>
+        <category>技术分享</category>
+      </categories>
+      <tags>
+        <tag>作业</tag>
+      </tags>
   </entry>
 </search>
