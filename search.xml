@@ -1,6 +1,157 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>2025武汉新生赛部分题解及游记</title>
+    <url>/2025/12/22/2025-Wuhan-Freshman-League/</url>
+    <content><![CDATA[<h1 id="武汉新生赛部分题解及游记">2025武汉新生赛部分题解及游记</h1>
+<h2 id="游记">游记</h2>
+<p>2025年已经见底，今年最后一场参加的线下赛也告一段落。不知不觉已经过了快半年的时间，在这里先感谢这半年来帮助过我的学长，同学们，感谢他们作为我的领路人，帮助我应对大学里的事物，带我入门算法，学习计算机相关的知识。希望未来的自己能够争气点。</p>
+<span id="more"></span>
+<p>本次比赛仍需要反思的，首先是保持冷静。A题样例都没看就开始搓，最后发现时几乎是全部重写，浪费了大量时间。另外对于一些细节方面仍需注意。例如算式中存在的计算符的优先性。最后对于拿不太准的代码，应当多造样例多测，这样能避免很多不应该出现的罚时。</p>
+<p>这次是第二次去华农参加的比赛。相对于第一次，这次抽到了怎么按也按不动的键盘，刚交完Wrong
+Answer后就蓝屏的电脑，运气还是差了点TAT。但这次发的面包好吃(<del>虽然不咋饿</del>)。这次仍然很幸运的拿到了签到题的一血，让我也不至于空手而归。另外，华农不愧是华“农”，比赛完在华农乱逛，田，一望无际的田~~</p>
+<p>经历了这次比赛，意识到了自己与强者之间的差距真的很大。。。在算法这条路上仍是任重道远。希望自己以后加油吧！</p>
+<h2 id="部分题解">部分题解</h2>
+<h3 id="l---那我问你">L - 那我问你</h3>
+<h4 id="题意">题意：</h4>
+<p>输入三个整数a，b，c，输出“The paper you submitted have a Pros and b
+Cons, so I have c Questions for you.”。</p>
+<h4 id="代码">代码：</h4>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">using</span> ll = <span class="type">long</span> <span class="type">long</span>;</span><br><span class="line"><span class="keyword">using</span> ld = <span class="type">long</span> <span class="type">double</span>;</span><br><span class="line"><span class="keyword">using</span> pi = pair&lt;ll, ll&gt;;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> fi first</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> se second</span></span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> MAXN = <span class="number">6e7</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">double</span> eps = <span class="number">1e-5</span>;</span><br><span class="line"><span class="type">const</span> ll mod = <span class="number">1e9</span> + <span class="number">7</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span> <span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ll a, b, c; cin &gt;&gt; a &gt;&gt; b &gt;&gt; c;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;The paper you submitted have &quot;</span> &lt;&lt; a &lt;&lt; <span class="string">&quot; Pros and &quot;</span> &lt;&lt; b &lt;&lt; <span class="string">&quot; Cons, so I have &quot;</span> &lt;&lt; c &lt;&lt; <span class="string">&quot; Questions for you.&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span> <span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ios::<span class="built_in">sync_with_stdio</span>(<span class="number">0</span>);</span><br><span class="line">    cin.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line">    <span class="type">int</span> _ = <span class="number">1</span>;</span><br><span class="line">    <span class="comment">// cin &gt;&gt; _;</span></span><br><span class="line">    <span class="keyword">while</span> (_--) &#123;</span><br><span class="line">        <span class="built_in">solve</span>();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;   </span><br></pre></td></tr></table></figure>
+<h3 id="a---昨日重现">A - 昨日重现</h3>
+<h4 id="题意-1">题意：</h4>
+<p>给定一个长度不超过100的字符串，在五所大学(HUST, WHU, WHUT, HZAU,
+CCNU)的缩写中，找出在字符串中作为子序列出现次数最多且字典序最小的一个，输出大学的缩写及最大次数。</p>
+<h4 id="思路">思路：</h4>
+<p>这里就不深究此题了，for循环足以解决。</p>
+<h4 id="代码-1">代码：</h4>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">using</span> ll = <span class="type">long</span> <span class="type">long</span>;</span><br><span class="line"><span class="keyword">using</span> ld = <span class="type">long</span> <span class="type">double</span>;</span><br><span class="line"><span class="keyword">using</span> pi = pair&lt;ll, ll&gt;;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> fi first</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> se second</span></span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> MAXN = <span class="number">6e7</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">double</span> eps = <span class="number">1e-5</span>;</span><br><span class="line"><span class="type">const</span> ll mod = <span class="number">1e9</span> + <span class="number">7</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span> <span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    string s; cin &gt;&gt; s;</span><br><span class="line">    vector &lt;ll&gt; <span class="built_in">cnt</span>(<span class="number">5</span>, <span class="number">0</span>);</span><br><span class="line">    ll n = s.<span class="built_in">size</span>();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (ll i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (s[i] == <span class="string">&#x27;C&#x27;</span>) &#123;</span><br><span class="line">            <span class="keyword">for</span> (ll j = i + <span class="number">1</span>; j &lt; n; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (s[j] == <span class="string">&#x27;C&#x27;</span>) &#123;</span><br><span class="line">                    <span class="keyword">for</span> (ll k = j + <span class="number">1</span>; k &lt; n; k++) &#123;</span><br><span class="line">                        <span class="keyword">if</span> (s[k] == <span class="string">&#x27;N&#x27;</span>) &#123;</span><br><span class="line">                            <span class="keyword">for</span> (ll l = k + <span class="number">1</span>; l &lt; n; l++) &#123;</span><br><span class="line">                                <span class="keyword">if</span> (s[l] == <span class="string">&#x27;U&#x27;</span>) cnt[<span class="number">0</span>]++;</span><br><span class="line">                            &#125;</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (ll i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (s[i] == <span class="string">&#x27;H&#x27;</span>) &#123;</span><br><span class="line">            <span class="keyword">for</span> (ll j = i + <span class="number">1</span>; j &lt; n; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (s[j] == <span class="string">&#x27;U&#x27;</span>) &#123;</span><br><span class="line">                    <span class="keyword">for</span> (ll k = j + <span class="number">1</span>; k &lt; n; k++) &#123;</span><br><span class="line">                        <span class="keyword">if</span> (s[k] == <span class="string">&#x27;S&#x27;</span>) &#123;</span><br><span class="line">                            <span class="keyword">for</span> (ll l = k + <span class="number">1</span>; l &lt; n; l++) &#123;</span><br><span class="line">                                <span class="keyword">if</span> (s[l] == <span class="string">&#x27;T&#x27;</span>) cnt[<span class="number">1</span>]++;</span><br><span class="line">                            &#125;</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (ll i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (s[i] == <span class="string">&#x27;H&#x27;</span>) &#123;</span><br><span class="line">            <span class="keyword">for</span> (ll j = i + <span class="number">1</span>; j &lt; n; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (s[j] == <span class="string">&#x27;Z&#x27;</span>) &#123;</span><br><span class="line">                    <span class="keyword">for</span> (ll k = j + <span class="number">1</span>; k &lt; n; k++) &#123;</span><br><span class="line">                        <span class="keyword">if</span> (s[k] == <span class="string">&#x27;A&#x27;</span>) &#123;</span><br><span class="line">                            <span class="keyword">for</span> (ll l = k + <span class="number">1</span>; l &lt; n; l++) &#123;</span><br><span class="line">                                <span class="keyword">if</span> (s[l] == <span class="string">&#x27;U&#x27;</span>) cnt[<span class="number">2</span>]++;</span><br><span class="line">                            &#125;</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (ll i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (s[i] == <span class="string">&#x27;W&#x27;</span>) &#123;</span><br><span class="line">            <span class="keyword">for</span> (ll j = i + <span class="number">1</span>; j &lt; n; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (s[j] == <span class="string">&#x27;H&#x27;</span>) &#123;</span><br><span class="line">                    <span class="keyword">for</span> (ll k = j + <span class="number">1</span>; k &lt; n; k++) &#123;</span><br><span class="line">                        <span class="keyword">if</span> (s[k] == <span class="string">&#x27;U&#x27;</span>) &#123;</span><br><span class="line">                            <span class="keyword">for</span> (ll l = k + <span class="number">1</span>; l &lt; n; l++) &#123;</span><br><span class="line">                                <span class="keyword">if</span> (s[l] == <span class="string">&#x27;T&#x27;</span>) cnt[<span class="number">4</span>]++;</span><br><span class="line">                            &#125;</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (ll i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (s[i] == <span class="string">&#x27;W&#x27;</span>) &#123;</span><br><span class="line">            <span class="keyword">for</span> (ll j = i + <span class="number">1</span>; j &lt; n; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (s[j] == <span class="string">&#x27;H&#x27;</span>) &#123;</span><br><span class="line">                    <span class="keyword">for</span> (ll k = j + <span class="number">1</span>; k &lt; n; k++) &#123;</span><br><span class="line">                        <span class="keyword">if</span> (s[k] == <span class="string">&#x27;U&#x27;</span>) cnt[<span class="number">3</span>]++; </span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (cnt[<span class="number">0</span>] == <span class="built_in">max</span>(&#123;cnt[<span class="number">0</span>], cnt[<span class="number">1</span>], cnt[<span class="number">2</span>], cnt[<span class="number">3</span>], cnt[<span class="number">4</span>]&#125;)) &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;CCNU &quot;</span> &lt;&lt; cnt[<span class="number">0</span>] &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span> (cnt[<span class="number">1</span>] == <span class="built_in">max</span>(&#123;cnt[<span class="number">0</span>], cnt[<span class="number">1</span>], cnt[<span class="number">2</span>], cnt[<span class="number">3</span>], cnt[<span class="number">4</span>]&#125;)) &#123;</span><br><span class="line">        <span class="keyword">if</span> (cnt[<span class="number">0</span>] == cnt[<span class="number">1</span>]) &#123;</span><br><span class="line">            cout &lt;&lt; <span class="string">&quot;CCNU &quot;</span> &lt;&lt; cnt[<span class="number">0</span>] &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">        &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">            cout &lt;&lt; <span class="string">&quot;HUST &quot;</span> &lt;&lt; cnt[<span class="number">1</span>] &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span> (cnt[<span class="number">2</span>] == <span class="built_in">max</span>(&#123;cnt[<span class="number">0</span>], cnt[<span class="number">1</span>], cnt[<span class="number">2</span>], cnt[<span class="number">3</span>], cnt[<span class="number">4</span>]&#125;)) &#123;</span><br><span class="line">        <span class="keyword">if</span> (cnt[<span class="number">0</span>] == cnt[<span class="number">2</span>]) &#123;</span><br><span class="line">            cout &lt;&lt; <span class="string">&quot;CCNU &quot;</span> &lt;&lt; cnt[<span class="number">0</span>] &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span> (cnt[<span class="number">1</span>] == cnt[<span class="number">2</span>]) &#123;</span><br><span class="line">            cout &lt;&lt; <span class="string">&quot;HUST &quot;</span> &lt;&lt; cnt[<span class="number">1</span>] &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">        &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">            cout &lt;&lt; <span class="string">&quot;HZAU &quot;</span> &lt;&lt; cnt[<span class="number">2</span>] &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span> (cnt[<span class="number">3</span>] == <span class="built_in">max</span>(&#123;cnt[<span class="number">0</span>], cnt[<span class="number">1</span>], cnt[<span class="number">2</span>], cnt[<span class="number">3</span>], cnt[<span class="number">4</span>]&#125;)) &#123;</span><br><span class="line">        <span class="keyword">if</span> (cnt[<span class="number">0</span>] == cnt[<span class="number">3</span>]) &#123;</span><br><span class="line">            cout &lt;&lt; <span class="string">&quot;CCNU &quot;</span> &lt;&lt; cnt[<span class="number">0</span>] &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span> (cnt[<span class="number">1</span>] == cnt[<span class="number">3</span>]) &#123;</span><br><span class="line">            cout &lt;&lt; <span class="string">&quot;HUST &quot;</span> &lt;&lt; cnt[<span class="number">1</span>] &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span> (cnt[<span class="number">2</span>] == cnt[<span class="number">3</span>]) &#123; </span><br><span class="line">            cout &lt;&lt; <span class="string">&quot;HZAU &quot;</span> &lt;&lt; cnt[<span class="number">2</span>] &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">        &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">            cout &lt;&lt; <span class="string">&quot;WHU &quot;</span> &lt;&lt; cnt[<span class="number">3</span>] &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span> (cnt[<span class="number">4</span>] == <span class="built_in">max</span>(&#123;cnt[<span class="number">0</span>], cnt[<span class="number">1</span>], cnt[<span class="number">2</span>], cnt[<span class="number">3</span>], cnt[<span class="number">4</span>]&#125;)) &#123;</span><br><span class="line">        <span class="keyword">if</span> (cnt[<span class="number">0</span>] == cnt[<span class="number">4</span>]) &#123;</span><br><span class="line">            cout &lt;&lt; <span class="string">&quot;CCNU &quot;</span> &lt;&lt; cnt[<span class="number">0</span>] &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span> (cnt[<span class="number">1</span>] == cnt[<span class="number">4</span>]) &#123;</span><br><span class="line">            cout &lt;&lt; <span class="string">&quot;HUST &quot;</span> &lt;&lt; cnt[<span class="number">1</span>] &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span> (cnt[<span class="number">2</span>] == cnt[<span class="number">4</span>]) &#123; </span><br><span class="line">            cout &lt;&lt; <span class="string">&quot;HZAU &quot;</span> &lt;&lt; cnt[<span class="number">2</span>] &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span> (cnt[<span class="number">3</span>] == cnt[<span class="number">4</span>]) &#123;</span><br><span class="line">            cout &lt;&lt; <span class="string">&quot;WHU &quot;</span> &lt;&lt; cnt[<span class="number">3</span>] &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">        &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">            cout &lt;&lt; <span class="string">&quot;WHUT &quot;</span> &lt;&lt; cnt[<span class="number">4</span>] &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span> <span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ios::<span class="built_in">sync_with_stdio</span>(<span class="number">0</span>);</span><br><span class="line">    cin.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line">    <span class="type">int</span> _ = <span class="number">1</span>;</span><br><span class="line">    <span class="comment">// cin &gt;&gt; _;</span></span><br><span class="line">    <span class="keyword">while</span> (_--) &#123;</span><br><span class="line">        <span class="built_in">solve</span>();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;   </span><br></pre></td></tr></table></figure>
+<h3 id="b---易守难攻">B - 易守难攻</h3>
+<h4 id="题意-2">题意：</h4>
+<p>给定一个空的n行m列的网格，需要往每一个格子填入一个<span
+class="math inline">1</span> ~ <span
+class="math inline"><em>n</em> × <em>m</em></span>的高度值，满足有k个网格的高度值严格大于8个相邻格子的高度值，且这k个网格不位于边界上。输出满足条件的网格，或者报告不存在这样的分配方式。</p>
+<h4 id="思路-1">思路：</h4>
+<p>首先明确：将大数一个隔一个的放是最大化能放置网格的放置方法。手模几个样例可以发现，若<span
+class="math inline">(<em>n</em>−1)/2 × (<em>m</em>−1)/2 &lt; <em>k</em></span>，则放不下满足条件的k个网格。我们可以从最大数开始放置。先将大数一个隔一个数地放，保证大数之间不会互相干扰。再依次放置其他数即可，可以保证大数总是可以满足条件的，且其他数不会形成新的满足条件的网格。</p>
+<h4 id="代码-2">代码：</h4>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">using</span> ll = <span class="type">long</span> <span class="type">long</span>;</span><br><span class="line"><span class="keyword">using</span> ld = <span class="type">long</span> <span class="type">double</span>;</span><br><span class="line"><span class="keyword">using</span> pi = pair&lt;ll, ll&gt;;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> fi first</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> se second</span></span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> MAXN = <span class="number">6e7</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">double</span> eps = <span class="number">1e-5</span>;</span><br><span class="line"><span class="type">const</span> ll mod = <span class="number">1e9</span> + <span class="number">7</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span> <span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ll n, m, k; cin &gt;&gt; n &gt;&gt; m &gt;&gt; k;</span><br><span class="line">    <span class="keyword">if</span> (((n - <span class="number">1</span>) / <span class="number">2</span>) * ((m - <span class="number">1</span>) / <span class="number">2</span>) &lt; k) &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;No&quot;</span> &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    vector &lt;vector &lt;ll&gt; &gt; <span class="built_in">v</span>(n + <span class="number">1</span>, vector &lt;ll&gt; (m + <span class="number">1</span>));</span><br><span class="line">    vector &lt;vector &lt;<span class="type">bool</span>&gt; &gt; <span class="built_in">vis</span>(n + <span class="number">1</span>, vector &lt;<span class="type">bool</span>&gt; (m + <span class="number">1</span>, <span class="literal">false</span>));</span><br><span class="line"></span><br><span class="line">    ll t = n * m;</span><br><span class="line">    <span class="keyword">if</span> (k != <span class="number">0</span>) &#123;</span><br><span class="line">        ll cnt = <span class="number">0</span>;</span><br><span class="line">        <span class="type">bool</span> found = <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">2</span>; i &lt; n; i += <span class="number">2</span>) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">2</span>; j &lt; m; j += <span class="number">2</span>) &#123;</span><br><span class="line">                cnt++;</span><br><span class="line">                v[i][j] = t--;</span><br><span class="line">                vis[i][j] = <span class="literal">true</span>;</span><br><span class="line">                <span class="keyword">if</span> (cnt == k) found = <span class="literal">false</span>;</span><br><span class="line">                <span class="keyword">if</span> (!found) <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (!found) <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">1</span>; j &lt;= m; j++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (vis[i][j]) <span class="keyword">continue</span>;</span><br><span class="line">            v[i][j] = t--;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;Yes&quot;</span> &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">1</span>; j &lt;= m; j++) &#123;</span><br><span class="line">            cout &lt;&lt; v[i][j] &lt;&lt; <span class="string">&#x27; &#x27;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        cout &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span> <span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ios::<span class="built_in">sync_with_stdio</span>(<span class="number">0</span>);</span><br><span class="line">    cin.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line">    <span class="type">int</span> _ = <span class="number">1</span>;</span><br><span class="line">    cin &gt;&gt; _;</span><br><span class="line">    <span class="keyword">while</span> (_--) &#123;</span><br><span class="line">        <span class="built_in">solve</span>();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;   </span><br></pre></td></tr></table></figure>
+<h3 id="f---anon的疑问">F - Anon的疑问</h3>
+<h4 id="题意-3">题意：</h4>
+<p>询问<span class="math inline"><em>q</em></span>次<span
+class="math inline">(1≤<em>q</em>≤1<em>e</em>6)</span>，每次询问给定一个正整数<span
+class="math inline"><em>n</em>(1≤<em>n</em>≤2<em>e</em>7)</span>，判断其能否被分解为两个正整数的平方和。</p>
+<h4 id="思路-2">思路：</h4>
+<p>这里给出两种思路。</p>
+<p>第一种思路：首先可以观察到这里的数据量并不是很大，我们完全可以直接预处理平方在<span
+class="math inline">2<em>e</em>7</span>内的数，然后枚举得到所有满足条件的正整数。
+时间复杂度:<span
+class="math inline"><em>O</em>(2<em>e</em>7)</span>。</p>
+<p>第二种思路：可以利用两平方和定理：对于任意的正整数<span
+class="math inline"><em>n</em> = <em>a</em><sup>2</sup> + <em>b</em><sup>2</sup>(<em>a</em>,<em>b</em>∈<em>Z</em>)</span>，当且仅当在n的质因数分解中，所有形如<span
+class="math inline"><em>p</em> ≡ 3(<em>m</em><em>o</em><em>d</em>4)</span>的质数，其指数都是偶数。根据定理，我们可以先预处理出在<span
+class="math inline">2<em>e</em>7</span>内所有数的最小质因数，然后再根据每个数判断其指数奇偶性。</p>
+<p>但是这里由于询问次数可能很多，时间复杂度相对于暴力可能没有优势，且无法通过本题，仅供参考。</p>
+<p>时间复杂度：<span
+class="math inline"><em>O</em>(<em>q</em>×<em>n</em><em>l</em><em>o</em><em>g</em><em>n</em>)</span>。</p>
+<h4 id="代码-3">代码：</h4>
+<h5 id="思路一">思路一：</h5>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">using</span> ll = <span class="type">long</span> <span class="type">long</span>;</span><br><span class="line"><span class="keyword">using</span> ld = <span class="type">long</span> <span class="type">double</span>;</span><br><span class="line"><span class="keyword">using</span> pi = pair&lt;ll, ll&gt;;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> fi first</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> se second</span></span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> MAXN = <span class="number">6e7</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">double</span> eps = <span class="number">1e-5</span>;</span><br><span class="line"><span class="type">const</span> ll mod = <span class="number">1e9</span> + <span class="number">7</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">bool</span> vis[<span class="number">20000005</span>];<span class="comment">//这里如果用vector记录可能会被卡常</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span> <span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ll n; cin &gt;&gt; n;</span><br><span class="line">    <span class="keyword">if</span> (vis[n]) &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;Yes&quot;</span> &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">    &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;No&quot;</span> &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span> <span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ios::<span class="built_in">sync_with_stdio</span>(<span class="number">0</span>);</span><br><span class="line">    cin.<span class="built_in">tie</span>(<span class="number">0</span>); cout.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line">    <span class="type">int</span> _ = <span class="number">1</span>;</span><br><span class="line">    cin &gt;&gt; _;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt; <span class="number">4473</span>; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (i * i &gt; <span class="number">2e7</span> + <span class="number">2</span>) <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> j = i; j &lt; <span class="number">4473</span>; j++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (i * i + j * j &gt; <span class="number">2e7</span> + <span class="number">2</span>) <span class="keyword">break</span>;</span><br><span class="line">            vis[i * i + j * j] = <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (_--) &#123;</span><br><span class="line">        <span class="built_in">solve</span>();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;    </span><br></pre></td></tr></table></figure>
+<h5 id="思路二仅供参考">思路二：（仅供参考）</h5>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">using</span> ll = <span class="type">long</span> <span class="type">long</span>;</span><br><span class="line"><span class="keyword">using</span> ld = <span class="type">long</span> <span class="type">double</span>;</span><br><span class="line"><span class="keyword">using</span> pi = pair&lt;ll, ll&gt;;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> fi first</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> se second</span></span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">2e7</span> + <span class="number">1</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">double</span> eps = <span class="number">1e-5</span>;</span><br><span class="line"><span class="type">const</span> ll mod = <span class="number">1e9</span> + <span class="number">7</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">bool</span> isprime[N];</span><br><span class="line"><span class="type">int</span> prime[N], mnp[N];</span><br><span class="line">ll cnt = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">get_mn_prime_factor</span> <span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    mnp[<span class="number">1</span>] = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">2</span>; i &lt; N; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (!isprime[i]) &#123;</span><br><span class="line">            prime[cnt++] = i;</span><br><span class="line">            mnp[i] = i;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt; cnt &amp;&amp; i * prime[j] &lt; N; j++) &#123;</span><br><span class="line">            isprime[i * prime[j]] = <span class="literal">true</span>;</span><br><span class="line">            mnp[i * prime[j]] = prime[j];</span><br><span class="line">            <span class="keyword">if</span> (i % prime[j] == <span class="number">0</span>) <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span> <span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ll n; cin &gt;&gt; n;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">auto</span> check = [&amp;] (<span class="type">int</span> x) -&gt; <span class="type">bool</span> &#123;</span><br><span class="line">        ll t = x;</span><br><span class="line">        <span class="keyword">while</span> (t != <span class="number">1</span>) &#123;</span><br><span class="line">            ll p = mnp[t];</span><br><span class="line">            ll cnt = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">while</span> (t % p == <span class="number">0</span>) &#123;</span><br><span class="line">                t /= p;</span><br><span class="line">                cnt++;</span><br><span class="line">            &#125;                               </span><br><span class="line">            <span class="keyword">if</span> (p % <span class="number">4</span> == <span class="number">3</span> &amp;&amp; cnt &amp; <span class="number">1</span>) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> ((ll)<span class="built_in">sqrtl</span>(x) * (ll)<span class="built_in">sqrtl</span>(x) == x) <span class="keyword">return</span> <span class="literal">false</span>;<span class="comment">//特判</span></span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    cout &lt;&lt; (<span class="built_in">check</span>(n) ? <span class="string">&quot;Yes&quot;</span> : <span class="string">&quot;No&quot;</span>) &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span> <span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ios::<span class="built_in">sync_with_stdio</span>(<span class="number">0</span>);</span><br><span class="line">    cin.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line">    <span class="type">int</span> _ = <span class="number">1</span>;</span><br><span class="line">    cin &gt;&gt; _;</span><br><span class="line">    <span class="built_in">get_mn_prime_factor</span>();</span><br><span class="line">    <span class="keyword">while</span> (_--) &#123;</span><br><span class="line">        <span class="built_in">solve</span>();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;   </span><br></pre></td></tr></table></figure>
+<h3 id="g---你好世界">G - 你好，世界</h3>
+<h4 id="题意-4">题意：</h4>
+<p>有一个初始值为0的N位计数器，用来预测一条指令是否应当执行。</p>
+<ul>
+<li>当扫描到一条指令时，若计数器的值小于<span
+class="math inline">2<sup><em>N</em> − 1</sup></span>，则预测该指令将不被执行，否则预测将被执行。</li>
+<li>无论是否预测正确，如果当前指令的真实状况为需要执行，则计数器增加1，否则计数器减少1。</li>
+<li>计数器的增加和减少不会超过<span
+class="math inline">[0, 2<sup><em>N</em></sup>)</span>这一界限。</li>
+</ul>
+<p>你需要构造一个长度为len的01字符串（指令），0代表不执行，1代表执行，使得预测错误的次数最大。</p>
+<h4 id="思路-3">思路：</h4>
+<p>诈骗题。理解题意后，不难发现只需要使前<span
+class="math inline">2<sup><em>N</em> − 1</sup></span>个指令执行，后面的指令只需不执行，执行(01循环)即可。</p>
+<h4 id="代码-4">代码：</h4>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">using</span> ll = <span class="type">long</span> <span class="type">long</span>;</span><br><span class="line"><span class="keyword">using</span> ld = <span class="type">long</span> <span class="type">double</span>;</span><br><span class="line"><span class="keyword">using</span> pi = pair&lt;ll, ll&gt;;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> fi first</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> se second</span></span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> MAXN = <span class="number">6e7</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">double</span> eps = <span class="number">1e-5</span>;</span><br><span class="line"><span class="type">const</span> ll mod = <span class="number">1e9</span> + <span class="number">7</span>;</span><br><span class="line"></span><br><span class="line"><span class="function">ll <span class="title">qpow</span> <span class="params">(ll a, ll b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ll res = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (b) &#123;</span><br><span class="line">        <span class="keyword">if</span> (b &amp; <span class="number">1</span>) res = res * a;</span><br><span class="line">        a = a * a;</span><br><span class="line">        b &gt;&gt;= <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span> <span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ll n, len; cin &gt;&gt; n &gt;&gt; len;</span><br><span class="line">    ll tag = len;</span><br><span class="line">    <span class="keyword">if</span> (n &lt;= <span class="number">60</span>) tag = <span class="built_in">min</span>(<span class="built_in">qpow</span>(<span class="number">2</span>, n - <span class="number">1</span>), len);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; tag; i++) &#123;</span><br><span class="line">        cout &lt;&lt; <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; len - tag; i++) &#123;</span><br><span class="line">        cout &lt;&lt; (i &amp; <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span> <span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ios::<span class="built_in">sync_with_stdio</span>(<span class="number">0</span>);</span><br><span class="line">    cin.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line">    <span class="type">int</span> _ = <span class="number">1</span>;</span><br><span class="line">    <span class="comment">// cin &gt;&gt; _;</span></span><br><span class="line">    <span class="keyword">while</span> (_--) &#123;</span><br><span class="line">        <span class="built_in">solve</span>();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;     </span><br></pre></td></tr></table></figure>
+<h3 id="h---哆啦a梦的神奇铜锣烧储存系统">H -
+哆啦A梦的神奇铜锣烧储存系统</h3>
+<h4 id="题意-5">题意：</h4>
+<p>有<span class="math inline"><em>n</em></span>个宝箱，其中有<span
+class="math inline"><em>k</em></span>个宝箱里装有铜锣烧，哆啦A梦先从中选择<span
+class="math inline"><em>m</em></span>个他认为最有可能装有铜锣烧的宝箱，然后在剩下的<span
+class="math inline"><em>n</em> − <em>m</em></span>个宝箱中随机打开<span
+class="math inline"><em>n</em> − (<em>m</em>+<em>q</em>)</span>个空箱子（若没有空箱子则不打开），最后剩下<span
+class="math inline"><em>q</em></span>个宝箱是关闭的。
+求出剩下的未打开<span
+class="math inline"><em>q</em></span>个宝箱中铜锣烧的期望数量（模998244353）。</p>
+<h4 id="思路-4">思路：</h4>
+<p>简洁的思路是：我们考虑任意一个真箱子，在每一次选完<span
+class="math inline"><em>m</em></span>个后，这个箱子仍然存在于<span
+class="math inline"><em>n</em> − <em>m</em></span>个箱子的期望为<span
+class="math inline">$E[X_i] = \frac{n - m}{n}$</span>。一共有<span
+class="math inline"><em>k</em></span>个真箱子，只需要将<span
+class="math inline"><em>k</em></span>个期望累加就能得出答案：<span
+class="math inline">$\frac{n - m}{n} \times k$</span>。</p>
+<p><br> 详细过程：（鸣谢笔者ichooooooo！）</p>
+<p><strong>首先，这是一道超几何分布题</strong></p>
+<p>经典场景：总共有<span
+class="math inline"><em>N</em></span>个商品，其中<span
+class="math inline"><em>M</em></span>个特殊品，选取<span
+class="math inline"><em>n</em></span>个出来</p>
+<ol type="1">
+<li><p>求<span class="math inline"><em>n</em></span>个商品中特殊商品期望
+设<span class="math inline"><em>X</em></span>是<span
+class="math inline"><em>n</em></span>个商品里的特殊品数量 <span
+class="math inline">$E = \sum_{X = 0}^{M}(X \times P(X))$</span></p>
+<p>这里<span class="math inline"><em>P</em>(<em>X</em>)</span>是从<span
+class="math inline"><em>n</em></span>个中抽取<span
+class="math inline"><em>X</em></span>个特殊品的概率， <span
+class="math inline"><em>X</em> × <em>P</em>(<em>X</em>)</span>
+是抽到<span
+class="math inline"><em>i</em></span>个特殊元素时，特殊品数量的期望贡献，<span
+class="math inline">(<em>n</em>−<em>X</em>) × <em>P</em>(<em>X</em>)</span>
+则是抽到<span
+class="math inline"><em>i</em></span>个特殊元素时，非特殊品数量的期望贡献</p></li>
+<li><p>求<span class="math inline"><em>P</em>(<em>X</em>)</span>
+超几何分布知识，我们用<span
+class="math inline">$\binom{k}{i}$</span>表示<span
+class="math inline"><em>C</em>(<em>i</em>,<em>k</em>)</span>，最终公式
+<span class="math display">$$\frac{\binom{M}{X}\binom{N - M}{n -
+X}}{\binom{n}{m}}$$</span> 其中<span
+class="math inline">$\binom{M}{X}$</span>表示从<span
+class="math inline"><em>X</em></span>个总特殊品选取<span
+class="math inline"><em>M</em></span>个，那么剩下<span
+class="math inline"><em>n</em> − <em>X</em></span>个是非特殊，再从<span
+class="math inline"><em>N</em> − <em>M</em></span>个总非特殊选取<span
+class="math inline"><em>n</em> − <em>X</em></span>个，相乘是“有利情况”，除总情况就是概率</p></li>
+<li><p>期望化简后求和结果 <span class="math display">$$\frac{M}{N}
+\times n$$</span></p></li>
+</ol>
+<p>回到题目，根据上面我们最终需要得到<strong>抽n个商品时，非特殊商品的期望</strong>，即
+<span class="math display">$${\sum_{i = 0}^{min(k, m)}(k - i)} \times
+P(i)$$</span> 展开得 <span class="math display">$$\frac{\sum_{i =
+0}^{min(k, m)}\binom{k}{i}\binom{n - k}{m - i}(k -
+i)}{\binom{n}{m}}$$</span> 化简得 <span class="math display">$$\frac{n -
+m}{n} \times k$$</span></p>
+<p><strong>关于为什么q不会影响到最终结果</strong></p>
+<p>q只抽取空箱子，不影响特殊品的数量，根据公式，P(i)不变，权值k -
+i也不变，所以结果不变</p>
+<h4 id="代码-5">代码：</h4>
+<h5 id="原始公式">原始公式:</h5>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">using</span> ll = <span class="type">long</span> <span class="type">long</span>;</span><br><span class="line"><span class="keyword">using</span> ld = <span class="type">long</span> <span class="type">double</span>;</span><br><span class="line"><span class="keyword">using</span> pi = pair&lt;ll, ll&gt;;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> fi first</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> se second</span></span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> MAXN = <span class="number">1e6</span> + <span class="number">10</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">double</span> eps = <span class="number">1e-5</span>;</span><br><span class="line"><span class="type">const</span> ll mod = <span class="number">998244353</span>;</span><br><span class="line"></span><br><span class="line">vector &lt;ll&gt; <span class="built_in">f</span>(MAXN), <span class="built_in">g</span>(MAXN);</span><br><span class="line"></span><br><span class="line"><span class="function">ll <span class="title">qpow</span> <span class="params">(ll a, ll b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ll res = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (b) &#123;</span><br><span class="line">        <span class="keyword">if</span> (b &amp; <span class="number">1</span>) res = res * a % mod;</span><br><span class="line">        a = a * a % mod;</span><br><span class="line">        b &gt;&gt;= <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res % mod;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">ll <span class="title">C</span> <span class="params">(ll n, ll m)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (m &lt; <span class="number">0</span> || m &gt; n) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">return</span> f[n] * g[m] % mod * g[n - m] % mod;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span> <span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ll n, k, m, q; cin &gt;&gt; n &gt;&gt; k &gt;&gt; m &gt;&gt; q;</span><br><span class="line">    ll a = <span class="number">0</span>, b = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt;= <span class="built_in">min</span>(k, m); i++) &#123;</span><br><span class="line">        a = (a + <span class="built_in">C</span>(k, i) * <span class="built_in">C</span>(n - k, m - i) % mod * (k - i) % mod) % mod;</span><br><span class="line">    &#125;</span><br><span class="line">    b = <span class="built_in">C</span>(n, m);</span><br><span class="line">    ll ans = a * <span class="built_in">qpow</span>(b, mod - <span class="number">2</span>) % mod;</span><br><span class="line">    cout &lt;&lt; ans &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span> <span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ios::<span class="built_in">sync_with_stdio</span>(<span class="number">0</span>);</span><br><span class="line">    cin.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line">    <span class="type">int</span> _ = <span class="number">1</span>;</span><br><span class="line">    <span class="comment">// cin &gt;&gt; _;</span></span><br><span class="line"></span><br><span class="line">    f[<span class="number">0</span>] = <span class="number">1</span>, g[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt; MAXN; i++) &#123;</span><br><span class="line">        f[i] = f[i - <span class="number">1</span>] * i % mod;</span><br><span class="line">        g[i] = <span class="built_in">qpow</span>(f[i], mod - <span class="number">2</span>) % mod;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (_--) &#123;</span><br><span class="line">        <span class="built_in">solve</span>();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;      </span><br></pre></td></tr></table></figure>
+<h5 id="化简">化简：</h5>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">using</span> ll = <span class="type">long</span> <span class="type">long</span>;</span><br><span class="line"><span class="keyword">using</span> ld = <span class="type">long</span> <span class="type">double</span>;</span><br><span class="line"><span class="keyword">using</span> pi = pair&lt;ll, ll&gt;;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> fi first</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> se second</span></span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> MAXN = <span class="number">6e7</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">double</span> eps = <span class="number">1e-5</span>;</span><br><span class="line"><span class="type">const</span> ll mod = <span class="number">998244353</span>;</span><br><span class="line"></span><br><span class="line"><span class="function">ll <span class="title">qpow</span> <span class="params">(ll a, ll b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ll res = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (b) &#123;</span><br><span class="line">        <span class="keyword">if</span> (b &amp; <span class="number">1</span>) res = res * a % mod;</span><br><span class="line">        a = a * a % mod;</span><br><span class="line">        b &gt;&gt;= <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res % mod;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span> <span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ll n, k, m, q; cin &gt;&gt; n &gt;&gt; k &gt;&gt; m &gt;&gt; q;</span><br><span class="line">    cout &lt;&lt; (n - m) * k % <span class="function">mod * <span class="title">qpow</span><span class="params">(n, mod - <span class="number">2</span>)</span> % mod &lt;&lt; &#x27;\n&#x27;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span> <span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ios::<span class="built_in">sync_with_stdio</span>(<span class="number">0</span>);</span><br><span class="line">    cin.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line">    <span class="type">int</span> _ = <span class="number">1</span>;</span><br><span class="line">    <span class="comment">// cin &gt;&gt; _;</span></span><br><span class="line">    <span class="keyword">while</span> (_--) &#123;</span><br><span class="line">        <span class="built_in">solve</span>();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;   </span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>题解</category>
+      </categories>
+      <tags>
+        <tag>题解</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>2025菜鸟杯题解</title>
     <url>/2025/12/22/2025%E8%8F%9C%E9%B8%9F%E6%9D%AF%E9%A2%98%E8%A7%A3/</url>
     <content><![CDATA[<h1 id="官方题解">官方题解</h1>
@@ -307,6 +458,138 @@ class="math inline"> : <em>O</em>(6<sup>7</sup>)</span></p>
 ]]></content>
       <categories>
         <category>题解</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>AI翻译插件配置教程</title>
+    <url>/2025/12/22/AI%E7%BF%BB%E8%AF%91%E6%8F%92%E4%BB%B6%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B/</url>
+    <content><![CDATA[<h1 id="ai-翻译插件配置">ai 翻译插件配置</h1>
+<h2 id="前言">前言</h2>
+<h3 id="必要性">必要性：</h3>
+<p>无论是在算法学习或者学习 csdiy
+的课程，与英文文档打交道都是不可避免的，但是往往浏览器自带的机翻，非常差劲，毕竟对于大量的专业名词动词，机翻往往不能翻译恰当。这些都是计算机学习的第一道障碍……</p>
+<span id="more"></span>
+<h3 id="功能">功能：</h3>
+<p>而 ai 翻译插件，是通过调用 ai 接口，实现 ai 智能翻译，ai
+的优势在于，它可以根据情景翻译出恰当的语义，并且下面介绍的插件翻译，实现的是一段一翻，也就是说，会有一段原文紧接着一段译文，这样也方便使用者对比适当学习英语<del>如果你愿意的话</del></p>
+<h2 id="配置教程">配置教程</h2>
+<h3 id="首先获取-ai-的接口">首先获取 ai 的接口</h3>
+<p>（前言：ai
+接口的使用是需要付费的，按照用量计费，但实际上非常便宜，实测 1
+美元可以使用三个月以上<del>我一开始不常用的话，可以用四五个月…..</del>）</p>
+<ul>
+<li>打开下面网站</li>
+</ul>
+<p><span class="exturl" data-url="aHR0cHM6Ly9haWh1Ym1peC5jb20=">AI<i class="fa fa-external-link-alt"></i></span></p>
+<p>（如下图所示</p>
+<figure>
+<img src="/assets/12.png" alt="1" />
+<figcaption aria-hidden="true">1</figcaption>
+</figure>
+<ul>
+<li>然后注册一个自己的账号</li>
+<li>点击【充值】界面，先买一美刀</li>
+<li>点击【模型】界面 （如下图所示</li>
+</ul>
+<figure>
+<img src="/assets/13.png" alt="1" />
+<figcaption aria-hidden="true">1</figcaption>
+</figure>
+<ul>
+<li>找一些输入/输出 Tokens 花费较少的 ai
+即可，我用的是<code>gpt-5-nano</code> （如下图所示</li>
+</ul>
+<figure>
+<img src="/assets/14.png" alt="1" />
+<figcaption aria-hidden="true">1</figcaption>
+</figure>
+<ul>
+<li>然后记住你选择的 ai，再回到最上面，点击【秘钥】 （如下图所示</li>
+</ul>
+<figure>
+<img src="/assets/16.png" alt="1" />
+<figcaption aria-hidden="true">1</figcaption>
+</figure>
+<ul>
+<li>点击【创建
+key】，自己可以随便设置<code>key名称</code>，主要是要点击【高级设置】展开
+（如下图所示</li>
+</ul>
+<figure>
+<img src="/assets/17.png" alt="1" />
+<figcaption aria-hidden="true">1</figcaption>
+</figure>
+<ul>
+<li><p>【模型范围】选择刚才找到的合适的 ai 接口（如
+我这里选择较便宜的<code>gpt-5-nano</code> ） 然后点击提交即可</p></li>
+<li><p>然后保留这个页面，新建页面进行后续操作</p></li>
+</ul>
+<h3 id="下载插件">下载插件</h3>
+<ul>
+<li><a
+href="https://microsoftedge.microsoft.com/addons/detail/%E6%B2%89%E6%B5%B8%E5%BC%8F%E7%BF%BB%E8%AF%91-%E7%BD%91%E9%A1%B5%E7%BF%BB%E8%AF%91%E6%8F%92%E4%BB%B6-pdf%E7%BF%BB%E8%AF%91-/amkbmndfnliijdhojkpoglbnaaahippg">沉浸式翻译</a>
+打开这个插件，并点击【获取】，获取成功后，右上角拓展中就可以找到它了
+（如下图所示</li>
+</ul>
+<figure>
+<img src="/assets/18.png" alt="1" />
+<figcaption aria-hidden="true">1</figcaption>
+</figure>
+<ul>
+<li>点击【沉浸式翻译】打开, - 点击左下角【设置】打开设置界面
+（如下图所示</li>
+</ul>
+<figure>
+<img src="/assets/19.png" alt="1" />
+<figcaption aria-hidden="true">1</figcaption>
+</figure>
+<ul>
+<li>在左侧栏目中，找到【翻译服务】，再在页面的模型中找到【其他/自定义】，打开并选择【OpenAI
+1】 （如下图所示</li>
+</ul>
+<figure>
+<img src="/assets/21.png" alt="1" />
+<figcaption aria-hidden="true">1</figcaption>
+</figure>
+<ul>
+<li>这时候回到刚才保留的页面中，将刚才创建的接口的<code>key</code>复制一下，然后粘贴到新页面的【APIKEY】中。并选择模型为刚刚自己创建的
+key 的模型（如我这里是<code>gpt-5-nano</code>）</li>
+<li>然后接着往下看，可以找到【自定义 API
+接口地址】，将原先内容删除，并把下面这段，复制上去</li>
+</ul>
+<p><code>https://aihubmix.com/v1/chat/completions</code></p>
+<ul>
+<li>到此基本配置完成，看到页面最上方，有个【点击测试服务】，点击后即可知道是否配置成功啦</li>
+</ul>
+<h2 id="使用设置">使用设置</h2>
+<ul>
+<li>接下来随便打开一个含有外语网页 （如下图所示</li>
+</ul>
+<figure>
+<img src="/assets/23.png" alt="1" />
+<figcaption aria-hidden="true">1</figcaption>
+</figure>
+<ul>
+<li>不难发现右侧有个粉色小按钮，鼠标移动至按钮上方（不点击）
+（如下图所示</li>
+</ul>
+<figure>
+<img src="/assets/24.png" alt="1" />
+<figcaption aria-hidden="true">1</figcaption>
+</figure>
+<ul>
+<li>点击设置打开，并将【翻译服务】设置为【OpenAI 1】</li>
+</ul>
+<figure>
+<img src="/assets/25.png" alt="1" />
+<figcaption aria-hidden="true">1</figcaption>
+</figure>
+<ul>
+<li>至此彻底完成配置，之后再使用翻译只需点击这个粉色小按钮稍待即可翻译成功！</li>
+</ul>
+]]></content>
+      <categories>
+        <category>技术分享</category>
       </categories>
   </entry>
   <entry>
@@ -1151,85 +1434,6 @@ xcpc 竞赛向配置教程</a></p></li>
       </categories>
   </entry>
   <entry>
-    <title>二分&#92;三分</title>
-    <url>/2025/12/22/%E4%BA%8C%E5%88%86-%E4%B8%89%E5%88%86/</url>
-    <content><![CDATA[<h2 id="二分手搓">二分(手搓)</h2>
-<h3 id="一.找出第一个大于等于-x-的元素">一.找出第一个大于等于 x
-的元素</h3>
-<span id="more"></span>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">int</span> a[<span class="number">200005</span>];</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="type">int</span> n, x;</span><br><span class="line">	cin &gt;&gt; n &gt;&gt; x;</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">		cin &gt;&gt; a[i];</span><br><span class="line">	<span class="type">int</span> z = <span class="number">1</span>, y = n;</span><br><span class="line">  <span class="comment">//核心代码</span></span><br><span class="line">	<span class="keyword">while</span> (z &lt;= y)</span><br><span class="line">	&#123;</span><br><span class="line">    <span class="comment">//这里其实mid = (z + y) / 2，而下面的写法是为了防止有时候爆int</span></span><br><span class="line">		<span class="type">int</span> mid = z + (y - z) / <span class="number">2</span>;</span><br><span class="line">    <span class="comment">//下面两个条件判断，哪个不取等，就输出哪个</span></span><br><span class="line">		<span class="keyword">if</span> (a[mid] &gt;= x) y = mid - <span class="number">1</span>;</span><br><span class="line">		<span class="keyword">else</span> z = mid + <span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	cout &lt;&lt; z; <span class="comment">//cout &lt;&lt; y + 1;</span></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3
-id="二.找出最后一个小于等于-x-的元素这里只展示核心代码与一进行比较">二.找出最后一个小于等于
-x 的元素这里只展示核心代码，与一进行比较</h3>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> z = <span class="number">1</span>, y = n;</span><br><span class="line">  <span class="comment">//核心代码</span></span><br><span class="line"><span class="keyword">while</span> (z &lt;= y)</span><br><span class="line">&#123;</span><br><span class="line">  <span class="comment">//这里其实mid = (z + y) / 2，而下面的写法是为了防止有时候爆int</span></span><br><span class="line">  <span class="type">int</span> mid = z + (y - z) / <span class="number">2</span>;</span><br><span class="line">  <span class="comment">//下面两个条件判断，哪个不取等，就输出哪个</span></span><br><span class="line">  <span class="keyword">if</span> (a[mid] &lt;= x) z = mid + <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">else</span> y = mid - <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line">cout &lt;&lt; y; <span class="comment">//cout &lt;&lt; z - 1;</span></span><br></pre></td></tr></table></figure>
-<h3
-id="简单记忆区分两种情况在于先判断哪种情况">简单记忆区分两种情况在于先判断哪种情况</h3>
-<h2 id="二分stl">二分(STL)</h2>
-<pre><code>binary_search 返回 bool 值， 是否存在
-lower_bound 返回第一个大于等于 x 元素的地址
-upper_bound 返回第一个大于 x 的元素的地址
-这三个的参数(a, a + n, x)</code></pre>
-<h2 id="答案检验法">答案检验法</h2>
-<p>一种使用二分思想的方法，给出答案可能的最小值 z ，最大值
-y，然后对答案进行二分，假设每次二分的结果就是最后的正确答案，然后循环内部进行
-judge
-函数判断是否满足，从而进行不同的左右区间缩减。最终找到真正的正确答案。</p>
-<h3 id="分数规划-的解法就是使用答案检验法">01 分数规划
-的解法就是使用答案检验法</h3>
-<p><a
-href="https://ac.nowcoder.com/acm/contest/22353/1011">模板题</a></p>
-<p>题解：假设每次二分的答案为 x，现在要验证 x 的正确性 (v1 + v2 + v3 +
-……vk) / (w1 + w2 + w3 + ……wk) 是否&gt; x</p>
-<p>即 (v1 + v2 + v3 + ……vk) 是否&gt; (w1 + w2 + w3 + ……wk) * x</p>
-<p>即(v1 + v2 + v3 + ……vk) - (w1 + w2 + w3 + ……wk) * x 是否&gt; 0</p>
-<p>即 (i=1 到 i=k 项的和) vi- x * wi 是否&gt; 0</p>
-<p>ac 代码如下：</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">double</span> y = <span class="number">0</span>;</span><br><span class="line"><span class="type">int</span> n, k;</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">ty</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="type">double</span> w, v;</span><br><span class="line">	<span class="type">double</span> m;</span><br><span class="line">&#125;a[<span class="number">500010</span>];</span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">cmp</span><span class="params">(ty a, ty b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> a.m &gt; b.m;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">judge</span><span class="params">(<span class="type">double</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">		a[i].m = a[i].v - a[i].w * x;</span><br><span class="line">	<span class="built_in">sort</span>(a + <span class="number">1</span>, a + <span class="number">1</span> + n, cmp);</span><br><span class="line">	<span class="type">double</span> sum = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= k; i++)</span><br><span class="line">		sum += a[i].m;</span><br><span class="line">	<span class="keyword">if</span> (sum &gt;= <span class="number">0</span>) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	cin &gt;&gt; n &gt;&gt; k;</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		cin &gt;&gt; a[i].w &gt;&gt; a[i].v;</span><br><span class="line">		y += a[i].w;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="type">double</span> z = <span class="number">0</span>;</span><br><span class="line">	<span class="type">int</span> t = <span class="number">100</span>;</span><br><span class="line">	<span class="keyword">while</span> (t--)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="type">double</span> mid = (z + y) / <span class="number">2</span>;</span><br><span class="line">		<span class="keyword">if</span> (<span class="built_in">judge</span>(mid)) z = mid;</span><br><span class="line">		<span class="keyword">else</span> y = mid;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;%.9lf&quot;</span>, (z + y) / <span class="number">2</span>);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="三分">三分</h2>
-<h3
-id="三分法用来解决单峰单谷问题经典二次函数型的变化时可以使用三分优化">三分法用来解决单峰单谷问题，经典二次函数型的变化时，可以使用三分优化</h3>
-<h3
-id="当问题是解决一堆都是整数的问题时较为简单模板代码如下">当问题是解决一堆都是整数的问题时，较为简单，模板代码如下：</h3>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="comment">//下面就是要寻找的二次函数型数组，目标是找到其中的最大值</span></span><br><span class="line"><span class="type">int</span> a[<span class="number">10</span>] = &#123; <span class="number">0</span>, <span class="number">3</span>, <span class="number">25</span>, <span class="number">21</span>, <span class="number">20</span>, <span class="number">14</span>, <span class="number">12</span>, <span class="number">7</span>, <span class="number">2</span>, <span class="number">1</span> &#125;;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="type">int</span> z = <span class="number">0</span>, y = <span class="number">9</span>;</span><br><span class="line">	<span class="keyword">while</span> (z &lt;= y)</span><br><span class="line">	&#123;</span><br><span class="line">    <span class="comment">//三分，就是将区间尽量平均分成三份</span></span><br><span class="line">		<span class="type">int</span> mid1 = z + (y - z) / <span class="number">3</span>;</span><br><span class="line">		<span class="type">int</span> mid2 = y - (y - z) / <span class="number">3</span>;</span><br><span class="line">    <span class="comment">//判断两者中的较大值，那么较小值的一方的元素都不可能是最大值，直接舍去</span></span><br><span class="line">		<span class="keyword">if</span> (a[mid1] &gt;= a[mid2]) y = mid2 - <span class="number">1</span>;</span><br><span class="line">		<span class="keyword">else</span> z = mid1 + <span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">  <span class="comment">//最终结果位置与二分类似</span></span><br><span class="line">	cout &lt;&lt; a[z] &lt;&lt; endl;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3
-id="但是要使用三分思路解决的问题往往是要求到实数问题的变化过程往往是一段连续实数的函数而不是像数列那样的连续整数那会有什么变化吗">但是要使用三分思路解决的问题往往是要求到实数，问题的变化过程往往是一段连续实数的函数，而不是像数列那样的连续整数，那会有什么变化吗？</h3>
-<p>上面模板中的循环判断 while(z &lt;= y) 是通过整数 z 和
-y，也就是下标的序数进行更替判断，我们知道整数在进行除法会有自动向下取整，但是
-double
-类型会有一定的小数精确，但是这个精确度是不够用的，在经过多次运算误差就会越来越大，最后很可能就改变答案导致错误！</p>
-<h2 id="这里给出三种解决思路">这里给出三种解决思路</h2>
-<h3
-id="一.直接使用数据本身进行循环判断既然实数多次计算有误差while-直接用来判断每次两者差值小于某个-epsilon例如-1e-7来控制循环结束这时候数据已经细分很小可以直接近似得到最值了具体精度控制看题目要求">一.直接使用数据本身进行循环判断，既然实数多次计算有误差，while
-直接用来判断每次两者差值小于某个 epsilon（例如
-1e-7），来控制循环结束（这时候数据已经细分很小，可以直接近似得到最值了）具体精度控制看题目要求</h3>
-<p>代码如下：</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">double</span> <span class="title">f</span><span class="params">(<span class="type">double</span> x)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 示例函数，此处替换为实际函数</span></span><br><span class="line">    <span class="keyword">return</span> -x*x + <span class="number">2</span>*x + <span class="number">3</span>; <span class="comment">// 极大值在x=1处</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 精度控制</span></span><br><span class="line"><span class="type">const</span> <span class="type">double</span> eps = <span class="number">1e-9</span>;</span><br><span class="line"><span class="keyword">while</span> (r - l &gt; eps)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">double</span> m1 = l + (r - l) / <span class="number">3</span>;</span><br><span class="line">    <span class="type">double</span> m2 = r - (r - l) / <span class="number">3</span>;</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">f</span>(m1) &lt; <span class="built_in">f</span>(m2))</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// 求极大值，若求极小值则改为&gt;,极值在[m1, r]</span></span><br><span class="line">        l = m1;</span><br><span class="line">    &#125; <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">      <span class="comment">// 极值在[l, m2]</span></span><br><span class="line">        r = m2;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 返回近似极值点</span></span><br><span class="line"><span class="keyword">return</span> (l + r) / <span class="number">2</span>;</span><br></pre></td></tr></table></figure>
-<h3
-id="二.我们发现当每一次三分数据总数都会缩小三分之一那么当循环次数达到一定多时剩余数据就能够在误差范围内得到正确答案所以可以固定循环次数为循环条件进行三分">二.我们发现当每一次三分数据总数都会缩小三分之一，那么当循环次数达到一定多时，剩余数据就能够在误差范围内得到正确答案！所以可以固定循环次数为循环条件进行三分！</h3>
-<p>代码如下：</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> T = <span class="number">100</span>; <span class="comment">// 迭代次数，确保精度</span></span><br><span class="line"><span class="function"><span class="type">double</span> <span class="title">f</span><span class="params">(<span class="type">double</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> -x*x + <span class="number">2</span>*x + <span class="number">3</span>; <span class="comment">// 示例函数，极大值在x=1</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">double</span> <span class="title">ternary_search_fixed_loop</span><span class="params">(<span class="type">double</span> l, <span class="type">double</span> r, <span class="type">int</span> T)</span> </span>&#123;</span><br><span class="line"><span class="keyword">while</span> (T--)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">double</span> m1 = l + (r - l) / <span class="number">3</span>;</span><br><span class="line">    <span class="type">double</span> m2 = r - (r - l) / <span class="number">3</span>;</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">f</span>(m1) &lt; <span class="built_in">f</span>(m2))</span><br><span class="line">    &#123; <span class="comment">// 求极大值</span></span><br><span class="line">        l = m1; <span class="comment">// 极值在右区间</span></span><br><span class="line">    &#125; <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        r = m2; <span class="comment">// 极值在左区间</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">return</span> (l + r) / <span class="number">2</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3
-id="三.将要求的实数区间存放在整数数组中例如给定一段长度的两端值我们主动将这段长度均分为-n-份n-可能是-500010000..这时候就可以将问题转换为最简单的模板类型解决">三.将要求的实数区间存放在整数数组中，例如：给定一段长度的两端值，我们主动将这段长度均分为
-N 份(N 可能是
-5000，10000…..)，这时候就可以将问题转换为最简单的模板类型解决！</h3>
-<p>此情况直接附上题目进行理解吧</p>
-<h3 id="例题"><a
-href="https://ac.nowcoder.com/acm/contest/22353/1025">例题</a></h3>
-<p>本题较为复杂，涉及两个三分嵌套，并将三分问题按照法三转换为整数型模板！</p>
-<p>ac 代码如下：</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">5005</span>;</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">ty</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="type">double</span> x, y;</span><br><span class="line">&#125;a, b, c, d, e[N + <span class="number">5</span>], f[N + <span class="number">5</span>];</span><br><span class="line"><span class="comment">//t1是当前点到A点所需的时间，t2是当前点到D点所需的时间</span></span><br><span class="line"><span class="type">double</span> t1[N + <span class="number">5</span>], t2[N + <span class="number">5</span>];</span><br><span class="line"><span class="type">double</span> p, q, r;</span><br><span class="line"><span class="comment">//计算距离的函数</span></span><br><span class="line"><span class="function"><span class="type">double</span> <span class="title">dis</span><span class="params">(ty a, ty b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="built_in">sqrt</span>((a.x - b.x) * (a.x - b.x) + (a.y - b.y) * (a.y - b.y));</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//第二个三分，用于嵌套在第一个三分内部，返回总时间最小的情况</span></span><br><span class="line"><span class="function"><span class="type">double</span> <span class="title">sol</span><span class="params">(<span class="type">int</span> mid)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="type">int</span> z2 = <span class="number">0</span>, y2 = N;</span><br><span class="line">	<span class="keyword">while</span> (z2 &lt;= y2)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="type">int</span> mid1 = z2 + (y2 - z2) / <span class="number">3</span>;</span><br><span class="line">		<span class="type">int</span> mid2 = y2 - (y2 - z2) / <span class="number">3</span>;</span><br><span class="line">		<span class="keyword">if</span> ((t1[mid] + t2[mid1] + (<span class="built_in">dis</span>(e[mid], f[mid1]) / r)) &lt;= (t1[mid] + t2[mid2] + (<span class="built_in">dis</span>(e[mid], f[mid2]) / r)))</span><br><span class="line">			y2 = mid2 - <span class="number">1</span>;</span><br><span class="line">		<span class="keyword">else</span> z2 = mid1 + <span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> (t1[mid] + t2[z2] + (<span class="built_in">dis</span>(e[mid], f[z2]) / r));</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	cin &gt;&gt; a.x &gt;&gt; a.y &gt;&gt; b.x &gt;&gt; b.y;</span><br><span class="line">	cin &gt;&gt; c.x &gt;&gt; c.y &gt;&gt; d.x &gt;&gt; d.y;</span><br><span class="line">	cin &gt;&gt; p &gt;&gt; q &gt;&gt; r;</span><br><span class="line">  <span class="comment">//关键步骤！！！用于将实数三分转换为整数型三分，最后分别存放于数组 e 和 f 中。</span></span><br><span class="line">	<span class="type">double</span> dx = (b.x - a.x) / N, dy = (b.y - a.y) / N;</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt;= N; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		e[i].x = a.x + dx * i, e[i].y = a.y + dy * i;</span><br><span class="line">		t1[i] = <span class="built_in">dis</span>(a, e[i]) / p;</span><br><span class="line">	&#125;</span><br><span class="line">	dx = (d.x - c.x) / N, dy = (d.y - c.y) / N;</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt;= N; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		f[i].x = c.x + dx * i, f[i].y = c.y + dy * i;</span><br><span class="line">		t2[i] = <span class="built_in">dis</span>(d, f[i]) / q;</span><br><span class="line">	&#125;</span><br><span class="line">  <span class="comment">//外层三分循环，枚举AB段的情况，再结合sol函数，最终求出时间最小的情况！</span></span><br><span class="line">	<span class="type">int</span> z1 = <span class="number">0</span>, y1 = N;</span><br><span class="line">	<span class="keyword">while</span> (z1 &lt;= y1)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="type">int</span> mid1 = z1 + (y1 - z1) / <span class="number">3</span>;</span><br><span class="line">		<span class="type">int</span> mid2 = y1 - (y1 - z1) / <span class="number">3</span>;</span><br><span class="line">		<span class="keyword">if</span> (<span class="built_in">sol</span>(mid1) &lt;= <span class="built_in">sol</span>(mid2)) y1 = mid2 - <span class="number">1</span>;</span><br><span class="line">		<span class="keyword">else</span> z1 = mid1 + <span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">  <span class="comment">//按照题目要求精度输出即可</span></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;%.2f\n&quot;</span>, <span class="built_in">sol</span>(z1));</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3
-id="其实还有一种妙法就是求导利用定义求导dy-dx-当-dx-极小时整个就是当前点的导数值这样就可以将三分问题转换为二分求零点的问题这里留给读者思考因为我自己其实也没试过怕写错了误导大家">其实还有一种妙法！就是求导！利用定义求导，(dy
-/ dx) 当 dx
-极小时，整个就是当前点的导数值。这样就可以将三分问题转换为二分求零点的问题！这里留给读者思考（因为我自己其实也没试过，怕写错了误导大家~</h3>
-<p>再附上一道三分例题：<a
-href="https://ac.nowcoder.com/acm/contest/22353/1009">例题</a></p>
-]]></content>
-      <categories>
-        <category>算法</category>
-      </categories>
-  </entry>
-  <entry>
     <title>wustoj-cpp参考代码</title>
     <url>/2025/12/22/wustoj-cpp%E5%8F%82%E8%80%83%E4%BB%A3%E7%A0%81/</url>
     <content><![CDATA[<h2
@@ -1398,6 +1602,85 @@ Furniture 家具类派生）</h3>
       <tags>
         <tag>作业</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>二分&#92;三分</title>
+    <url>/2025/12/22/%E4%BA%8C%E5%88%86-%E4%B8%89%E5%88%86/</url>
+    <content><![CDATA[<h2 id="二分手搓">二分(手搓)</h2>
+<h3 id="一.找出第一个大于等于-x-的元素">一.找出第一个大于等于 x
+的元素</h3>
+<span id="more"></span>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">int</span> a[<span class="number">200005</span>];</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="type">int</span> n, x;</span><br><span class="line">	cin &gt;&gt; n &gt;&gt; x;</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">		cin &gt;&gt; a[i];</span><br><span class="line">	<span class="type">int</span> z = <span class="number">1</span>, y = n;</span><br><span class="line">  <span class="comment">//核心代码</span></span><br><span class="line">	<span class="keyword">while</span> (z &lt;= y)</span><br><span class="line">	&#123;</span><br><span class="line">    <span class="comment">//这里其实mid = (z + y) / 2，而下面的写法是为了防止有时候爆int</span></span><br><span class="line">		<span class="type">int</span> mid = z + (y - z) / <span class="number">2</span>;</span><br><span class="line">    <span class="comment">//下面两个条件判断，哪个不取等，就输出哪个</span></span><br><span class="line">		<span class="keyword">if</span> (a[mid] &gt;= x) y = mid - <span class="number">1</span>;</span><br><span class="line">		<span class="keyword">else</span> z = mid + <span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	cout &lt;&lt; z; <span class="comment">//cout &lt;&lt; y + 1;</span></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3
+id="二.找出最后一个小于等于-x-的元素这里只展示核心代码与一进行比较">二.找出最后一个小于等于
+x 的元素这里只展示核心代码，与一进行比较</h3>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> z = <span class="number">1</span>, y = n;</span><br><span class="line">  <span class="comment">//核心代码</span></span><br><span class="line"><span class="keyword">while</span> (z &lt;= y)</span><br><span class="line">&#123;</span><br><span class="line">  <span class="comment">//这里其实mid = (z + y) / 2，而下面的写法是为了防止有时候爆int</span></span><br><span class="line">  <span class="type">int</span> mid = z + (y - z) / <span class="number">2</span>;</span><br><span class="line">  <span class="comment">//下面两个条件判断，哪个不取等，就输出哪个</span></span><br><span class="line">  <span class="keyword">if</span> (a[mid] &lt;= x) z = mid + <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">else</span> y = mid - <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line">cout &lt;&lt; y; <span class="comment">//cout &lt;&lt; z - 1;</span></span><br></pre></td></tr></table></figure>
+<h3
+id="简单记忆区分两种情况在于先判断哪种情况">简单记忆区分两种情况在于先判断哪种情况</h3>
+<h2 id="二分stl">二分(STL)</h2>
+<pre><code>binary_search 返回 bool 值， 是否存在
+lower_bound 返回第一个大于等于 x 元素的地址
+upper_bound 返回第一个大于 x 的元素的地址
+这三个的参数(a, a + n, x)</code></pre>
+<h2 id="答案检验法">答案检验法</h2>
+<p>一种使用二分思想的方法，给出答案可能的最小值 z ，最大值
+y，然后对答案进行二分，假设每次二分的结果就是最后的正确答案，然后循环内部进行
+judge
+函数判断是否满足，从而进行不同的左右区间缩减。最终找到真正的正确答案。</p>
+<h3 id="分数规划-的解法就是使用答案检验法">01 分数规划
+的解法就是使用答案检验法</h3>
+<p><a
+href="https://ac.nowcoder.com/acm/contest/22353/1011">模板题</a></p>
+<p>题解：假设每次二分的答案为 x，现在要验证 x 的正确性 (v1 + v2 + v3 +
+……vk) / (w1 + w2 + w3 + ……wk) 是否&gt; x</p>
+<p>即 (v1 + v2 + v3 + ……vk) 是否&gt; (w1 + w2 + w3 + ……wk) * x</p>
+<p>即(v1 + v2 + v3 + ……vk) - (w1 + w2 + w3 + ……wk) * x 是否&gt; 0</p>
+<p>即 (i=1 到 i=k 项的和) vi- x * wi 是否&gt; 0</p>
+<p>ac 代码如下：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">double</span> y = <span class="number">0</span>;</span><br><span class="line"><span class="type">int</span> n, k;</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">ty</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="type">double</span> w, v;</span><br><span class="line">	<span class="type">double</span> m;</span><br><span class="line">&#125;a[<span class="number">500010</span>];</span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">cmp</span><span class="params">(ty a, ty b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> a.m &gt; b.m;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">judge</span><span class="params">(<span class="type">double</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">		a[i].m = a[i].v - a[i].w * x;</span><br><span class="line">	<span class="built_in">sort</span>(a + <span class="number">1</span>, a + <span class="number">1</span> + n, cmp);</span><br><span class="line">	<span class="type">double</span> sum = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= k; i++)</span><br><span class="line">		sum += a[i].m;</span><br><span class="line">	<span class="keyword">if</span> (sum &gt;= <span class="number">0</span>) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	cin &gt;&gt; n &gt;&gt; k;</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		cin &gt;&gt; a[i].w &gt;&gt; a[i].v;</span><br><span class="line">		y += a[i].w;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="type">double</span> z = <span class="number">0</span>;</span><br><span class="line">	<span class="type">int</span> t = <span class="number">100</span>;</span><br><span class="line">	<span class="keyword">while</span> (t--)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="type">double</span> mid = (z + y) / <span class="number">2</span>;</span><br><span class="line">		<span class="keyword">if</span> (<span class="built_in">judge</span>(mid)) z = mid;</span><br><span class="line">		<span class="keyword">else</span> y = mid;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;%.9lf&quot;</span>, (z + y) / <span class="number">2</span>);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="三分">三分</h2>
+<h3
+id="三分法用来解决单峰单谷问题经典二次函数型的变化时可以使用三分优化">三分法用来解决单峰单谷问题，经典二次函数型的变化时，可以使用三分优化</h3>
+<h3
+id="当问题是解决一堆都是整数的问题时较为简单模板代码如下">当问题是解决一堆都是整数的问题时，较为简单，模板代码如下：</h3>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="comment">//下面就是要寻找的二次函数型数组，目标是找到其中的最大值</span></span><br><span class="line"><span class="type">int</span> a[<span class="number">10</span>] = &#123; <span class="number">0</span>, <span class="number">3</span>, <span class="number">25</span>, <span class="number">21</span>, <span class="number">20</span>, <span class="number">14</span>, <span class="number">12</span>, <span class="number">7</span>, <span class="number">2</span>, <span class="number">1</span> &#125;;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="type">int</span> z = <span class="number">0</span>, y = <span class="number">9</span>;</span><br><span class="line">	<span class="keyword">while</span> (z &lt;= y)</span><br><span class="line">	&#123;</span><br><span class="line">    <span class="comment">//三分，就是将区间尽量平均分成三份</span></span><br><span class="line">		<span class="type">int</span> mid1 = z + (y - z) / <span class="number">3</span>;</span><br><span class="line">		<span class="type">int</span> mid2 = y - (y - z) / <span class="number">3</span>;</span><br><span class="line">    <span class="comment">//判断两者中的较大值，那么较小值的一方的元素都不可能是最大值，直接舍去</span></span><br><span class="line">		<span class="keyword">if</span> (a[mid1] &gt;= a[mid2]) y = mid2 - <span class="number">1</span>;</span><br><span class="line">		<span class="keyword">else</span> z = mid1 + <span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">  <span class="comment">//最终结果位置与二分类似</span></span><br><span class="line">	cout &lt;&lt; a[z] &lt;&lt; endl;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3
+id="但是要使用三分思路解决的问题往往是要求到实数问题的变化过程往往是一段连续实数的函数而不是像数列那样的连续整数那会有什么变化吗">但是要使用三分思路解决的问题往往是要求到实数，问题的变化过程往往是一段连续实数的函数，而不是像数列那样的连续整数，那会有什么变化吗？</h3>
+<p>上面模板中的循环判断 while(z &lt;= y) 是通过整数 z 和
+y，也就是下标的序数进行更替判断，我们知道整数在进行除法会有自动向下取整，但是
+double
+类型会有一定的小数精确，但是这个精确度是不够用的，在经过多次运算误差就会越来越大，最后很可能就改变答案导致错误！</p>
+<h2 id="这里给出三种解决思路">这里给出三种解决思路</h2>
+<h3
+id="一.直接使用数据本身进行循环判断既然实数多次计算有误差while-直接用来判断每次两者差值小于某个-epsilon例如-1e-7来控制循环结束这时候数据已经细分很小可以直接近似得到最值了具体精度控制看题目要求">一.直接使用数据本身进行循环判断，既然实数多次计算有误差，while
+直接用来判断每次两者差值小于某个 epsilon（例如
+1e-7），来控制循环结束（这时候数据已经细分很小，可以直接近似得到最值了）具体精度控制看题目要求</h3>
+<p>代码如下：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">double</span> <span class="title">f</span><span class="params">(<span class="type">double</span> x)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 示例函数，此处替换为实际函数</span></span><br><span class="line">    <span class="keyword">return</span> -x*x + <span class="number">2</span>*x + <span class="number">3</span>; <span class="comment">// 极大值在x=1处</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 精度控制</span></span><br><span class="line"><span class="type">const</span> <span class="type">double</span> eps = <span class="number">1e-9</span>;</span><br><span class="line"><span class="keyword">while</span> (r - l &gt; eps)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">double</span> m1 = l + (r - l) / <span class="number">3</span>;</span><br><span class="line">    <span class="type">double</span> m2 = r - (r - l) / <span class="number">3</span>;</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">f</span>(m1) &lt; <span class="built_in">f</span>(m2))</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// 求极大值，若求极小值则改为&gt;,极值在[m1, r]</span></span><br><span class="line">        l = m1;</span><br><span class="line">    &#125; <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">      <span class="comment">// 极值在[l, m2]</span></span><br><span class="line">        r = m2;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 返回近似极值点</span></span><br><span class="line"><span class="keyword">return</span> (l + r) / <span class="number">2</span>;</span><br></pre></td></tr></table></figure>
+<h3
+id="二.我们发现当每一次三分数据总数都会缩小三分之一那么当循环次数达到一定多时剩余数据就能够在误差范围内得到正确答案所以可以固定循环次数为循环条件进行三分">二.我们发现当每一次三分数据总数都会缩小三分之一，那么当循环次数达到一定多时，剩余数据就能够在误差范围内得到正确答案！所以可以固定循环次数为循环条件进行三分！</h3>
+<p>代码如下：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> T = <span class="number">100</span>; <span class="comment">// 迭代次数，确保精度</span></span><br><span class="line"><span class="function"><span class="type">double</span> <span class="title">f</span><span class="params">(<span class="type">double</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> -x*x + <span class="number">2</span>*x + <span class="number">3</span>; <span class="comment">// 示例函数，极大值在x=1</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">double</span> <span class="title">ternary_search_fixed_loop</span><span class="params">(<span class="type">double</span> l, <span class="type">double</span> r, <span class="type">int</span> T)</span> </span>&#123;</span><br><span class="line"><span class="keyword">while</span> (T--)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">double</span> m1 = l + (r - l) / <span class="number">3</span>;</span><br><span class="line">    <span class="type">double</span> m2 = r - (r - l) / <span class="number">3</span>;</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">f</span>(m1) &lt; <span class="built_in">f</span>(m2))</span><br><span class="line">    &#123; <span class="comment">// 求极大值</span></span><br><span class="line">        l = m1; <span class="comment">// 极值在右区间</span></span><br><span class="line">    &#125; <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        r = m2; <span class="comment">// 极值在左区间</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">return</span> (l + r) / <span class="number">2</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3
+id="三.将要求的实数区间存放在整数数组中例如给定一段长度的两端值我们主动将这段长度均分为-n-份n-可能是-500010000..这时候就可以将问题转换为最简单的模板类型解决">三.将要求的实数区间存放在整数数组中，例如：给定一段长度的两端值，我们主动将这段长度均分为
+N 份(N 可能是
+5000，10000…..)，这时候就可以将问题转换为最简单的模板类型解决！</h3>
+<p>此情况直接附上题目进行理解吧</p>
+<h3 id="例题"><a
+href="https://ac.nowcoder.com/acm/contest/22353/1025">例题</a></h3>
+<p>本题较为复杂，涉及两个三分嵌套，并将三分问题按照法三转换为整数型模板！</p>
+<p>ac 代码如下：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">5005</span>;</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">ty</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="type">double</span> x, y;</span><br><span class="line">&#125;a, b, c, d, e[N + <span class="number">5</span>], f[N + <span class="number">5</span>];</span><br><span class="line"><span class="comment">//t1是当前点到A点所需的时间，t2是当前点到D点所需的时间</span></span><br><span class="line"><span class="type">double</span> t1[N + <span class="number">5</span>], t2[N + <span class="number">5</span>];</span><br><span class="line"><span class="type">double</span> p, q, r;</span><br><span class="line"><span class="comment">//计算距离的函数</span></span><br><span class="line"><span class="function"><span class="type">double</span> <span class="title">dis</span><span class="params">(ty a, ty b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="built_in">sqrt</span>((a.x - b.x) * (a.x - b.x) + (a.y - b.y) * (a.y - b.y));</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//第二个三分，用于嵌套在第一个三分内部，返回总时间最小的情况</span></span><br><span class="line"><span class="function"><span class="type">double</span> <span class="title">sol</span><span class="params">(<span class="type">int</span> mid)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="type">int</span> z2 = <span class="number">0</span>, y2 = N;</span><br><span class="line">	<span class="keyword">while</span> (z2 &lt;= y2)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="type">int</span> mid1 = z2 + (y2 - z2) / <span class="number">3</span>;</span><br><span class="line">		<span class="type">int</span> mid2 = y2 - (y2 - z2) / <span class="number">3</span>;</span><br><span class="line">		<span class="keyword">if</span> ((t1[mid] + t2[mid1] + (<span class="built_in">dis</span>(e[mid], f[mid1]) / r)) &lt;= (t1[mid] + t2[mid2] + (<span class="built_in">dis</span>(e[mid], f[mid2]) / r)))</span><br><span class="line">			y2 = mid2 - <span class="number">1</span>;</span><br><span class="line">		<span class="keyword">else</span> z2 = mid1 + <span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> (t1[mid] + t2[z2] + (<span class="built_in">dis</span>(e[mid], f[z2]) / r));</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	cin &gt;&gt; a.x &gt;&gt; a.y &gt;&gt; b.x &gt;&gt; b.y;</span><br><span class="line">	cin &gt;&gt; c.x &gt;&gt; c.y &gt;&gt; d.x &gt;&gt; d.y;</span><br><span class="line">	cin &gt;&gt; p &gt;&gt; q &gt;&gt; r;</span><br><span class="line">  <span class="comment">//关键步骤！！！用于将实数三分转换为整数型三分，最后分别存放于数组 e 和 f 中。</span></span><br><span class="line">	<span class="type">double</span> dx = (b.x - a.x) / N, dy = (b.y - a.y) / N;</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt;= N; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		e[i].x = a.x + dx * i, e[i].y = a.y + dy * i;</span><br><span class="line">		t1[i] = <span class="built_in">dis</span>(a, e[i]) / p;</span><br><span class="line">	&#125;</span><br><span class="line">	dx = (d.x - c.x) / N, dy = (d.y - c.y) / N;</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt;= N; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		f[i].x = c.x + dx * i, f[i].y = c.y + dy * i;</span><br><span class="line">		t2[i] = <span class="built_in">dis</span>(d, f[i]) / q;</span><br><span class="line">	&#125;</span><br><span class="line">  <span class="comment">//外层三分循环，枚举AB段的情况，再结合sol函数，最终求出时间最小的情况！</span></span><br><span class="line">	<span class="type">int</span> z1 = <span class="number">0</span>, y1 = N;</span><br><span class="line">	<span class="keyword">while</span> (z1 &lt;= y1)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="type">int</span> mid1 = z1 + (y1 - z1) / <span class="number">3</span>;</span><br><span class="line">		<span class="type">int</span> mid2 = y1 - (y1 - z1) / <span class="number">3</span>;</span><br><span class="line">		<span class="keyword">if</span> (<span class="built_in">sol</span>(mid1) &lt;= <span class="built_in">sol</span>(mid2)) y1 = mid2 - <span class="number">1</span>;</span><br><span class="line">		<span class="keyword">else</span> z1 = mid1 + <span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">  <span class="comment">//按照题目要求精度输出即可</span></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;%.2f\n&quot;</span>, <span class="built_in">sol</span>(z1));</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3
+id="其实还有一种妙法就是求导利用定义求导dy-dx-当-dx-极小时整个就是当前点的导数值这样就可以将三分问题转换为二分求零点的问题这里留给读者思考因为我自己其实也没试过怕写错了误导大家">其实还有一种妙法！就是求导！利用定义求导，(dy
+/ dx) 当 dx
+极小时，整个就是当前点的导数值。这样就可以将三分问题转换为二分求零点的问题！这里留给读者思考（因为我自己其实也没试过，怕写错了误导大家~</h3>
+<p>再附上一道三分例题：<a
+href="https://ac.nowcoder.com/acm/contest/22353/1009">例题</a></p>
+]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
   </entry>
   <entry>
     <title>优化网上冲浪体验的 Z 种办法</title>
@@ -3200,138 +3483,6 @@ class="math display">(<em>d</em><sub>Chebyshev</sub>=<em>d</em><sub>Manhattan</s
       </categories>
   </entry>
   <entry>
-    <title>AI翻译插件配置教程</title>
-    <url>/2025/12/22/AI%E7%BF%BB%E8%AF%91%E6%8F%92%E4%BB%B6%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B/</url>
-    <content><![CDATA[<h1 id="ai-翻译插件配置">ai 翻译插件配置</h1>
-<h2 id="前言">前言</h2>
-<h3 id="必要性">必要性：</h3>
-<p>无论是在算法学习或者学习 csdiy
-的课程，与英文文档打交道都是不可避免的，但是往往浏览器自带的机翻，非常差劲，毕竟对于大量的专业名词动词，机翻往往不能翻译恰当。这些都是计算机学习的第一道障碍……</p>
-<span id="more"></span>
-<h3 id="功能">功能：</h3>
-<p>而 ai 翻译插件，是通过调用 ai 接口，实现 ai 智能翻译，ai
-的优势在于，它可以根据情景翻译出恰当的语义，并且下面介绍的插件翻译，实现的是一段一翻，也就是说，会有一段原文紧接着一段译文，这样也方便使用者对比适当学习英语<del>如果你愿意的话</del></p>
-<h2 id="配置教程">配置教程</h2>
-<h3 id="首先获取-ai-的接口">首先获取 ai 的接口</h3>
-<p>（前言：ai
-接口的使用是需要付费的，按照用量计费，但实际上非常便宜，实测 1
-美元可以使用三个月以上<del>我一开始不常用的话，可以用四五个月…..</del>）</p>
-<ul>
-<li>打开下面网站</li>
-</ul>
-<p><span class="exturl" data-url="aHR0cHM6Ly9haWh1Ym1peC5jb20=">AI<i class="fa fa-external-link-alt"></i></span></p>
-<p>（如下图所示</p>
-<figure>
-<img src="/assets/12.png" alt="1" />
-<figcaption aria-hidden="true">1</figcaption>
-</figure>
-<ul>
-<li>然后注册一个自己的账号</li>
-<li>点击【充值】界面，先买一美刀</li>
-<li>点击【模型】界面 （如下图所示</li>
-</ul>
-<figure>
-<img src="/assets/13.png" alt="1" />
-<figcaption aria-hidden="true">1</figcaption>
-</figure>
-<ul>
-<li>找一些输入/输出 Tokens 花费较少的 ai
-即可，我用的是<code>gpt-5-nano</code> （如下图所示</li>
-</ul>
-<figure>
-<img src="/assets/14.png" alt="1" />
-<figcaption aria-hidden="true">1</figcaption>
-</figure>
-<ul>
-<li>然后记住你选择的 ai，再回到最上面，点击【秘钥】 （如下图所示</li>
-</ul>
-<figure>
-<img src="/assets/16.png" alt="1" />
-<figcaption aria-hidden="true">1</figcaption>
-</figure>
-<ul>
-<li>点击【创建
-key】，自己可以随便设置<code>key名称</code>，主要是要点击【高级设置】展开
-（如下图所示</li>
-</ul>
-<figure>
-<img src="/assets/17.png" alt="1" />
-<figcaption aria-hidden="true">1</figcaption>
-</figure>
-<ul>
-<li><p>【模型范围】选择刚才找到的合适的 ai 接口（如
-我这里选择较便宜的<code>gpt-5-nano</code> ） 然后点击提交即可</p></li>
-<li><p>然后保留这个页面，新建页面进行后续操作</p></li>
-</ul>
-<h3 id="下载插件">下载插件</h3>
-<ul>
-<li><a
-href="https://microsoftedge.microsoft.com/addons/detail/%E6%B2%89%E6%B5%B8%E5%BC%8F%E7%BF%BB%E8%AF%91-%E7%BD%91%E9%A1%B5%E7%BF%BB%E8%AF%91%E6%8F%92%E4%BB%B6-pdf%E7%BF%BB%E8%AF%91-/amkbmndfnliijdhojkpoglbnaaahippg">沉浸式翻译</a>
-打开这个插件，并点击【获取】，获取成功后，右上角拓展中就可以找到它了
-（如下图所示</li>
-</ul>
-<figure>
-<img src="/assets/18.png" alt="1" />
-<figcaption aria-hidden="true">1</figcaption>
-</figure>
-<ul>
-<li>点击【沉浸式翻译】打开, - 点击左下角【设置】打开设置界面
-（如下图所示</li>
-</ul>
-<figure>
-<img src="/assets/19.png" alt="1" />
-<figcaption aria-hidden="true">1</figcaption>
-</figure>
-<ul>
-<li>在左侧栏目中，找到【翻译服务】，再在页面的模型中找到【其他/自定义】，打开并选择【OpenAI
-1】 （如下图所示</li>
-</ul>
-<figure>
-<img src="/assets/21.png" alt="1" />
-<figcaption aria-hidden="true">1</figcaption>
-</figure>
-<ul>
-<li>这时候回到刚才保留的页面中，将刚才创建的接口的<code>key</code>复制一下，然后粘贴到新页面的【APIKEY】中。并选择模型为刚刚自己创建的
-key 的模型（如我这里是<code>gpt-5-nano</code>）</li>
-<li>然后接着往下看，可以找到【自定义 API
-接口地址】，将原先内容删除，并把下面这段，复制上去</li>
-</ul>
-<p><code>https://aihubmix.com/v1/chat/completions</code></p>
-<ul>
-<li>到此基本配置完成，看到页面最上方，有个【点击测试服务】，点击后即可知道是否配置成功啦</li>
-</ul>
-<h2 id="使用设置">使用设置</h2>
-<ul>
-<li>接下来随便打开一个含有外语网页 （如下图所示</li>
-</ul>
-<figure>
-<img src="/assets/23.png" alt="1" />
-<figcaption aria-hidden="true">1</figcaption>
-</figure>
-<ul>
-<li>不难发现右侧有个粉色小按钮，鼠标移动至按钮上方（不点击）
-（如下图所示</li>
-</ul>
-<figure>
-<img src="/assets/24.png" alt="1" />
-<figcaption aria-hidden="true">1</figcaption>
-</figure>
-<ul>
-<li>点击设置打开，并将【翻译服务】设置为【OpenAI 1】</li>
-</ul>
-<figure>
-<img src="/assets/25.png" alt="1" />
-<figcaption aria-hidden="true">1</figcaption>
-</figure>
-<ul>
-<li>至此彻底完成配置，之后再使用翻译只需点击这个粉色小按钮稍待即可翻译成功！</li>
-</ul>
-]]></content>
-      <categories>
-        <category>技术分享</category>
-      </categories>
-  </entry>
-  <entry>
     <title>离散数学序理论</title>
     <url>/2025/12/22/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6%E5%BA%8F%E7%90%86%E8%AE%BA/</url>
     <content><![CDATA[<h2 id="序理论">序理论</h2>
@@ -3769,6 +3920,74 @@ cl.exe。</p>
       </tags>
   </entry>
   <entry>
+    <title>自动刷课</title>
+    <url>/2025/12/22/%E8%87%AA%E5%8A%A8%E5%88%B7%E8%AF%BE/</url>
+    <content><![CDATA[<h1 id="补充">2025.6.5 补充！！！</h1>
+<p>软件最新更新，无需使用任何外在浏览器（不用下载谷歌浏览器了），需要下载最新版软件，选择软件自带的内置浏览器即可正常使用！
+最新脚本软件：https://cdn.ocsjs.com/app/download/ocs-2.8.3-setup-win-x64.exe</p>
+<span id="more"></span>
+<h1 id="补充-1">2025.4.15 补充！！！</h1>
+<p>这段时间按照下面操作仍无法使用
+解决方法，按照下面操作执行后运行页面后，页面右上角提示“脚本猫已关闭…”，点击管理扩展程序进入，将页面右上方开发者模式打开，并且将页面下方脚本猫的按钮也打开，然后关闭网页，重启软件即可恢复正常使用。</p>
+<h2
+id="如果你要解决的软件不在下面这几个之中请移步另一篇博文自动刷题刷课">如果你要解决的软件不在下面这几个之中，请移步另一篇博文“自动刷题刷课”</h2>
+<figure>
+<img src="/assets/4226c9c52a7a78678e8f0076a35ab0c0.png" alt="图" />
+<figcaption aria-hidden="true">图</figcaption>
+</figure>
+<h3 id="必要说明">必要说明</h3>
+<p>1.网课脚本不要开倍速！有的会系统识别用时过短然后清理你的记录还要重新看！对于网课，脚本便利在于可以自动下集，也就是说可以开着挂一个晚上就刷好了。（当然有些水课没管就可以高倍速速通，可以自己试一下，一段时间后如果清零就老实不开倍速挂着）</p>
+<p>2.题目练习脚本大多是依靠题库，而题库可能会出现有的题目没有，或者题库答案不准确，正确率无法保证！不同脚本正确率有的相差巨大，建议多试几个。</p>
+<p>使用前务必看完“必要说明”</p>
+<h2
+id="本脚本与我没有任何关系只不过刚好找到它并将它记录下来方便身边同学使用">本脚本与我没有任何关系，只不过刚好找到它，并将它记录下来，方便身边同学使用</h2>
+<h3
+id="一.确保电脑有谷歌浏览器edge-不行如果没有在下面链接下载一个">一.确保电脑有谷歌浏览器（edge
+不行！）如果没有，在下面链接下载一个</h3>
+<p>谷歌：https://www.google.cn/intl/zh-CN/chrome/</p>
+<h3
+id="二.在电脑下载脚本运行软件点击下面链接或者复制至浏览器下载-windows-版本">二.在电脑下载脚本运行软件，点击下面链接（或者复制至浏览器）下载
+windows 版本</h3>
+<p>脚本软件：https://cdn.ocsjs.com/app/download/ocs-2.6.7-setup-win-x64.exe</p>
+<h3
+id="三.打开刚刚下载的软件跟着顶部视频操作即可简单实用">三.打开刚刚下载的软件，跟着顶部视频操作即可，简单实用</h3>
+<div class="video-container">
+<iframe src="//player.bilibili.com/player.html?isOutside=true&amp;aid=114076092996360&amp;bvid=BV1Sp9AYAEQT&amp;cid=28606400676&amp;p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true">
+</iframe>
+</div>
+<style>
+<p>.video-container { position: relative; width: 100%; padding-top:
+56.25%; /* 16:9 aspect ratio (height/width = 9/16 * 100%) */ }</p>
+<p>.video-container iframe { position: absolute; top: 0; left: 0; width:
+100%; height: 100%; }</p>
+<div class="video-container">
+<iframe src="//player.bilibili.com/player.html?isOutside=true&amp;aid=114076092996360&amp;bvid=BV1Sp9AYAEQT&amp;cid=28606400676&amp;p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true">
+</iframe>
+</div>
+<style>
+.video-container {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%; /* 16:9 aspect ratio (height/width = 9/16 * 100%) */
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+</style>
+]]></content>
+      <categories>
+        <category>技术分享</category>
+      </categories>
+      <tags>
+        <tag>作业</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>课外小读物</title>
     <url>/2025/12/22/%E8%AF%BE%E5%A4%96%E5%B0%8F%E8%AF%BB%E7%89%A9/</url>
     <content><![CDATA[<h3 id="阅读前须知">阅读前须知</h3>
@@ -4013,73 +4232,5 @@ c++可以处理的数据内，进行加法运算相当简单（下面代码用 c
       <categories>
         <category>算法</category>
       </categories>
-  </entry>
-  <entry>
-    <title>自动刷课</title>
-    <url>/2025/12/22/%E8%87%AA%E5%8A%A8%E5%88%B7%E8%AF%BE/</url>
-    <content><![CDATA[<h1 id="补充">2025.6.5 补充！！！</h1>
-<p>软件最新更新，无需使用任何外在浏览器（不用下载谷歌浏览器了），需要下载最新版软件，选择软件自带的内置浏览器即可正常使用！
-最新脚本软件：https://cdn.ocsjs.com/app/download/ocs-2.8.3-setup-win-x64.exe</p>
-<span id="more"></span>
-<h1 id="补充-1">2025.4.15 补充！！！</h1>
-<p>这段时间按照下面操作仍无法使用
-解决方法，按照下面操作执行后运行页面后，页面右上角提示“脚本猫已关闭…”，点击管理扩展程序进入，将页面右上方开发者模式打开，并且将页面下方脚本猫的按钮也打开，然后关闭网页，重启软件即可恢复正常使用。</p>
-<h2
-id="如果你要解决的软件不在下面这几个之中请移步另一篇博文自动刷题刷课">如果你要解决的软件不在下面这几个之中，请移步另一篇博文“自动刷题刷课”</h2>
-<figure>
-<img src="/assets/4226c9c52a7a78678e8f0076a35ab0c0.png" alt="图" />
-<figcaption aria-hidden="true">图</figcaption>
-</figure>
-<h3 id="必要说明">必要说明</h3>
-<p>1.网课脚本不要开倍速！有的会系统识别用时过短然后清理你的记录还要重新看！对于网课，脚本便利在于可以自动下集，也就是说可以开着挂一个晚上就刷好了。（当然有些水课没管就可以高倍速速通，可以自己试一下，一段时间后如果清零就老实不开倍速挂着）</p>
-<p>2.题目练习脚本大多是依靠题库，而题库可能会出现有的题目没有，或者题库答案不准确，正确率无法保证！不同脚本正确率有的相差巨大，建议多试几个。</p>
-<p>使用前务必看完“必要说明”</p>
-<h2
-id="本脚本与我没有任何关系只不过刚好找到它并将它记录下来方便身边同学使用">本脚本与我没有任何关系，只不过刚好找到它，并将它记录下来，方便身边同学使用</h2>
-<h3
-id="一.确保电脑有谷歌浏览器edge-不行如果没有在下面链接下载一个">一.确保电脑有谷歌浏览器（edge
-不行！）如果没有，在下面链接下载一个</h3>
-<p>谷歌：https://www.google.cn/intl/zh-CN/chrome/</p>
-<h3
-id="二.在电脑下载脚本运行软件点击下面链接或者复制至浏览器下载-windows-版本">二.在电脑下载脚本运行软件，点击下面链接（或者复制至浏览器）下载
-windows 版本</h3>
-<p>脚本软件：https://cdn.ocsjs.com/app/download/ocs-2.6.7-setup-win-x64.exe</p>
-<h3
-id="三.打开刚刚下载的软件跟着顶部视频操作即可简单实用">三.打开刚刚下载的软件，跟着顶部视频操作即可，简单实用</h3>
-<div class="video-container">
-<iframe src="//player.bilibili.com/player.html?isOutside=true&amp;aid=114076092996360&amp;bvid=BV1Sp9AYAEQT&amp;cid=28606400676&amp;p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true">
-</iframe>
-</div>
-<style>
-<p>.video-container { position: relative; width: 100%; padding-top:
-56.25%; /* 16:9 aspect ratio (height/width = 9/16 * 100%) */ }</p>
-<p>.video-container iframe { position: absolute; top: 0; left: 0; width:
-100%; height: 100%; }</p>
-<div class="video-container">
-<iframe src="//player.bilibili.com/player.html?isOutside=true&amp;aid=114076092996360&amp;bvid=BV1Sp9AYAEQT&amp;cid=28606400676&amp;p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true">
-</iframe>
-</div>
-<style>
-.video-container {
-    position: relative;
-    width: 100%;
-    padding-top: 56.25%; /* 16:9 aspect ratio (height/width = 9/16 * 100%) */
-}
-
-.video-container iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}
-</style>
-]]></content>
-      <categories>
-        <category>技术分享</category>
-      </categories>
-      <tags>
-        <tag>作业</tag>
-      </tags>
   </entry>
 </search>
