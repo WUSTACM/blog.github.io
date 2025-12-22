@@ -20,15 +20,15 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":"flat"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="前言 大一上学期刚刚开始学习算法，第一课就是模拟，模拟的第一题就是高精度加法，随后又有乘法，减法，除法。刚开始手搓起来相当难受，没有总结，每一道新题的高精度算法都像是在第一次写，费时间不说，还常常出错，现在刚好找个时间在此总结一下。">
+  <meta name="description" content="前言大一上学期刚刚开始学习算法，第一课就是模拟，模拟的第一题就是高精度加法，随后又有乘法，减法，除法。刚开始手搓起来相当难受，没有总结，每一道新题的高精度算法都像是在第一次写，费时间不说，还常常出错，现在刚好找个时间在此总结一下。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="高精度算法">
 <meta property="og:url" content="http://example.com/2025/12/22/%E9%AB%98%E7%B2%BE%E5%BA%A6%E7%AE%97%E6%B3%95/index.html">
 <meta property="og:site_name" content="WUSTACM">
-<meta property="og:description" content="前言 大一上学期刚刚开始学习算法，第一课就是模拟，模拟的第一题就是高精度加法，随后又有乘法，减法，除法。刚开始手搓起来相当难受，没有总结，每一道新题的高精度算法都像是在第一次写，费时间不说，还常常出错，现在刚好找个时间在此总结一下。">
+<meta property="og:description" content="前言大一上学期刚刚开始学习算法，第一课就是模拟，模拟的第一题就是高精度加法，随后又有乘法，减法，除法。刚开始手搓起来相当难受，没有总结，每一道新题的高精度算法都像是在第一次写，费时间不说，还常常出错，现在刚好找个时间在此总结一下。">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2025-12-22T06:59:30.514Z">
-<meta property="article:modified_time" content="2025-12-22T06:59:30.514Z">
+<meta property="article:published_time" content="2025-12-22T07:00:40.899Z">
+<meta property="article:modified_time" content="2025-12-22T07:00:40.899Z">
 <meta property="article:author" content="Blog">
 <meta name="twitter:card" content="summary">
 
@@ -219,7 +219,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2025-12-22 06:59:30" itemprop="dateCreated datePublished" datetime="2025-12-22T06:59:30+00:00">2025-12-22</time>
+              <time title="创建时间：2025-12-22 07:00:40" itemprop="dateCreated datePublished" datetime="2025-12-22T07:00:40+00:00">2025-12-22</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -256,62 +256,52 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="前言">前言</h2>
-<p>大一上学期刚刚开始学习算法，第一课就是模拟，模拟的第一题就是高精度加法，随后又有乘法，减法，除法。刚开始手搓起来相当难受，没有总结，每一道新题的高精度算法都像是在第一次写，费时间不说，还常常出错，现在刚好找个时间在此总结一下。</p>
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>大一上学期刚刚开始学习算法，第一课就是模拟，模拟的第一题就是高精度加法，随后又有乘法，减法，除法。刚开始手搓起来相当难受，没有总结，每一道新题的高精度算法都像是在第一次写，费时间不说，还常常出错，现在刚好找个时间在此总结一下。</p>
 <span id="more"></span>
-<p>高精度算法：由于 c 语言或者
-c++中，给定的数据范围有限，在一些对于较大数据的计算时候，无法直接由数据进行加减乘除运算去得到最后正确的答案，所有就需要借助字符串模拟大数据的算术式，模拟计算过程得到答案，这就是所谓的高精度加减乘除算法。（语言不好理解，往下看！）</p>
-<h2 id="加法前言">加法前言</h2>
-<p>对于加法，在一些
-c++可以处理的数据内，进行加法运算相当简单（下面代码用 c++演示，与 c
-语言语法基本一致，只学过 c 语言也能看懂）</p>
+
+<p>高精度算法：由于 c 语言或者 c++中，给定的数据范围有限，在一些对于较大数据的计算时候，无法直接由数据进行加减乘除运算去得到最后正确的答案，所有就需要借助字符串模拟大数据的算术式，模拟计算过程得到答案，这就是所谓的高精度加减乘除算法。（语言不好理解，往下看！）</p>
+<h2 id="加法前言"><a href="#加法前言" class="headerlink" title="加法前言"></a>加法前言</h2><p>对于加法，在一些 c++可以处理的数据内，进行加法运算相当简单（下面代码用 c++演示，与 c 语言语法基本一致，只学过 c 语言也能看懂）</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> a = <span class="number">100</span>, b = <span class="number">100</span>;</span><br><span class="line"><span class="type">int</span> c = a + b;</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;%d&quot;</span>, c);</span><br></pre></td></tr></table></figure>
-<p>这样子显然没问题，因为数据很小，语言处理得过来，但是！我们知道 int
-类型最大值为 2147483647，而 long long 类型最大值为
-9223372036854775807‌，当变量的值超过了最大值，就会出现错误！</p>
-<p>开始思考：回想起小学就会滴算术式，9223372036854775807‌ +
-9223372036854775807‌ = ？</p>
+
+<p>这样子显然没问题，因为数据很小，语言处理得过来，但是！我们知道 int 类型最大值为 2147483647，而 long long 类型最大值为 9223372036854775807‌，当变量的值超过了最大值，就会出现错误！</p>
+<p>开始思考：回想起小学就会滴算术式，9223372036854775807‌ + 9223372036854775807‌ &#x3D; ？</p>
 <pre><code>  9223372036854775807‌
 + 9223372036854775807‌
 ----------------------
- 18446744073709551614</code></pre>
-<p>列出上面这样的算术式，从末位开始相加，如果和大于 10
-的就进位到前一位去求和，以此类推。于是我们想到是否可以用语言去模拟这个计算过程呢？整个过程就是多次计算最多
-3
-个小数字的和，通过处理多个小数字和，然后求出大数据的和，这就是高精度加法。那么接下来，开始快乐模拟！</p>
-<h1 id="高精度加法">高精度加法</h1>
-<p>整体过程：输入两个要求和的字符串，最后输出一个字符串为结果</p>
+ 18446744073709551614
+</code></pre>
+<p>列出上面这样的算术式，从末位开始相加，如果和大于 10 的就进位到前一位去求和，以此类推。于是我们想到是否可以用语言去模拟这个计算过程呢？整个过程就是多次计算最多 3 个小数字的和，通过处理多个小数字和，然后求出大数据的和，这就是高精度加法。那么接下来，开始快乐模拟！</p>
+<h1 id="高精度加法"><a href="#高精度加法" class="headerlink" title="高精度加法"></a>高精度加法</h1><p>整体过程：输入两个要求和的字符串，最后输出一个字符串为结果</p>
 <pre><code>重要步骤：1.将输入的两个字符串倒序转换为整数型数组。
 
          2.两个数组的各位数组分别求和，并存入一个新数组.
 
-         3.处理新数组，模拟实现进位，然后输出结果。</code></pre>
+         3.处理新数组，模拟实现进位，然后输出结果。
+</code></pre>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    string s1, s2;</span><br><span class="line">    cin &gt;&gt; s1 &gt;&gt; s2;</span><br><span class="line">    <span class="type">int</span> len1 = s<span class="number">1.l</span>ength();</span><br><span class="line">    <span class="type">int</span> len2 = s<span class="number">2.l</span>ength();</span><br><span class="line">    <span class="comment">//数组用来转换存储字符串的，大小根据需要定义</span></span><br><span class="line">    <span class="type">int</span> a[<span class="number">10000</span>], b[<span class="number">10000</span>];</span><br><span class="line">    <span class="comment">//用来存储答案</span></span><br><span class="line">    <span class="type">int</span> c[<span class="number">20000</span>];</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>;i &lt; len1; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">//倒序存入，并将字符通过相差‘0’转换为整数（ascll码表）</span></span><br><span class="line">        <span class="comment">//注意这里的存入数组a[0]和b[0]都是没有存入的，最小序数是1</span></span><br><span class="line">        a[len1 - i] = s1[i] - <span class="string">&#x27;0&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>;i &lt; len2; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        b[len2-i] = s2[i] - <span class="string">&#x27;0&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//c数组的长度，求和结果的位数一定不会超过较大值位数加1（自己写几个想想）</span></span><br><span class="line">    <span class="type">int</span> len3 = <span class="built_in">max</span>(len1, len2) + <span class="number">1</span>;</span><br><span class="line">    <span class="comment">//注意从序数1开始！</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>;i &lt;= len3; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">//核心代码，求和存入数组c中，注意是+=，因为数组c中会有前一位的进位要一起求和。</span></span><br><span class="line">        c[i] += a[i] + b[i];</span><br><span class="line">        <span class="comment">//大于10就进位给下一位</span></span><br><span class="line">        c[i + <span class="number">1</span>] = c[i] / <span class="number">10</span>;</span><br><span class="line">        <span class="comment">//保留个位数</span></span><br><span class="line">        c[i] = c[i] % <span class="number">10</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//因为刚才的位数len3是考虑的最大情况，这里需要清除可能没用到前置0（停下来思考一下）</span></span><br><span class="line">    <span class="keyword">if</span> (c[len3] == <span class="number">0</span> &amp;&amp; len3 &gt; <span class="number">0</span>) len3--;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = len3; i &gt; <span class="number">0</span>; i--)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">//倒序输出答案，cout输出，c语言的printf</span></span><br><span class="line">        cout &lt;&lt;c[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="乘法高精度">乘法高精度</h1>
-<p>在计算乘法高精度时，我分成两类学习，第一：大数字乘小数字（大数字指的是用字符串存的数字，小数字是可以之间用数据类型表示的数字）第二：大数字乘大数字</p>
-<h2 id="第一类">第一类</h2>
-<p>此类的重要步骤与加法的相似</p>
+
+<h1 id="乘法高精度"><a href="#乘法高精度" class="headerlink" title="乘法高精度"></a>乘法高精度</h1><p>在计算乘法高精度时，我分成两类学习，第一：大数字乘小数字（大数字指的是用字符串存的数字，小数字是可以之间用数据类型表示的数字）第二：大数字乘大数字</p>
+<h2 id="第一类"><a href="#第一类" class="headerlink" title="第一类"></a>第一类</h2><p>此类的重要步骤与加法的相似</p>
 <pre><code>重要步骤： 1.将输入的大数字的字符串倒序转换为整数型数组。
 
           2.让数组的各位数字分别与小数字求积。
 
-          3.处理数组，模拟实现进位，然后输出结果。</code></pre>
+          3.处理数组，模拟实现进位，然后输出结果。
+</code></pre>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    string s;</span><br><span class="line">    <span class="type">int</span> low;</span><br><span class="line">    <span class="comment">//输入两个乘数，一个大一个小</span></span><br><span class="line">    cin &gt;&gt; s &gt;&gt; low;</span><br><span class="line">    <span class="comment">//定义一个存放大数据的数组，最终也作为答案输出</span></span><br><span class="line">    <span class="type">int</span> a[<span class="number">10000</span>];</span><br><span class="line">    <span class="type">int</span> len = s.<span class="built_in">length</span>();</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>;i &lt; len; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">//倒序存入，并将字符通过相差‘0’转换为整数（ascll码表）</span></span><br><span class="line">        <span class="comment">//注意这里的存入数组a[0]和b[0]都是没有存入的，最小序数是1</span></span><br><span class="line">        a[len - i] = s[i] - <span class="string">&#x27;0&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//下面开始乘积</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= len; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">//数组每一位都乘于小数字</span></span><br><span class="line">        a[i] *= low;</span><br><span class="line">        <span class="comment">//上一位进位到下一位（注意+=，用 = 会数据覆盖了哦）</span></span><br><span class="line">        a[i] += a[i - <span class="number">1</span>] / <span class="number">10</span>;</span><br><span class="line">        <span class="comment">//上一位保留个位数</span></span><br><span class="line">        a[i - <span class="number">1</span>] %= <span class="number">10</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//最后一位的进位还没有完成！</span></span><br><span class="line">    <span class="comment">//如果最后一位ie是大于9的，就得进位</span></span><br><span class="line">    <span class="keyword">while</span> (a[len] &gt; <span class="number">9</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">//进位！</span></span><br><span class="line">        a[len + <span class="number">1</span>] = a[len] / <span class="number">10</span>;</span><br><span class="line">        a[len] %= <span class="number">10</span>;</span><br><span class="line">        <span class="comment">//更新最后一位的位数，因为循环判断的就是a[len]</span></span><br><span class="line">        len++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//最后输出，注意是倒序输出！</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = len; i &gt; <span class="number">0</span>; i --)</span><br><span class="line">    &#123;</span><br><span class="line">        cout &lt;&lt; a[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="第二类">第二类</h2>
-<p>大数字乘大数字（此类是高精度乘积的通法，第一类也可以用这个解决，只是我更喜欢区分开，因为个人认为法一更好写）</p>
-<p>我们不妨从较小数字相乘来找规律，243 * 512 = 124416</p>
+
+<h2 id="第二类"><a href="#第二类" class="headerlink" title="第二类"></a>第二类</h2><p>大数字乘大数字（此类是高精度乘积的通法，第一类也可以用这个解决，只是我更喜欢区分开，因为个人认为法一更好写）</p>
+<p>我们不妨从较小数字相乘来找规律，243 * 512 &#x3D; 124416</p>
 <pre><code>首先 243 = （2*100）+（4*10）+3
 
-     512 = （5*100）+（1*10）+2</code></pre>
+     512 = （5*100）+（1*10）+2
+</code></pre>
 <p>由乘法分配律得知，两数相乘，就是将上下 3 者分别相乘再相加</p>
-<p>于是我们进一步思考，两数的个位 2,3 相乘其实就是结果积的个位，而 512
-的个位 2 与 243 的十位 4 相乘其实是
-2*40，它对结果的影响一定从十位开始（不可能影响个位），再然后 512 的个位
-2 与 243 的百位 2 相乘 其实是
-2*200,它对结果的影响一定从百位开始（不可能影响个位和十位）</p>
+<p>于是我们进一步思考，两数的个位 2,3 相乘其实就是结果积的个位，而 512 的个位 2 与 243 的十位 4 相乘其实是 2*40，它对结果的影响一定从十位开始（不可能影响个位），再然后 512 的个位 2 与 243 的百位 2 相乘 其实是 2*200,它对结果的影响一定从百位开始（不可能影响个位和十位）</p>
 <p>于是！我们找到规律！我们可以认为两个乘数的个位相乘的积，加为结果的个位上；一个个位一个十位的积，加为结果的十位，一个个位一个百位或者两个十位的积，加为结果的百位………以此类推！</p>
 <p>最终再进行模拟进位。代码如下：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    string s1, s2;</span><br><span class="line">    cin &gt;&gt; s1 &gt;&gt; s2;</span><br><span class="line">    <span class="keyword">if</span> (s1 == <span class="string">&quot;0&quot;</span> || s2 == <span class="string">&quot;0&quot;</span>) &#123;</span><br><span class="line">        cout &lt;&lt; <span class="number">0</span> &lt;&lt; endl;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">int</span> len1 = s<span class="number">1.l</span>ength();</span><br><span class="line">    <span class="type">int</span> len2 = s<span class="number">2.l</span>ength();</span><br><span class="line">    <span class="comment">//数组用来转换存储字符串的，大小根据需要定义</span></span><br><span class="line">    <span class="type">int</span> a[<span class="number">10000</span>], b[<span class="number">10000</span>];</span><br><span class="line">    <span class="comment">//用来存储答案</span></span><br><span class="line">    <span class="type">int</span> c[<span class="number">20000</span>];</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>;i &lt; len1; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">//倒序存入，并将字符通过相差‘0’转换为整数（ascll码表）</span></span><br><span class="line">        <span class="comment">//注意这里的存入数组a[0]和b[0]都是没有存入的，最小序数是1</span></span><br><span class="line">        a[len1 - i] = s1[i] - <span class="string">&#x27;0&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>;i &lt; len2; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        b[len2-i] = s2[i] - <span class="string">&#x27;0&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//接下来开始核心代码，乘积规律模拟</span></span><br><span class="line">    <span class="comment">//首先由规律知道，结果位数不会超过两乘数位数和加2,所以待定结果位数如下</span></span><br><span class="line">    <span class="type">int</span> len = len1 + len2;</span><br><span class="line">    <span class="comment">//外循环遍历数组a，注意i对应a</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= len1; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">//内循环遍历数组b，注意j对应b</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">1</span>; j &lt;= len2; j++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="comment">//下面就是对规律的代码模拟，不理解的再看一次上面的找规律文字过程</span></span><br><span class="line">            c[i + j - <span class="number">1</span>] += a[i] * b[j];</span><br><span class="line">            <span class="comment">//进位模拟</span></span><br><span class="line">            c[i + j] += c[i + j - <span class="number">1</span>] / <span class="number">10</span>;</span><br><span class="line">            <span class="comment">//保留每位小于10</span></span><br><span class="line">            c[i + j - <span class="number">1</span>] %= <span class="number">10</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//因为刚才的位数len是考虑的最大情况，这里需要清除可能没用到前置0（与上面高精度加法一样）</span></span><br><span class="line">    <span class="keyword">if</span> (c[len] == <span class="number">0</span> &amp;&amp; len &gt; <span class="number">0</span>) len--;</span><br><span class="line">    <span class="comment">//最后循环倒序输出答案！</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = len; i &gt; <span class="number">0</span>; i--)</span><br><span class="line">    &#123;</span><br><span class="line">        cout &lt;&lt; c[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p>至此高精度乘法解决</p>
 
     </div>
@@ -345,8 +335,8 @@ c++可以处理的数据内，进行加法运算相当简单（下面代码用 c
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2025/12/22/AI%E7%BF%BB%E8%AF%91%E6%8F%92%E4%BB%B6%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B/" rel="prev" title="AI翻译插件配置教程">
-      <i class="fa fa-chevron-left"></i> AI翻译插件配置教程
+    <a href="/2025/12/22/%E6%95%B0%E5%AD%97dfs/" rel="prev" title="数字dfs">
+      <i class="fa fa-chevron-left"></i> 数字dfs
     </a></div>
       <div class="post-nav-item">
     <a href="/2025/12/22/%E8%AF%BE%E5%A4%96%E5%B0%8F%E8%AF%BB%E7%89%A9/" rel="next" title="课外小读物">

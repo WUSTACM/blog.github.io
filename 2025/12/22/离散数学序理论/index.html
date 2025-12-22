@@ -20,15 +20,15 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":"flat"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="序理论  序理论是利用二元关系来将「次序」这一概念严格化的数学分支 —oi wiki   二元关系">
+  <meta name="description" content="序理论 序理论是利用二元关系来将「次序」这一概念严格化的数学分支 —oi wiki   二元关系">
 <meta property="og:type" content="article">
 <meta property="og:title" content="离散数学序理论">
 <meta property="og:url" content="http://example.com/2025/12/22/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6%E5%BA%8F%E7%90%86%E8%AE%BA/index.html">
 <meta property="og:site_name" content="WUSTACM">
-<meta property="og:description" content="序理论  序理论是利用二元关系来将「次序」这一概念严格化的数学分支 —oi wiki   二元关系">
+<meta property="og:description" content="序理论 序理论是利用二元关系来将「次序」这一概念严格化的数学分支 —oi wiki   二元关系">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2025-12-22T06:59:30.514Z">
-<meta property="article:modified_time" content="2025-12-22T06:59:30.514Z">
+<meta property="article:published_time" content="2025-12-22T07:00:40.899Z">
+<meta property="article:modified_time" content="2025-12-22T07:00:40.899Z">
 <meta property="article:author" content="Blog">
 <meta name="twitter:card" content="summary">
 
@@ -219,7 +219,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2025-12-22 06:59:30" itemprop="dateCreated datePublished" datetime="2025-12-22T06:59:30+00:00">2025-12-22</time>
+              <time title="创建时间：2025-12-22 07:00:40" itemprop="dateCreated datePublished" datetime="2025-12-22T07:00:40+00:00">2025-12-22</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -256,212 +256,143 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="序理论">序理论</h2>
-<blockquote>
+        <h2 id="序理论"><a href="#序理论" class="headerlink" title="序理论"></a>序理论</h2><blockquote>
 <p>序理论是利用二元关系来将「次序」这一概念严格化的数学分支 —oi wiki</p>
 </blockquote>
-<hr />
-<h3 id="二元关系">二元关系</h3>
-<span id="more"></span>
+<hr>
+<h3 id="二元关系"><a href="#二元关系" class="headerlink" title="二元关系"></a>二元关系</h3><span id="more"></span>
+
 <blockquote>
-<p>有序偶对(序偶) ： 两元素按一定的次序组成的二元组，记为 &lt; x , y
-&gt;</p>
+<p>有序偶对(序偶) ： 两元素按一定的次序组成的二元组，记为 &lt; x , y &gt;</p>
 </blockquote>
-<p>对于两集合 <span class="math inline"><em>A</em></span> 和 <span
-class="math inline"><em>B</em></span>， 称集合 <span
-class="math inline"><em>A</em> × <em>B</em></span>
-为二者的<strong>笛卡尔积</strong>。</p>
-<p>笛卡尔积满足： <span
-class="math inline"><em>A</em> × <em>B</em> = { &lt; <em>x</em>, <em>y</em> &gt; |<em>x</em> ∈ <em>A</em> ∧ <em>y</em> ∈ <em>B</em>}</span></p>
+<p>对于两集合 $A$ 和 $B$， 称集合 $A\times B$ 为二者的<strong>笛卡尔积</strong>。</p>
+<p>笛卡尔积满足： $A \times B&#x3D;{&lt;x,y&gt;|x\in A \ \land\  y\in B }$</p>
 <blockquote>
-<p>若存在一个集合 <span class="math inline"><em>S</em></span> , 设 <span
-class="math inline">|<em>S</em>| = <em>n</em></span> ，那么 <span
-class="math inline"><em>S</em></span> 上不同的二元关系的个数为：</p>
+<p>若存在一个集合 $S$ , 设 $|S| &#x3D; n$ ，那么 $S$ 上不同的二元关系的个数为：</p>
 <ul>
-<li>集合 <span class="math inline"><em>S</em></span> 上的二元关系是
-<span class="math inline"><em>S</em> × <em>S</em></span> 的一个子集</li>
-<li>集合 <span class="math inline"><em>S</em></span>
-上的二元关系数量即是 <span
-class="math inline"><em>S</em> × <em>S</em></span> 的子集数量（<span
-class="math inline">2<sup><em>n</em><sup>2</sup></sup></span>）</li>
+<li>集合 $S$ 上的二元关系是 $S\times S$ 的一个子集</li>
+<li>集合 $S$ 上的二元关系数量即是 $S\times S$ 的子集数量（$2^{n^2}$）</li>
 </ul>
 </blockquote>
-<p>那么对于一个<span class="math inline"><em>A</em> × <em>B</em></span>
-上的关系 <span class="math inline"><em>R</em></span></p>
+<p>那么对于一个$A\times B$ 上的关系 $R$</p>
 <ul>
-<li><span
-class="math inline"><em>R</em> = <em>ϕ</em> ⇔ <em>R</em></span> 为 <span
-class="math inline"><em>A</em> × <em>B</em></span>
-上的<strong>空关系</strong></li>
-<li><span
-class="math inline"><em>R</em> = <em>A</em> × <em>B</em> ⇔ <em>R</em></span>
-为 <span class="math inline"><em>A</em> × <em>B</em></span>
-上的<strong>全关系</strong></li>
-<li><span
-class="math inline"><em>R</em> = <em>I</em><sub><em>A</em></sub> = { &lt; <em>x</em>, <em>y</em> &gt; | <em>x</em> ∈ <em>A</em> } ⇔ <em>R</em></span>
-为 <span class="math inline"><em>A</em></span>
-上的<strong>恒等关系</strong></li>
+<li>$R&#x3D;\phi \Leftrightarrow R$ 为 $A\times B$ 上的<strong>空关系</strong></li>
+<li>$R&#x3D;A\times B \Leftrightarrow R$ 为 $A\times B$ 上的<strong>全关系</strong></li>
+<li>$R&#x3D;I_A&#x3D;{&lt;x,y&gt;|\ x\in A\ } \Leftrightarrow R$ 为 $A$ 上的<strong>恒等关系</strong></li>
 </ul>
-<h4 id="关系的运算">关系的运算</h4>
-<ol type="1">
-<li><p>复合运算：<span
-class="math inline"><em>R</em> ∘ <em>S</em> = { &lt; <em>x</em>, <em>y</em>&gt; | <em>x</em> ∈ <em>A</em> ∧ <em>z</em> ∈ <em>C</em>  ∧ (∃<em>y</em>)(<em>y</em>∈<em>B</em>∧<em>x</em><em>R</em><em>y</em>∧<em>y</em><em>S</em><em>z</em>)}</span></p>
+<h4 id="关系的运算"><a href="#关系的运算" class="headerlink" title="关系的运算"></a>关系的运算</h4><ol>
+<li><p>复合运算：$R\circ S&#x3D;{&lt;x,y&gt;\ | \ x\in A\ \land\ z\in C\ \land (\exists y)(y\in B \land xRy \land ySz) }$</p>
 <blockquote>
-<p>简而言之 <span class="math inline"><em>R</em></span> 中有 &lt; x , y
-&gt; <span class="math inline"><em>S</em></span> 中有 &lt; y , z
-&gt;，那么二者的复合为 &lt; x , z &gt;</p>
-</blockquote></li>
-<li><p>逆运算：<span
-class="math inline">(<em>A</em>×<em>B</em>)<sup>−1</sup> = <em>B</em> × <em>A</em></span></p></li>
-<li><p>幂运算：<span class="math inline">$R^n = R^{n-1}\circ R \\R^0 =
-I_A$</span></p></li>
+<p>简而言之 $R$ 中有 &lt; x , y &gt; $S$ 中有 &lt; y , z &gt;，那么二者的复合为 &lt; x , z &gt;</p>
+</blockquote>
+</li>
+<li><p>逆运算：$(A\times B)^{-1} &#x3D; B\times A$</p>
+</li>
+<li><p>幂运算：$R^n &#x3D; R^{n-1}\circ R \R^0 &#x3D; I_A$</p>
+</li>
 </ol>
-<h4 id="关系的性质">关系的性质</h4>
-<ul>
-<li>自反性 <span
-class="math inline">(∀<em>x</em>)(<em>x</em>∈<em>A</em>→&lt;<em>x</em>,<em>x</em>&gt;∈<em>R</em>) = 1</span></li>
-<li>反自反性 <span
-class="math inline">(∀<em>x</em>)(<em>x</em>∈<em>A</em>→&lt;<em>x</em>,<em>x</em>&gt;∉<em>R</em>) = 1</span></li>
-<li>对称性 <span
-class="math inline">(∀<em>x</em>)(∀<em>y</em>)((<em>x</em>∈<em>A</em>)∧(<em>y</em>∈<em>A</em>)∧(&lt;<em>x</em>,<em>y</em>&gt;∈<em>R</em> → &lt;<em>y</em>,<em>x</em>&gt;∈<em>R</em>)) = 1</span></li>
-<li>反对称性 <span
-class="math inline">(∀<em>x</em>)(∀<em>y</em>)((<em>x</em>∈<em>A</em>)∧(<em>y</em>∈<em>A</em>)∧(&lt;<em>x</em>,<em>y</em>&gt;∈<em>R</em>)∧(&lt;<em>y</em>,<em>x</em>&gt;∈<em>R</em>→<em>x</em>=<em>y</em>)) = 1</span></li>
-<li>传递性 <span
-class="math inline">(∀<em>x</em>)(∀<em>y</em>)(∀<em>z</em>)((<em>x</em>∈<em>A</em>)∧(<em>y</em>∈<em>A</em>)∧(<em>z</em>∈<em>A</em>)∧((&lt;<em>x</em>,<em>y</em>&gt;∈<em>R</em>)∧(&lt;<em>y</em>,<em>z</em>&gt;∈<em>R</em>)→(&lt;<em>x</em>,<em>z</em>&gt;∈<em>R</em>))) = 1</span></li>
+<h4 id="关系的性质"><a href="#关系的性质" class="headerlink" title="关系的性质"></a>关系的性质</h4><ul>
+<li>自反性 $(\forall x)(x\in A \rightarrow &lt;x,x&gt;\in R)&#x3D;1$</li>
+<li>反自反性 $(\forall x)(x\in A \rightarrow &lt;x,x&gt;\notin R)&#x3D;1$</li>
+<li>对称性 $(\forall x)(\forall y)((x\in A)\land (y\in A)\land (&lt;x,y&gt;\in R\ \rightarrow \ &lt;y,x&gt;\in R))&#x3D;1$</li>
+<li>反对称性 $(\forall x)(\forall y)((x\in A)\land (y\in A)\land (&lt;x,y&gt;\in R) \land (&lt;y,x&gt;\in R\rightarrow x&#x3D;y))&#x3D;1$</li>
+<li>传递性 $(\forall x)(\forall y)(\forall z)((x\in A)\land(y\in A)\land(z\in A)\land((&lt;x,y&gt;\in R)\land(&lt;y,z&gt;\in R)\rightarrow(&lt;x,z&gt;\in R)))&#x3D;1$</li>
 </ul>
 <blockquote>
 <p>从关系图的角度理解会更简单：</p>
 <ul>
 <li>自反性：全是自环</li>
 <li>反自反性：没自环</li>
-<li>对称性：两点间只要存在边，就必须是双边（x=y 时即自环也满足</li>
+<li>对称性：两点间只要存在边，就必须是双边（x&#x3D;y 时即自环也满足</li>
 <li>反对称性：两点间只要存在边，除了自环都不能有双边</li>
 <li>传递性：参考向量的合成，<strong>需要注意自环</strong></li>
 </ul>
 </blockquote>
-<h4 id="关系的闭包">关系的闭包</h4>
-<p>闭包运算，简单来说就是将一个关系增加最少的元素，使得该关系具有某一性质</p>
-<p>自反、对称、传递闭包分别用<span
-class="math inline"><em>r</em>(<em>R</em>) <em>s</em>(<em>R</em>) <em>t</em>(<em>R</em>)</span>表示</p>
+<h4 id="关系的闭包"><a href="#关系的闭包" class="headerlink" title="关系的闭包"></a>关系的闭包</h4><p>闭包运算，简单来说就是将一个关系增加最少的元素，使得该关系具有某一性质</p>
+<p>自反、对称、传递闭包分别用$r(R)\ s(R)\ t(R)$表示</p>
 <p>更具体的计算：</p>
-<p><span
-class="math inline"><em>r</em>(<em>R</em>) = <em>R</em> ∪ <em>I</em><sub><em>A</em></sub></span></p>
-<p><span
-class="math inline"><em>s</em>(<em>R</em>) = <em>R</em> ∪ <em>R</em><sup>−1</sup></span></p>
-<p><span
-class="math inline"><em>t</em>(<em>R</em>) = ∪<sub><em>i</em> = 1</sub><sup>|<em>A</em>|</sup> <em>R</em><sup><em>i</em></sup></span></p>
-<hr />
-<h3 id="特殊关系">特殊关系</h3>
-<table>
-<colgroup>
-<col style="width: 48%" />
-<col style="width: 9%" />
-<col style="width: 12%" />
-<col style="width: 9%" />
-<col style="width: 12%" />
-<col style="width: 9%" />
-</colgroup>
+<p>$r(R) &#x3D; R\cup I_A$</p>
+<p>$s(R) &#x3D; R\cup R^{-1}$</p>
+<p>$t(R)&#x3D;\cup_{i&#x3D;1} ^{|A|}\ R^i$</p>
+<hr>
+<h3 id="特殊关系"><a href="#特殊关系" class="headerlink" title="特殊关系"></a>特殊关系</h3><table>
 <thead>
-<tr class="header">
-<th style="text-align: left;">二元关系</th>
-<th style="text-align: left;">自反性</th>
-<th style="text-align: left;">反自反性</th>
-<th style="text-align: left;">对称性</th>
-<th style="text-align: left;">反对称性</th>
-<th style="text-align: left;">传递性</th>
+<tr>
+<th align="left">二元关系</th>
+<th align="left">自反性</th>
+<th align="left">反自反性</th>
+<th align="left">对称性</th>
+<th align="left">反对称性</th>
+<th align="left">传递性</th>
 </tr>
 </thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">等价关系（equivalence relation）</td>
-<td style="text-align: left;">√</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;">√</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;">√</td>
+<tbody><tr>
+<td align="left">等价关系（equivalence relation）</td>
+<td align="left">√</td>
+<td align="left"></td>
+<td align="left">√</td>
+<td align="left"></td>
+<td align="left">√</td>
 </tr>
-<tr class="even">
-<td style="text-align: left;">拟序关系 (quasi-order set)</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;">√</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;">√</td>
-<td style="text-align: left;">√</td>
+<tr>
+<td align="left">拟序关系 (quasi-order set)</td>
+<td align="left"></td>
+<td align="left">√</td>
+<td align="left"></td>
+<td align="left">√</td>
+<td align="left">√</td>
 </tr>
-<tr class="odd">
-<td style="text-align: left;">偏序（partial order）</td>
-<td style="text-align: left;">√</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;">√</td>
-<td style="text-align: left;">√</td>
+<tr>
+<td align="left">偏序（partial order）</td>
+<td align="left">√</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">√</td>
+<td align="left">√</td>
 </tr>
-</tbody>
-</table>
-<h4 id="等价">等价</h4>
-<blockquote>
+</tbody></table>
+<h4 id="等价"><a href="#等价" class="headerlink" title="等价"></a>等价</h4><blockquote>
 <p>集合的划分：</p>
 <p>一个集合的划分，就是将该集合视为几个交集为空的非空真子集的并集。</p>
 <p>再简单些，可以将它理解为把一个集合切成几个非空的小集合。</p>
 </blockquote>
 <p><strong>等价类：</strong></p>
 <p>设 <strong>R</strong> 是非空集合 <strong>A</strong> 上的等价关系</p>
-<p>那么对于 <span
-class="math inline">∀<em>x</em> ∈ <em>A</em></span>，称集合 <span
-class="math inline">[<em>x</em>]<sub><em>R</em></sub> = {<em>y</em>|<em>y</em> ∈ <em>A</em> ∧  &lt; <em>x</em>, <em>y</em> &gt;  ∈ <em>R</em>}</span>
-为 x 关于 <strong>R</strong> 的等价类。</p>
+<p>那么对于 $\forall x\in A$，称集合 $[x]_R &#x3D; {y|y\in A\land &lt;x,y&gt;\in R}$ 为 x 关于 <strong>R</strong> 的等价类。</p>
 <blockquote>
-<p>所以，R 上所有的等价类构成的集合就是一个依据等价关系进行的 A
-的划分</p>
+<p>所以，R 上所有的等价类构成的集合就是一个依据等价关系进行的 A 的划分</p>
 <p>于是就引出了商集的概念</p>
 </blockquote>
 <p><strong>商集：</strong></p>
-<p>设 <strong>R</strong> 是非空集合 <strong>A</strong>
-上的等价关系，那么由 <strong>R</strong>
-确定的等价类的集合就称为(<strong>A</strong>上关于<strong>R</strong>的)商集，记为
-<strong>A/R</strong></p>
+<p>设 <strong>R</strong> 是非空集合 <strong>A</strong> 上的等价关系，那么由 <strong>R</strong> 确定的等价类的集合就称为(<strong>A</strong>上关于<strong>R</strong>的)商集，记为 <strong>A&#x2F;R</strong></p>
 <blockquote>
 <p>不妨举个例子：</p>
-<p>有一集合
-<strong>A</strong>={1,2,3,5,7,9}，<strong>R</strong>为其上的以 4
-为模的同余关系</p>
+<p>有一集合 <strong>A</strong>&#x3D;{1,2,3,5,7,9}，<strong>R</strong>为其上的以 4 为模的同余关系</p>
 <p>那么等价类有：</p>
-<p><span
-class="math inline">[1]<sub><em>R</em></sub> = [5]<sub><em>R</em></sub> = [9]<sub><em>R</em></sub> = {1, 5, 9}</span></p>
-<p><span
-class="math inline">[3]<sub><em>R</em></sub> = [7]<sub><em>R</em></sub> = {3, 7}</span></p>
-<p><span class="math inline">[2]<sub><em>R</em></sub> = {2}</span></p>
+<p>$[1]_R&#x3D;[5]_R&#x3D;[9]_R&#x3D;{1,5,9}$</p>
+<p>$[3]_R&#x3D;[7]_R&#x3D;{3,7}$</p>
+<p>$[2]_R&#x3D;{2}$</p>
 <p>商集为：</p>
-<p><span
-class="math inline"><em>A</em>/<em>R</em> = {[1]<sub><em>R</em></sub>, [2]<sub><em>R</em></sub>, [3]<sub><em>R</em></sub>} = {{1, 5, 9}, {2}, {3, 7}}</span></p>
+<p>$A&#x2F;R&#x3D;{[1]_R,[2]_R,[3]_R}&#x3D;{{1,5,9},{2},{3,7}}$</p>
 </blockquote>
-<h4 id="偏序">偏序</h4>
-<p>为更好研究偏序关系，我们常会使用<strong>哈斯图</strong>来描述</p>
+<h4 id="偏序"><a href="#偏序" class="headerlink" title="偏序"></a>偏序</h4><p>为更好研究偏序关系，我们常会使用<strong>哈斯图</strong>来描述</p>
 <p>确定元素之间的覆盖关系, 如果 a 覆盖 b, 那么 b 就在 a 上方并链接;</p>
 <blockquote>
-<p>有集合 S = {2, 3, 6,12}对于在 S 上的整除关系:</p>
+<p>有集合 S &#x3D; {2, 3, 6,12}对于在 S 上的整除关系:</p>
 <p>6 能覆盖 2 和 3</p>
 <p>12 能覆盖 2,3,6</p>
 <p>因此哈斯图表示为</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">graph LR</span><br><span class="line">A((12))--&gt;B((6))</span><br><span class="line">B((6))--&gt;C((2))</span><br><span class="line">B((6))--&gt;D((3))</span><br></pre></td></tr></table></figure>
-</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">graph LR</span><br><span class="line">A((12))--&gt;B((6))</span><br><span class="line">B((6))--&gt;C((2))</span><br><span class="line">B((6))--&gt;D((3))</span><br></pre></td></tr></table></figure></blockquote>
 <p><strong>特殊元素</strong></p>
-<p>设 <strong>A</strong> 是一个偏序集, <strong>B</strong>
-是其上的某一个子集，那么有:</p>
+<p>设 <strong>A</strong> 是一个偏序集, <strong>B</strong> 是其上的某一个子集，那么有:</p>
 <ul>
-<li>最大(小)元：在 <strong>B</strong> 中，该元素满足
-“覆盖”任意元素/被任意元素”覆盖”</li>
-<li>极大(小)元：在 <strong>B</strong> 中，该元素满足
-不被任一元素”覆盖“/不“覆盖”任一元素</li>
-<li>上(下)界：在 <strong>A</strong> 中，该元素满足 “覆盖”
-<strong>B</strong> 中的任意元素/被 <strong>B</strong>
-中的任意元素“覆盖”</li>
-<li>上(下)确界：在上界所有元素中， 该元素满足 被任一元素“覆盖”/
-“覆盖”任一元素</li>
+<li>最大(小)元：在 <strong>B</strong> 中，该元素满足 “覆盖”任意元素&#x2F;被任意元素”覆盖”</li>
+<li>极大(小)元：在 <strong>B</strong> 中，该元素满足 不被任一元素”覆盖“&#x2F;不“覆盖”任一元素</li>
+<li>上(下)界：在 <strong>A</strong> 中，该元素满足 “覆盖” <strong>B</strong> 中的任意元素&#x2F;被 <strong>B</strong> 中的任意元素“覆盖”</li>
+<li>上(下)确界：在上界所有元素中， 该元素满足 被任一元素“覆盖”&#x2F; “覆盖”任一元素</li>
 </ul>
 <blockquote>
-<p>注意：本文借以哈斯图描述中的“覆盖”一词来描述
-<strong>两元素之间满足的某一关系</strong>，以避免直接带入符号理解定义而导致误解的可能。</p>
+<p>注意：本文借以哈斯图描述中的“覆盖”一词来描述 <strong>两元素之间满足的某一关系</strong>，以避免直接带入符号理解定义而导致误解的可能。</p>
 </blockquote>
 
     </div>
