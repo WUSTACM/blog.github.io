@@ -15,7 +15,7 @@ poster:
 sticky:
 mermaid:
 katex:
-author: 23,24级ACM俱乐部全体成员
+author: everlasting
 references:
 comments:
 indexing:
