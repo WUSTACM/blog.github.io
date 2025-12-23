@@ -613,6 +613,162 @@ key 的模型（如我这里是<code>gpt-5-nano</code>）</li>
       </tags>
   </entry>
   <entry>
+    <title>Codeforces Round 1071 (Div. 3) 题解</title>
+    <url>/2025/12/24/Codeforces%20Round%201071%20(Div.%203)%20%E9%A2%98%E8%A7%A3/</url>
+    <content><![CDATA[<h1 id="codeforces-round-1071-div.-3"><a
+href="https://codeforces.com/contest/2179">Codeforces Round 1071 (Div.
+3)</a></h1>
+<hr />
+<h2 id="a.-blackslex-and-password">A. Blackslex and Password</h2>
+<h3 id="题意">题意:</h3>
+<p>输入一个整数 <span class="math inline"><em>k</em></span> 和 <span
+class="math inline"><em>x</em></span> ,求不可构造的字符串的最小长度
+<span class="math inline"><em>n</em></span> . 其中</p>
+<ul>
+<li><span
+class="math inline"><em>k</em></span>为构造可用的英文小写字母前<span
+class="math inline"><em>k</em></span>个</li>
+<li>对于每个<span
+class="math inline">1 ≤ <em>i</em> &lt; <em>j</em> ≤ <em>n</em></span>
+,若<span
+class="math inline">(<em>j</em>−<em>i</em>) mod  <em>x</em> = 0</span>
+,则 <span class="math inline"><em>s</em><sub><em>i</em></sub></span> 与
+<span
+class="math inline"><em>s</em><sub><em>j</em></sub></span>不同</li>
+</ul>
+<hr />
+<h3 id="分析">分析:</h3>
+<p>看到题目吓哭了….这还是 div3 的 A 题吗? 虽然不难发现样例 k 与 x
+的乘积与样例答案刚好一致…..
+又用了几分钟手模了样例发现最极限的情况是刚好能使用的每种字符刚好连续排列
+x 次</p>
+<span id="more"></span>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> int long long</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">using</span> ll = <span class="type">long</span> <span class="type">long</span>;</span><br><span class="line"><span class="keyword">using</span> arr2 = array&lt;<span class="type">int</span>, <span class="number">2</span>&gt;;</span><br><span class="line"><span class="keyword">using</span> arr3 = array&lt;<span class="type">int</span>, <span class="number">3</span>&gt;;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = (<span class="type">int</span>)<span class="number">2e5</span> + <span class="number">9</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> M = (<span class="type">int</span>)<span class="number">1e5</span> + <span class="number">9</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> mod = (<span class="type">int</span>)<span class="number">1e9</span> + <span class="number">7</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> k, x;</span><br><span class="line">    cin &gt;&gt; k &gt;&gt; x;</span><br><span class="line">    cout &lt;&lt; x * k + <span class="number">1</span> &lt;&lt; <span class="string">&quot;\n&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">signed</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ios::<span class="built_in">sync_with_stdio</span>(<span class="literal">false</span>);</span><br><span class="line">    cin.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line">    <span class="type">int</span> _ = <span class="number">1</span>;</span><br><span class="line">    cin &gt;&gt; _;</span><br><span class="line">    <span class="keyword">while</span>(_--) &#123;</span><br><span class="line">        <span class="built_in">solve</span>();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="b.-blackslex-and-showering">B. Blackslex and Showering</h2>
+<h3 id="题意-1">题意:</h3>
+<p>给定<span class="math inline"><em>n</em></span>个整数组成的数组<span
+class="math inline"><em>a</em></span>, 选择其中一个索引<span
+class="math inline"><em>k</em></span>, 并去除<span
+class="math inline"><em>a</em><sub><em>k</em></sub></span> ,
+剩余元素顺序组成数组<span class="math inline"><em>b</em></span></p>
+<p>求 <span class="math inline">$\sum_{i=1}^{n-2} \lvert b_i - b_{i+1}
+\rvert$</span> 的最小值</p>
+<h3 id="分析-1">分析:</h3>
+<ul>
+<li>考虑到去除第一个元素或最后一个元素是特殊情况,因为只会导致单一影响</li>
+<li>去除中间任意一个元素,
+对结果的影响相当于少加了当前元素分别与前后的差值 并且
+多加了前后间的差值</li>
+</ul>
+<p>赛时没想清楚,导致改了好久,把代码写屎了…..</p>
+<p>如官方题解那样, 先维护去除前的总和,再使用两种特殊情况去初始化<span
+class="math inline"><em>a</em><em>n</em><em>s</em></span>,
+后续按照常规情况 O(n) 遍历维护最小值即可</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> int long long</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">using</span> ll = <span class="type">long</span> <span class="type">long</span>;</span><br><span class="line"><span class="keyword">using</span> arr2 = array&lt;<span class="type">int</span>, <span class="number">2</span>&gt;;</span><br><span class="line"><span class="keyword">using</span> arr3 = array&lt;<span class="type">int</span>, <span class="number">3</span>&gt;;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = (<span class="type">int</span>)<span class="number">2e5</span> + <span class="number">9</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> M = (<span class="type">int</span>)<span class="number">1e5</span> + <span class="number">9</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> mod = (<span class="type">int</span>)<span class="number">1e9</span> + <span class="number">7</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> n;</span><br><span class="line">    cin &gt;&gt; n;</span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> a[n<span class="number">+1</span>];</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++) cin &gt;&gt; a[i];</span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> sum = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">2</span>; i &lt;= n; i++) sum += <span class="built_in">abs</span>(a[i]-a[i<span class="number">-1</span>]);</span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> ans = <span class="built_in">min</span>(sum - <span class="built_in">abs</span>(a[<span class="number">2</span>]-a[<span class="number">1</span>]), sum - <span class="built_in">abs</span>(a[n]-a[n<span class="number">-1</span>]));</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">2</span>; i &lt; n; i++) &#123;</span><br><span class="line">        ans = <span class="built_in">min</span>(ans, sum - <span class="built_in">abs</span>(a[i<span class="number">+1</span>]-a[i]) - <span class="built_in">abs</span>(a[i]-a[i<span class="number">-1</span>]) + <span class="built_in">abs</span>(a[i<span class="number">+1</span>]-a[i<span class="number">-1</span>]));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    cout &lt;&lt; ans &lt;&lt; <span class="string">&quot;\n&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">signed</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ios::<span class="built_in">sync_with_stdio</span>(<span class="literal">false</span>);</span><br><span class="line">    cin.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line">    <span class="type">int</span> _ = <span class="number">1</span>;</span><br><span class="line">    cin &gt;&gt; _;</span><br><span class="line">    <span class="keyword">while</span>(_--) &#123;</span><br><span class="line">        <span class="built_in">solve</span>();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="c.-blackslex-and-number-theory">C. Blackslex and Number
+Theory</h2>
+<h3 id="题意-2">题意:</h3>
+<p>找到一个最大的<span class="math inline"><em>k</em></span> ,
+使得长度为<span class="math inline"><em>n</em></span> 的数组<span
+class="math inline"><em>a</em></span> 中的每个元素都能各自找到一个<span
+class="math inline"> ≥ <em>k</em><em>的</em><em>x</em></span> 执行 <span
+class="math inline"><em>a</em><sub><em>i</em></sub> = <em>a</em><sub><em>i</em></sub> mod  <em>x</em></span>
+, 最终数组<span class="math inline"><em>a</em></span>各元素都相等</p>
+<h3 id="分析-2">分析:</h3>
+<ul>
+<li>很显然<span
+class="math inline"><em>k</em></span>的一种合法(但不一定最优)选择是数组
+a 的最小值, 这样数组中每个元素都可以取到与个元素相等的<span
+class="math inline"><em>x</em></span>,最终使得数组全为 0.</li>
+<li>很显然<span class="math inline"><em>k</em></span>
+的取值如果大于数组次小值, 那么最小值与次小值无论如何选择<span
+class="math inline"><em>x</em></span>,最终还是不变,
+数组永远无法各元素相等</li>
+</ul>
+<p>那么最大取值<span
+class="math inline"><em>k</em></span>一定会在数组<span
+class="math inline"><em>a</em></span>的最小值与次小值之间取到,
+考虑到要使得最小值与次小值最终要相等,那么一种尽可能大的选择方式就是使得
+<span
+class="math inline"><em>k</em> = <em>次</em><em>小</em><em>值</em> − <em>最</em><em>小</em><em>值</em></span>
+(当然前提是这样取得的<span
+class="math inline"><em>k</em>≥</span>最小值)</p>
+<p>不难证明,其他更大的数组<span
+class="math inline"><em>a</em></span>中的元素,都可以用同样的方法取到对应合法的<span
+class="math inline"><em>x</em></span></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> int long long</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">using</span> ll = <span class="type">long</span> <span class="type">long</span>;</span><br><span class="line"><span class="keyword">using</span> arr2 = array&lt;<span class="type">int</span>, <span class="number">2</span>&gt;;</span><br><span class="line"><span class="keyword">using</span> arr3 = array&lt;<span class="type">int</span>, <span class="number">3</span>&gt;;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = (<span class="type">int</span>)<span class="number">2e5</span> + <span class="number">9</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> M = (<span class="type">int</span>)<span class="number">1e5</span> + <span class="number">9</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> mod = (<span class="type">int</span>)<span class="number">1e9</span> + <span class="number">7</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> n;</span><br><span class="line">    cin &gt;&gt; n;</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">a</span><span class="params">(n + <span class="number">5</span>)</span></span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;</span><br><span class="line">        cin &gt;&gt; a[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">sort</span>(a.<span class="built_in">begin</span>() + <span class="number">1</span>, a.<span class="built_in">begin</span>() + <span class="number">1</span> + n);</span><br><span class="line">    <span class="keyword">if</span> (a[<span class="number">2</span>] - a[<span class="number">1</span>] &lt;= a[<span class="number">1</span>]) &#123;</span><br><span class="line">        cout &lt;&lt; a[<span class="number">1</span>] &lt;&lt; <span class="string">&quot;\n&quot;</span>;</span><br><span class="line">        <span class="keyword">return</span> ;</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; a[<span class="number">2</span>] - a[<span class="number">1</span>] &lt;&lt; <span class="string">&quot;\n&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">signed</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ios::<span class="built_in">sync_with_stdio</span>(<span class="literal">false</span>);</span><br><span class="line">    cin.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line">    <span class="type">int</span> _ = <span class="number">1</span>;</span><br><span class="line">    cin &gt;&gt; _;</span><br><span class="line">    <span class="keyword">while</span>(_--) &#123;</span><br><span class="line">        <span class="built_in">solve</span>();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="d.-blackslex-and-penguin-civilization">D. Blackslex and Penguin
+Civilization</h2>
+<h3 id="题意-3">题意:</h3>
+<p>输入<span class="math inline"><em>n</em></span>,
+请你构造一个关于<span
+class="math inline">2<sup><em>n</em></sup> − 1</span> 的排列,使得<span
+class="math inline">$\sum_{i=0}^{2^n - 1}popcount(p_0 \&amp; p_1
+\&amp;p_2 ...\&amp;p_i)$</span>值最大,并且排列的字典序最小</p>
+<h3 id="分析-3">分析:</h3>
+<p>考虑到 <span class="math inline">&amp;</span> 的性质,
+随着运算次数的增加,popcount 必然是不增的,考虑到要构造最大值,
+不难想到让二进制尽可能多 1 的数放在前面.</p>
+<h4 id="假设-n-6">假设: n = 6</h4>
+<ul>
+<li>第一个位置放置 <span class="math inline">111111</span></li>
+<li>第二个位置考虑到字典序最小, 放 <span
+class="math inline">011111</span> 是最优的</li>
+<li>第三个位置考虑到字典序最小, 放 <span
+class="math inline">001111</span> 是最优的</li>
+<li>第四个位置考虑到让值最大, 故继续保持低四位还是 1, 放 <span
+class="math inline">101111</span>是最优的</li>
+<li>第五个位置, 放 <span class="math inline">000111</span></li>
+<li>第六个位置, 放 <span class="math inline">010111</span></li>
+<li>第七个位置, 放 <span class="math inline">100111</span></li>
+<li>第八个位置, 放 <span class="math inline">110111</span></li>
+<li>第九个位置, 放 <span class="math inline">000011</span></li>
+</ul>
+<p><strong>观察第三个位置和第四个位置, 他们的二进制前四位都是 1,
+二进制第五位是 0, 二进制第六位类似枚举!没错!二进制枚举</strong></p>
+<p><strong>再观察第五到第八个位置, 不难看出类似的,二进制前四位都一样,
+剩下两位满足二进制枚举</strong></p>
+<p>那么直接模拟构造即可</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> int long long</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">using</span> ll = <span class="type">long</span> <span class="type">long</span>;</span><br><span class="line"><span class="keyword">using</span> arr2 = array&lt;<span class="type">int</span>, <span class="number">2</span>&gt;;</span><br><span class="line"><span class="keyword">using</span> arr3 = array&lt;<span class="type">int</span>, <span class="number">3</span>&gt;;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = (<span class="type">int</span>)<span class="number">2e5</span> + <span class="number">9</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> M = (<span class="type">int</span>)<span class="number">1e5</span> + <span class="number">9</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> mod = (<span class="type">int</span>)<span class="number">1e9</span> + <span class="number">7</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> n;</span><br><span class="line">    cin &gt;&gt; n;</span><br><span class="line">    <span class="type">int</span> a = (<span class="number">1ll</span> &lt;&lt; n) - <span class="number">1</span>;</span><br><span class="line">    vector&lt;<span class="type">int</span>&gt; ans;</span><br><span class="line">    ans.<span class="built_in">push_back</span>(a);</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = n - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">        a = a ^ (<span class="number">1ll</span> &lt;&lt; i);</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt; (<span class="number">1</span> &lt;&lt; (n - i - <span class="number">1</span>)); j++) &#123;</span><br><span class="line">            ans.<span class="built_in">push_back</span>(a + (j &lt;&lt; (i + <span class="number">1</span>)));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">auto</span> i : ans) cout &lt;&lt; i &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;\n&quot;</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">signed</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ios::<span class="built_in">sync_with_stdio</span>(<span class="literal">false</span>);</span><br><span class="line">    cin.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line">    <span class="type">int</span> _ = <span class="number">1</span>;</span><br><span class="line">    cin &gt;&gt; _;</span><br><span class="line">    <span class="keyword">while</span>(_--) &#123;</span><br><span class="line">        <span class="built_in">solve</span>();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="e.-blackslex-and-girls-e.-blackslex-与-girls">E. Blackslex and
+Girls E. Blackslex 与 Girls</h2>
+<h3 id="题意-4">题意:</h3>
+<p>两个阵营, 有<span class="math inline"><em>x</em></span>人属于阵营 A,
+有<span class="math inline"><em>y</em></span>人属于阵营 B,
+现将所有人分成<span
+class="math inline"><em>n</em></span>组,同时一个长度为<span
+class="math inline"><em>n</em></span>的二进制字符串<span
+class="math inline"><em>s</em></span>, 0 表示该组阵营 A
+人数必须严格大于阵营 B, 反之, 阵营 B 人数必须严格大于阵营 A.
+同时给定数组<span class="math inline"><em>p</em></span>,必须满足第<span
+class="math inline"><em>i</em></span>个小组的总人数必须大于等于<span
+class="math inline"><em>p</em><sub><em>i</em></sub></span>
+问是否能将两阵营的人共同构造出满足情况的分组方式,
+能的话输出”YES”否则输出”NO”</p>
+<h3 id="分析-4">分析:</h3>
+<p>观察样例的”NO”情况样例, 不难发现</p>
+<ul>
+<li>数组<span
+class="math inline"><em>p</em></span>的总人数不能大于阵营总人数</li>
+<li>考虑特殊情况, 如果所有分组都是阵营 A 获胜(字符串<span
+class="math inline"><em>s</em></span>全 0), 那么必须 <span
+class="math inline"><em>x</em> − <em>y</em> ≥ <em>n</em></span></li>
+<li>分别考虑两个阵营可协调的最小需要人数, 如果某分组阵营 A 获胜,
+那么此分组中,A 阵营最少需要<span
+class="math inline"><em>p</em><sub><em>i</em></sub> ÷ 2 + 1</span>个人,
+同理可以维护出两阵营总需要的最少人数</li>
+</ul>
+<p>代码有点小 💩</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> int long long</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">using</span> ll = <span class="type">long</span> <span class="type">long</span>;</span><br><span class="line"><span class="keyword">using</span> arr2 = array&lt;<span class="type">int</span>, <span class="number">2</span>&gt;;</span><br><span class="line"><span class="keyword">using</span> arr3 = array&lt;<span class="type">int</span>, <span class="number">3</span>&gt;;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = (<span class="type">int</span>)<span class="number">2e5</span> + <span class="number">9</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> M = (<span class="type">int</span>)<span class="number">1e5</span> + <span class="number">9</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> mod = (<span class="type">int</span>)<span class="number">1e9</span> + <span class="number">7</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> n, x, y;</span><br><span class="line">    cin &gt;&gt; n &gt;&gt; x &gt;&gt; y;</span><br><span class="line">    string s;</span><br><span class="line">    cin &gt;&gt; s;</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">p</span><span class="params">(n + <span class="number">5</span>)</span></span>;</span><br><span class="line">    <span class="type">int</span> sum = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;</span><br><span class="line">        cin &gt;&gt; p[i];</span><br><span class="line">        sum += p[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">int</span> cnta = <span class="number">0</span>, cntb = <span class="number">0</span>;</span><br><span class="line">    <span class="type">int</span> cba = <span class="number">0</span>, cbb = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; s.<span class="built_in">size</span>(); i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (s[i] == <span class="string">&#x27;0&#x27;</span>) &#123;</span><br><span class="line">            cnta++;</span><br><span class="line">            cba += p[i + <span class="number">1</span>] / <span class="number">2</span> + <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            cntb++;</span><br><span class="line">            cbb += p[i + <span class="number">1</span>] / <span class="number">2</span> + <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (cnta == n) &#123;</span><br><span class="line">        <span class="keyword">if</span> (x - y &lt; cnta) &#123;</span><br><span class="line">            cout &lt;&lt; <span class="string">&quot;NO\n&quot;</span>;</span><br><span class="line">            <span class="keyword">return</span> ;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (cntb == n) &#123;</span><br><span class="line">        <span class="keyword">if</span> (y - x &lt; cntb) &#123;</span><br><span class="line">            cout &lt;&lt; <span class="string">&quot;NO\n&quot;</span>;</span><br><span class="line">            <span class="keyword">return</span> ;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (x &lt; cnta || y &lt; cntb || x &lt; cba || y &lt; cbb) &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;NO\n&quot;</span>;</span><br><span class="line">        <span class="keyword">return</span> ;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (sum &gt; x + y) &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;NO\n&quot;</span>;</span><br><span class="line">        <span class="keyword">return</span> ;</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;YES\n&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">signed</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ios::<span class="built_in">sync_with_stdio</span>(<span class="literal">false</span>);</span><br><span class="line">    cin.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line">    <span class="type">int</span> _ = <span class="number">1</span>;</span><br><span class="line">    cin &gt;&gt; _;</span><br><span class="line">    <span class="keyword">while</span>(_--) &#123;</span><br><span class="line">        <span class="built_in">solve</span>();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>题解</category>
+      </categories>
+      <tags>
+        <tag>题解</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>LCA笔记</title>
     <url>/2025/06/15/LCA%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[<h1 id="lca-问题">LCA 问题</h1>
@@ -3412,124 +3568,6 @@ class="math inline">≤</span> i - j + d</p>
       </tags>
   </entry>
   <entry>
-    <title>对拍</title>
-    <url>/2025/09/30/%E5%AF%B9%E6%8B%8D/</url>
-    <content><![CDATA[<h1 id="对拍">对拍</h1>
-<h2 id="介绍">介绍</h2>
-<p>当我们写完一段代码但不确定对不对的时候，就可以来个对拍来看看代码的正确性。如果代码有大问题，那马上就可以知道了，但如果代码只是有点小问题，那就要看运气了。</p>
-<span id="more"></span>
-<p>对拍就是用 AC 代码来检查你代码的正确性，那问题来了，我要能 AC
-还要对拍干啥。注意，一道题目我们之所以不能写出 AC
-代码很大原因是题目的数据范围一般都是 1e5
-这个级别的，但我们对拍是可以自己控制数据范围的，所以这时候我们完全可以写一个完全暴力的伪
-AC 代码出来，这样就可以对拍了</p>
-<h2 id="应用">应用</h2>
-<p>我们要开四个代码出来，分别命名为 test, ac,data,dp（这里是
-C++代码）</p>
-<h3 id="test">test</h3>
-<p>这个就是我们自己写的代码，直接复制粘贴就可以了</p>
-<h3 id="ac">ac</h3>
-<p>这个就写一个暴力就可以了，但要注意暴力的数据范围，暴力的数据范围就是我们
-data.cpp 生成的数据范围</p>
-<h3 id="data">data</h3>
-<p>这个就是用来生成随机数的</p>
-<p>这里有<strong>简单</strong>的和<strong>复杂</strong>的两个版本</p>
-<h4 id="简单">简单</h4>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">using</span> ll = <span class="type">long</span> <span class="type">long</span>;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">srand</span>(<span class="built_in">time</span>(<span class="number">0</span>));</span><br><span class="line">    <span class="type">int</span> n = <span class="built_in">rand</span>() % <span class="number">100</span> + <span class="number">1</span>;<span class="comment">// n 从 1 到 100</span></span><br><span class="line">    cout &lt;&lt; n &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++)&#123;</span><br><span class="line">		<span class="type">int</span> x = <span class="built_in">rand</span>() % <span class="number">100</span> + <span class="number">1</span>;</span><br><span class="line">        cout &lt;&lt; x &lt;&lt; <span class="string">&#x27; &#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>这里的核心就是</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="built_in">srand</span>(<span class="built_in">time</span>(<span class="number">0</span>));</span><br><span class="line"><span class="type">int</span> n = <span class="built_in">rand</span>() % <span class="number">100</span> + <span class="number">1</span>;<span class="comment">// n 从 1 到 100</span></span><br></pre></td></tr></table></figure>
-<p><code>srand()</code>用于初始化随机数生成器的“种子”；</p>
-<p><code>time(0)</code> 返回当前系统时间距离 “纪元”（通常是 1970 年 1 月
-1 日）的<strong>秒数</strong>（整数）</p>
-<p>这样<code>rand()</code>就可以生成随机数了，再通过取模运算来确定数据范围</p>
-<p>但<code>rand()</code>的随机性不强，有一定的周期性，同时 rand()
-生成的数的范围通常是[0， 32767]</p>
-<p>但对于我们对拍是够用了</p>
-<h4 id="复杂">复杂</h4>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">using</span> ll = <span class="type">long</span> <span class="type">long</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	random_device rd;</span><br><span class="line">   <span class="keyword">auto</span> now = chrono::system_clock::<span class="built_in">now</span>().<span class="built_in">time_since_epoch</span>().<span class="built_in">count</span>();</span><br><span class="line">   <span class="function">mt19937_64 <span class="title">gen</span><span class="params">(rd() ^ now)</span></span>;</span><br><span class="line">   <span class="function">uniform_int_distribution&lt;ll&gt; <span class="title">dist</span><span class="params">(<span class="number">1</span>, <span class="number">100</span>)</span></span>;</span><br><span class="line"></span><br><span class="line">   <span class="type">int</span> n = <span class="built_in">dist</span>(gen);</span><br><span class="line">   cout &lt;&lt; n &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">   <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++)&#123;</span><br><span class="line">		<span class="type">int</span> x = <span class="built_in">dist</span>(gen);</span><br><span class="line">       cout &lt;&lt; x &lt;&lt; <span class="string">&#x27; &#x27;</span>;</span><br><span class="line">   &#125;</span><br><span class="line">   cout &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>这里核心就是</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">random_device rd;</span><br><span class="line"><span class="keyword">auto</span> now = chrono::system_clock::<span class="built_in">now</span>().<span class="built_in">time_since_epoch</span>().<span class="built_in">count</span>();</span><br><span class="line"><span class="function">mt19937_64 <span class="title">gen</span><span class="params">(rd() ^ now)</span></span>;</span><br><span class="line"><span class="function">uniform_int_distribution&lt;ll&gt; <span class="title">dist</span><span class="params">(<span class="number">1</span>, <span class="number">100</span>)</span></span>;</span><br><span class="line"><span class="type">int</span> n = <span class="built_in">dist</span>(gen);</span><br></pre></td></tr></table></figure>
-<p><code>random_device rd</code>提供一种初始种子</p>
-<p><code>mt19937_64 gen(rd());</code> mt19937_64 gen
-是一个随机数生成器</p>
-<p>正常来说这样就可以生成随机数了，但在
-devc++中因为编译器版本问题无法实现随机数</p>
-<p>这时就要<code>auto now = chrono::system_clock::now().time_since_epoch().count();</code>来帮忙了</p>
-<p>它可以获取当前系统时间距离纪元（epoch）的时间计数值，用它来随机种子就可以了，也就是写成<code>mt19937_64 gen(rd() ^ now);</code></p>
-<p><code>uniform_int_distribution&lt;ll&gt; dist(1, 100);</code>
-用于生成均匀分布的整数，配合我们调整好的 gen
-就可以生成随机数了<code>int n = dist(gen)</code></p>
-<h4 id="排列">排列</h4>
-<p>我们经常会遇到题目数据是一个排列的情况，这时候我们也可以输出一个随机排列出来</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">using</span> ll = <span class="type">long</span> <span class="type">long</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	random_device rd;</span><br><span class="line">    <span class="keyword">auto</span> now = chrono::system_clock::<span class="built_in">now</span>().<span class="built_in">time_since_epoch</span>().<span class="built_in">count</span>();</span><br><span class="line">    <span class="function">mt19937_64 <span class="title">gen</span><span class="params">(rd() ^ now)</span></span>;</span><br><span class="line">    <span class="function">uniform_int_distribution&lt;ll&gt; <span class="title">dist</span><span class="params">(<span class="number">1</span>, <span class="number">100</span>)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> n = <span class="built_in">dist</span>(gen);</span><br><span class="line">    cout &lt;&lt; n &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">    vector&lt;<span class="type">int</span>&gt;<span class="built_in">perm</span>(n<span class="number">+5</span>);</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++)perm[i] = i;</span><br><span class="line">    <span class="built_in">shuffle</span>(perm.<span class="built_in">begin</span>() + <span class="number">1</span>, perm.<span class="built_in">begin</span>() + <span class="number">1</span> + n, <span class="built_in">default_random_engine</span>(now));</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++)cout &lt;&lt; perm[i] &lt;&lt; <span class="string">&#x27; &#x27;</span>;</span><br><span class="line">    cout &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>这里的核心就是<code>shuffle(perm.begin() + 1, perm.begin() + 1 + n, default_random_engine(now));</code></p>
-<p>shuffle
-用于随机重排容器中指定范围的元素，最后一个参数就是随机数引擎，确保排列的随机</p>
-<h3 id="dp">dp</h3>
-<p>这个代码就是把我们的 test，ac，data 代码串起来，达到对拍的作用</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> t = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(<span class="number">1</span>)&#123;</span><br><span class="line">        t++;</span><br><span class="line">		<span class="built_in">system</span>(<span class="string">&quot;data.exe &gt; data.in&quot;</span>);</span><br><span class="line">        <span class="built_in">system</span>(<span class="string">&quot;test.exe &lt; data.in &gt; test.out&quot;</span>);</span><br><span class="line">        <span class="built_in">system</span>(<span class="string">&quot;ac.exe &lt; data.in &gt; ac.out&quot;</span>);</span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">system</span>(<span class="string">&quot;fc test.out ac.out &gt; diff.log&quot;</span>))&#123;</span><br><span class="line">			cout &lt;&lt; <span class="string">&quot;WA &quot;</span> &lt;&lt; t &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;AC&quot;</span> &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><code>system("data.exe &gt; data.in");</code> 通过系统命令行运行
-data.exe 程序，并把它的输出内容重定向到 data.in 文件里面。通俗的说就是把
-data.cpp 的输出复制到 data.in 这样一个 txt 文件里面</p>
-<p><code>system("test.exe &lt; data.in &gt; test.out");</code>
-和上面一样，就是把 data.in 的内容输入到 test.cpp 中，再把 test.cpp
-的输出复制到 test.out 这样一个 txt 文件里面</p>
-<p><code>sysytem("ac.exe &lt; data.in &gt; ac.out");</code> 同理</p>
-<p><code>system("fc test.out ac.out &gt; diff.log");</code> 这里就是把
-test.out ac.out 进行对比，然后把比较结果保存到 diff.log 文件里面</p>
-<p>也就是说，我们的 dp.cpp 就是把我们在 data.cpp 生成的随机数输入到
-test.cpp(我们写的不确定的代码)与 ac.cpp(我们比赛的时候的小数据暴力代码
-<strong>或者</strong> 赛后找到的大数据 ac
-代码)里面，然后把他们的输出进行对比</p>
-<p><s>这里可以把’‘换成 endl 这样就可以实时看到我们喜欢的 AC，然后一个
-WA(qwq)（有时候这样好像也没有用）用’’就是一直没有输出，然后所有的 AC 和
-WA 一起弹出来，这个可以自己感受一下</s></p>
-<p>这都是小菜，重要的是 WA 的数据，这个当我们的 dp.exe 输出 WA
-的时候就可以在文件夹的 data.in 里面看到数据，然后在 diff.log
-里面看到正确的输出和我们错误的输出</p>
-<p>注意我们文件放的位置，我们的 dp.cpp
-只能打开和它同级的文件或文件夹，（同级就是说在一个页面里面的）如下就是都是同级的</p>
-<figure>
-<img src="/assets/对拍.jpg" alt="111" />
-<figcaption aria-hidden="true">111</figcaption>
-</figure>
-<p>所以说如果在管理文件的时候<strong>exe
-文件</strong>被放到一个文件夹里，那在<code>system("data.exe &gt; data.in");</code>这里要用到<strong>exe
-文件</strong>的地方就要写成<code>system("exe\\data.exe &gt; data.in");</code>
-这里就是我的<strong>exe 文件</strong>都放到了叫<strong>exe
-文件夹</strong>里面，也就是<strong>exe 文件夹</strong>是和 dp.cpp
-同级的</p>
-<h2 id="后文">后文</h2>
-<p>注意我们的 data.cpp 在面对有多测的题目时候，<strong>只要多输出一行
-1</strong>就可以了</p>
-<p>注意我们的 dp.cpp 运行后一直输出 AC，没有 WA
-的输出，那也不能说我们的代码一定对了，这时候我们的代码有可能有一点小问题，这是要看生成随机数的运气的，看能不能生成出那个错误的数据</p>
-<p>我们可以输出绿色的 AC，红色的
-WA，但只能在黑框框里面实现，重定向输出就不行了，下面会在样例的 dp
-里面显示</p>
-<h3 id="样例">样例</h3>
-<p>比如题目要输出 a + b 的值， 我们就可以这样写对拍</p>
-<h4 id="test-1">test</h4>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	ios::<span class="built_in">sync_with_stdio</span>(<span class="number">0</span>);</span><br><span class="line">	cin.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line">	<span class="type">int</span> a, b;</span><br><span class="line">	cin &gt;&gt; a &gt;&gt; b;</span><br><span class="line">	<span class="keyword">if</span>(a % <span class="number">2</span> &amp;&amp; b % <span class="number">2</span>)cout &lt;&lt; a + b + <span class="number">1</span> &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">	<span class="keyword">else</span> cout &lt;&lt; a + b &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="ac-1">ac</h4>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	ios::<span class="built_in">sync_with_stdio</span>(<span class="number">0</span>);</span><br><span class="line">	cin.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line">	<span class="type">int</span> a, b;</span><br><span class="line">	cin &gt;&gt; a &gt;&gt; b;</span><br><span class="line">	cout &lt;&lt; a + b &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="data-1">data</h4>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">using</span> ll = <span class="type">long</span> <span class="type">long</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	random_device rd;</span><br><span class="line">    <span class="keyword">auto</span> now = chrono::system_clock::<span class="built_in">now</span>().<span class="built_in">time_since_epoch</span>().<span class="built_in">count</span>();</span><br><span class="line">    <span class="function">mt19937_64 <span class="title">gen</span><span class="params">(rd() ^ now)</span></span>;</span><br><span class="line">    <span class="function">uniform_int_distribution&lt;ll&gt; <span class="title">dist</span><span class="params">(<span class="number">1</span>, <span class="number">100</span>)</span></span>;</span><br><span class="line">    <span class="comment">//cout &lt;&lt; 1 &lt;&lt; &#x27;\n&#x27;; // 如果有多测的话</span></span><br><span class="line">    <span class="type">int</span> n = <span class="built_in">dist</span>(gen);</span><br><span class="line">   	<span class="type">int</span> m = <span class="built_in">dist</span>(gen);</span><br><span class="line">    cout &lt;&lt; n &lt;&lt; <span class="string">&#x27; &#x27;</span> &lt;&lt; m &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="dp-1">dp</h4>
-<p>注意上文说的文件位置</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="meta">#<span class="keyword">define</span> red <span class="string">&quot;\033[31m&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> green <span class="string">&quot;\033[32m&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> reset <span class="string">&quot;\033[0m&quot;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	ios::<span class="built_in">sync_with_stdio</span>(<span class="number">0</span>);</span><br><span class="line">	cin.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line">	<span class="type">int</span> t = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">while</span>(<span class="number">1</span>)&#123;</span><br><span class="line">		t++;</span><br><span class="line">		<span class="built_in">system</span>(<span class="string">&quot;data.exe &gt; data.in&quot;</span>);</span><br><span class="line">		<span class="built_in">system</span>(<span class="string">&quot;test.exe &lt; data.in &gt; test.out&quot;</span>);</span><br><span class="line">		<span class="built_in">system</span>(<span class="string">&quot;ac.exe &lt; data.in &gt; ac.out&quot;</span>);</span><br><span class="line">		<span class="keyword">if</span>(<span class="built_in">system</span>(<span class="string">&quot;fc test.out ac.out &gt; diff.log&quot;</span>))&#123;</span><br><span class="line">			cout &lt;&lt; red &lt;&lt; <span class="string">&quot;WA &quot;</span> &lt;&lt; t &lt;&lt; reset &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		cout &lt;&lt; green &lt;&lt; <span class="string">&quot;AC&quot;</span> &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>这样运行 dp.cpp 后就会在某一个时刻输出 WA
-并停止，这时候我们打开我们代码存放的文件夹，然后打开 data.in
-就可以看到数据，diff.log 里面看到我们的输出和正确输出</p>
-]]></content>
-      <categories>
-        <category>技巧</category>
-      </categories>
-      <tags>
-        <tag>对拍</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>将军的题解(2025菜鸟杯</title>
     <url>/2025/12/15/%E5%B0%86%E5%86%9B%E7%9A%84%E9%A2%98%E8%A7%A3/</url>
     <content><![CDATA[<h1 id="将军-の-题解">将军 の 题解</h1>
@@ -3862,88 +3900,6 @@ class="math inline">5<sup><em>p</em><em>o</em><em>s</em> − 1</sup></span>�
       </categories>
       <tags>
         <tag>dfs</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>曼哈顿距离与切比雪夫距离的转换</title>
-    <url>/2025/06/15/%E6%9B%BC%E5%93%88%E9%A1%BF%E8%B7%9D%E7%A6%BB%E4%B8%8E%E5%88%87%E6%AF%94%E9%9B%AA%E5%A4%AB%E8%B7%9D%E7%A6%BB%E7%9A%84%E8%BD%AC%E6%8D%A2/</url>
-    <content><![CDATA[<h1
-id="曼哈顿距离与切比雪夫距离的转换">曼哈顿距离与切比雪夫距离的转换</h1>
-<h2 id="曼哈顿距离">曼哈顿距离</h2>
-<h3 id="定义">定义</h3>
-<p>平面内两点坐标分别为（x1，y1），（x2，y2）</p>
-<p>则</p>
-<p><span
-class="math display"><em>d</em><em>i</em><em>s</em> = |<em>x</em><sub>1</sub>−<em>x</em><sub>2</sub>| + |<em>y</em><sub>1</sub>−<em>y</em><sub>2</sub>|</span></p>
-<span id="more"></span>
-<h2 id="切比雪夫距离">切比雪夫距离</h2>
-<h3 id="定义-1">定义</h3>
-<p>平面内两点坐标分别为（x1，y1），（x2，y2）</p>
-<p>则</p>
-<p><span
-class="math display"><em>d</em><em>i</em><em>s</em> = max (|<em>x</em>1−<em>x</em>2|,|<em>y</em>1−<em>y</em>2|)</span></p>
-<h2 id="两者的关系">两者的关系</h2>
-<h3 id="第一组">第一组</h3>
-<p>将一个点 ((x, y)) 的坐标变为 ((x + y, x - y))
-后，原坐标系中的曼哈顿距离 (=) 新坐标系中的切比雪夫距离 。</p>
-<p>当然有时候为了防止数组越界，在处理 x - y
-的时候，可以全部加上一个定值常数，即转换为 ((x + y, x - y + C))</p>
-<h3 id="第二组">第二组</h3>
-<p>将一个点 ((x, y)) 的坐标变为</p>
-<p><span class="math display">$$
-\left( \frac{x+y}{2},\ \frac{x-y}{2} \right)
-$$</span></p>
-<p>后，原坐标系中的切比雪夫距离 (=) 新坐标系中的曼哈顿距离</p>
-<h3 id="第一组变换证明">1. 第一组变换证明</h3>
-<p>设原两点 ( A(x_1,y_1) )、( B(x_2,y_2) )，变换后新坐标：</p>
-<p><span
-class="math display"><em>A</em>′(<em>x</em><sub>1</sub>+<em>y</em><sub>1</sub>, <em>x</em><sub>1</sub>−<em>y</em><sub>1</sub>),  <em>B</em>′(<em>x</em><sub>2</sub>+<em>y</em><sub>2</sub>, <em>x</em><sub>2</sub>−<em>y</em><sub>2</sub>)</span></p>
-<ul>
-<li><p>原曼哈顿距离：</p>
-<ul>
-<li><span
-class="math display"><em>d</em>_Manhattan = |<em>x</em><sub>1</sub>−<em>x</em><sub>2</sub>| + |<em>y</em><sub>1</sub>−<em>y</em><sub>2</sub>|</span></li>
-</ul></li>
-<li><p>新切比雪夫距离：</p>
-<ul>
-<li><span
-class="math display"><em>d</em>_Chebyshev′ = max ( |(<em>x</em><sub>1</sub>+<em>y</em><sub>1</sub>)−(<em>x</em><sub>2</sub>+<em>y</em><sub>2</sub>)| , |(<em>x</em><sub>1</sub>−<em>y</em><sub>1</sub>)−(<em>x</em><sub>2</sub>−<em>y</em><sub>2</sub>)| )</span></li>
-</ul></li>
-<li><p>化简后可证</p></li>
-</ul>
-<p><span
-class="math display">(<em>d</em><sub>Manhattan</sub>=<em>d</em><sub>Chebyshev</sub>′)</span></p>
-<h3 id="第二组变换证明">2. 第二组变换证明</h3>
-<p>变换后新坐标： <span class="math display">$$
-A'\left(\frac{x_1+y_1}{2},\ \frac{x_1-y_1}{2}\right),\quad
-B'\left(\frac{x_2+y_2}{2},\ \frac{x_2-y_2}{2}\right) $$</span></p>
-<ul>
-<li><p>原切比雪夫距离：</p>
-<ul>
-<li><span
-class="math display"><em>d</em>_Chebyshev = max ( |<em>x</em><sub>1</sub>−<em>x</em><sub>2</sub>|, |<em>y</em><sub>1</sub>−<em>y</em><sub>2</sub>| )</span></li>
-</ul></li>
-<li><p>新曼哈顿距离：</p>
-<ul>
-<li><span class="math display">$$ d\_{\text{Manhattan}}' =
-\left|\frac{x_1+y_1}{2} - \frac{x_2+y_2}{2}\right| +
-\left|\frac{x_1-y_1}{2} - \frac{x_2-y_2}{2}\right| $$</span></li>
-</ul></li>
-<li><p>化简后可证 <span
-class="math display">(<em>d</em><sub>Chebyshev</sub>=<em>d</em><sub>Manhattan</sub>′)</span></p></li>
-</ul>
-<h3 id="应用意义">应用意义</h3>
-<p>这些变换可将两种距离问题<strong>相互转换</strong>，利用不同距离在算法中的优势（如曼哈顿距离计算简单、切比雪夫距离在网格问题中直观
-），简化解题。</p>
-<h3 id="例题-c-总辖之愿_金山杯-2025-年武汉理工大学程序设计竞赛">例题 (
-<span class="exturl" data-url="aHR0cHM6Ly9hYy5ub3djb2Rlci5jb20vYWNtL2NvbnRlc3QvMTEyNjkyL0M=">C-总辖之愿_金山杯
-2025 年武汉理工大学程序设计竞赛<i class="fa fa-external-link-alt"></i></span> )</h3>
-]]></content>
-      <categories>
-        <category>算法</category>
-      </categories>
-      <tags>
-        <tag>计算几何</tag>
       </tags>
   </entry>
   <entry>
@@ -4704,6 +4660,206 @@ c++可以处理的数据内，进行加法运算相当简单（下面代码用 c
       </categories>
       <tags>
         <tag>模拟</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>对拍</title>
+    <url>/2025/09/30/%E5%AF%B9%E6%8B%8D/</url>
+    <content><![CDATA[<h1 id="对拍">对拍</h1>
+<h2 id="介绍">介绍</h2>
+<p>当我们写完一段代码但不确定对不对的时候，就可以来个对拍来看看代码的正确性。如果代码有大问题，那马上就可以知道了，但如果代码只是有点小问题，那就要看运气了。</p>
+<span id="more"></span>
+<p>对拍就是用 AC 代码来检查你代码的正确性，那问题来了，我要能 AC
+还要对拍干啥。注意，一道题目我们之所以不能写出 AC
+代码很大原因是题目的数据范围一般都是 1e5
+这个级别的，但我们对拍是可以自己控制数据范围的，所以这时候我们完全可以写一个完全暴力的伪
+AC 代码出来，这样就可以对拍了</p>
+<h2 id="应用">应用</h2>
+<p>我们要开四个代码出来，分别命名为 test, ac,data,dp（这里是
+C++代码）</p>
+<h3 id="test">test</h3>
+<p>这个就是我们自己写的代码，直接复制粘贴就可以了</p>
+<h3 id="ac">ac</h3>
+<p>这个就写一个暴力就可以了，但要注意暴力的数据范围，暴力的数据范围就是我们
+data.cpp 生成的数据范围</p>
+<h3 id="data">data</h3>
+<p>这个就是用来生成随机数的</p>
+<p>这里有<strong>简单</strong>的和<strong>复杂</strong>的两个版本</p>
+<h4 id="简单">简单</h4>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">using</span> ll = <span class="type">long</span> <span class="type">long</span>;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">srand</span>(<span class="built_in">time</span>(<span class="number">0</span>));</span><br><span class="line">    <span class="type">int</span> n = <span class="built_in">rand</span>() % <span class="number">100</span> + <span class="number">1</span>;<span class="comment">// n 从 1 到 100</span></span><br><span class="line">    cout &lt;&lt; n &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++)&#123;</span><br><span class="line">		<span class="type">int</span> x = <span class="built_in">rand</span>() % <span class="number">100</span> + <span class="number">1</span>;</span><br><span class="line">        cout &lt;&lt; x &lt;&lt; <span class="string">&#x27; &#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这里的核心就是</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="built_in">srand</span>(<span class="built_in">time</span>(<span class="number">0</span>));</span><br><span class="line"><span class="type">int</span> n = <span class="built_in">rand</span>() % <span class="number">100</span> + <span class="number">1</span>;<span class="comment">// n 从 1 到 100</span></span><br></pre></td></tr></table></figure>
+<p><code>srand()</code>用于初始化随机数生成器的“种子”；</p>
+<p><code>time(0)</code> 返回当前系统时间距离 “纪元”（通常是 1970 年 1 月
+1 日）的<strong>秒数</strong>（整数）</p>
+<p>这样<code>rand()</code>就可以生成随机数了，再通过取模运算来确定数据范围</p>
+<p>但<code>rand()</code>的随机性不强，有一定的周期性，同时 rand()
+生成的数的范围通常是[0， 32767]</p>
+<p>但对于我们对拍是够用了</p>
+<h4 id="复杂">复杂</h4>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">using</span> ll = <span class="type">long</span> <span class="type">long</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	random_device rd;</span><br><span class="line">   <span class="keyword">auto</span> now = chrono::system_clock::<span class="built_in">now</span>().<span class="built_in">time_since_epoch</span>().<span class="built_in">count</span>();</span><br><span class="line">   <span class="function">mt19937_64 <span class="title">gen</span><span class="params">(rd() ^ now)</span></span>;</span><br><span class="line">   <span class="function">uniform_int_distribution&lt;ll&gt; <span class="title">dist</span><span class="params">(<span class="number">1</span>, <span class="number">100</span>)</span></span>;</span><br><span class="line"></span><br><span class="line">   <span class="type">int</span> n = <span class="built_in">dist</span>(gen);</span><br><span class="line">   cout &lt;&lt; n &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">   <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++)&#123;</span><br><span class="line">		<span class="type">int</span> x = <span class="built_in">dist</span>(gen);</span><br><span class="line">       cout &lt;&lt; x &lt;&lt; <span class="string">&#x27; &#x27;</span>;</span><br><span class="line">   &#125;</span><br><span class="line">   cout &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这里核心就是</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">random_device rd;</span><br><span class="line"><span class="keyword">auto</span> now = chrono::system_clock::<span class="built_in">now</span>().<span class="built_in">time_since_epoch</span>().<span class="built_in">count</span>();</span><br><span class="line"><span class="function">mt19937_64 <span class="title">gen</span><span class="params">(rd() ^ now)</span></span>;</span><br><span class="line"><span class="function">uniform_int_distribution&lt;ll&gt; <span class="title">dist</span><span class="params">(<span class="number">1</span>, <span class="number">100</span>)</span></span>;</span><br><span class="line"><span class="type">int</span> n = <span class="built_in">dist</span>(gen);</span><br></pre></td></tr></table></figure>
+<p><code>random_device rd</code>提供一种初始种子</p>
+<p><code>mt19937_64 gen(rd());</code> mt19937_64 gen
+是一个随机数生成器</p>
+<p>正常来说这样就可以生成随机数了，但在
+devc++中因为编译器版本问题无法实现随机数</p>
+<p>这时就要<code>auto now = chrono::system_clock::now().time_since_epoch().count();</code>来帮忙了</p>
+<p>它可以获取当前系统时间距离纪元（epoch）的时间计数值，用它来随机种子就可以了，也就是写成<code>mt19937_64 gen(rd() ^ now);</code></p>
+<p><code>uniform_int_distribution&lt;ll&gt; dist(1, 100);</code>
+用于生成均匀分布的整数，配合我们调整好的 gen
+就可以生成随机数了<code>int n = dist(gen)</code></p>
+<h4 id="排列">排列</h4>
+<p>我们经常会遇到题目数据是一个排列的情况，这时候我们也可以输出一个随机排列出来</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">using</span> ll = <span class="type">long</span> <span class="type">long</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	random_device rd;</span><br><span class="line">    <span class="keyword">auto</span> now = chrono::system_clock::<span class="built_in">now</span>().<span class="built_in">time_since_epoch</span>().<span class="built_in">count</span>();</span><br><span class="line">    <span class="function">mt19937_64 <span class="title">gen</span><span class="params">(rd() ^ now)</span></span>;</span><br><span class="line">    <span class="function">uniform_int_distribution&lt;ll&gt; <span class="title">dist</span><span class="params">(<span class="number">1</span>, <span class="number">100</span>)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> n = <span class="built_in">dist</span>(gen);</span><br><span class="line">    cout &lt;&lt; n &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">    vector&lt;<span class="type">int</span>&gt;<span class="built_in">perm</span>(n<span class="number">+5</span>);</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++)perm[i] = i;</span><br><span class="line">    <span class="built_in">shuffle</span>(perm.<span class="built_in">begin</span>() + <span class="number">1</span>, perm.<span class="built_in">begin</span>() + <span class="number">1</span> + n, <span class="built_in">default_random_engine</span>(now));</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++)cout &lt;&lt; perm[i] &lt;&lt; <span class="string">&#x27; &#x27;</span>;</span><br><span class="line">    cout &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这里的核心就是<code>shuffle(perm.begin() + 1, perm.begin() + 1 + n, default_random_engine(now));</code></p>
+<p>shuffle
+用于随机重排容器中指定范围的元素，最后一个参数就是随机数引擎，确保排列的随机</p>
+<h3 id="dp">dp</h3>
+<p>这个代码就是把我们的 test，ac，data 代码串起来，达到对拍的作用</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> t = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(<span class="number">1</span>)&#123;</span><br><span class="line">        t++;</span><br><span class="line">		<span class="built_in">system</span>(<span class="string">&quot;data.exe &gt; data.in&quot;</span>);</span><br><span class="line">        <span class="built_in">system</span>(<span class="string">&quot;test.exe &lt; data.in &gt; test.out&quot;</span>);</span><br><span class="line">        <span class="built_in">system</span>(<span class="string">&quot;ac.exe &lt; data.in &gt; ac.out&quot;</span>);</span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">system</span>(<span class="string">&quot;fc test.out ac.out &gt; diff.log&quot;</span>))&#123;</span><br><span class="line">			cout &lt;&lt; <span class="string">&quot;WA &quot;</span> &lt;&lt; t &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;AC&quot;</span> &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>system("data.exe &gt; data.in");</code> 通过系统命令行运行
+data.exe 程序，并把它的输出内容重定向到 data.in 文件里面。通俗的说就是把
+data.cpp 的输出复制到 data.in 这样一个 txt 文件里面</p>
+<p><code>system("test.exe &lt; data.in &gt; test.out");</code>
+和上面一样，就是把 data.in 的内容输入到 test.cpp 中，再把 test.cpp
+的输出复制到 test.out 这样一个 txt 文件里面</p>
+<p><code>sysytem("ac.exe &lt; data.in &gt; ac.out");</code> 同理</p>
+<p><code>system("fc test.out ac.out &gt; diff.log");</code> 这里就是把
+test.out ac.out 进行对比，然后把比较结果保存到 diff.log 文件里面</p>
+<p>也就是说，我们的 dp.cpp 就是把我们在 data.cpp 生成的随机数输入到
+test.cpp(我们写的不确定的代码)与 ac.cpp(我们比赛的时候的小数据暴力代码
+<strong>或者</strong> 赛后找到的大数据 ac
+代码)里面，然后把他们的输出进行对比</p>
+<p><s>这里可以把’‘换成 endl 这样就可以实时看到我们喜欢的 AC，然后一个
+WA(qwq)（有时候这样好像也没有用）用’’就是一直没有输出，然后所有的 AC 和
+WA 一起弹出来，这个可以自己感受一下</s></p>
+<p>这都是小菜，重要的是 WA 的数据，这个当我们的 dp.exe 输出 WA
+的时候就可以在文件夹的 data.in 里面看到数据，然后在 diff.log
+里面看到正确的输出和我们错误的输出</p>
+<p>注意我们文件放的位置，我们的 dp.cpp
+只能打开和它同级的文件或文件夹，（同级就是说在一个页面里面的）如下就是都是同级的</p>
+<figure>
+<img src="/assets/对拍.jpg" alt="111" />
+<figcaption aria-hidden="true">111</figcaption>
+</figure>
+<p>所以说如果在管理文件的时候<strong>exe
+文件</strong>被放到一个文件夹里，那在<code>system("data.exe &gt; data.in");</code>这里要用到<strong>exe
+文件</strong>的地方就要写成<code>system("exe\\data.exe &gt; data.in");</code>
+这里就是我的<strong>exe 文件</strong>都放到了叫<strong>exe
+文件夹</strong>里面，也就是<strong>exe 文件夹</strong>是和 dp.cpp
+同级的</p>
+<h2 id="后文">后文</h2>
+<p>注意我们的 data.cpp 在面对有多测的题目时候，<strong>只要多输出一行
+1</strong>就可以了</p>
+<p>注意我们的 dp.cpp 运行后一直输出 AC，没有 WA
+的输出，那也不能说我们的代码一定对了，这时候我们的代码有可能有一点小问题，这是要看生成随机数的运气的，看能不能生成出那个错误的数据</p>
+<p>我们可以输出绿色的 AC，红色的
+WA，但只能在黑框框里面实现，重定向输出就不行了，下面会在样例的 dp
+里面显示</p>
+<h3 id="样例">样例</h3>
+<p>比如题目要输出 a + b 的值， 我们就可以这样写对拍</p>
+<h4 id="test-1">test</h4>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	ios::<span class="built_in">sync_with_stdio</span>(<span class="number">0</span>);</span><br><span class="line">	cin.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line">	<span class="type">int</span> a, b;</span><br><span class="line">	cin &gt;&gt; a &gt;&gt; b;</span><br><span class="line">	<span class="keyword">if</span>(a % <span class="number">2</span> &amp;&amp; b % <span class="number">2</span>)cout &lt;&lt; a + b + <span class="number">1</span> &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">	<span class="keyword">else</span> cout &lt;&lt; a + b &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="ac-1">ac</h4>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	ios::<span class="built_in">sync_with_stdio</span>(<span class="number">0</span>);</span><br><span class="line">	cin.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line">	<span class="type">int</span> a, b;</span><br><span class="line">	cin &gt;&gt; a &gt;&gt; b;</span><br><span class="line">	cout &lt;&lt; a + b &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="data-1">data</h4>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">using</span> ll = <span class="type">long</span> <span class="type">long</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	random_device rd;</span><br><span class="line">    <span class="keyword">auto</span> now = chrono::system_clock::<span class="built_in">now</span>().<span class="built_in">time_since_epoch</span>().<span class="built_in">count</span>();</span><br><span class="line">    <span class="function">mt19937_64 <span class="title">gen</span><span class="params">(rd() ^ now)</span></span>;</span><br><span class="line">    <span class="function">uniform_int_distribution&lt;ll&gt; <span class="title">dist</span><span class="params">(<span class="number">1</span>, <span class="number">100</span>)</span></span>;</span><br><span class="line">    <span class="comment">//cout &lt;&lt; 1 &lt;&lt; &#x27;\n&#x27;; // 如果有多测的话</span></span><br><span class="line">    <span class="type">int</span> n = <span class="built_in">dist</span>(gen);</span><br><span class="line">   	<span class="type">int</span> m = <span class="built_in">dist</span>(gen);</span><br><span class="line">    cout &lt;&lt; n &lt;&lt; <span class="string">&#x27; &#x27;</span> &lt;&lt; m &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="dp-1">dp</h4>
+<p>注意上文说的文件位置</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="meta">#<span class="keyword">define</span> red <span class="string">&quot;\033[31m&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> green <span class="string">&quot;\033[32m&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> reset <span class="string">&quot;\033[0m&quot;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	ios::<span class="built_in">sync_with_stdio</span>(<span class="number">0</span>);</span><br><span class="line">	cin.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line">	<span class="type">int</span> t = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">while</span>(<span class="number">1</span>)&#123;</span><br><span class="line">		t++;</span><br><span class="line">		<span class="built_in">system</span>(<span class="string">&quot;data.exe &gt; data.in&quot;</span>);</span><br><span class="line">		<span class="built_in">system</span>(<span class="string">&quot;test.exe &lt; data.in &gt; test.out&quot;</span>);</span><br><span class="line">		<span class="built_in">system</span>(<span class="string">&quot;ac.exe &lt; data.in &gt; ac.out&quot;</span>);</span><br><span class="line">		<span class="keyword">if</span>(<span class="built_in">system</span>(<span class="string">&quot;fc test.out ac.out &gt; diff.log&quot;</span>))&#123;</span><br><span class="line">			cout &lt;&lt; red &lt;&lt; <span class="string">&quot;WA &quot;</span> &lt;&lt; t &lt;&lt; reset &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		cout &lt;&lt; green &lt;&lt; <span class="string">&quot;AC&quot;</span> &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这样运行 dp.cpp 后就会在某一个时刻输出 WA
+并停止，这时候我们打开我们代码存放的文件夹，然后打开 data.in
+就可以看到数据，diff.log 里面看到我们的输出和正确输出</p>
+]]></content>
+      <categories>
+        <category>技巧</category>
+      </categories>
+      <tags>
+        <tag>对拍</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>曼哈顿距离与切比雪夫距离的转换</title>
+    <url>/2025/06/15/%E6%9B%BC%E5%93%88%E9%A1%BF%E8%B7%9D%E7%A6%BB%E4%B8%8E%E5%88%87%E6%AF%94%E9%9B%AA%E5%A4%AB%E8%B7%9D%E7%A6%BB%E7%9A%84%E8%BD%AC%E6%8D%A2/</url>
+    <content><![CDATA[<h1
+id="曼哈顿距离与切比雪夫距离的转换">曼哈顿距离与切比雪夫距离的转换</h1>
+<h2 id="曼哈顿距离">曼哈顿距离</h2>
+<h3 id="定义">定义</h3>
+<p>平面内两点坐标分别为（x1，y1），（x2，y2）</p>
+<p>则</p>
+<p><span
+class="math display"><em>d</em><em>i</em><em>s</em> = |<em>x</em><sub>1</sub>−<em>x</em><sub>2</sub>| + |<em>y</em><sub>1</sub>−<em>y</em><sub>2</sub>|</span></p>
+<span id="more"></span>
+<h2 id="切比雪夫距离">切比雪夫距离</h2>
+<h3 id="定义-1">定义</h3>
+<p>平面内两点坐标分别为（x1，y1），（x2，y2）</p>
+<p>则</p>
+<p><span
+class="math display"><em>d</em><em>i</em><em>s</em> = max (|<em>x</em>1−<em>x</em>2|,|<em>y</em>1−<em>y</em>2|)</span></p>
+<h2 id="两者的关系">两者的关系</h2>
+<h3 id="第一组">第一组</h3>
+<p>将一个点 ((x, y)) 的坐标变为 ((x + y, x - y))
+后，原坐标系中的曼哈顿距离 (=) 新坐标系中的切比雪夫距离 。</p>
+<p>当然有时候为了防止数组越界，在处理 x - y
+的时候，可以全部加上一个定值常数，即转换为 ((x + y, x - y + C))</p>
+<h3 id="第二组">第二组</h3>
+<p>将一个点 ((x, y)) 的坐标变为</p>
+<p><span class="math display">$$
+\left( \frac{x+y}{2},\ \frac{x-y}{2} \right)
+$$</span></p>
+<p>后，原坐标系中的切比雪夫距离 (=) 新坐标系中的曼哈顿距离</p>
+<h3 id="第一组变换证明">1. 第一组变换证明</h3>
+<p>设原两点 ( A(x_1,y_1) )、( B(x_2,y_2) )，变换后新坐标：</p>
+<p><span
+class="math display"><em>A</em>′(<em>x</em><sub>1</sub>+<em>y</em><sub>1</sub>, <em>x</em><sub>1</sub>−<em>y</em><sub>1</sub>),  <em>B</em>′(<em>x</em><sub>2</sub>+<em>y</em><sub>2</sub>, <em>x</em><sub>2</sub>−<em>y</em><sub>2</sub>)</span></p>
+<ul>
+<li><p>原曼哈顿距离：</p>
+<ul>
+<li><span
+class="math display"><em>d</em>_Manhattan = |<em>x</em><sub>1</sub>−<em>x</em><sub>2</sub>| + |<em>y</em><sub>1</sub>−<em>y</em><sub>2</sub>|</span></li>
+</ul></li>
+<li><p>新切比雪夫距离：</p>
+<ul>
+<li><span
+class="math display"><em>d</em>_Chebyshev′ = max ( |(<em>x</em><sub>1</sub>+<em>y</em><sub>1</sub>)−(<em>x</em><sub>2</sub>+<em>y</em><sub>2</sub>)| , |(<em>x</em><sub>1</sub>−<em>y</em><sub>1</sub>)−(<em>x</em><sub>2</sub>−<em>y</em><sub>2</sub>)| )</span></li>
+</ul></li>
+<li><p>化简后可证</p></li>
+</ul>
+<p><span
+class="math display">(<em>d</em><sub>Manhattan</sub>=<em>d</em><sub>Chebyshev</sub>′)</span></p>
+<h3 id="第二组变换证明">2. 第二组变换证明</h3>
+<p>变换后新坐标： <span class="math display">$$
+A'\left(\frac{x_1+y_1}{2},\ \frac{x_1-y_1}{2}\right),\quad
+B'\left(\frac{x_2+y_2}{2},\ \frac{x_2-y_2}{2}\right) $$</span></p>
+<ul>
+<li><p>原切比雪夫距离：</p>
+<ul>
+<li><span
+class="math display"><em>d</em>_Chebyshev = max ( |<em>x</em><sub>1</sub>−<em>x</em><sub>2</sub>|, |<em>y</em><sub>1</sub>−<em>y</em><sub>2</sub>| )</span></li>
+</ul></li>
+<li><p>新曼哈顿距离：</p>
+<ul>
+<li><span class="math display">$$ d\_{\text{Manhattan}}' =
+\left|\frac{x_1+y_1}{2} - \frac{x_2+y_2}{2}\right| +
+\left|\frac{x_1-y_1}{2} - \frac{x_2-y_2}{2}\right| $$</span></li>
+</ul></li>
+<li><p>化简后可证 <span
+class="math display">(<em>d</em><sub>Chebyshev</sub>=<em>d</em><sub>Manhattan</sub>′)</span></p></li>
+</ul>
+<h3 id="应用意义">应用意义</h3>
+<p>这些变换可将两种距离问题<strong>相互转换</strong>，利用不同距离在算法中的优势（如曼哈顿距离计算简单、切比雪夫距离在网格问题中直观
+），简化解题。</p>
+<h3 id="例题-c-总辖之愿_金山杯-2025-年武汉理工大学程序设计竞赛">例题 (
+<span class="exturl" data-url="aHR0cHM6Ly9hYy5ub3djb2Rlci5jb20vYWNtL2NvbnRlc3QvMTEyNjkyL0M=">C-总辖之愿_金山杯
+2025 年武汉理工大学程序设计竞赛<i class="fa fa-external-link-alt"></i></span> )</h3>
+]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>计算几何</tag>
       </tags>
   </entry>
 </search>
