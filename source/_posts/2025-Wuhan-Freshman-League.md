@@ -567,7 +567,7 @@ int main ()
 
 2. 求$P(X)$
    超几何分布知识，我们用$\binom{k}{i}$表示$C(i, k)$，最终公式
-   $$\frac{\binom{M}{X}\binom{N - M}{n - X}}{\binom{n}{m}}$$
+   $$\frac{\binom{M}{X}\binom{N - M}{n - X}}{\binom{N}{n}}$$
    其中$\binom{M}{X}$表示从$X$个总特殊品选取$M$个，那么剩下$n - X$个是非特殊，再从$N - M$个总非特殊选取$n - X$个，相乘是“有利情况”，除总情况就是概率
 
 3. 期望化简后求和结果
