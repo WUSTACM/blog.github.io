@@ -28,6 +28,8 @@ type:
 
 # Codeforces Hello 2026 题解
 
+## [更好的阅读体验](https://blog.scandidreams.top/2026/01/08/Codeforces%20Hello%202026/)
+
 ## [Hello 2026](https://codeforces.com/contest/2183)
 
 ---
