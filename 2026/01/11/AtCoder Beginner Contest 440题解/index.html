@@ -20,15 +20,15 @@
     var CONFIG = {"hostname":"blog.wustacm.org","root":"/","scheme":"Gemini","version":"7.8.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":"flat"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="AtCoder Beginner Contest 440 题解A题意求$X$翻倍$Y$次的结果 是翻倍不是求幂QAQ 思路位运算或者$pow()$ 代码1234567void solve()&#123;    int x, y;    cin &gt;&gt; x &gt;&gt; y;    &#x2F;&#x2F; cout &lt;&lt; x * pow(2, y) &lt;&lt; endl;    whi">
+  <meta name="description" content="AtCoder Beginner Contest 440 题解 A 题意 求X翻倍Y次的结果 是翻倍不是求幂QAQ 思路 位运算或者pow() 代码 1234567void solve()&#123;    int x, y;    cin &gt;&gt; x &gt;&gt; y;    &#x2F;&#x2F; cout &lt;&lt; x * pow(2, y) &lt;&lt; endl;    whil">
 <meta property="og:type" content="article">
 <meta property="og:title" content="AtCoder Beginner Contest 440题解">
 <meta property="og:url" content="http://blog.wustacm.org/2026/01/11/AtCoder%20Beginner%20Contest%20440%E9%A2%98%E8%A7%A3/index.html">
 <meta property="og:site_name" content="WUSTACM">
-<meta property="og:description" content="AtCoder Beginner Contest 440 题解A题意求$X$翻倍$Y$次的结果 是翻倍不是求幂QAQ 思路位运算或者$pow()$ 代码1234567void solve()&#123;    int x, y;    cin &gt;&gt; x &gt;&gt; y;    &#x2F;&#x2F; cout &lt;&lt; x * pow(2, y) &lt;&lt; endl;    whi">
+<meta property="og:description" content="AtCoder Beginner Contest 440 题解 A 题意 求X翻倍Y次的结果 是翻倍不是求幂QAQ 思路 位运算或者pow() 代码 1234567void solve()&#123;    int x, y;    cin &gt;&gt; x &gt;&gt; y;    &#x2F;&#x2F; cout &lt;&lt; x * pow(2, y) &lt;&lt; endl;    whil">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2026-01-11T00:00:00.000Z">
-<meta property="article:modified_time" content="2026-01-11T16:18:44.165Z">
+<meta property="article:modified_time" content="2026-01-12T19:48:11.670Z">
 <meta property="article:author" content="Blog">
 <meta property="article:tag" content="题解">
 <meta name="twitter:card" content="summary">
@@ -219,10 +219,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2026-01-11 00:00:00 / 修改时间：16:18:44" itemprop="dateCreated datePublished" datetime="2026-01-11T00:00:00+00:00">2026-01-11</time>
+              <time title="创建时间：2026-01-11 00:00:00" itemprop="dateCreated datePublished" datetime="2026-01-11T00:00:00+00:00">2026-01-11</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2026-01-12 19:48:11" itemprop="dateModified" datetime="2026-01-12T19:48:11+00:00">2026-01-12</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -279,40 +285,126 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="AtCoder-Beginner-Contest-440-题解"><a href="#AtCoder-Beginner-Contest-440-题解" class="headerlink" title="AtCoder Beginner Contest 440 题解"></a>AtCoder Beginner Contest 440 题解</h1><h2 id="A"><a href="#A" class="headerlink" title="A"></a>A</h2><h3 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h3><p>求$X$翻倍$Y$次的结果 <code>是翻倍不是求幂QAQ</code></p>
-<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>位运算或者$pow()$</p>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> x, y;</span><br><span class="line">    cin &gt;&gt; x &gt;&gt; y;</span><br><span class="line">    <span class="comment">// cout &lt;&lt; x * pow(2, y) &lt;&lt; endl;</span></span><br><span class="line">    <span class="keyword">while</span> (y --) x &lt;&lt;= <span class="number">1</span>; <span class="comment">// 位运算</span></span><br><span class="line">    cout &lt;&lt; x &lt;&lt; endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+        <h1 id="atcoder-beginner-contest-440-题解">AtCoder Beginner Contest 440
+题解</h1>
+<h2 id="a">A</h2>
+<h3 id="题意">题意</h3>
+<p>求<span class="math inline"><em>X</em></span>翻倍<span
+class="math inline"><em>Y</em></span>次的结果
+<code>是翻倍不是求幂QAQ</code></p>
+<h3 id="思路">思路</h3>
+<p>位运算或者<span
+class="math inline"><em>p</em><em>o</em><em>w</em>()</span></p>
+<h3 id="代码">代码</h3>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> x, y;</span><br><span class="line">    cin &gt;&gt; x &gt;&gt; y;</span><br><span class="line">    <span class="comment">// cout &lt;&lt; x * pow(2, y) &lt;&lt; endl;</span></span><br><span class="line">    <span class="keyword">while</span> (y --) x &lt;&lt;= <span class="number">1</span>; <span class="comment">// 位运算</span></span><br><span class="line">    cout &lt;&lt; x &lt;&lt; endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <span id="more"></span>
-
-<h2 id="B"><a href="#B" class="headerlink" title="B"></a>B</h2><h3 id="题意-1"><a href="#题意-1" class="headerlink" title="题意"></a>题意</h3><p>给定长度为$N$数组, 求最大的三个值的编号</p>
-<h3 id="思路-1"><a href="#思路-1" class="headerlink" title="思路"></a>思路</h3><p>结构体或者$pair$存储</p>
-<h3 id="代码-1"><a href="#代码-1" class="headerlink" title="代码"></a>代码</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> n; cin &gt;&gt; n;</span><br><span class="line">    <span class="function">vector&lt;PII&gt; <span class="title">a</span><span class="params">(n + <span class="number">1</span>)</span></span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i ++) &#123;</span><br><span class="line">        cin &gt;&gt; a[i].first;</span><br><span class="line">        a[i].second = i;    <span class="comment">//注意编码</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">sort</span>(a.<span class="built_in">begin</span>() + <span class="number">1</span>, a.<span class="built_in">end</span>());   <span class="comment">//注意条件</span></span><br><span class="line">    cout &lt;&lt; a[<span class="number">1</span>].second &lt;&lt; <span class="string">&#x27; &#x27;</span> &lt;&lt; a[<span class="number">2</span>].second &lt;&lt; <span class="string">&#x27; &#x27;</span> &lt;&lt; a[<span class="number">3</span>].second &lt;&lt; endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="关于排序"><a href="#关于排序" class="headerlink" title="关于排序"></a>关于排序</h3><ol>
-<li>重载$cmp$最严谨写法</li>
+<h2 id="b">B</h2>
+<h3 id="题意-1">题意</h3>
+<p>给定长度为<span class="math inline"><em>N</em></span>数组,
+求最大的三个值的编号</p>
+<h3 id="思路-1">思路</h3>
+<p>结构体或者<span
+class="math inline"><em>p</em><em>a</em><em>i</em><em>r</em></span>存储</p>
+<h3 id="代码-1">代码</h3>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> n; cin &gt;&gt; n;</span><br><span class="line">    <span class="function">vector&lt;PII&gt; <span class="title">a</span><span class="params">(n + <span class="number">1</span>)</span></span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i ++) &#123;</span><br><span class="line">        cin &gt;&gt; a[i].first;</span><br><span class="line">        a[i].second = i;    <span class="comment">//注意编码</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">sort</span>(a.<span class="built_in">begin</span>() + <span class="number">1</span>, a.<span class="built_in">end</span>());   <span class="comment">//注意条件</span></span><br><span class="line">    cout &lt;&lt; a[<span class="number">1</span>].second &lt;&lt; <span class="string">&#x27; &#x27;</span> &lt;&lt; a[<span class="number">2</span>].second &lt;&lt; <span class="string">&#x27; &#x27;</span> &lt;&lt; a[<span class="number">3</span>].second &lt;&lt; endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="关于排序">关于排序</h3>
+<ol type="1">
+<li>重载<span
+class="math inline"><em>c</em><em>m</em><em>p</em></span>最严谨写法</li>
 </ol>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sort</span>(a.<span class="built_in">begin</span>() + <span class="number">1</span>, a.<span class="built_in">end</span>(), [](PII x, PII y) &#123;</span><br><span class="line">    <span class="keyword">if</span> (x.first != y.first) <span class="keyword">return</span> x.first &lt; y.first;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">return</span> x.second &lt; y.second;    <span class="comment">//根据具体题目</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
 <ul>
-<li>本题数组值都不一样, 重载时候不会出现键不同的情况, 不写分类不会报错</li>
-<li>$sort$本身对$pair$排序的时候先比较键, 后比较值</li>
+<li>本题数组值都不一样, 重载时候不会出现键不同的情况,
+不写分类不会报错</li>
+<li><span
+class="math inline"><em>s</em><em>o</em><em>r</em><em>t</em></span>本身对<span
+class="math inline"><em>p</em><em>a</em><em>i</em><em>r</em></span>排序的时候先比较键,
+后比较值</li>
 </ul>
-<ol start="2">
+<ol start="2" type="1">
 <li>逆序排序写法</li>
 </ol>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1-based排序</span></span><br><span class="line"><span class="built_in">sort</span>(a.<span class="built_in">begin</span>() + <span class="number">1</span>, a.<span class="built_in">end</span>(), <span class="built_in">greater</span>&lt;<span class="type">int</span>&gt;());</span><br><span class="line"></span><br><span class="line"><span class="built_in">sort</span>(a.<span class="built_in">begin</span>() + <span class="number">1</span>, a.<span class="built_in">end</span>());</span><br><span class="line"><span class="built_in">reverse</span>(a.<span class="built_in">begin</span>() + <span class="number">1</span>, a.<span class="built_in">end</span>());</span><br><span class="line"></span><br><span class="line"><span class="comment">//仅0-based排序可用</span></span><br><span class="line"><span class="built_in">sort</span>(v.<span class="built_in">rbegin</span>(), v.<span class="built_in">rend</span>());</span><br></pre></td></tr></table></figure>
-
-<h2 id="C"><a href="#C" class="headerlink" title="C"></a>C</h2><h3 id="题意-2"><a href="#题意-2" class="headerlink" title="题意"></a>题意</h3><p>给定一个数组，取任意的$x$，将$1  \leq i \leq N$ 的内所有整数 $i$中满足$ (i + x) $ 除以 $2W$的余数小于$ W $的数加上,求最小总和</p>
-<h3 id="思路-2"><a href="#思路-2" class="headerlink" title="思路"></a>思路</h3><p>最简单的思路是枚举$x$, 然后求出总和比较, 注意到因为取模操作, $x &lt; 2W$即可,时间复杂度$O(T \cdot W \cdot N)$</p>
-<p>继续优化, 我们注意到取模操作会让范围都落在$[0, 2W - 1]$上, 且<br>$$(i + x) % 2W &#x3D; (i + x + 2W) % 2W$$<br>将下标离散化为$[0, 2W - 1]$上, 问题转化为求$2W$长的数组中长度为$W$的最小连续子段和,用滑动窗口, 时间复杂度为$O(T \cdot (W + N))$</p>
-<h3 id="代码-2"><a href="#代码-2" class="headerlink" title="代码"></a>代码</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> n, w;</span><br><span class="line">    cin &gt;&gt; n &gt;&gt; w;</span><br><span class="line">    vector &lt;<span class="type">int</span>&gt; <span class="built_in">a</span>(n + <span class="number">1</span>);</span><br><span class="line">    vector &lt;<span class="type">int</span>&gt; <span class="built_in">b</span>(<span class="number">2</span> * w);</span><br><span class="line">    <span class="type">int</span> m = <span class="number">2</span> * w;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i ++) &#123;</span><br><span class="line">        cin &gt;&gt; a[i];</span><br><span class="line">        b[i % m] += a[i];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> mn, cur, pas;</span><br><span class="line">    mn = <span class="built_in">accumulate</span>(b.<span class="built_in">begin</span>(),b.<span class="built_in">begin</span>() + w, <span class="number">0LL</span>);</span><br><span class="line">    pas = mn;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt; <span class="number">2</span> * w; i ++) &#123;</span><br><span class="line">        cur = pas - b[i - <span class="number">1</span>] + b[(i + w - <span class="number">1</span>) % m];</span><br><span class="line">        mn = <span class="built_in">min</span> (cur, mn);</span><br><span class="line">        pas = cur;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    cout &lt;&lt; mn &lt;&lt; endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="D"><a href="#D" class="headerlink" title="D"></a>D</h2><h3 id="题意-3"><a href="#题意-3" class="headerlink" title="题意"></a>题意</h3><p>给定长度为$N$的数组$A$, $Q$次查询, 给定$X$, $Y$, 求值$ans$使得[$X$, $ans$]之间存在$Y$个不在数组中的数</p>
-<h3 id="思路-3"><a href="#思路-3" class="headerlink" title="思路"></a>思路</h3><p>首先如果可以确定$ans$的值的情况下, 令[$X$, $ans$]之间$A_i$的值的个数为$an$, 如果我们知道$A$在[$X$, $ans$]的第一个下标$l$和最后一个下标$r$, 那么有<br>$$an &#x3D; ans - x + 1 - (r - l + 1)$$</p>
-<p>要求$an &#x3D; y$. 那么最简单的想法, 二分答案$ans$, 预处理超过$A_{max}$的情况, 数组$A$的最大范围$m&#x3D;1<br>e9$, 时间复杂度$O(mlogm)$, 需要优化</p>
-<p>我们注意到, $ans$不可能是$A_i$, 我们的$an$遇到$A_i$就会改变, 根据上面表达式, 与数组$A$相关的其实只有$r$和$l$, 所以我们可以选择枚举$ans$的范围, 设$r$是第一个大于$ans$的值, 此时公式<br>$$an &#x3D; A_r - x - (r - l)$$<br>求满足$an \geq ans$的最小$r$即可, 最终答案<br>$$ ans &#x3D; x + y -1 + (r - l)$$<br>时间复杂度$O(nlogn)$</p>
-<h3 id="代码-3"><a href="#代码-3" class="headerlink" title="代码"></a>代码</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> n, q;</span><br><span class="line">    cin &gt;&gt; n &gt;&gt; q;</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">a</span> <span class="params">(n + <span class="number">1</span>)</span></span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i ++) &#123;</span><br><span class="line">        cin &gt;&gt; a[i];</span><br><span class="line">    &#125;</span><br><span class="line">    ranges :: <span class="built_in">sort</span> (a);</span><br><span class="line">    <span class="type">int</span> x, y;</span><br><span class="line">    <span class="keyword">while</span> (q --) &#123;</span><br><span class="line">        cin &gt;&gt; x &gt;&gt; y;</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> l = <span class="built_in">lower_bound</span>(a.<span class="built_in">begin</span>() + <span class="number">1</span>, a.<span class="built_in">end</span>(), x) - a.<span class="built_in">begin</span>();</span><br><span class="line">        <span class="keyword">if</span> (l &gt; n) &#123;</span><br><span class="line">            cout &lt;&lt; x + y - <span class="number">1</span> &lt;&lt; endl;</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">int</span> mn = l;</span><br><span class="line">        <span class="type">int</span> r = n;</span><br><span class="line">        <span class="keyword">while</span> (l &lt;= r) &#123;</span><br><span class="line">            <span class="type">int</span> mid = l + (r - l) / <span class="number">2</span>;</span><br><span class="line">            <span class="type">int</span> an = a[mid] - x - (mid - mn);</span><br><span class="line">            <span class="keyword">if</span> (an &lt; y) &#123;</span><br><span class="line">                l = mid + <span class="number">1</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                r = mid - <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (l &gt; n) &#123;</span><br><span class="line">            cout &lt;&lt; x + y - <span class="number">1</span> + (n - mn + <span class="number">1</span>) &lt;&lt; endl;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            cout &lt;&lt; x + y - <span class="number">1</span> + (l - mn) &lt;&lt; endl;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="c">C</h2>
+<h3 id="题意-2">题意</h3>
+<p>给定一个数组，取任意的<span
+class="math inline"><em>x</em></span>，将<span
+class="math inline">1 ≤ <em>i</em> ≤ <em>N</em></span> 的内所有整数
+<span class="math inline"><em>i</em></span>中满足$ (i + x) $ 除以 <span
+class="math inline">2<em>W</em></span>的余数小于$ W
+$的数加上,求最小总和</p>
+<h3 id="思路-2">思路</h3>
+<p>最简单的思路是枚举<span class="math inline"><em>x</em></span>,
+然后求出总和比较, 注意到因为取模操作, <span
+class="math inline"><em>x</em> &lt; 2<em>W</em></span>即可,时间复杂度<span
+class="math inline"><em>O</em>(<em>T</em>⋅<em>W</em>⋅<em>N</em>)</span></p>
+<p>继续优化, 我们注意到取模操作会让范围都落在<span
+class="math inline">[0,2<em>W</em>−1]</span>上, 且 <span
+class="math display">(<em>i</em>+<em>x</em>)%2<em>W</em> = (<em>i</em>+<em>x</em>+2<em>W</em>)%2<em>W</em></span>
+将下标离散化为<span class="math inline">[0,2<em>W</em>−1]</span>上,
+问题转化为求<span
+class="math inline">2<em>W</em></span>长的数组中长度为<span
+class="math inline"><em>W</em></span>的最小连续子段和,用滑动窗口,
+时间复杂度为<span
+class="math inline"><em>O</em>(<em>T</em>⋅(<em>W</em>+<em>N</em>))</span></p>
+<h3 id="代码-2">代码</h3>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> n, w;</span><br><span class="line">    cin &gt;&gt; n &gt;&gt; w;</span><br><span class="line">    vector &lt;<span class="type">int</span>&gt; <span class="built_in">a</span>(n + <span class="number">1</span>);</span><br><span class="line">    vector &lt;<span class="type">int</span>&gt; <span class="built_in">b</span>(<span class="number">2</span> * w);</span><br><span class="line">    <span class="type">int</span> m = <span class="number">2</span> * w;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i ++) &#123;</span><br><span class="line">        cin &gt;&gt; a[i];</span><br><span class="line">        b[i % m] += a[i];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> mn, cur, pas;</span><br><span class="line">    mn = <span class="built_in">accumulate</span>(b.<span class="built_in">begin</span>(),b.<span class="built_in">begin</span>() + w, <span class="number">0LL</span>);</span><br><span class="line">    pas = mn;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt; <span class="number">2</span> * w; i ++) &#123;</span><br><span class="line">        cur = pas - b[i - <span class="number">1</span>] + b[(i + w - <span class="number">1</span>) % m];</span><br><span class="line">        mn = <span class="built_in">min</span> (cur, mn);</span><br><span class="line">        pas = cur;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    cout &lt;&lt; mn &lt;&lt; endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="d">D</h2>
+<h3 id="题意-3">题意</h3>
+<p>给定长度为<span class="math inline"><em>N</em></span>的数组<span
+class="math inline"><em>A</em></span>, <span
+class="math inline"><em>Q</em></span>次查询, 给定<span
+class="math inline"><em>X</em></span>, <span
+class="math inline"><em>Y</em></span>, 求值<span
+class="math inline"><em>a</em><em>n</em><em>s</em></span>使得[<span
+class="math inline"><em>X</em></span>, <span
+class="math inline"><em>a</em><em>n</em><em>s</em></span>]之间存在<span
+class="math inline"><em>Y</em></span>个不在数组中的数</p>
+<h3 id="思路-3">思路</h3>
+<p>首先如果可以确定<span
+class="math inline"><em>a</em><em>n</em><em>s</em></span>的值的情况下,
+令[<span class="math inline"><em>X</em></span>, <span
+class="math inline"><em>a</em><em>n</em><em>s</em></span>]之间<span
+class="math inline"><em>A</em><sub><em>i</em></sub></span>的值的个数为<span
+class="math inline"><em>a</em><em>n</em></span>, 如果我们知道<span
+class="math inline"><em>A</em></span>在[<span
+class="math inline"><em>X</em></span>, <span
+class="math inline"><em>a</em><em>n</em><em>s</em></span>]的第一个下标<span
+class="math inline"><em>l</em></span>和最后一个下标<span
+class="math inline"><em>r</em></span>, 那么有 <span
+class="math display"><em>a</em><em>n</em> = <em>a</em><em>n</em><em>s</em> − <em>x</em> + 1 − (<em>r</em>−<em>l</em>+1)</span></p>
+<p>要求<span
+class="math inline"><em>a</em><em>n</em> = <em>y</em></span>.
+那么最简单的想法, 二分答案<span
+class="math inline"><em>a</em><em>n</em><em>s</em></span>,
+预处理超过<span
+class="math inline"><em>A</em><sub><em>m</em><em>a</em><em>x</em></sub></span>的情况,
+数组<span class="math inline"><em>A</em></span>的最大范围<span
+class="math inline"><em>m</em> = 1<em>e</em>9</span>, 时间复杂度<span
+class="math inline"><em>O</em>(<em>m</em><em>l</em><em>o</em><em>g</em><em>m</em>)</span>,
+需要优化</p>
+<p>我们注意到, <span
+class="math inline"><em>a</em><em>n</em><em>s</em></span>不可能是<span
+class="math inline"><em>A</em><sub><em>i</em></sub></span>, 我们的<span
+class="math inline"><em>a</em><em>n</em></span>遇到<span
+class="math inline"><em>A</em><sub><em>i</em></sub></span>就会改变,
+根据上面表达式, 与数组<span
+class="math inline"><em>A</em></span>相关的其实只有<span
+class="math inline"><em>r</em></span>和<span
+class="math inline"><em>l</em></span>, 所以我们可以选择枚举<span
+class="math inline"><em>a</em><em>n</em><em>s</em></span>的范围, 设<span
+class="math inline"><em>r</em></span>是第一个大于<span
+class="math inline"><em>a</em><em>n</em><em>s</em></span>的值, 此时公式
+<span
+class="math display"><em>a</em><em>n</em> = <em>A</em><sub><em>r</em></sub> − <em>x</em> − (<em>r</em>−<em>l</em>)</span>
+求满足<span
+class="math inline"><em>a</em><em>n</em> ≥ <em>a</em><em>n</em><em>s</em></span>的最小<span
+class="math inline"><em>r</em></span>即可, 最终答案 <span
+class="math display"><em>a</em><em>n</em><em>s</em> = <em>x</em> + <em>y</em> − 1 + (<em>r</em>−<em>l</em>)</span>
+时间复杂度<span
+class="math inline"><em>O</em>(<em>n</em><em>l</em><em>o</em><em>g</em><em>n</em>)</span></p>
+<h3 id="代码-3">代码</h3>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> n, q;</span><br><span class="line">    cin &gt;&gt; n &gt;&gt; q;</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">a</span> <span class="params">(n + <span class="number">1</span>)</span></span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i ++) &#123;</span><br><span class="line">        cin &gt;&gt; a[i];</span><br><span class="line">    &#125;</span><br><span class="line">    ranges :: <span class="built_in">sort</span> (a);</span><br><span class="line">    <span class="type">int</span> x, y;</span><br><span class="line">    <span class="keyword">while</span> (q --) &#123;</span><br><span class="line">        cin &gt;&gt; x &gt;&gt; y;</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> l = <span class="built_in">lower_bound</span>(a.<span class="built_in">begin</span>() + <span class="number">1</span>, a.<span class="built_in">end</span>(), x) - a.<span class="built_in">begin</span>();</span><br><span class="line">        <span class="keyword">if</span> (l &gt; n) &#123;</span><br><span class="line">            cout &lt;&lt; x + y - <span class="number">1</span> &lt;&lt; endl;</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">int</span> mn = l;</span><br><span class="line">        <span class="type">int</span> r = n;</span><br><span class="line">        <span class="keyword">while</span> (l &lt;= r) &#123;</span><br><span class="line">            <span class="type">int</span> mid = l + (r - l) / <span class="number">2</span>;</span><br><span class="line">            <span class="type">int</span> an = a[mid] - x - (mid - mn);</span><br><span class="line">            <span class="keyword">if</span> (an &lt; y) &#123;</span><br><span class="line">                l = mid + <span class="number">1</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                r = mid - <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (l &gt; n) &#123;</span><br><span class="line">            cout &lt;&lt; x + y - <span class="number">1</span> + (n - mn + <span class="number">1</span>) &lt;&lt; endl;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            cout &lt;&lt; x + y - <span class="number">1</span> + (l - mn) &lt;&lt; endl;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -371,7 +463,10 @@
     <a href="/2026/01/08/Codeforces%20Hello%202026/" rel="prev" title="Codeforces Hello 2026 题解 (div1 + 2)">
       <i class="fa fa-chevron-left"></i> Codeforces Hello 2026 题解 (div1 + 2)
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2026/01/13/Codeforces%20Round%201072%20(Div.%203)%E9%A2%98%E8%A7%A3/" rel="next" title="Codeforces Round 1072 (Div. 3) 题解">
+      Codeforces Round 1072 (Div. 3) 题解 <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -431,7 +526,8 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#AtCoder-Beginner-Contest-440-%E9%A2%98%E8%A7%A3"><span class="nav-number">1.</span> <span class="nav-text">AtCoder Beginner Contest 440 题解</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#A"><span class="nav-number">1.1.</span> <span class="nav-text">A</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E6%84%8F"><span class="nav-number">1.1.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF"><span class="nav-number">1.1.2.</span> <span class="nav-text">思路</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.1.3.</span> <span class="nav-text">代码</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#B"><span class="nav-number">1.2.</span> <span class="nav-text">B</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E6%84%8F-1"><span class="nav-number">1.2.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF-1"><span class="nav-number">1.2.2.</span> <span class="nav-text">思路</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81-1"><span class="nav-number">1.2.3.</span> <span class="nav-text">代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B3%E4%BA%8E%E6%8E%92%E5%BA%8F"><span class="nav-number">1.2.4.</span> <span class="nav-text">关于排序</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#C"><span class="nav-number">1.3.</span> <span class="nav-text">C</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E6%84%8F-2"><span class="nav-number">1.3.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF-2"><span class="nav-number">1.3.2.</span> <span class="nav-text">思路</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81-2"><span class="nav-number">1.3.3.</span> <span class="nav-text">代码</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#D"><span class="nav-number">1.4.</span> <span class="nav-text">D</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E6%84%8F-3"><span class="nav-number">1.4.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF-3"><span class="nav-number">1.4.2.</span> <span class="nav-text">思路</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81-3"><span class="nav-number">1.4.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#atcoder-beginner-contest-440-%E9%A2%98%E8%A7%A3"><span class="nav-number">1.</span> <span class="nav-text">AtCoder Beginner Contest 440
+题解</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#a"><span class="nav-number">1.1.</span> <span class="nav-text">A</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E6%84%8F"><span class="nav-number">1.1.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF"><span class="nav-number">1.1.2.</span> <span class="nav-text">思路</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.1.3.</span> <span class="nav-text">代码</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#b"><span class="nav-number">1.2.</span> <span class="nav-text">B</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E6%84%8F-1"><span class="nav-number">1.2.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF-1"><span class="nav-number">1.2.2.</span> <span class="nav-text">思路</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81-1"><span class="nav-number">1.2.3.</span> <span class="nav-text">代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B3%E4%BA%8E%E6%8E%92%E5%BA%8F"><span class="nav-number">1.2.4.</span> <span class="nav-text">关于排序</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#c"><span class="nav-number">1.3.</span> <span class="nav-text">C</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E6%84%8F-2"><span class="nav-number">1.3.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF-2"><span class="nav-number">1.3.2.</span> <span class="nav-text">思路</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81-2"><span class="nav-number">1.3.3.</span> <span class="nav-text">代码</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#d"><span class="nav-number">1.4.</span> <span class="nav-text">D</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E6%84%8F-3"><span class="nav-number">1.4.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF-3"><span class="nav-number">1.4.2.</span> <span class="nav-text">思路</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81-3"><span class="nav-number">1.4.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -445,7 +541,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">38</span>
+          <span class="site-state-item-count">39</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -527,12 +623,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">78k</span>
+    <span title="站点总字数">80k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:45</span>
+    <span title="站点阅读时长">4:51</span>
 </div>
   <div class="powered-by">由 <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl theme-link" data-url="aHR0cHM6Ly90aGVtZS1uZXh0Lm9yZw==">NexT.Gemini</span> 强力驱动
   </div>
