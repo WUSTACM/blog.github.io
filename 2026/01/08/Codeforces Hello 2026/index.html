@@ -20,15 +20,15 @@
     var CONFIG = {"hostname":"blog.wustacm.org","root":"/","scheme":"Gemini","version":"7.8.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":"flat"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="Codeforces Hello 2026 题解 更好的阅读体验 Hello 2026  A. Binary Array Game 题意: 输入n个0或者1的整数, alice 和 bob 一起在 n 个数上进行游戏, alice 先手, 每人每次可以选择连续至少一个数,然后用 1 − min(所选的所有数) 取代所选的连续数, 知道只剩下最后一个数. 如果最后一个数是0, 那么 alice 获胜">
+  <meta name="description" content="Codeforces Hello 2026 题解更好的阅读体验Hello 2026 A. Binary Array Game题意:输入$n$个$0$或者$1$的整数, alice 和 bob 一起在 n 个数上进行游戏, alice 先手, 每人每次可以选择连续至少一个数,然后用 $1-min(所选的所有数)$ 取代所选的连续数, 知道只剩下最后一个数. 如果最后一个数是$0$, 那么 alice">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Codeforces Hello 2026 题解 (div1 + 2)">
 <meta property="og:url" content="http://blog.wustacm.org/2026/01/08/Codeforces%20Hello%202026/index.html">
 <meta property="og:site_name" content="WUSTACM">
-<meta property="og:description" content="Codeforces Hello 2026 题解 更好的阅读体验 Hello 2026  A. Binary Array Game 题意: 输入n个0或者1的整数, alice 和 bob 一起在 n 个数上进行游戏, alice 先手, 每人每次可以选择连续至少一个数,然后用 1 − min(所选的所有数) 取代所选的连续数, 知道只剩下最后一个数. 如果最后一个数是0, 那么 alice 获胜">
+<meta property="og:description" content="Codeforces Hello 2026 题解更好的阅读体验Hello 2026 A. Binary Array Game题意:输入$n$个$0$或者$1$的整数, alice 和 bob 一起在 n 个数上进行游戏, alice 先手, 每人每次可以选择连续至少一个数,然后用 $1-min(所选的所有数)$ 取代所选的连续数, 知道只剩下最后一个数. 如果最后一个数是$0$, 那么 alice">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2026-01-08T00:00:00.000Z">
-<meta property="article:modified_time" content="2026-01-12T19:48:11.671Z">
+<meta property="article:modified_time" content="2026-01-12T20:58:29.614Z">
 <meta property="article:author" content="Blog">
 <meta property="article:tag" content="题解">
 <meta name="twitter:card" content="summary">
@@ -227,7 +227,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2026-01-12 19:48:11" itemprop="dateModified" datetime="2026-01-12T19:48:11+00:00">2026-01-12</time>
+                <time title="修改时间：2026-01-12 20:58:29" itemprop="dateModified" datetime="2026-01-12T20:58:29+00:00">2026-01-12</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -285,151 +285,60 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="codeforces-hello-2026-题解">Codeforces Hello 2026 题解</h1>
-<h2 id="更好的阅读体验"><a
-target="_blank" rel="noopener" href="https://blog.scandidreams.top/2026/01/08/Codeforces%20Hello%202026/">更好的阅读体验</a></h2>
-<h2 id="hello-2026"><span class="exturl" data-url="aHR0cHM6Ly9jb2RlZm9yY2VzLmNvbS9jb250ZXN0LzIxODM=">Hello
-2026<i class="fa fa-external-link-alt"></i></span></h2>
-<hr />
-<h2 id="a.-binary-array-game">A. Binary Array Game</h2>
-<h3 id="题意">题意:</h3>
-<p>输入<span class="math inline"><em>n</em></span>个<span
-class="math inline">0</span>或者<span
-class="math inline">1</span>的整数, alice 和 bob 一起在 n
-个数上进行游戏, alice 先手, 每人每次可以选择连续至少一个数,然后用 <span
-class="math inline">1 − <em>m</em><em>i</em><em>n</em>(<em>所</em><em>选</em><em>的</em><em>所</em><em>有</em><em>数</em>)</span>
-取代所选的连续数, 知道只剩下最后一个数. 如果最后一个数是<span
-class="math inline">0</span>, 那么 alice 获胜,否则 bob 获胜.</p>
+        <h1 id="Codeforces-Hello-2026-题解"><a href="#Codeforces-Hello-2026-题解" class="headerlink" title="Codeforces Hello 2026 题解"></a>Codeforces Hello 2026 题解</h1><h2 id="更好的阅读体验"><a href="#更好的阅读体验" class="headerlink" title="更好的阅读体验"></a><span class="exturl" data-url="aHR0cHM6Ly9ibG9nLnNjYW5kaWRyZWFtcy50b3AvMjAyNi8wMS8wOC9Db2RlZm9yY2VzJTIwSGVsbG8lMjAyMDI2Lw==">更好的阅读体验<i class="fa fa-external-link-alt"></i></span></h2><h2 id="Hello-2026"><a href="#Hello-2026" class="headerlink" title="Hello 2026"></a><span class="exturl" data-url="aHR0cHM6Ly9jb2RlZm9yY2VzLmNvbS9jb250ZXN0LzIxODM=">Hello 2026<i class="fa fa-external-link-alt"></i></span></h2><hr>
+<h2 id="A-Binary-Array-Game"><a href="#A-Binary-Array-Game" class="headerlink" title="A. Binary Array Game"></a>A. Binary Array Game</h2><h3 id="题意"><a href="#题意" class="headerlink" title="题意:"></a>题意:</h3><p>输入$n$个$0$或者$1$的整数, alice 和 bob 一起在 n 个数上进行游戏, alice 先手, 每人每次可以选择连续至少一个数,然后用 $1-min(所选的所有数)$ 取代所选的连续数, 知道只剩下最后一个数. 如果最后一个数是$0$, 那么 alice 获胜,否则 bob 获胜.</p>
 <span id="more"></span>
-<h3 id="分析">分析:</h3>
-<p>倒着考虑, 以 alice 为主方思考, 如果 alice 获胜, 那么</p>
+
+<h3 id="分析"><a href="#分析" class="headerlink" title="分析:"></a>分析:</h3><p>倒着考虑, 以 alice 为主方思考, 如果 alice 获胜, 那么</p>
 <ul>
-<li><p>最后一个元素是<span class="math inline">0</span>, 那么</p></li>
-<li><p>最后一次操作一定是 <span
-class="math inline">1 − <em>m</em><em>i</em><em>n</em>(<em>有</em>1,<em>但</em><em>没</em><em>有</em>0) = 1 − 1 = 0</span>,
-那么</p></li>
-<li><p>考虑到先手优势, alice 只有一次机会将所有数变成<span
-class="math inline">1</span>, 否则就一定会输</p></li>
-<li><p>则意味着, 只有开头或结尾至少有一个是<span
-class="math inline">1</span>, alice 才是获胜</p></li>
+<li><p>最后一个元素是$0$, 那么</p>
+</li>
+<li><p>最后一次操作一定是 $1 - min(有1, 但没有0) &#x3D; 1 - 1 &#x3D; 0$, 那么</p>
+</li>
+<li><p>考虑到先手优势, alice 只有一次机会将所有数变成$1$, 否则就一定会输</p>
+</li>
+<li><p>则意味着, 只有开头或结尾至少有一个是$1$, alice 才是获胜</p>
+</li>
 </ul>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> int long long</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">using</span> ll = <span class="type">long</span> <span class="type">long</span>;</span><br><span class="line"><span class="keyword">using</span> arr2 = array&lt;<span class="type">int</span>, <span class="number">2</span>&gt;;</span><br><span class="line"><span class="keyword">using</span> arr3 = array&lt;<span class="type">int</span>, <span class="number">3</span>&gt;;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = (<span class="type">int</span>)<span class="number">2e5</span> + <span class="number">9</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> M = (<span class="type">int</span>)<span class="number">1e5</span> + <span class="number">9</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> mod = (<span class="type">int</span>)<span class="number">1e9</span> + <span class="number">7</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> n;</span><br><span class="line">    cin &gt;&gt; n;</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">a</span><span class="params">(n + <span class="number">5</span>)</span></span>;</span><br><span class="line">    <span class="type">bool</span> f1 = <span class="number">0</span>, f2 = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;</span><br><span class="line">        cin &gt;&gt; a[i];</span><br><span class="line">        <span class="keyword">if</span> (i == <span class="number">1</span> &amp;&amp; a[i] == <span class="number">1</span>) &#123;</span><br><span class="line">            f1 = <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (i == n &amp;&amp; a[i] == <span class="number">1</span>) &#123;</span><br><span class="line">            f2 = <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> ((f1 || f2)) &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;Alice\n&quot;</span>;</span><br><span class="line">        <span class="keyword">return</span> ;</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;Bob\n&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">signed</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ios::<span class="built_in">sync_with_stdio</span>(<span class="literal">false</span>);</span><br><span class="line">    cin.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line">    <span class="type">int</span> _ = <span class="number">1</span>;</span><br><span class="line">    cin &gt;&gt; _;</span><br><span class="line">    <span class="keyword">while</span>(_--) &#123;</span><br><span class="line">        <span class="built_in">solve</span>();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="b.-yet-another-mex-problem">B. Yet Another MEX Problem</h2>
-<h3 id="题意-1">题意:</h3>
-<p>输入<span class="math inline"><em>n</em></span>个整数和一个<span
-class="math inline"><em>k</em></span>, 接下来进行<span
-class="math inline"><em>n</em> − <em>k</em> + 1</span>次操作,
-找出数组连续<span class="math inline"><em>k</em></span>个数,
-必须是所有连续<span class="math inline"><em>k</em></span>个数中的<span
-class="math inline"><em>m</em><em>e</em><em>x</em></span>最大的那<span
-class="math inline"><em>k</em></span>个, 如果<span
-class="math inline"><em>m</em><em>e</em><em>x</em></span>最大有多组,
-那么任意一组都可以, 选择后, 删除<span
-class="math inline"><em>k</em></span>个数中的任意一个.
-那么意味着每次操作将减少一个数, 最后将剩下<span
-class="math inline"><em>k</em> − 1</span>个数, 现在要使最后剩下的<span
-class="math inline"><em>k</em> − 1</span>个数的<span
-class="math inline"><em>m</em><em>e</em><em>x</em></span>最大</p>
-<h3 id="分析-1">分析:</h3>
-<p>赛事思维没有跳出来, 复杂化去求了滑动最大<span
-class="math inline"><em>m</em><em>e</em><em>x</em></span>了……导致一直
-wa…</p>
-<p>最后的答案一定是<span
-class="math inline"><em>m</em><em>i</em><em>n</em>(<em>k</em>−1,<em>全</em><em>局</em><em>m</em><em>e</em><em>x</em>)</span>,
-为什么呢?</p>
+
+<h2 id="B-Yet-Another-MEX-Problem"><a href="#B-Yet-Another-MEX-Problem" class="headerlink" title="B. Yet Another MEX Problem"></a>B. Yet Another MEX Problem</h2><h3 id="题意-1"><a href="#题意-1" class="headerlink" title="题意:"></a>题意:</h3><p>输入$n$个整数和一个$k$, 接下来进行$n - k + 1$次操作, 找出数组连续$k$个数, 必须是所有连续$k$个数中的$mex$最大的那$k$个, 如果$mex$最大有多组, 那么任意一组都可以, 选择后, 删除$k$个数中的任意一个. 那么意味着每次操作将减少一个数, 最后将剩下$k - 1$个数, 现在要使最后剩下的$k - 1$个数的$mex$最大</p>
+<h3 id="分析-1"><a href="#分析-1" class="headerlink" title="分析:"></a>分析:</h3><p>赛事思维没有跳出来, 复杂化去求了滑动最大$mex$了……导致一直 wa…</p>
+<p>最后的答案一定是$min(k - 1, 全局mex)$, 为什么呢?</p>
 <ul>
-<li>每次一定是对选择<span
-class="math inline"><em>k</em></span>个数,并删除其中一个对吧</li>
-<li>那么,这连续<span class="math inline"><em>k</em></span>个数
-一定只有两种情况
-<ul>
-<li>第一种: 这<span
-class="math inline"><em>k</em></span>个数刚好是从<span
-class="math inline">0</span>到<span
-class="math inline"><em>k</em> − 1</span>的排列, 那么考虑删除一个元素,
-一定会选择删除<span class="math inline"><em>k</em> − 1</span>这个数</li>
-<li>第二种: 这<span
-class="math inline"><em>k</em></span>个数不是完整排列,
-那么只需考虑删除的元素, 恰好是<strong>构成全局 mex
-的数之外的数即可</strong></li>
-</ul></li>
-<li>这样最后保留下来的要么是从<span class="math inline">0</span>到<span
-class="math inline"><em>k</em> − 1</span>的排列, 或者就是构成全局 mex
-的那些数…..其实不难发现前者也只是后者的一种特殊情况,
-也完全可以不分两种情况对待</li>
-<li>所以其实这题直接求<span
-class="math inline"><em>全</em><em>局</em><em>m</em><em>e</em><em>x</em></span>即可</li>
+<li>每次一定是对选择$k$个数,并删除其中一个对吧</li>
+<li>那么,这连续$k$个数 一定只有两种情况<ul>
+<li>第一种: 这$k$个数刚好是从$0$到$k - 1$的排列, 那么考虑删除一个元素, 一定会选择删除$k - 1$这个数</li>
+<li>第二种: 这$k$个数不是完整排列, 那么只需考虑删除的元素, 恰好是<strong>构成全局 mex 的数之外的数即可</strong></li>
+</ul>
+</li>
+<li>这样最后保留下来的要么是从$0$到$k - 1$的排列, 或者就是构成全局 mex 的那些数…..其实不难发现前者也只是后者的一种特殊情况, 也完全可以不分两种情况对待</li>
+<li>所以其实这题直接求$全局mex$即可</li>
 </ul>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> int long long</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">using</span> ll = <span class="type">long</span> <span class="type">long</span>;</span><br><span class="line"><span class="keyword">using</span> arr2 = array&lt;<span class="type">int</span>, <span class="number">2</span>&gt;;</span><br><span class="line"><span class="keyword">using</span> arr3 = array&lt;<span class="type">int</span>, <span class="number">3</span>&gt;;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = (<span class="type">int</span>)<span class="number">2e5</span> + <span class="number">9</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> M = (<span class="type">int</span>)<span class="number">1e5</span> + <span class="number">9</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> mod = (<span class="type">int</span>)<span class="number">1e9</span> + <span class="number">7</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> n, k;</span><br><span class="line">    cin &gt;&gt; n &gt;&gt; k;</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">a</span><span class="params">(n + <span class="number">5</span>)</span></span>;</span><br><span class="line">    multiset&lt;<span class="type">int</span>&gt; st;</span><br><span class="line">    <span class="type">int</span> mx = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;</span><br><span class="line">        cin &gt;&gt; a[i];</span><br><span class="line">        mx = <span class="built_in">max</span>(mx, a[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt;= mx + <span class="number">1</span>; i++) st.<span class="built_in">insert</span>(i);</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (st.<span class="built_in">count</span>(a[i])) &#123;</span><br><span class="line">            st.<span class="built_in">erase</span>(st.<span class="built_in">find</span>(a[i]));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">int</span> mxx = *st.<span class="built_in">begin</span>();</span><br><span class="line">    <span class="keyword">if</span> (mxx &gt;= k - <span class="number">1</span>) &#123;</span><br><span class="line">        cout &lt;&lt; k - <span class="number">1</span> &lt;&lt; <span class="string">&quot;\n&quot;</span>;</span><br><span class="line">        <span class="keyword">return</span> ;</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; mxx &lt;&lt; <span class="string">&quot;\n&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">signed</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ios::<span class="built_in">sync_with_stdio</span>(<span class="literal">false</span>);</span><br><span class="line">    cin.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line">    <span class="type">int</span> _ = <span class="number">1</span>;</span><br><span class="line">    cin &gt;&gt; _;</span><br><span class="line">    <span class="keyword">while</span>(_--) &#123;</span><br><span class="line">        <span class="built_in">solve</span>();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="c.-war-strategy">C. War Strategy</h2>
-<h3 id="题意-2">题意:</h3>
-<p>一共有<span class="math inline"><em>n</em></span>个基地, <span
-class="math inline"><em>m</em></span>天的准备时间, 第<span
-class="math inline"><em>k</em></span>个基地是主基地. 主基地初始有<span
-class="math inline">1</span>个人, 其余基地没有, 每天,
-你会先后进行两个操作:</p>
-<p>首先, 你会让某个基地的任意数量(可以为<span
-class="math inline">0</span>)的士兵前往左右相邻的基地之一(不可分头行动)</p>
+
+<h2 id="C-War-Strategy"><a href="#C-War-Strategy" class="headerlink" title="C. War Strategy"></a>C. War Strategy</h2><h3 id="题意-2"><a href="#题意-2" class="headerlink" title="题意:"></a>题意:</h3><p>一共有$n$个基地, $m$天的准备时间, 第$k$个基地是主基地. 主基地初始有$1$个人, 其余基地没有, 每天, 你会先后进行两个操作:</p>
+<p>首先, 你会让某个基地的任意数量(可以为$0$)的士兵前往左右相邻的基地之一(不可分头行动)</p>
 <p>然后, 主基地会多一个新士兵</p>
-<p>至少有一个人驻守的基地为加强基地, 求<span
-class="math inline"><em>m</em></span>天后, 加强基地数量的最大值</p>
-<h3 id="分析-2">分析:</h3>
-<p>暴力枚举+数学推理</p>
-<p>考虑主基地左右两侧最终发展为加强基地的数量分别为<span
-class="math inline"><em>x</em></span>和<span
-class="math inline"><em>y</em></span>, 暴力枚举<span
-class="math inline"><em>x</em></span>, 然后,
-再用时间限制以及主基地右侧剩余基地数共同决定<span
-class="math inline"><em>y</em></span>的大小, 数学推理如下:</p>
+<p>至少有一个人驻守的基地为加强基地, 求$m$天后, 加强基地数量的最大值</p>
+<h3 id="分析-2"><a href="#分析-2" class="headerlink" title="分析:"></a>分析:</h3><p>暴力枚举+数学推理</p>
+<p>考虑主基地左右两侧最终发展为加强基地的数量分别为$x$和$y$, 暴力枚举$x$, 然后, 再用时间限制以及主基地右侧剩余基地数共同决定$y$的大小, 数学推理如下:</p>
 <ul>
-<li>暴力枚举主基地左侧有<span
-class="math inline"><em>x</em></span>座加强基地后,
-那么不难算出对时间的花费为<span
-class="math inline"><em>t</em> = <em>x</em> − 1 + <em>x</em></span>,
-(手模下不难发现每次一个一个转移和先屯几天再一起向左转移效率是一样的,
-先屯<span class="math inline"><em>x</em> − 1</span>天后主基地就有<span
-class="math inline"><em>x</em></span>个人, 再花费<span
-class="math inline"><em>x</em></span>天就可以将这些人都转移到左边的<span
-class="math inline"><em>x</em></span>座基地了</li>
-<li>一定要注意, 花费<span
-class="math inline"><em>x</em></span>天向左转移到时候, 这<span
-class="math inline"><em>x</em></span>天, 主基地也新来了<span
-class="math inline"><em>x</em></span>位士兵</li>
-<li>那么随后同样逻辑, 考虑到右侧一定满足 <span
-class="math inline"><em>剩</em><em>余</em><em>时</em><em>间</em> = <em>转</em><em>移</em><em>天</em><em>数</em><em>y</em> + <em>囤</em><em>积</em><em>人</em><em>数</em><em>的</em><em>时</em><em>间</em></span></li>
-<li>考虑囤积人数的时间, 有可能之前囤积的已经够了, 也可能不够,
-那么上面方程如下:</li>
-<li><span
-class="math inline"><em>m</em> − <em>t</em> = <em>y</em> + <em>m</em><em>a</em><em>x</em>(0,<em>y</em>−<em>x</em>)</span>
-<ul>
-<li>情况一: <span class="math inline"><em>y</em> ≥ <em>x</em></span>,
-则化简公式得, <span
-class="math inline"><em>y</em> = <em>m</em> − <em>t</em> = <em>m</em> − (<em>x</em>−1+<em>x</em>) ≥ <em>x</em></span>
-并且主基地右侧得有<span class="math inline"><em>y</em></span>座基地 即
-<span
-class="math inline"><em>y</em> ≤ <em>n</em> − <em>k</em></span></li>
-<li>情况二: <span class="math inline"><em>y</em> ≤ <em>x</em></span>,
-则同理化简公式……..</li>
-</ul></li>
-<li>全局最大值<span class="math inline"><em>m</em><em>x</em></span>维护
-<span class="math inline"><em>x</em> + <em>y</em> + 1</span> 即可
-(不要漏了主基地也是加强基地哦哈哈</li>
+<li>暴力枚举主基地左侧有$x$座加强基地后, 那么不难算出对时间的花费为$t &#x3D; x - 1 + x$, (手模下不难发现每次一个一个转移和先屯几天再一起向左转移效率是一样的, 先屯$x - 1$天后主基地就有$x$个人, 再花费$x$天就可以将这些人都转移到左边的$x$座基地了</li>
+<li>一定要注意, 花费$x$天向左转移到时候, 这$x$天, 主基地也新来了$x$位士兵</li>
+<li>那么随后同样逻辑, 考虑到右侧一定满足 $剩余时间 &#x3D; 转移天数y + 囤积人数的时间$</li>
+<li>考虑囤积人数的时间, 有可能之前囤积的已经够了, 也可能不够, 那么上面方程如下:</li>
+<li>$m - t &#x3D; y + max(0, y - x)$<ul>
+<li>情况一: $y \ge x$, 则化简公式得, $y &#x3D; m - t &#x3D; m - (x - 1 + x) \ge x$ 并且主基地右侧得有$y$座基地 即 $y \le n - k$</li>
+<li>情况二: $y \le x$, 则同理化简公式……..</li>
+</ul>
+</li>
+<li>全局最大值$mx$维护 $x + y + 1$ 即可 (不要漏了主基地也是加强基地哦哈哈</li>
 </ul>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> int long long</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">using</span> ll = <span class="type">long</span> <span class="type">long</span>;</span><br><span class="line"><span class="keyword">using</span> arr2 = array&lt;<span class="type">int</span>, <span class="number">2</span>&gt;;</span><br><span class="line"><span class="keyword">using</span> arr3 = array&lt;<span class="type">int</span>, <span class="number">3</span>&gt;;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = (<span class="type">int</span>)<span class="number">2e5</span> + <span class="number">9</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> M = (<span class="type">int</span>)<span class="number">1e5</span> + <span class="number">9</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> mod = (<span class="type">int</span>)<span class="number">1e9</span> + <span class="number">7</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> n, m, k;</span><br><span class="line">    cin &gt;&gt; n &gt;&gt; m &gt;&gt; k;</span><br><span class="line">    <span class="type">int</span> mx = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt;= k - <span class="number">1</span>; i++) &#123;</span><br><span class="line">        <span class="type">int</span> t = i - <span class="number">1</span> + i;</span><br><span class="line">        <span class="type">int</span> num = i;</span><br><span class="line">        <span class="keyword">if</span> (m - t &lt;= num) &#123;</span><br><span class="line">            mx = <span class="built_in">max</span>(mx, i + <span class="built_in">min</span>(m - t, n - k));</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (m + i &gt;= <span class="number">2</span> * t + <span class="number">1</span>) &#123;</span><br><span class="line">            mx = <span class="built_in">max</span>(mx, i + <span class="built_in">min</span>((m + <span class="number">1</span> - i) / <span class="number">2</span>, n - k));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; mx + <span class="number">1</span> &lt;&lt; <span class="string">&quot;\n&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">signed</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ios::<span class="built_in">sync_with_stdio</span>(<span class="literal">false</span>);</span><br><span class="line">    cin.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line">    <span class="type">int</span> _ = <span class="number">1</span>;</span><br><span class="line">    cin &gt;&gt; _;</span><br><span class="line">    <span class="keyword">while</span>(_--) &#123;</span><br><span class="line">        <span class="built_in">solve</span>();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="d1.-tree-coloring-easy-version">D1. Tree Coloring (Easy
-Version)</h2>
-<h3 id="题意-3">题意:</h3>
-<p><span class="math inline"><em>n</em></span>个顶点, <span
-class="math inline"><em>n</em> − 1</span>条边的树, 节点<span
-class="math inline">1</span>是树的根,
-要求将节点满足下面要求的分成尽可能少的组,
-每组中的所有节点必须没有直接的边相连接, 并且
-每个节点到根节点的距离是不同的, 求最少组的数量</p>
-<h3 id="分析-3">分析:</h3>
-<p>将树按照距离根的距离划分层数, 宏观上不难发现,
-所有层中的最大值最直接影响最后的组数, 同时不难观察到,
-第一层根与第二层是连体关系, 考虑这个为初始化最大值即可.
-后续直接广搜便利树获取每层的节点数量即可</p>
+
+<h2 id="D1-Tree-Coloring-Easy-Version"><a href="#D1-Tree-Coloring-Easy-Version" class="headerlink" title="D1. Tree Coloring (Easy Version)"></a>D1. Tree Coloring (Easy Version)</h2><h3 id="题意-3"><a href="#题意-3" class="headerlink" title="题意:"></a>题意:</h3><p>$n$个顶点, $n - 1$条边的树, 节点$1$是树的根, 要求将节点满足下面要求的分成尽可能少的组, 每组中的所有节点必须没有直接的边相连接, 并且 每个节点到根节点的距离是不同的, 求最少组的数量</p>
+<h3 id="分析-3"><a href="#分析-3" class="headerlink" title="分析:"></a>分析:</h3><p>将树按照距离根的距离划分层数, 宏观上不难发现, 所有层中的最大值最直接影响最后的组数, 同时不难观察到, 第一层根与第二层是连体关系, 考虑这个为初始化最大值即可. 后续直接广搜便利树获取每层的节点数量即可</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> int long long</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">using</span> ll = <span class="type">long</span> <span class="type">long</span>;</span><br><span class="line"><span class="keyword">using</span> arr2 = array&lt;<span class="type">int</span>, <span class="number">2</span>&gt;;</span><br><span class="line"><span class="keyword">using</span> arr3 = array&lt;<span class="type">int</span>, <span class="number">3</span>&gt;;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = (<span class="type">int</span>)<span class="number">2e5</span> + <span class="number">9</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> M = (<span class="type">int</span>)<span class="number">1e5</span> + <span class="number">9</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> mod = <span class="number">998244353</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> n;</span><br><span class="line">    cin &gt;&gt; n;</span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">e</span>(n + <span class="number">5</span>);</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt; n; i++) &#123;</span><br><span class="line">        <span class="type">int</span> u, v;</span><br><span class="line">        cin &gt;&gt; u &gt;&gt; v;</span><br><span class="line">        e[u].<span class="built_in">push_back</span>(v);</span><br><span class="line">        e[v].<span class="built_in">push_back</span>(u);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">int</span> mx = e[<span class="number">1</span>].<span class="built_in">size</span>() + <span class="number">1</span>;</span><br><span class="line">    queue&lt;arr2&gt; q;</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">num</span><span class="params">(n + <span class="number">5</span>, <span class="number">0</span>)</span></span>;</span><br><span class="line">    <span class="function">vector&lt;<span class="type">bool</span>&gt; <span class="title">vis</span><span class="params">(n + <span class="number">5</span>)</span></span>;</span><br><span class="line">    q.<span class="built_in">push</span>(&#123;<span class="number">1</span>, <span class="number">1</span>&#125;);</span><br><span class="line">    vis[<span class="number">1</span>] = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (q.<span class="built_in">size</span>()) &#123;</span><br><span class="line">        <span class="keyword">auto</span>[u, cnt] = q.<span class="built_in">front</span>();</span><br><span class="line">        q.<span class="built_in">pop</span>();</span><br><span class="line">        num[cnt]++;</span><br><span class="line">        mx = <span class="built_in">max</span>(mx, (<span class="type">int</span>)e[u].<span class="built_in">size</span>());</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span> v : e[u]) &#123;</span><br><span class="line">            <span class="keyword">if</span> (vis[v]) &#123;</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            vis[v] = <span class="number">1</span>;</span><br><span class="line">            q.<span class="built_in">push</span>(&#123;v, cnt + <span class="number">1</span>&#125;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">auto</span> i : num) &#123;</span><br><span class="line">        mx = <span class="built_in">max</span>(i, mx);</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; mx &lt;&lt; <span class="string">&quot;\n&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">signed</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ios::<span class="built_in">sync_with_stdio</span>(<span class="literal">false</span>);</span><br><span class="line">    cin.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line">    <span class="type">int</span> _ = <span class="number">1</span>;</span><br><span class="line">    cin &gt;&gt; _;</span><br><span class="line">    <span class="keyword">while</span>(_--) &#123;</span><br><span class="line">        <span class="built_in">solve</span>();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
     </div>
@@ -552,9 +461,7 @@ class="math inline">1</span>是树的根,
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#codeforces-hello-2026-%E9%A2%98%E8%A7%A3"><span class="nav-number">1.</span> <span class="nav-text">Codeforces Hello 2026 题解</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9B%B4%E5%A5%BD%E7%9A%84%E9%98%85%E8%AF%BB%E4%BD%93%E9%AA%8C"><span class="nav-number">1.1.</span> <span class="nav-text">更好的阅读体验</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hello-2026"><span class="nav-number">1.2.</span> <span class="nav-text">Hello
-2026</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#a.-binary-array-game"><span class="nav-number">1.3.</span> <span class="nav-text">A. Binary Array Game</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E6%84%8F"><span class="nav-number">1.3.1.</span> <span class="nav-text">题意:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E6%9E%90"><span class="nav-number">1.3.2.</span> <span class="nav-text">分析:</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#b.-yet-another-mex-problem"><span class="nav-number">1.4.</span> <span class="nav-text">B. Yet Another MEX Problem</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E6%84%8F-1"><span class="nav-number">1.4.1.</span> <span class="nav-text">题意:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E6%9E%90-1"><span class="nav-number">1.4.2.</span> <span class="nav-text">分析:</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#c.-war-strategy"><span class="nav-number">1.5.</span> <span class="nav-text">C. War Strategy</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E6%84%8F-2"><span class="nav-number">1.5.1.</span> <span class="nav-text">题意:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E6%9E%90-2"><span class="nav-number">1.5.2.</span> <span class="nav-text">分析:</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#d1.-tree-coloring-easy-version"><span class="nav-number">1.6.</span> <span class="nav-text">D1. Tree Coloring (Easy
-Version)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E6%84%8F-3"><span class="nav-number">1.6.1.</span> <span class="nav-text">题意:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E6%9E%90-3"><span class="nav-number">1.6.2.</span> <span class="nav-text">分析:</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Codeforces-Hello-2026-%E9%A2%98%E8%A7%A3"><span class="nav-number">1.</span> <span class="nav-text">Codeforces Hello 2026 题解</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9B%B4%E5%A5%BD%E7%9A%84%E9%98%85%E8%AF%BB%E4%BD%93%E9%AA%8C"><span class="nav-number">1.1.</span> <span class="nav-text">更好的阅读体验</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hello-2026"><span class="nav-number">1.2.</span> <span class="nav-text">Hello 2026</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#A-Binary-Array-Game"><span class="nav-number">1.3.</span> <span class="nav-text">A. Binary Array Game</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E6%84%8F"><span class="nav-number">1.3.1.</span> <span class="nav-text">题意:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E6%9E%90"><span class="nav-number">1.3.2.</span> <span class="nav-text">分析:</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#B-Yet-Another-MEX-Problem"><span class="nav-number">1.4.</span> <span class="nav-text">B. Yet Another MEX Problem</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E6%84%8F-1"><span class="nav-number">1.4.1.</span> <span class="nav-text">题意:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E6%9E%90-1"><span class="nav-number">1.4.2.</span> <span class="nav-text">分析:</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#C-War-Strategy"><span class="nav-number">1.5.</span> <span class="nav-text">C. War Strategy</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E6%84%8F-2"><span class="nav-number">1.5.1.</span> <span class="nav-text">题意:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E6%9E%90-2"><span class="nav-number">1.5.2.</span> <span class="nav-text">分析:</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#D1-Tree-Coloring-Easy-Version"><span class="nav-number">1.6.</span> <span class="nav-text">D1. Tree Coloring (Easy Version)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E6%84%8F-3"><span class="nav-number">1.6.1.</span> <span class="nav-text">题意:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E6%9E%90-3"><span class="nav-number">1.6.2.</span> <span class="nav-text">分析:</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -650,12 +557,12 @@ Version)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a cla
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">80k</span>
+    <span title="站点总字数">81k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:51</span>
+    <span title="站点阅读时长">4:53</span>
 </div>
   <div class="powered-by">由 <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl theme-link" data-url="aHR0cHM6Ly90aGVtZS1uZXh0Lm9yZw==">NexT.Gemini</span> 强力驱动
   </div>
