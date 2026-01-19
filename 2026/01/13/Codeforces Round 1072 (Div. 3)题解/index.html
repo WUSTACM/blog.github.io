@@ -20,15 +20,15 @@
     var CONFIG = {"hostname":"blog.wustacm.org","root":"/","scheme":"Gemini","version":"7.8.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":"flat"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="Codeforces Round 1072 (Div. 3) 题解 Codeforces Round 1072 (Div. 3) A. Social Experiment 题意： 将n个人分成两堆，求两堆人数的最小差值，每堆的人必须以多个团队的形式存在，每个团队必须由2或3个人组成。">
+  <meta name="description" content="Codeforces Round 1072 (Div. 3) 题解Codeforces Round 1072 (Div. 3)A. Social Experiment题意：将$n$个人分成两堆，求两堆人数的最小差值，每堆的人必须以多个团队的形式存在，每个团队必须由$2或3$个人组成。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Codeforces Round 1072 (Div. 3) 题解">
 <meta property="og:url" content="http://blog.wustacm.org/2026/01/13/Codeforces%20Round%201072%20(Div.%203)%E9%A2%98%E8%A7%A3/index.html">
 <meta property="og:site_name" content="WUSTACM">
-<meta property="og:description" content="Codeforces Round 1072 (Div. 3) 题解 Codeforces Round 1072 (Div. 3) A. Social Experiment 题意： 将n个人分成两堆，求两堆人数的最小差值，每堆的人必须以多个团队的形式存在，每个团队必须由2或3个人组成。">
+<meta property="og:description" content="Codeforces Round 1072 (Div. 3) 题解Codeforces Round 1072 (Div. 3)A. Social Experiment题意：将$n$个人分成两堆，求两堆人数的最小差值，每堆的人必须以多个团队的形式存在，每个团队必须由$2或3$个人组成。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2026-01-13T00:00:00.000Z">
-<meta property="article:modified_time" content="2026-01-17T02:24:39.530Z">
+<meta property="article:modified_time" content="2026-01-19T17:39:56.257Z">
 <meta property="article:author" content="Blog">
 <meta property="article:tag" content="题解">
 <meta name="twitter:card" content="summary">
@@ -227,7 +227,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2026-01-17 02:24:39" itemprop="dateModified" datetime="2026-01-17T02:24:39+00:00">2026-01-17</time>
+                <time title="修改时间：2026-01-19 17:39:56" itemprop="dateModified" datetime="2026-01-19T17:39:56+00:00">2026-01-19</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -285,95 +285,52 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="codeforces-round-1072-div.-3-题解">Codeforces Round 1072 (Div.
-3) 题解</h1>
-<h2 id="codeforces-round-1072-div.-3"><a
-target="_blank" rel="noopener" href="https://codeforces.com/contest/2184">Codeforces Round 1072 (Div.
-3)</a></h2>
-<h2 id="a.-social-experiment">A. Social Experiment</h2>
-<h3 id="题意">题意：</h3>
-<p>将<span
-class="math inline"><em>n</em></span>个人分成两堆，求两堆人数的最小差值，每堆的人必须以多个团队的形式存在，每个团队必须由<span
-class="math inline">2<em>或</em>3</span>个人组成。</p>
+        <h1 id="Codeforces-Round-1072-Div-3-题解"><a href="#Codeforces-Round-1072-Div-3-题解" class="headerlink" title="Codeforces Round 1072 (Div. 3) 题解"></a>Codeforces Round 1072 (Div. 3) 题解</h1><h2 id="Codeforces-Round-1072-Div-3"><a href="#Codeforces-Round-1072-Div-3" class="headerlink" title="Codeforces Round 1072 (Div. 3)"></a><span class="exturl" data-url="aHR0cHM6Ly9jb2RlZm9yY2VzLmNvbS9jb250ZXN0LzIxODQ=">Codeforces Round 1072 (Div. 3)<i class="fa fa-external-link-alt"></i></span></h2><h2 id="A-Social-Experiment"><a href="#A-Social-Experiment" class="headerlink" title="A. Social Experiment"></a>A. Social Experiment</h2><h3 id="题意："><a href="#题意：" class="headerlink" title="题意："></a>题意：</h3><p>将$n$个人分成两堆，求两堆人数的最小差值，每堆的人必须以多个团队的形式存在，每个团队必须由$2或3$个人组成。</p>
 <span id="more"></span>
-<h3 id="分析">分析：</h3>
-<p>注意特判即可，样例给了<span
-class="math inline"><em>n</em> = 2</span>，别忘记同地位的题干条件 <span
-class="math inline"><em>n</em> = 3</span></p>
+
+<h3 id="分析："><a href="#分析：" class="headerlink" title="分析："></a>分析：</h3><p>注意特判即可，样例给了$n &#x3D; 2$，别忘记同地位的题干条件 $n &#x3D; 3$</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> int long long</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">using</span> ll = <span class="type">long</span> <span class="type">long</span>;</span><br><span class="line"><span class="keyword">using</span> arr2 = array&lt;<span class="type">int</span>, <span class="number">2</span>&gt;;</span><br><span class="line"><span class="keyword">using</span> arr3 = array&lt;<span class="type">int</span>, <span class="number">3</span>&gt;;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = (<span class="type">int</span>)<span class="number">2e5</span> + <span class="number">9</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> M = (<span class="type">int</span>)<span class="number">1e5</span> + <span class="number">9</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> mod = (<span class="type">int</span>)<span class="number">1e9</span> + <span class="number">7</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> n;</span><br><span class="line">    cin &gt;&gt; n;</span><br><span class="line">    <span class="keyword">if</span> (n == <span class="number">2</span>) &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;2\n&quot;</span>;</span><br><span class="line">        <span class="keyword">return</span> ;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (n == <span class="number">3</span>) &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;3\n&quot;</span>;</span><br><span class="line">        <span class="keyword">return</span> ;</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; n % <span class="number">2</span> &lt;&lt; <span class="string">&quot;\n&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">signed</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ios::<span class="built_in">sync_with_stdio</span>(<span class="literal">false</span>);</span><br><span class="line">    cin.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line">    <span class="type">int</span> _ = <span class="number">1</span>;</span><br><span class="line">    cin &gt;&gt; _;</span><br><span class="line">    <span class="keyword">while</span>(_--) &#123;</span><br><span class="line">        <span class="built_in">solve</span>();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="b.-hourglass">B. Hourglass</h2>
-<h3 id="题意-1">题意：</h3>
-<p>完整沙漏耗时<span class="math inline"><em>s</em></span>，每间隔<span
-class="math inline"><em>k</em></span>分钟翻转沙漏，第<span
-class="math inline"><em>m</em></span>分钟后不再翻转，问<span
-class="math inline"><em>m</em></span>分钟后，多久沙漏将耗尽？</p>
-<h3 id="分析-1">分析：</h3>
-<ul>
-<li><p>考虑经过 k 分钟，然后瞬间翻转为一个操作单元</p></li>
-<li><p>不难发现，翻转第偶数次开始时，沙漏就会恢复原样</p></li>
+
+<h2 id="B-Hourglass"><a href="#B-Hourglass" class="headerlink" title="B. Hourglass"></a>B. Hourglass</h2><h3 id="题意：-1"><a href="#题意：-1" class="headerlink" title="题意："></a>题意：</h3><p>完整沙漏耗时$s$，每间隔$k$分钟翻转沙漏，第$m$分钟后不再翻转，问$m$分钟后，多久沙漏将耗尽？</p>
+<h3 id="分析：-1"><a href="#分析：-1" class="headerlink" title="分析："></a>分析：</h3><ul>
+<li><p>考虑经过 k 分钟，然后瞬间翻转为一个操作单元</p>
+</li>
+<li><p>不难发现，翻转第偶数次开始时，沙漏就会恢复原样</p>
+</li>
 <li><p>那么问题就可以分成两种情况</p>
 <ul>
-<li><span
-class="math inline"><em>c</em><em>n</em><em>t</em> = <em>m</em>/<em>k</em></span>
-，$ num = m % k$</li>
-<li>第一：时间 m 够翻转偶数次，那么最后只需考虑<span
-class="math inline"><em>m</em><em>a</em><em>x</em>(0,<em>s</em>−<em>n</em><em>u</em><em>m</em>)</span></li>
-<li>第二：时间 m
-够翻转奇数次，那么可以理解成先翻转偶数次恢复原样，然后再多进行一次操作（等待
-k 分钟然后翻转）。这里要注意先考虑翻转次数结束时的剩余量<span
-class="math inline"><em>m</em><em>i</em><em>n</em>(<em>k</em>,<em>s</em>)</span>，
-那么再考虑最后的时间 <span
-class="math inline"><em>m</em><em>a</em><em>x</em>(0,<em>m</em><em>i</em><em>n</em>(<em>k</em>,<em>s</em>)−<em>n</em><em>u</em><em>m</em>)</span></li>
-</ul></li>
+<li>$cnt &#x3D; m &#x2F; k$ ，$ num &#x3D; m % k$</li>
+<li>第一：时间 m 够翻转偶数次，那么最后只需考虑$max(0, s - num)$</li>
+<li>第二：时间 m 够翻转奇数次，那么可以理解成先翻转偶数次恢复原样，然后再多进行一次操作（等待 k 分钟然后翻转）。这里要注意先考虑翻转次数结束时的剩余量$min(k, s)$， 那么再考虑最后的时间 $max(0, min(k, s) - num)$</li>
+</ul>
+</li>
 </ul>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> int long long</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">using</span> ll = <span class="type">long</span> <span class="type">long</span>;</span><br><span class="line"><span class="keyword">using</span> arr2 = array&lt;<span class="type">int</span>, <span class="number">2</span>&gt;;</span><br><span class="line"><span class="keyword">using</span> arr3 = array&lt;<span class="type">int</span>, <span class="number">3</span>&gt;;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = (<span class="type">int</span>)<span class="number">2e5</span> + <span class="number">9</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> M = (<span class="type">int</span>)<span class="number">1e5</span> + <span class="number">9</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> mod = (<span class="type">int</span>)<span class="number">1e9</span> + <span class="number">7</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> s, k, m;</span><br><span class="line">    cin &gt;&gt; s &gt;&gt; k &gt;&gt; m;</span><br><span class="line">    <span class="type">int</span> num = m / k;</span><br><span class="line">    <span class="type">int</span> x = m % k;</span><br><span class="line">    <span class="keyword">if</span> (num % <span class="number">2</span> == <span class="number">0</span>) &#123;</span><br><span class="line">        cout &lt;&lt; <span class="built_in">max</span>(<span class="number">0ll</span>, s - x) &lt;&lt; <span class="string">&quot;\n&quot;</span>;</span><br><span class="line">        <span class="keyword">return</span> ;</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; <span class="built_in">max</span>(<span class="number">0ll</span>, <span class="built_in">min</span>(k, s) - x) &lt;&lt; <span class="string">&quot;\n&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">signed</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ios::<span class="built_in">sync_with_stdio</span>(<span class="literal">false</span>);</span><br><span class="line">    cin.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line">    <span class="type">int</span> _ = <span class="number">1</span>;</span><br><span class="line">    cin &gt;&gt; _;</span><br><span class="line">    <span class="keyword">while</span>(_--) &#123;</span><br><span class="line">        <span class="built_in">solve</span>();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="c.-huge-pile">C. Huge Pile</h2>
-<h3 id="题意-2">题意：</h3>
-<p>一堆苹果有<span
-class="math inline"><em>n</em></span>个，每次操作可将苹果分成(两堆数量差距最小的)两堆，问最少操作几次可以得到一堆刚好<span
-class="math inline"><em>k</em></span>个的苹果堆，如果不能做到输出<span
-class="math inline"> − 1</span></p>
-<h2 id="分析-2">分析：</h2>
-<p>注意！特判<span
-class="math inline"><em>n</em> = <em>k</em></span>时，直接输出<span
-class="math inline">0</span>，<em>因为这个特判卡了好久。。。</em></p>
+
+<h2 id="C-Huge-Pile"><a href="#C-Huge-Pile" class="headerlink" title="C. Huge Pile"></a>C. Huge Pile</h2><h3 id="题意：-2"><a href="#题意：-2" class="headerlink" title="题意："></a>题意：</h3><p>一堆苹果有$n$个，每次操作可将苹果分成(两堆数量差距最小的)两堆，问最少操作几次可以得到一堆刚好$k$个的苹果堆，如果不能做到输出$-1$</p>
+<h2 id="分析：-2"><a href="#分析：-2" class="headerlink" title="分析："></a>分析：</h2><p>注意！特判$n &#x3D; k$时，直接输出$0$，<em>因为这个特判卡了好久。。。</em></p>
 <ul>
-<li>手模下样例<span
-class="math inline">21</span>，只考虑出现的数种类，不考虑具体数量
-<ul>
+<li>手模下样例$21$，只考虑出现的数种类，不考虑具体数量<ul>
 <li>第一次操作：10 11</li>
 <li>第二次操作：5 6</li>
 <li>第三次操作：2 3</li>
 <li>第四次操作：1 2</li>
-</ul></li>
+</ul>
+</li>
 <li>不难发现吧，每次操作结束后，最多只有两种情况</li>
 <li>考虑什么时候会出现两种数呢？其实就是第一次出现不能平均分的时候，即出现奇数时即可</li>
-<li>那么问题就转化为，每次对<span
-class="math inline"><em>n</em></span>取半
-<ul>
-<li>当<span
-class="math inline"><em>n</em></span>从未是奇数前，那么考虑<span
-class="math inline"><em>n</em><em>是</em><em>否</em> = <em>k</em></span></li>
-<li>当 n 第一次出现奇数后，那么后续无论<span
-class="math inline"><em>n</em></span>是奇数或是偶数，都考虑<span
-class="math inline"><em>n</em><em>是</em><em>否</em> = <em>k</em></span>以及<span
-class="math inline"><em>n</em> + 1<em>是</em><em>否</em> = <em>k</em></span></li>
-</ul></li>
+<li>那么问题就转化为，每次对$n$取半<ul>
+<li>当$n$从未是奇数前，那么考虑$n 是否 &#x3D; k$</li>
+<li>当 n 第一次出现奇数后，那么后续无论$n$是奇数或是偶数，都考虑$n是否 &#x3D; k$以及$n+1是否 &#x3D; k$</li>
+</ul>
+</li>
 </ul>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> int long long</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">using</span> ll = <span class="type">long</span> <span class="type">long</span>;</span><br><span class="line"><span class="keyword">using</span> arr2 = array&lt;<span class="type">int</span>, <span class="number">2</span>&gt;;</span><br><span class="line"><span class="keyword">using</span> arr3 = array&lt;<span class="type">int</span>, <span class="number">3</span>&gt;;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = (<span class="type">int</span>)<span class="number">2e5</span> + <span class="number">9</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> M = (<span class="type">int</span>)<span class="number">1e5</span> + <span class="number">9</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> mod = (<span class="type">int</span>)<span class="number">1e9</span> + <span class="number">7</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> n, k;</span><br><span class="line">    cin &gt;&gt; n &gt;&gt; k;</span><br><span class="line">    <span class="type">int</span> ans = <span class="number">0</span>;</span><br><span class="line">    <span class="type">bool</span> f = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">if</span> (n == k) &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;0\n&quot;</span>;</span><br><span class="line">        <span class="keyword">return</span> ;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span> (n) &#123;</span><br><span class="line">        ans++;</span><br><span class="line">        <span class="keyword">if</span> (n &amp; <span class="number">1</span>) f = <span class="number">1</span>;</span><br><span class="line">        n &gt;&gt;= <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span> (f &amp;&amp; (n == k || n + <span class="number">1</span> == k)) &#123;</span><br><span class="line">            cout &lt;&lt; ans &lt;&lt; <span class="string">&quot;\n&quot;</span>;</span><br><span class="line">            <span class="keyword">return</span> ;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (!f &amp;&amp; n == k) &#123;</span><br><span class="line">            cout &lt;&lt; ans &lt;&lt; <span class="string">&quot;\n&quot;</span>;</span><br><span class="line">            <span class="keyword">return</span> ;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;-1\n&quot;</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">signed</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ios::<span class="built_in">sync_with_stdio</span>(<span class="literal">false</span>);</span><br><span class="line">    cin.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line">    <span class="type">int</span> _ = <span class="number">1</span>;</span><br><span class="line">    cin &gt;&gt; _;</span><br><span class="line">    <span class="keyword">while</span>(_--) &#123;</span><br><span class="line">        <span class="built_in">solve</span>();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="d.-unfair-game">D. Unfair Game</h2>
-<h3 id="题意-3">题意：</h3>
-<p>给定一个<span class="math inline">2</span>的幂的数<span
-class="math inline"><em>n</em></span>，求从<span
-class="math inline">1</span>到<span
-class="math inline"><em>n</em></span>有多少个数能在进行 k
-次以上操作后，仍不变为<span
-class="math inline">0</span>，每次操作考虑将数减半或者减去<span
-class="math inline">1</span>，另外只有偶数可以进行减半操作</p>
-<h3 id="分析-3">分析：</h3>
-<table>
+
+<h2 id="D-Unfair-Game"><a href="#D-Unfair-Game" class="headerlink" title="D. Unfair Game"></a>D. Unfair Game</h2><h3 id="题意：-3"><a href="#题意：-3" class="headerlink" title="题意："></a>题意：</h3><p>给定一个$2$的幂的数$n$，求从$1$到$n$有多少个数能在进行 k 次以上操作后，仍不变为$0$，每次操作考虑将数减半或者减去$1$，另外只有偶数可以进行减半操作</p>
+<h3 id="分析：-3"><a href="#分析：-3" class="headerlink" title="分析："></a>分析：</h3><table>
 <thead>
-<tr class="header">
+<tr>
 <th>数</th>
 <th>1</th>
 <th>2</th>
@@ -385,8 +342,7 @@ class="math inline">1</span>，另外只有偶数可以进行减半操作</p>
 <th>8</th>
 </tr>
 </thead>
-<tbody>
-<tr class="odd">
+<tbody><tr>
 <td>二进制</td>
 <td>1</td>
 <td>10</td>
@@ -397,7 +353,7 @@ class="math inline">1</span>，另外只有偶数可以进行减半操作</p>
 <td>111</td>
 <td>1000</td>
 </tr>
-<tr class="even">
+<tr>
 <td>最小次数</td>
 <td>1</td>
 <td>2</td>
@@ -408,94 +364,53 @@ class="math inline">1</span>，另外只有偶数可以进行减半操作</p>
 <td>5</td>
 <td>4</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <p>手打下表，直接观察找出规律（bushi</p>
 <ul>
-<li><p>emmm 首先为什么考虑到二进制呢？题目中的操作是减半和减<span
-class="math inline">1</span>，非常符合二进制的性质特点，所以考虑列出来观察</p></li>
-<li><p>本题的操作目的是将数变成<span
-class="math inline">0</span>，从二进制角度相当于目的是消除二进制的所有位</p></li>
-<li><p>因为题目限制，只有偶数可以进行减半，减半操作可以直接减少二进制的位数，而减<span
-class="math inline">1</span>操作可以当做辅助调整二进制为结尾是<span
-class="math inline">0</span>（即偶数），以方便后续减半操作进行</p></li>
+<li><p>emmm 首先为什么考虑到二进制呢？题目中的操作是减半和减$1$，非常符合二进制的性质特点，所以考虑列出来观察</p>
+</li>
+<li><p>本题的操作目的是将数变成$0$，从二进制角度相当于目的是消除二进制的所有位</p>
+</li>
+<li><p>因为题目限制，只有偶数可以进行减半，减半操作可以直接减少二进制的位数，而减$1$操作可以当做辅助调整二进制为结尾是$0$（即偶数），以方便后续减半操作进行</p>
+</li>
 <li><p>那么是否可以这样理解</p>
 <ul>
-<li><p>二进制位如果是<span
-class="math inline">0</span>的话，可以通过一次减半操作的代价直接消除</p></li>
-<li><p>二进制如果是<span
-class="math inline">1</span>的话，则需要先减<span
-class="math inline">1</span>操作，再减半，一共两次操作的代价将其消除</p></li>
-</ul></li>
-<li><p>那么就可以得出结论，设二进制表示数中<span
-class="math inline">1</span>的个数为<span
-class="math inline"><em>f</em>(1)</span>, <span
-class="math inline">0</span>的个数为<span
-class="math inline"><em>f</em>(0)</span>, 那么将数变成<span
-class="math inline">0</span>的最小操作次数 <span
-class="math inline"><em>c</em><em>n</em><em>t</em> = <em>f</em>(1) × 2 + <em>f</em>(0) − 1</span>,
-对照表就可以验证了</p></li>
+<li><p>二进制位如果是$0$的话，可以通过一次减半操作的代价直接消除</p>
+</li>
+<li><p>二进制如果是$1$的话，则需要先减$1$操作，再减半，一共两次操作的代价将其消除</p>
+</li>
 </ul>
-<h3 id="代码思路">代码思路：</h3>
-<ul>
-<li>考虑枚举二进制位数<span class="math inline"><em>i</em></span></li>
-<li>则<span
-class="math inline"><em>f</em>(1) + <em>f</em>(0) = <em>i</em></span></li>
-<li>则<span
-class="math inline"><em>c</em><em>n</em><em>t</em> = <em>f</em>(1) × 2 + <em>i</em> − <em>f</em>(1) − 1 = <em>i</em> + <em>f</em>(1) − 1</span></li>
-<li>那么只需记下 <span
-class="math inline"><em>c</em><em>n</em><em>t</em> &gt; <em>k</em></span>
-的情况下的贡献即可</li>
-<li>注意！
-<ul>
+</li>
+<li><p>那么就可以得出结论，设二进制表示数中$1$的个数为$f(1)$, $0$的个数为$f(0)$, 那么将数变成$0$的最小操作次数 $cnt &#x3D; f(1) \times 2 + f(0) - 1$, 对照表就可以验证了</p>
+</li>
+</ul>
+<h3 id="代码思路："><a href="#代码思路：" class="headerlink" title="代码思路："></a>代码思路：</h3><ul>
+<li>考虑枚举二进制位数$i$</li>
+<li>则$f(1) + f(0) &#x3D; i$</li>
+<li>则$cnt &#x3D; f(1) \times 2 + i - f(1) - 1 &#x3D; i + f(1) - 1$</li>
+<li>那么只需记下 $cnt &gt; k$ 的情况下的贡献即可</li>
+<li>注意！<ul>
 <li>计数过程中，需要用到组合数学，直接求阶层会爆 long long</li>
-<li>考虑求组合数时，采用乘法与除法同时进行，由定理“连续<span
-class="math inline"><em>k</em></span>个数的乘积必有因子<span
-class="math inline"><em>k</em></span>”，故过程中能够保证始终整除</li>
-</ul></li>
+<li>考虑求组合数时，采用乘法与除法同时进行，由定理“连续$k$个数的乘积必有因子$k$”，故过程中能够保证始终整除</li>
+</ul>
+</li>
 </ul>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> int long long</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">using</span> ll = <span class="type">long</span> <span class="type">long</span>;</span><br><span class="line"><span class="keyword">using</span> arr2 = array&lt;<span class="type">int</span>, <span class="number">2</span>&gt;;</span><br><span class="line"><span class="keyword">using</span> arr3 = array&lt;<span class="type">int</span>, <span class="number">3</span>&gt;;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = (<span class="type">int</span>)<span class="number">2e5</span> + <span class="number">9</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> M = (<span class="type">int</span>)<span class="number">1e5</span> + <span class="number">9</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> mod = (<span class="type">int</span>)<span class="number">1e9</span> + <span class="number">7</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> n, k;</span><br><span class="line">    cin &gt;&gt; n &gt;&gt; k;</span><br><span class="line">    <span class="type">int</span> tmp = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (n) &#123;</span><br><span class="line">        tmp++;</span><br><span class="line">        n &gt;&gt;= <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    n = tmp;</span><br><span class="line">    <span class="type">int</span> ans = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n - <span class="number">1</span>; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (i + i + <span class="number">1</span> &lt;= k) <span class="keyword">continue</span>;</span><br><span class="line">        <span class="keyword">if</span> (i + <span class="number">1</span> &gt; k) ans += (<span class="number">1</span> &lt;&lt; i);</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="type">int</span> num = <span class="built_in">max</span>(k - i, <span class="number">0ll</span>);</span><br><span class="line">            <span class="type">int</span> cnt = <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">auto</span> sum = [](<span class="type">int</span> num, <span class="type">int</span> i) -&gt; <span class="type">int</span> &#123;</span><br><span class="line">                <span class="type">int</span> cnt = <span class="number">1</span>;</span><br><span class="line">                <span class="type">int</span> k = <span class="number">1</span>;</span><br><span class="line">                <span class="keyword">for</span> (<span class="type">int</span> j = i - num + <span class="number">1</span>; j &lt;= i; j++) &#123;</span><br><span class="line">                    cnt *= j;</span><br><span class="line">                    cnt /= k;</span><br><span class="line">                    k++;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">return</span> cnt;</span><br><span class="line">            &#125;;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> j = num; j &lt;= i; j++) &#123;</span><br><span class="line">                ans += <span class="built_in">sum</span>(j, i);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (<span class="number">2</span> + n - <span class="number">2</span> &gt; k) ans++;</span><br><span class="line">    cout &lt;&lt; ans &lt;&lt; <span class="string">&quot;\n&quot;</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">signed</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ios::<span class="built_in">sync_with_stdio</span>(<span class="literal">false</span>);</span><br><span class="line">    cin.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line">    <span class="type">int</span> _ = <span class="number">1</span>;</span><br><span class="line">    cin &gt;&gt; _;</span><br><span class="line">    <span class="keyword">while</span>(_--) &#123;</span><br><span class="line">        <span class="built_in">solve</span>();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p>早上要考习思想。。。。。。不能再写了，该复习了。。。。万恶的期末周（哭</p>
 <p><strong>everlasting的E题题解：</strong></p>
-<h2 id="e.-exquisite-array">E. Exquisite Array</h2>
-<h3 id="题意-4">题意：</h3>
-<p>定义精致数组-<span
-class="math inline"><em>k</em></span>为任意相邻两数之差至少为<span
-class="math inline"><em>k</em></span>的数组。</p>
-<p>给定长度为<span class="math inline"><em>n</em></span>的排列<span
-class="math inline"><em>p</em></span>，对于每一个从<span
-class="math inline">1</span>到<span
-class="math inline"><em>n</em> − 1</span>的<span
-class="math inline"><em>k</em></span>，找出精致数组-<span
-class="math inline"><em>k</em></span>的数量。</p>
-<h3 id="思路">思路：</h3>
-<p>题目要求: 寻找相邻差值至少为<span
-class="math inline"><em>k</em></span>的数组个数。</p>
-<p>这可以转化为：寻找差分数组中某一子段的最小值至少为<span
-class="math inline"><em>k</em></span>的数组个数。</p>
-<p>这仍然很麻烦。于是我们可以先统计出最小值为<span
-class="math inline"><em>k</em>, <em>k</em> ∈ [1,<em>n</em>−1]</span>的子段数，最后再做前缀和即可转换为最小值至少为<span
-class="math inline"><em>k</em></span>的数组个数。</p>
-<p>关于统计最小值为<span
-class="math inline"><em>k</em></span>的子段数，我们可以对差分数组中的每一个数进行单独计算：</p>
-<p>对于第<span
-class="math inline"><em>i</em></span>个差值，我们可以利用两次单调栈统计出第<span
-class="math inline"><em>i</em></span>个差值左侧最近的满足<span
-class="math inline"><em>d</em>[<em>l</em>] &lt;  = <em>d</em>[<em>i</em>]</span>的<span
-class="math inline"><em>l</em></span>和右侧最近的满足<span
-class="math inline"><em>d</em>[<em>r</em>] &lt; <em>d</em>[<em>i</em>]</span>的<span
-class="math inline"><em>r</em></span>，这样即可以求出对于当前的<span
-class="math inline"><em>d</em>[<em>i</em>]</span>，以<span
-class="math inline"><em>d</em>[<em>i</em>]</span>为最小值的数组个数：<span
-class="math inline">(<em>i</em>−<em>l</em>+1−1) × (<em>r</em>−<em>i</em>+1−1)</span>，即：<span
-class="math inline">(<em>i</em>−<em>l</em>) × (<em>r</em>−<em>i</em>)</span>。</p>
-<p>这样即可不重不漏地统计出所有最小值为<span
-class="math inline"><em>k</em></span>的子段数，最后再从<span
-class="math inline">1</span>到<span
-class="math inline"><em>n</em></span>做前缀和即可求出最小值至少为<span
-class="math inline"><em>k</em></span>的数组个数。</p>
-<h3 id="代码">代码：</h3>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">using</span> ld = <span class="type">long</span> <span class="type">double</span>;</span><br><span class="line"><span class="meta">#<span class="keyword">define</span> int long long</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> fi first</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> se second</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span> <span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> n; cin &gt;&gt; n;</span><br><span class="line">    vector &lt;<span class="type">int</span>&gt; <span class="built_in">v</span>(n + <span class="number">1</span>), <span class="built_in">d</span>(n + <span class="number">3</span>);</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;</span><br><span class="line">        cin &gt;&gt; v[i];</span><br><span class="line">        d[i] = <span class="built_in">abs</span>(v[i] - v[i - <span class="number">1</span>]);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    vector &lt;<span class="type">int</span>&gt; <span class="built_in">al</span>(n + <span class="number">3</span>, <span class="number">1</span>), <span class="built_in">br</span>(n + <span class="number">3</span>, n + <span class="number">1</span>);</span><br><span class="line">    vector &lt;<span class="type">int</span>&gt; stk;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">2</span>; i &lt;= n; i++) &#123;</span><br><span class="line">        <span class="keyword">while</span> (stk.<span class="built_in">size</span>() &amp;&amp; d[stk.<span class="built_in">back</span>()] &gt; d[i]) &#123;</span><br><span class="line">            stk.<span class="built_in">pop_back</span>();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (stk.<span class="built_in">size</span>()) al[i] = stk.<span class="built_in">back</span>();</span><br><span class="line">        stk.<span class="built_in">push_back</span>(i);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    stk.<span class="built_in">clear</span>();</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = n; i &gt;= <span class="number">2</span>; i--) &#123;</span><br><span class="line">        <span class="keyword">while</span> (stk.<span class="built_in">size</span>() &amp;&amp; d[stk.<span class="built_in">back</span>()] &gt;= d[i]) &#123;</span><br><span class="line">            stk.<span class="built_in">pop_back</span>();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (stk.<span class="built_in">size</span>()) br[i] = stk.<span class="built_in">back</span>();</span><br><span class="line">        stk.<span class="built_in">push_back</span>(i);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    vector &lt;<span class="type">int</span>&gt; <span class="built_in">ans</span>(n + <span class="number">1</span>, <span class="number">0</span>);</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">2</span>; i &lt;= n; i++) &#123;</span><br><span class="line">        ans[d[i]] += (br[i] - i) * (i - al[i]);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = n - <span class="number">2</span>; i &gt;= <span class="number">1</span>; i--) &#123;</span><br><span class="line">        ans[i] += ans[i + <span class="number">1</span>];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt; n; i++) &#123;</span><br><span class="line">        cout &lt;&lt; ans[i] &lt;&lt; <span class="string">&quot; \n&quot;</span>[i == n - <span class="number">1</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;   </span><br><span class="line">    </span><br><span class="line"><span class="function"><span class="type">signed</span> <span class="title">main</span> <span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ios::<span class="built_in">sync_with_stdio</span>(<span class="number">0</span>);</span><br><span class="line">    cin.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line">    <span class="type">int</span> _ = <span class="number">1</span>;</span><br><span class="line">    cin &gt;&gt; _;</span><br><span class="line">    <span class="keyword">while</span> (_--) &#123;</span><br><span class="line">        <span class="built_in">solve</span>();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="E-Exquisite-Array"><a href="#E-Exquisite-Array" class="headerlink" title="E. Exquisite Array"></a>E. Exquisite Array</h2><h3 id="题意：-4"><a href="#题意：-4" class="headerlink" title="题意："></a>题意：</h3><p>定义精致数组-$k$为任意相邻两数之差至少为$k$的数组。</p>
+<p>给定长度为$n$的排列$p$，对于每一个从$1$到$n - 1$的$k$，找出精致数组-$k$的数量。</p>
+<h3 id="思路："><a href="#思路：" class="headerlink" title="思路："></a>思路：</h3><p>题目要求: 寻找相邻差值至少为$k$的数组个数。</p>
+<p>这可以转化为：寻找差分数组中某一子段的最小值至少为$k$的数组个数。</p>
+<p>这仍然很麻烦。于是我们可以先统计出最小值为$k,k\in [1, n - 1]$的子段数，最后再做前缀和即可转换为最小值至少为$k$的数组个数。</p>
+<p>关于统计最小值为$k$的子段数，我们可以对差分数组中的每一个数进行单独计算：</p>
+<p>对于第$i$个差值，我们可以利用两次单调栈统计出第$i$个差值左侧最近的满足$d[l]&lt;&#x3D;d[i]$的$l$和右侧最近的满足$d[r]&lt;d[i]$的$r$，这样即可以求出对于当前的$d[i]$，以$d[i]$为最小值的数组个数：$(i - l + 1 - 1) \times (r - i + 1 - 1)$，即：$(i - l) \times (r - i)$。</p>
+<p>这样即可不重不漏地统计出所有最小值为$k$的子段数，最后再从$1$到$n$做前缀和即可求出最小值至少为$k$的数组个数。</p>
+<h3 id="代码："><a href="#代码：" class="headerlink" title="代码："></a>代码：</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">using</span> ld = <span class="type">long</span> <span class="type">double</span>;</span><br><span class="line"><span class="meta">#<span class="keyword">define</span> int long long</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> fi first</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> se second</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span> <span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> n; cin &gt;&gt; n;</span><br><span class="line">    vector &lt;<span class="type">int</span>&gt; <span class="built_in">v</span>(n + <span class="number">1</span>), <span class="built_in">d</span>(n + <span class="number">3</span>);</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;</span><br><span class="line">        cin &gt;&gt; v[i];</span><br><span class="line">        d[i] = <span class="built_in">abs</span>(v[i] - v[i - <span class="number">1</span>]);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    vector &lt;<span class="type">int</span>&gt; <span class="built_in">al</span>(n + <span class="number">3</span>, <span class="number">1</span>), <span class="built_in">br</span>(n + <span class="number">3</span>, n + <span class="number">1</span>);</span><br><span class="line">    vector &lt;<span class="type">int</span>&gt; stk;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">2</span>; i &lt;= n; i++) &#123;</span><br><span class="line">        <span class="keyword">while</span> (stk.<span class="built_in">size</span>() &amp;&amp; d[stk.<span class="built_in">back</span>()] &gt; d[i]) &#123;</span><br><span class="line">            stk.<span class="built_in">pop_back</span>();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (stk.<span class="built_in">size</span>()) al[i] = stk.<span class="built_in">back</span>();</span><br><span class="line">        stk.<span class="built_in">push_back</span>(i);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    stk.<span class="built_in">clear</span>();</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = n; i &gt;= <span class="number">2</span>; i--) &#123;</span><br><span class="line">        <span class="keyword">while</span> (stk.<span class="built_in">size</span>() &amp;&amp; d[stk.<span class="built_in">back</span>()] &gt;= d[i]) &#123;</span><br><span class="line">            stk.<span class="built_in">pop_back</span>();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (stk.<span class="built_in">size</span>()) br[i] = stk.<span class="built_in">back</span>();</span><br><span class="line">        stk.<span class="built_in">push_back</span>(i);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    vector &lt;<span class="type">int</span>&gt; <span class="built_in">ans</span>(n + <span class="number">1</span>, <span class="number">0</span>);</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">2</span>; i &lt;= n; i++) &#123;</span><br><span class="line">        ans[d[i]] += (br[i] - i) * (i - al[i]);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = n - <span class="number">2</span>; i &gt;= <span class="number">1</span>; i--) &#123;</span><br><span class="line">        ans[i] += ans[i + <span class="number">1</span>];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt; n; i++) &#123;</span><br><span class="line">        cout &lt;&lt; ans[i] &lt;&lt; <span class="string">&quot; \n&quot;</span>[i == n - <span class="number">1</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;   </span><br><span class="line">    </span><br><span class="line"><span class="function"><span class="type">signed</span> <span class="title">main</span> <span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ios::<span class="built_in">sync_with_stdio</span>(<span class="number">0</span>);</span><br><span class="line">    cin.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line">    <span class="type">int</span> _ = <span class="number">1</span>;</span><br><span class="line">    cin &gt;&gt; _;</span><br><span class="line">    <span class="keyword">while</span> (_--) &#123;</span><br><span class="line">        <span class="built_in">solve</span>();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
 
     </div>
 
@@ -617,9 +532,7 @@ class="math inline"><em>k</em></span>的数组个数。</p>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#codeforces-round-1072-div.-3-%E9%A2%98%E8%A7%A3"><span class="nav-number">1.</span> <span class="nav-text">Codeforces Round 1072 (Div.
-3) 题解</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#codeforces-round-1072-div.-3"><span class="nav-number">1.1.</span> <span class="nav-text">Codeforces Round 1072 (Div.
-3)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#a.-social-experiment"><span class="nav-number">1.2.</span> <span class="nav-text">A. Social Experiment</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E6%84%8F"><span class="nav-number">1.2.1.</span> <span class="nav-text">题意：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E6%9E%90"><span class="nav-number">1.2.2.</span> <span class="nav-text">分析：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#b.-hourglass"><span class="nav-number">1.3.</span> <span class="nav-text">B. Hourglass</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E6%84%8F-1"><span class="nav-number">1.3.1.</span> <span class="nav-text">题意：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E6%9E%90-1"><span class="nav-number">1.3.2.</span> <span class="nav-text">分析：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#c.-huge-pile"><span class="nav-number">1.4.</span> <span class="nav-text">C. Huge Pile</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E6%84%8F-2"><span class="nav-number">1.4.1.</span> <span class="nav-text">题意：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%86%E6%9E%90-2"><span class="nav-number">1.5.</span> <span class="nav-text">分析：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#d.-unfair-game"><span class="nav-number">1.6.</span> <span class="nav-text">D. Unfair Game</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E6%84%8F-3"><span class="nav-number">1.6.1.</span> <span class="nav-text">题意：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E6%9E%90-3"><span class="nav-number">1.6.2.</span> <span class="nav-text">分析：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E6%80%9D%E8%B7%AF"><span class="nav-number">1.6.3.</span> <span class="nav-text">代码思路：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#e.-exquisite-array"><span class="nav-number">1.7.</span> <span class="nav-text">E. Exquisite Array</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E6%84%8F-4"><span class="nav-number">1.7.1.</span> <span class="nav-text">题意：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF"><span class="nav-number">1.7.2.</span> <span class="nav-text">思路：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.7.3.</span> <span class="nav-text">代码：</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Codeforces-Round-1072-Div-3-%E9%A2%98%E8%A7%A3"><span class="nav-number">1.</span> <span class="nav-text">Codeforces Round 1072 (Div. 3) 题解</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Codeforces-Round-1072-Div-3"><span class="nav-number">1.1.</span> <span class="nav-text">Codeforces Round 1072 (Div. 3)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#A-Social-Experiment"><span class="nav-number">1.2.</span> <span class="nav-text">A. Social Experiment</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E6%84%8F%EF%BC%9A"><span class="nav-number">1.2.1.</span> <span class="nav-text">题意：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E6%9E%90%EF%BC%9A"><span class="nav-number">1.2.2.</span> <span class="nav-text">分析：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#B-Hourglass"><span class="nav-number">1.3.</span> <span class="nav-text">B. Hourglass</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E6%84%8F%EF%BC%9A-1"><span class="nav-number">1.3.1.</span> <span class="nav-text">题意：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E6%9E%90%EF%BC%9A-1"><span class="nav-number">1.3.2.</span> <span class="nav-text">分析：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#C-Huge-Pile"><span class="nav-number">1.4.</span> <span class="nav-text">C. Huge Pile</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E6%84%8F%EF%BC%9A-2"><span class="nav-number">1.4.1.</span> <span class="nav-text">题意：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%86%E6%9E%90%EF%BC%9A-2"><span class="nav-number">1.5.</span> <span class="nav-text">分析：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#D-Unfair-Game"><span class="nav-number">1.6.</span> <span class="nav-text">D. Unfair Game</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E6%84%8F%EF%BC%9A-3"><span class="nav-number">1.6.1.</span> <span class="nav-text">题意：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E6%9E%90%EF%BC%9A-3"><span class="nav-number">1.6.2.</span> <span class="nav-text">分析：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E6%80%9D%E8%B7%AF%EF%BC%9A"><span class="nav-number">1.6.3.</span> <span class="nav-text">代码思路：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#E-Exquisite-Array"><span class="nav-number">1.7.</span> <span class="nav-text">E. Exquisite Array</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E6%84%8F%EF%BC%9A-4"><span class="nav-number">1.7.1.</span> <span class="nav-text">题意：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF%EF%BC%9A"><span class="nav-number">1.7.2.</span> <span class="nav-text">思路：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%EF%BC%9A"><span class="nav-number">1.7.3.</span> <span class="nav-text">代码：</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -633,7 +546,7 @@ class="math inline"><em>k</em></span>的数组个数。</p>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">41</span>
+          <span class="site-state-item-count">42</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -715,12 +628,12 @@ class="math inline"><em>k</em></span>的数组个数。</p>
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">90k</span>
+    <span title="站点总字数">92k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">5:29</span>
+    <span title="站点阅读时长">5:33</span>
 </div>
   <div class="powered-by">由 <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl theme-link" data-url="aHR0cHM6Ly90aGVtZS1uZXh0Lm9yZw==">NexT.Gemini</span> 强力驱动
   </div>
