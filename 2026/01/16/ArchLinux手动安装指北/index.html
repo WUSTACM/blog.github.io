@@ -27,16 +27,12 @@
 <meta property="og:site_name" content="WUSTACM">
 <meta property="og:description" content="本文系统性地介绍了在 UEFI 环境下使用 BTRFS 文件系统手动安装 Arch Linux 的完整流程，涵盖启动盘制作、网络与镜像配置、磁盘分区、基础系统安装、引导配置以及显卡与系统优化等关键步骤，适合希望深入理解 Arch Linux 安装与系统结构的用户参考。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://jianges.com/wp-content/uploads/2026/01/1768396992-image-1024x633.png">
-<meta property="og:image" content="https://jianges.com/wp-content/uploads/2026/01/1768397155-image.png">
-<meta property="og:image" content="https://jianges.com/wp-content/uploads/2026/01/1768400160-image-1024x182.png">
 <meta property="article:published_time" content="2026-01-16T13:59:12.000Z">
 <meta property="article:modified_time" content="2026-01-17T09:03:23.000Z">
 <meta property="article:author" content="Blog">
 <meta property="article:tag" content="杂谈">
 <meta property="article:tag" content="系统">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://jianges.com/wp-content/uploads/2026/01/1768396992-image-1024x633.png">
 
 <link rel="canonical" href="http://blog.wustacm.org/2026/01/16/ArchLinux%E6%89%8B%E5%8A%A8%E5%AE%89%E8%A3%85%E6%8C%87%E5%8C%97/">
 
@@ -291,465 +287,545 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="1-制作启动盘"><a href="#1-制作启动盘" class="headerlink" title="1. 制作启动盘"></a>1. 制作启动盘</h2><h3 id="1-1-下载-ISO-镜像"><a href="#1-1-下载-ISO-镜像" class="headerlink" title="1.1 下载 ISO 镜像"></a>1.1 下载 ISO 镜像</h3><p>浏览器搜索ArchLinux，找到Download页面（<span class="exturl" data-url="aHR0cHM6Ly9hcmNobGludXgub3JnL2Rvd25sb2FkLw==">或者通过这里直接跳转<i class="fa fa-external-link-alt"></i></span>）向下翻找到China地区镜像源，下载ISO镜像，推荐<span class="exturl" data-url="aHR0cHM6Ly9taXJyb3JzLmh1c3QuZWR1LmNuL2FyY2hsaW51eC9pc28vMjAyNi4wMS4wMS8=">hust.edu.cn<i class="fa fa-external-link-alt"></i></span>华中科技大学<span class="exturl" data-url="aHR0cHM6Ly9taXJyb3JzLmh1c3QuZWR1LmNuLw==">开源镜像站<i class="fa fa-external-link-alt"></i></span>，选择<span class="exturl" data-url="aHR0cHM6Ly9taXJyb3JzLmh1c3QuZWR1LmNuL2FyY2hsaW51eC9pc28vMjAyNi4wMS4wMS9hcmNobGludXgtMjAyNi4wMS4wMS14ODZfNjQuaXNv">archlinux-2026.01.01-x86_64.iso<i class="fa fa-external-link-alt"></i></span>（日期可能变化）</p>
-<h3 id="1-2-制作启动盘"><a href="#1-2-制作启动盘" class="headerlink" title="1.2 制作启动盘"></a>1.2 制作启动盘</h3><p>Windows 下推荐使用 <span class="exturl" data-url="aHR0cHM6Ly93d3cudmVudG95Lm5ldC9jbi9kb2Nfc3RhcnQuaHRtbA==">Ventoy<i class="fa fa-external-link-alt"></i></span>、<span class="exturl" data-url="aHR0cHM6Ly9ydWZ1cy5pZS8=">Rufus<i class="fa fa-external-link-alt"></i></span> 或者 <span class="exturl" data-url="aHR0cHM6Ly93d3cucG93ZXJpc28uY29tL2Rvd25sb2FkLnBocA==">Power ISO<i class="fa fa-external-link-alt"></i></span>EULA 进行 U 盘刻录。三者皆为免费使用的软件。具体操作都非常简单除此之外，如果你还嫌麻烦，还可以使用更为简单的安装盘制作工具 <span class="exturl" data-url="aHR0cHM6Ly93d3cuYmFsZW5hLmlvL2V0Y2hlci8=">balenaEtcher<i class="fa fa-external-link-alt"></i></span>。这里以Rufus为例</p>
-<h4 id="1-2-1-下载-Rufus"><a href="#1-2-1-下载-Rufus" class="headerlink" title="1.2.1 下载 Rufus"></a>1.2.1 下载 Rufus</h4><p>浏览器搜索Rufus（<span class="exturl" data-url="aHR0cHM6Ly9ydWZ1cy5pZS96aF9UVy8jZG93bmxvYWQ=">或者通过这里直接跳转<i class="fa fa-external-link-alt"></i></span>）向下反动找到Download选项，下载<a target="_blank" rel="noopener" href="https://github.com/pbatard/rufus/releases/download/v4.11/rufus-4.11.exe"><code>rufus-4.11.exe</code></a>（随版本更新链接可能失效）</p>
-<h4 id="1-2-2-使用-Rufus-制作启动盘"><a href="#1-2-2-使用-Rufus-制作启动盘" class="headerlink" title="1.2.2 使用 Rufus 制作启动盘"></a>1.2.2 使用 Rufus 制作启动盘</h4><p>在这里你需要一个8G以上的U盘，当然读写速度越快越好</p>
-<div class="note danger">
-            <p>制作启动盘会清空U盘里面的所有数据，需要提前做好数据备份 </p>
+        <h2 id="制作启动盘">1. 制作启动盘</h2>
+<h3 id="下载-iso-镜像">1.1 下载 ISO 镜像</h3>
+<p>浏览器搜索ArchLinux，找到Download页面（<a
+target="_blank" rel="noopener" href="https://archlinux.org/download/">或者通过这里直接跳转</a>）向下翻找到China地区镜像源，下载ISO镜像，推荐<a
+target="_blank" rel="noopener" href="https://mirrors.hust.edu.cn/archlinux/iso/2026.01.01/">hust.edu.cn</a>华中科技大学<a
+target="_blank" rel="noopener" href="https://mirrors.hust.edu.cn/">开源镜像站</a>，选择<a
+target="_blank" rel="noopener" href="https://mirrors.hust.edu.cn/archlinux/iso/2026.01.01/archlinux-2026.01.01-x86_64.iso">archlinux-2026.01.01-x86_64.iso</a>（日期可能变化）</p>
+<h3 id="制作启动盘-1">1.2 制作启动盘</h3>
+<p>Windows 下推荐使用 <a
+target="_blank" rel="noopener" href="https://www.ventoy.net/cn/doc_start.html">Ventoy</a>、<a
+target="_blank" rel="noopener" href="https://rufus.ie/">Rufus</a> 或者 <a
+target="_blank" rel="noopener" href="https://www.poweriso.com/download.php">Power ISO</a>EULA 进行 U
+盘刻录。三者皆为免费使用的软件。具体操作都非常简单除此之外，如果你还嫌麻烦，还可以使用更为简单的安装盘制作工具
+<a
+target="_blank" rel="noopener" href="https://www.balena.io/etcher/">balenaEtcher</a>。这里以Rufus为例</p>
+<h4 id="下载-rufus">1.2.1 下载 Rufus</h4>
+<p>浏览器搜索Rufus（<a
+target="_blank" rel="noopener" href="https://rufus.ie/zh_TW/#download">或者通过这里直接跳转</a>）向下反动找到Download选项，下载<a
+target="_blank" rel="noopener" href="https://github.com/pbatard/rufus/releases/download/v4.11/rufus-4.11.exe"><code>rufus-4.11.exe</code></a>（随版本更新链接可能失效）</p>
+<h4 id="使用-rufus-制作启动盘">1.2.2 使用 Rufus 制作启动盘</h4>
+<p>在这里你需要一个8G以上的U盘，当然读写速度越快越好 <div class="note danger">
+            <p>制作启动盘会清空U盘里面的所有数据，需要提前做好数据备份</p>
           </div>
-<p>等待制作完毕直接点击右下角的关闭即可 千万不要再点一遍开始。</p>
-<h2 id="2-进入引导页面"><a href="#2-进入引导页面" class="headerlink" title="2. 进入引导页面"></a>2. 进入引导页面</h2><h3 id="2-1-关闭-Secure-Boot（安全启动）"><a href="#2-1-关闭-Secure-Boot（安全启动）" class="headerlink" title="2.1 关闭 Secure Boot（安全启动）"></a>2.1 关闭 Secure Boot（安全启动）</h3><p>根据ArchWiki介绍，Arch是不支持安全启动的，而一般电脑默认开启安全启动，所以需要先到BIOS里面关闭安全启动( Secure Boot )，注意需要先关闭Windows的快速启动（powercfg &#x2F;h off）。</p>
+等待制作完毕直接点击右下角的关闭即可 千万不要再点一遍开始。</p>
+<h2 id="进入引导页面">2. 进入引导页面</h2>
+<h3 id="关闭-secure-boot安全启动">2.1 关闭 Secure Boot（安全启动）</h3>
+<p>根据ArchWiki介绍，Arch是不支持安全启动的，而一般电脑默认开启安全启动，所以需要先到BIOS里面关闭安全启动(
+Secure Boot )，注意需要先关闭Windows的快速启动（powercfg /h off）。</p>
 <p>不同品牌的主板进入BIOS的方式千奇百怪，需要去浏览器上搜索一下具体的按键。关闭安全启动，并且调整启动顺序后应该就可以正常进去live环境了</p>
-<h3 id="2-2-确定UEFI固件启动"><a href="#2-2-确定UEFI固件启动" class="headerlink" title="2.2 确定UEFI固件启动"></a>2.2 确定UEFI固件启动</h3><p><img src="https://jianges.com/wp-content/uploads/2026/01/1768396992-image-1024x633.png" alt="img"></p>
+<h3 id="确定uefi固件启动">2.2 确定UEFI固件启动</h3>
+<figure>
+<img
+src="https://jianges.com/wp-content/uploads/2026/01/1768396992-image-1024x633.png"
+alt="img" />
+<figcaption aria-hidden="true">img</figcaption>
+</figure>
 <p>进入live环境后如何是以下界面说明是进入了主板的BIOS固件</p>
-<p><img src="https://jianges.com/wp-content/uploads/2026/01/1768397155-image.png" alt="img"></p>
+<figure>
+<img
+src="https://jianges.com/wp-content/uploads/2026/01/1768397155-image.png"
+alt="img" />
+<figcaption aria-hidden="true">img</figcaption>
+</figure>
 <p>这个页面说明是进入了UEFI固件</p>
 <p>这篇教程主要是以UEFI的方式安装，如果你的主板是只支持BIOS的老设备，在分区和安装引导的部分可能不一样，网上有很多教程可以自己查一查。</p>
-<h2 id="3-正式安装（预备步骤）"><a href="#3-正式安装（预备步骤）" class="headerlink" title="3.正式安装（预备步骤）"></a>3.正式安装（预备步骤）</h2><h3 id="3-1-禁用-reflector-服务"><a href="#3-1-禁用-reflector-服务" class="headerlink" title="3.1 禁用 reflector 服务"></a>3.1 禁用 reflector 服务</h3><p>2020 年，archlinux 安装镜像中加入了 <code>reflector</code> 服务，它会自己更新 <code>mirrorlist</code>（软件包管理器 <code>pacman</code> 的软件源）。在特定情况下，它会误删某些有用的源信息。这里进入安装环境后的第一件事就是将其禁用。也许它是一个好用的工具，但是很明显，因为地理上造成的特殊网络环境，这项服务并不适合启用。</p>
+<h2 id="正式安装预备步骤">3.正式安装（预备步骤）</h2>
+<h3 id="禁用-reflector-服务">3.1 禁用 reflector 服务</h3>
+<p>2020 年，archlinux 安装镜像中加入了 <code>reflector</code>
+服务，它会自己更新 <code>mirrorlist</code>（软件包管理器
+<code>pacman</code>
+的软件源）。在特定情况下，它会误删某些有用的源信息。这里进入安装环境后的第一件事就是将其禁用。也许它是一个好用的工具，但是很明显，因为地理上造成的特殊网络环境，这项服务并不适合启用。</p>
 <p>通过以下命令将该服务禁用：</p>
 <figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl stop reflector.service</span><br></pre></td></tr></table></figure>
-
-<h3 id="3-2-联网"><a href="#3-2-联网" class="headerlink" title="3.2 联网"></a>3.2 联网</h3><p>进入ISO后第一步就是先链接网络，防止网卡被禁用，使用以下命令解除网卡禁用：</p>
+<h3 id="联网">3.2 联网</h3>
+<p>进入ISO后第一步就是先链接网络，防止网卡被禁用，使用以下命令解除网卡禁用：</p>
 <figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rfkill unblock all</span><br></pre></td></tr></table></figure>
-
 <p><code>ip a</code>可以列出当前的连接信息，有线网自动连接，如果没有有线网络可以通过USB分享手机网络。链接无线网络需要使用iwd提供的命令行工具。</p>
 <figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">iwctl   <span class="comment"># 进入交互式命令行</span></span><br><span class="line">device list    <span class="comment"># 列出无线网卡设备名，比如无线网卡看到叫 wlan0</span></span><br><span class="line">station wlan0 scan    <span class="comment"># 扫描网络</span></span><br><span class="line">station wlan0 get-networks    <span class="comment"># 列出所有 wifi 网络</span></span><br><span class="line">station wlan0 connect 你的wifi名称    <span class="comment"># 进行连接，注意这里无法输入中文。回车后输入密码即可</span></span><br><span class="line"><span class="built_in">exit</span> <span class="comment"># 连接成功后退出</span></span><br></pre></td></tr></table></figure>
-
 <p>然后我们随便ping一个网站测试网络是否正常比如：</p>
 <figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ping -c 4 bilibili.com  <span class="comment">#-c 4 指定次数 四次</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="3-3-更新系统时钟"><a href="#3-3-更新系统时钟" class="headerlink" title="3.3 更新系统时钟"></a>3.3 更新系统时钟</h3><p>连接网络后系统后台会自动激活网络时间协议（NTP）把时间同步到UTC世界时间。我们要通过使用<code>timedatectl</code>来确保开启了NTP，这一步<strong>不是</strong>可选的，正确的系统时间对于部分程序来说非常重要</p>
+<h3 id="更新系统时钟">3.3 更新系统时钟</h3>
+<p>连接网络后系统后台会自动激活网络时间协议（NTP）把时间同步到UTC世界时间。我们要通过使用<code>timedatectl</code>来确保开启了NTP，这一步<strong>不是</strong>可选的，正确的系统时间对于部分程序来说非常重要</p>
 <figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">timedatectl set-ntp <span class="literal">true</span> <span class="comment"># 将系统时间与网络时间进行同步</span></span><br><span class="line">timedatectl status <span class="comment"># 检查服务状态</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="3-4-配置镜像源"><a href="#3-4-配置镜像源" class="headerlink" title="3.4 配置镜像源"></a>3.4 配置镜像源</h3><figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reflector -a 12 -c cn -f 10 --<span class="built_in">sort</span> score --v --save /etc/pacman.d/mirrorlist</span><br></pre></td></tr></table></figure>
-
+<h3 id="配置镜像源">3.4 配置镜像源</h3>
+<figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reflector -a 12 -c cn -f 10 --<span class="built_in">sort</span> score --v --save /etc/pacman.d/mirrorlist</span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>启动<code>reflector</code>是自动配置镜像源的工具，-<code>a(age)</code>指定最近12小时更新过的源，<code>-c(country)</code>指定所在的国家或区域 <code>-f(fast)</code>调出最快的十个 <code>--sort</code>按照同步时间和下载速度综合评分进行排序 <code>--v(verbose)</code>让过程显示出来 <code>--save</code>将结果保存到<code>etc</code>里的<code>pacman.d</code>目录下的 <code>mirrorlist</code> 里面</p>
+<p>启动<code>reflector</code>是自动配置镜像源的工具，-<code>a(age)</code>指定最近12小时更新过的源，<code>-c(country)</code>指定所在的国家或区域
+<code>-f(fast)</code>调出最快的十个
+<code>--sort</code>按照同步时间和下载速度综合评分进行排序
+<code>--v(verbose)</code>让过程显示出来
+<code>--save</code>将结果保存到<code>etc</code>里的<code>pacman.d</code>目录下的
+<code>mirrorlist</code> 里面</p>
 </blockquote>
 <p>然后更新数据库并安装密钥</p>
 <figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacman -Sy archlinux-keyring</span><br></pre></td></tr></table></figure>
-
 <blockquote>
-<p><code>-S</code>是<code>Sync</code>可以简单理解为安装 <code>y</code>代表更新本地的软件列表数据 <code>archlinux-keyring</code>是密钥的软件数据包名称 回车进行安装</p>
+<p><code>-S</code>是<code>Sync</code>可以简单理解为安装
+<code>y</code>代表更新本地的软件列表数据
+<code>archlinux-keyring</code>是密钥的软件数据包名称 回车进行安装</p>
 </blockquote>
-<h2 id="4-硬盘分区"><a href="#4-硬盘分区" class="headerlink" title="4. 硬盘分区"></a>4. 硬盘分区</h2><h3 id="4-1-明确分区状态"><a href="#4-1-明确分区状态" class="headerlink" title="4.1 明确分区状态"></a>4.1 明确分区状态</h3><p>首先查看当前分区情况，找到自己使用的硬盘</p>
+<h2 id="硬盘分区">4. 硬盘分区</h2>
+<h3 id="明确分区状态">4.1 明确分区状态</h3>
+<p>首先查看当前分区情况，找到自己使用的硬盘</p>
 <figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lsblk -pf    <span class="comment">#-p完整列出设备名称 -f显示更多信息</span></span><br></pre></td></tr></table></figure>
-
-<p>如果不确定是不是自己使用的硬盘，可以使用<code>fdisk-l 设备名</code> 查看该硬盘更详细的信息</p>
+<p>如果不确定是不是自己使用的硬盘，可以使用<code>fdisk-l 设备名</code>
+查看该硬盘更详细的信息</p>
 <figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fdisk -l /dev/nvme0n1</span><br></pre></td></tr></table></figure>
-
 <p>出现了<code>Microsoft</code>或者<code>Windows</code>字样说明是<code>Windows</code>相关的分区，并且这块硬盘的第一个分区<code>EFI System</code>分区是<code>Windows</code>的启动分区，要小心操作</p>
-<p>如果还不确定是不是自己想用的硬盘，可以使用 <code>cfdisk</code> 命令查看硬盘里面有没有之前预留的空间，注意<code>Size Type</code>的大小</p>
+<p>如果还不确定是不是自己想用的硬盘，可以使用 <code>cfdisk</code>
+命令查看硬盘里面有没有之前预留的空间，注意<code>Size Type</code>的大小</p>
 <figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cfdisk /dev/nvme0n1</span><br></pre></td></tr></table></figure>
-
-<h3 id="4-2-正式分区"><a href="#4-2-正式分区" class="headerlink" title="4.2 正式分区"></a>4.2 正式分区</h3><p>明确使用那个硬盘之后我们使用cfdisk进行正式分区，如果你的硬盘是第一次使用会弹出几个选项让你选择分区模式，选择GPT即可</p>
-<p><img src="https://jianges.com/wp-content/uploads/2026/01/1768400160-image-1024x182.png" alt="img"></p>
+<h3 id="正式分区">4.2 正式分区</h3>
+<p>明确使用那个硬盘之后我们使用cfdisk进行正式分区，如果你的硬盘是第一次使用会弹出几个选项让你选择分区模式，选择GPT即可</p>
+<figure>
+<img
+src="https://jianges.com/wp-content/uploads/2026/01/1768400160-image-1024x182.png"
+alt="img" />
+<figcaption aria-hidden="true">img</figcaption>
+</figure>
 <p>我们首先要创建一个启动分区（当然我们可以让windows和linux共用一个引导分区，但是windows可能会搞坏linux的引导，保险起见我们为linux创建一个独立于windows的启动分区）</p>
 <p>使用↑↓键来选中要使用的空闲空间，←→键选择<code>new</code>，创建一个<code>200mb</code>的分区，再选择<code>type</code>把类型改为<code>EFI System</code></p>
 <blockquote>
 <p>如果你没该选项，那么你使用的大概率是<code>MBR</code>分区模式，要先修改成<code>GPT</code>分区模式才能按以下步骤操作</p>
 <div class="note danger">
-            <p>注意：更改分区模式会清除已有的分区 </p>
+            <p>注意：更改分区模式会清除已有的分区</p>
           </div>
-
 <figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fdisk /dev/nvme0n1</span><br></pre></td></tr></table></figure>
-
 <p>输入<code>g</code>创建<code>GPT</code></p>
 <figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">g</span><br></pre></td></tr></table></figure>
-
 <p>在输入w保存更改</p>
 <figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">w</span><br></pre></td></tr></table></figure>
-
 <p>启动分区的大小取决于你要把启动分区挂载到哪一个位置，启动分区的英文名是<code>EFI System Partition</code>简称<code>ESP</code>还可以叫<code>EFI分区</code></p>
-<p><code>ESP</code>的常用挂载点有三个<code>/boot</code> <code>/boot/efi</code> <code>/efi</code>，其中最常用的是<code>/boot</code>（boot目录用来存放内核和系统初始化相关的文件）内核文件的体积通常较大，如果<code>ESP</code>的挂载点是boot目录的话，在安装多个内核的时候就需要1g甚至2g的空间，因此很多发行版已经不把<code>ESP</code>挂载到boot了，这样<code>ESP</code>里就只存放启动相关的文件，需要的空间很小</p>
+<p><code>ESP</code>的常用挂载点有三个<code>/boot</code>
+<code>/boot/efi</code>
+<code>/efi</code>，其中最常用的是<code>/boot</code>（boot目录用来存放内核和系统初始化相关的文件）内核文件的体积通常较大，如果<code>ESP</code>的挂载点是boot目录的话，在安装多个内核的时候就需要1g甚至2g的空间，因此很多发行版已经不把<code>ESP</code>挂载到boot了，这样<code>ESP</code>里就只存放启动相关的文件，需要的空间很小</p>
 </blockquote>
 <p>然后我们来创建根分区，选中剩余空间，选择<code>new</code>，直接回车把所有空间分配到一个分区里，类型不需要更改</p>
 <blockquote>
-<p>除了分区大小，另一个影响<code>ESP</code>挂载点的是根分区的文件系统。文件系统决定了文件的存储和检索方式，其中最常用的是<code>EXT4</code>和<code>BTRFS</code>。不同的文件系统有不同的特性，<code>EXT4</code>是文件系统界实用可靠的OG，但对于<code>ArchLinux</code>这样的滚动发行版来说<code>BTRFS</code>最大的特点是快照 。你可以把快照理解为游戏里的存档和回档，快照不止可以帮你恢复系统 <del>还可以让你更大胆的作死</del> 所以我们在这里使用<code>BTRFS</code>格式。同时要注意因为ESP的文件系统必须是FAT，所以使用 <code>BTRFS</code> 快照功能的话<code>ESP</code>就不能挂载到<code>/boot</code>下。</p>
+<p>除了分区大小，另一个影响<code>ESP</code>挂载点的是根分区的文件系统。文件系统决定了文件的存储和检索方式，其中最常用的是<code>EXT4</code>和<code>BTRFS</code>。不同的文件系统有不同的特性，<code>EXT4</code>是文件系统界实用可靠的OG，但对于<code>ArchLinux</code>这样的滚动发行版来说<code>BTRFS</code>最大的特点是快照
+。你可以把快照理解为游戏里的存档和回档，快照不止可以帮你恢复系统
+<del>还可以让你更大胆的作死</del>
+所以我们在这里使用<code>BTRFS</code>格式。同时要注意因为ESP的文件系统必须是FAT，所以使用
+<code>BTRFS</code>
+快照功能的话<code>ESP</code>就不能挂载到<code>/boot</code>下。</p>
 </blockquote>
-<p>分区结束之后选择<code>write</code>保存 ，输入<code>yes</code>确定保存，最后<code>quit</code>保存退出 （<code>ctrl + l</code>清屏）</p>
+<p>分区结束之后选择<code>write</code>保存
+，输入<code>yes</code>确定保存，最后<code>quit</code>保存退出
+（<code>ctrl + l</code>清屏）</p>
 <figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lsblk -pf    <span class="comment">#再次列出分区信息</span></span><br></pre></td></tr></table></figure>
 <div class="note danger">
             <p>接下来要通过格式化分区建立我们需要的文件系统，注意格式化的时候一定要确认设备名没有输错！</p>
           </div>
-
-
 <figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkfs.fat -F 32 /dev/nvme0n1p1    <span class="comment">#把ESP格式化为FAT32</span></span><br><span class="line">mkfs.btrfs /dev/nvme0n1p2    <span class="comment">#把根分区格式化为BTRFS </span></span><br></pre></td></tr></table></figure>
-
 <p>如果空间比较大的话可能需要一些时间，耐心等待一下</p>
-<h3 id="4-3-创建子卷"><a href="#4-3-创建子卷" class="headerlink" title="4.3 创建子卷"></a>4.3 创建子卷</h3><p>子卷是BTRFS的另一个特点，作用之一是设置快照的范围。如果我们不创建子卷，那么快照的时候就会把系统数据和用户数据一起存档。<del>设想一下你只想要恢复系统数据却把你熬夜写的博客也一起恢复了 功夫白费</del></p>
+<h3 id="创建子卷">4.3 创建子卷</h3>
+<p>子卷是BTRFS的另一个特点，作用之一是设置快照的范围。如果我们不创建子卷，那么快照的时候就会把系统数据和用户数据一起存档。<del>设想一下你只想要恢复系统数据却把你熬夜写的博客也一起恢复了
+功夫白费</del></p>
 <p>为了避免这种情况发生，我们需要创建两个同级的子卷，把系统数据和用户数据分开</p>
 <figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mount -t btrfs /dev/nvme0n1p2 /mnt    <span class="comment">#把根分区挂载到mnt目录</span></span><br></pre></td></tr></table></figure>
-
 <blockquote>
 <p>mount 是挂载命令；-t 指定文件系统类型（例如 btrfs）</p>
 </blockquote>
 <figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">btrfs subvolume create /mnt/@    <span class="comment">#用BTRFS管理工具创建root子卷 </span></span><br><span class="line">btrfs subvolume create /mnt/@home    <span class="comment">#用BTRFS管理工具创建home子卷 </span></span><br></pre></td></tr></table></figure>
-
 <blockquote>
-<p>可能细心的你会发现我们并没有创建swap分区，交换分区的主要目的是存储内存中的冷数据，还能在内存不够用的时候把硬盘当作虚拟内存使用，还可以用来<code>Hibernate</code>休眠到硬盘，在下下次开机时恢复到上次关机时的状态（实际上感觉用起来对桌面端用户的作用不大）<code>Hibernate</code>休眠到硬盘可以完全被<code>Suspend</code>睡眠(挂起) 到内存取代。我们其实只是需要一点交换空间存放内存中的冷数据，但是比起使用硬盘做交换我们完全可以把内存中的一部分空间用来交换，这样速度更快还不会影响磁盘寿命。虚拟内存功能可以通过内存压缩技术来弥补。在后面会介绍用zram把内存的一部分当做交换空间的配置方法</p>
+<p>可能细心的你会发现我们并没有创建swap分区，交换分区的主要目的是存储内存中的冷数据，还能在内存不够用的时候把硬盘当作虚拟内存使用，还可以用来<code>Hibernate</code>休眠到硬盘，在下下次开机时恢复到上次关机时的状态（实际上感觉用起来对桌面端用户的作用不大）<code>Hibernate</code>休眠到硬盘可以完全被<code>Suspend</code>睡眠(挂起)
+到内存取代。我们其实只是需要一点交换空间存放内存中的冷数据，但是比起使用硬盘做交换我们完全可以把内存中的一部分空间用来交换，这样速度更快还不会影响磁盘寿命。虚拟内存功能可以通过内存压缩技术来弥补。在后面会介绍用zram把内存的一部分当做交换空间的配置方法</p>
 </blockquote>
 <p>再次运行lsblk -pf命令查看分区情况</p>
 <figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lsblk -pf</span><br></pre></td></tr></table></figure>
-
-<p>现在是根分区挂载到了mnt， 为了把root子卷挂载到mnt我们需要先取消挂载</p>
+<p>现在是根分区挂载到了mnt，
+为了把root子卷挂载到mnt我们需要先取消挂载</p>
 <figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">umount /mnt    <span class="comment">#umount的意思是取消挂载</span></span><br></pre></td></tr></table></figure>
-
 <p>把root子卷挂载到mnt</p>
 <figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mount -t btrfs -o subvol=/@,compress=zstd /dev/nvme0n1p2 /mnt</span><br></pre></td></tr></table></figure>
-
 <blockquote>
-<p>-o是option用来指定挂载参数 参数和参数之间用逗号隔开，subvol指定子卷，compress指定透明压缩，zstd是压缩算法（透明压缩是BTRFS的另一个功能，在数据写入硬盘之前先进行压缩，可以提高硬盘的读写性能，节省空间，延长寿命）</p>
+<p>-o是option用来指定挂载参数
+参数和参数之间用逗号隔开，subvol指定子卷，compress指定透明压缩，zstd是压缩算法（透明压缩是BTRFS的另一个功能，在数据写入硬盘之前先进行压缩，可以提高硬盘的读写性能，节省空间，延长寿命）</p>
 </blockquote>
-<p>接着把home子卷挂载到&#x2F;mnt&#x2F;home， 由于&#x2F;mnt里边没有home目录， 所以需要加上–mkdlir选项创建目录</p>
+<p>接着把home子卷挂载到/mnt/home， 由于/mnt里边没有home目录，
+所以需要加上–mkdlir选项创建目录</p>
 <figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mount --<span class="built_in">mkdir</span> -t btrfs-o subvol=/@home,compress=zstd /dev/nvme0n1p2 /mnt/homemount</span><br></pre></td></tr></table></figure>
-
 <p>最后我们要挂载ESP</p>
 <figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mount --<span class="built_in">mkdir</span> /dev/nvme0n1p1 /mnt/efi</span><br></pre></td></tr></table></figure>
-
-<h2 id="5-正式安装系统"><a href="#5-正式安装系统" class="headerlink" title="5. 正式安装系统"></a>5. 正式安装系统</h2><h3 id="5-1安装系统"><a href="#5-1安装系统" class="headerlink" title="5.1安装系统"></a>5.1安装系统</h3><figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacstrap -K /mnt base base-devel linux-zen linux-firmware btrfs-progs</span><br></pre></td></tr></table></figure>
-
+<h2 id="正式安装系统">5. 正式安装系统</h2>
+<h3 id="安装系统">5.1安装系统</h3>
+<figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacstrap -K /mnt base base-devel linux-zen linux-firmware btrfs-progs</span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>pacstrap把软件安装到指定的根目录下，-K复制密钥，&#x2F;mnt现在挂着我们要安装的系统的根，base是基本包，base-devel是在编译AUR助手和软件时会用到的，linux是主线内核，这里使用-zen是一个性能特调内核，linux-firmware是基本的固件，btrfs-progs是BTRFS管理工具</p>
+<p>pacstrap把软件安装到指定的根目录下，-K复制密钥，/mnt现在挂着我们要安装的系统的根，base是基本包，base-devel是在编译AUR助手和软件时会用到的，linux是主线内核，这里使用-zen是一个性能特调内核，linux-firmware是基本的固件，btrfs-progs是BTRFS管理工具</p>
 <p>如果你是Marvell的网卡的话，需要额外安装linux-firmware-marvell</p>
-<figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacstrap -K /mnt linux-firmware-marvell</span><br></pre></td></tr></table></figure></blockquote>
+<figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacstrap -K /mnt linux-firmware-marvell</span><br></pre></td></tr></table></figure>
+</blockquote>
 <p>然后我们还需要安装一些最基本的功能性软件</p>
 <figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacstrap /mnt networkmanager vim <span class="built_in">sudo</span> intel-ucode</span><br></pre></td></tr></table></figure>
-
 <blockquote>
-<p><code>networkmanager</code>是联网的工具，主流的桌面环境都默认使用<code>networkmanager</code>，想要完整的桌面体验就装这个，当然你也可以选择我们之前使用过的<code>iwd</code>用终端联网，一定要装联网工具否则进系统没法联网！因为我们马上要切换到安装好的系统里边编辑几个配置文件，所以需要安装一个终端文本编辑器， <code>sudo</code>用来管理权限，<code>intel-ucode</code>用来优化和修复CPU(如果使用的是AMD的话请修改成<code>amd-ucode</code>)</p>
+<p><code>networkmanager</code>是联网的工具，主流的桌面环境都默认使用<code>networkmanager</code>，想要完整的桌面体验就装这个，当然你也可以选择我们之前使用过的<code>iwd</code>用终端联网，一定要装联网工具否则进系统没法联网！因为我们马上要切换到安装好的系统里边编辑几个配置文件，所以需要安装一个终端文本编辑器，
+<code>sudo</code>用来管理权限，<code>intel-ucode</code>用来优化和修复CPU(如果使用的是AMD的话请修改成<code>amd-ucode</code>)</p>
 </blockquote>
 <p>在切换进系统前我们需要先生成fstab文件，系统在启动的时候会按照里面的内容自动完成挂载</p>
 <figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">genfstab -U /mnt &gt; /mnt/etc/fstab</span><br></pre></td></tr></table></figure>
-
 <blockquote>
-<p>大写<code>U</code>使用UUID指定分区， 大于号代表覆盖写入这里的文件（如果是两个大于号就代表在文件的末尾追加写入）</p>
+<p>大写<code>U</code>使用UUID指定分区，
+大于号代表覆盖写入这里的文件（如果是两个大于号就代表在文件的末尾追加写入）</p>
 </blockquote>
-<h3 id="5-2-进入新系统"><a href="#5-2-进入新系统" class="headerlink" title="5.2 进入新系统"></a>5.2 进入新系统</h3><p>现在用这段命令进入新安装的系统，可以注意到提示符发生了改变</p>
+<h3 id="进入新系统">5.2 进入新系统</h3>
+<p>现在用这段命令进入新安装的系统，可以注意到提示符发生了改变</p>
 <figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">arch-chroot /mnt</span><br></pre></td></tr></table></figure>
-
-<h3 id="5-3-初期配置"><a href="#5-3-初期配置" class="headerlink" title="5.3 初期配置"></a>5.3 初期配置</h3><h4 id="5-3-1-设置时区"><a href="#5-3-1-设置时区" class="headerlink" title="5.3.1 设置时区"></a>5.3.1 设置时区</h4><figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">ln</span> -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime</span><br></pre></td></tr></table></figure>
-
+<h3 id="初期配置">5.3 初期配置</h3>
+<h4 id="设置时区">5.3.1 设置时区</h4>
+<figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">ln</span> -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime</span><br></pre></td></tr></table></figure>
 <p>除了手动创建链接我们还可以通过timedatectl设置时区</p>
 <figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">timedatectl set-timezone Asia/Shanghai</span><br></pre></td></tr></table></figure>
-
 <p>运行<code>timedatectl</code>可以看到我们时区已经变成了上海</p>
-<h4 id="5-3-2-系统的本地化设置"><a href="#5-3-2-系统的本地化设置" class="headerlink" title="5.3.2 系统的本地化设置"></a>5.3.2 系统的本地化设置</h4><p>首先用vim文本编辑器编辑etc目录下的locale.conf文件</p>
+<h4 id="系统的本地化设置">5.3.2 系统的本地化设置</h4>
+<p>首先用vim文本编辑器编辑etc目录下的locale.conf文件</p>
 <figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/locale.gen</span><br></pre></td></tr></table></figure>
-
-<p>按下<code>/</code>搜索<code>en_US</code>回车，光标移动到<code>#en_US.UTF-8 UTF-8</code>的开头，按下<code>x</code>剪切掉前面代表注释的<code>#</code>号；再次按下<code>/</code>搜索<code>zh_CN</code>回车 ，光标移动到<code>#zh_CN.UTF-8 UTF-8</code>的开头，按下<code>x</code>剪切掉前面代表注释的<code>#</code>号。如果你操作错误了可以按下u键撤销更改。修改完成后按下shift加分号键输入一个冒号，代表要运行命令，<code>w</code>是保存<code>q</code>是退出<code>wq</code>是保存并推出，回车。</p>
+<p>按下<code>/</code>搜索<code>en_US</code>回车，光标移动到<code>#en_US.UTF-8 UTF-8</code>的开头，按下<code>x</code>剪切掉前面代表注释的<code>#</code>号；再次按下<code>/</code>搜索<code>zh_CN</code>回车
+，光标移动到<code>#zh_CN.UTF-8 UTF-8</code>的开头，按下<code>x</code>剪切掉前面代表注释的<code>#</code>号。如果你操作错误了可以按下u键撤销更改。修改完成后按下shift加分号键输入一个冒号，代表要运行命令，<code>w</code>是保存<code>q</code>是退出<code>wq</code>是保存并推出，回车。</p>
 <figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:wq</span><br></pre></td></tr></table></figure>
-
 <p>然后运行locale-gen命令生成本地化文件</p>
 <figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">locale-gen</span><br></pre></td></tr></table></figure>
-
 <p>接着编辑locale.conf文件设置本地化</p>
 <figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/locale.conf</span><br></pre></td></tr></table></figure>
-
 <p>按下i键进入编辑模式，左下角会出现代表编辑模式的字样<code>--INSERT--</code>，输入以下命令代表全局本地化使用英文</p>
 <figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">LANG=en_US.UTF-8   </span><br></pre></td></tr></table></figure>
-
 <p>编辑完成后<code>ESC</code>退出编辑模式<code>:wq</code>保存并退出</p>
 <p>接着我们编辑hostname文件设置主机名</p>
 <figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/hostname</span><br></pre></td></tr></table></figure>
-
 <p><code>i</code>键进入编辑模式，输入你喜欢的主机名</p>
 <figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">archlinux     <span class="comment">#主机名只能包含小写字母数字0-9还有短横-</span></span><br></pre></td></tr></table></figure>
-
 <p>编辑完成后<code>ESC</code>退出编辑模式<code>:wq</code>保存并退出，我们现在已经掌握了Vim的基本操作了</p>
 <p>下一步我们要设置root账户的密码</p>
 <figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">passwd    <span class="comment">#不指定用户名的话默认就是修改root账户，密码存储在etc目录下的shadow文件里 </span></span><br></pre></td></tr></table></figure>
-
 <p>盲输密码*2</p>
 <p>最后我们来安装Bootloader引导加载程序</p>
 <figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacman -S grub efibootmgr</span><br></pre></td></tr></table></figure>
-
 <blockquote>
-<p>Grub对于初学者的我们来说功能最强大兼容性最好文档最多 ，efibootmgr用来管理EFI启动项</p>
+<p>Grub对于初学者的我们来说功能最强大兼容性最好文档最多
+，efibootmgr用来管理EFI启动项</p>
 </blockquote>
 <p>接着使用grub-install命令安装引导</p>
 <figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grub-install --target=x86_64-efi --efi-directory=/efi --boot-directory=/efi --bootloader-id=eris</span><br></pre></td></tr></table></figure>
-
 <blockquote>
-<p>-target选项指定架构是<strong>X86_64</strong> EFI固件， -efi-directory指定ESP的位置，我们的ESP挂载到了&#x2F;efi，–boot-directory指定Grub安装的目录，如果不指定这一项Grub会默认安装到&#x2F;boot里，但是我们的&#x2F;boot是BTRFS文件系统， Grub在系统初期的时候无法写入BTRFS上的文件，所以会导致一些功能无法正常使用， 因此我们把Grub也装到ESP里边。–bootloader-id取一个喜欢的启动项名称，不加的话默认取名为arch</p>
+<p>-target选项指定架构是<strong>X86_64</strong> EFI固件，
+-efi-directory指定ESP的位置，我们的ESP挂载到了/efi，–boot-directory指定Grub安装的目录，如果不指定这一项Grub会默认安装到/boot里，但是我们的/boot是BTRFS文件系统，
+Grub在系统初期的时候无法写入BTRFS上的文件，所以会导致一些功能无法正常使用，
+因此我们把Grub也装到ESP里边。–bootloader-id取一个喜欢的启动项名称，不加的话默认取名为arch</p>
 </blockquote>
-<p>由于大部分软件会默认grub的安装位置在boot目录下，我们要grub的默认位置创建一个链接指向&#x2F;efi&#x2F;grub</p>
+<p>由于大部分软件会默认grub的安装位置在boot目录下，我们要grub的默认位置创建一个链接指向/efi/grub</p>
 <figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">ln</span> -s /efi/grub /boot/grub    <span class="comment">#这样对/boot/grub的操作就会反映到/efi/grub里</span></span><br></pre></td></tr></table></figure>
-
 <p>接下来要生成grub的配置文件</p>
 <figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grub-mkconfig    </span><br></pre></td></tr></table></figure>
-
-<p>这条命令会扫描系统 生成具体的启动项和启动流程，直接运行的话结果会打印在终端，加上<code>-o</code>会将结果保存到文件</p>
+<p>这条命令会扫描系统
+生成具体的启动项和启动流程，直接运行的话结果会打印在终端，加上<code>-o</code>会将结果保存到文件</p>
 <figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grub-mkconfig -o /boot/grub/grub.cfg</span><br></pre></td></tr></table></figure>
-
-<h4 id="5-3-3-Windows共存"><a href="#5-3-3-Windows共存" class="headerlink" title="5.3.3 Windows共存"></a>5.3.3 Windows共存</h4><p>如果你安装了Windows的话接下来我们来配置双系统（两个系统在同一个物理盘内）</p>
+<h4 id="windows共存">5.3.3 Windows共存</h4>
+<p>如果你安装了Windows的话接下来我们来配置双系统（两个系统在同一个物理盘内）</p>
 <figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacman -S os-prober exfat-utils</span><br></pre></td></tr></table></figure>
-
 <blockquote>
-<p><code>os-prober</code>用来搜索其他的系统， <code>exfat-utils</code>让我们能够找到Windows的EFI分区</p>
+<p><code>os-prober</code>用来搜索其他的系统，
+<code>exfat-utils</code>让我们能够找到Windows的EFI分区</p>
 </blockquote>
 <p>这个时候运行<code>os-prober</code>就能找到Windows</p>
 <figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">os-prober</span><br></pre></td></tr></table></figure>
-
 <p>然后我们需要编辑<code>/etc/default</code>里面的<code>grub</code>的源文件</p>
 <figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/default/grub</span><br></pre></td></tr></table></figure>
-
-<p>按下<code>shift + g</code>键跳转到文件的最后一行， 按<code>x</code>键剪切掉这行开头的注释，允许Grub在生成配置文件的时候使用os-prober搜索其他系统。推荐再配置一下启动项记忆功能，让Grub记住你在启动菜单选择的是哪一项</p>
+<p>按下<code>shift + g</code>键跳转到文件的最后一行，
+按<code>x</code>键剪切掉这行开头的注释，允许Grub在生成配置文件的时候使用os-prober搜索其他系统。推荐再配置一下启动项记忆功能，让Grub记住你在启动菜单选择的是哪一项</p>
 <figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#取消这一行的注释 </span></span><br><span class="line">GRUB_SAVEDEFAULT=<span class="literal">true</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="5-3-4-配置GRUB"><a href="#5-3-4-配置GRUB" class="headerlink" title="5.3.4 配置GRUB"></a>5.3.4 配置GRUB</h4><p>再按两下<code>g</code>键跳转到文件的开头，光标移动到这里<code>GRUB_DEFAULT=0</code> 按下<code>c</code>键 再按<code>w</code>键代表<code>change word</code> 删除光标所在的单词并进入编辑模式输入<code>saved</code>， 编辑完成后<code>ESC</code>退出编辑模式。</p>
-<p>然后我们要让系统启动的时候显示出日志 <del>只有日志刷屏别人才知道你使用的是Arch</del> 方便确认系统异常</p>
-<p><code>i</code>键进入编辑模式， 在<code>GRUB_CMDLINE_LINUX_DEFAULT=&quot;loglevel=3 quiet&quot;</code>中编辑， 删除quiet，再把loglevel日志等级改成5， 编辑完成后<code>ESC</code>退出编辑模式<code>:wq</code>保存并退出</p>
+<h4 id="配置grub">5.3.4 配置GRUB</h4>
+<p>再按两下<code>g</code>键跳转到文件的开头，光标移动到这里<code>GRUB_DEFAULT=0</code>
+按下<code>c</code>键 再按<code>w</code>键代表<code>change word</code>
+删除光标所在的单词并进入编辑模式输入<code>saved</code>，
+编辑完成后<code>ESC</code>退出编辑模式。</p>
+<p>然后我们要让系统启动的时候显示出日志
+<del>只有日志刷屏别人才知道你使用的是Arch</del> 方便确认系统异常</p>
+<p><code>i</code>键进入编辑模式，
+在<code>GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 quiet"</code>中编辑，
+删除quiet，再把loglevel日志等级改成5，
+编辑完成后<code>ESC</code>退出编辑模式<code>:wq</code>保存并退出</p>
 <p>然后再grub-mkconfig生成一次grub的配置文件</p>
 <figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grub-mkconfig -o /boot/grub/grub.cfg</span><br></pre></td></tr></table></figure>
-
-<h4 id="5-3-5-配置Zram内存压缩和交换空间"><a href="#5-3-5-配置Zram内存压缩和交换空间" class="headerlink" title="5.3.5 配置Zram内存压缩和交换空间"></a>5.3.5 配置Zram内存压缩和交换空间</h4><p>最后我们来配置<code>Zram</code>内存压缩和交换空间，这可以提升系统运行速度增加可用内存</p>
-<p>先安装<code>zram-generator</code>， 它是自动化管理<code>Zram</code>的工具</p>
+<h4 id="配置zram内存压缩和交换空间">5.3.5
+配置Zram内存压缩和交换空间</h4>
+<p>最后我们来配置<code>Zram</code>内存压缩和交换空间，这可以提升系统运行速度增加可用内存</p>
+<p>先安装<code>zram-generator</code>，
+它是自动化管理<code>Zram</code>的工具</p>
 <figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacman -S zram-generator</span><br></pre></td></tr></table></figure>
-
-<p>然后编辑它的配置文件， 启用<code>zram</code>并配置<code>zram</code>的大小</p>
+<p>然后编辑它的配置文件，
+启用<code>zram</code>并配置<code>zram</code>的大小</p>
 <figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/systemd/zram-generator.conf</span><br></pre></td></tr></table></figure>
-
 <p>写入以下内容</p>
 <figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[zram0]</span><br><span class="line">zram-size = ram</span><br><span class="line">compression-algorithm = zstd</span><br></pre></td></tr></table></figure>
-
 <blockquote>
 <p><code>zram-size</code>设置最多存储多少数据，注意这里设置的是压缩之前的大小。我们是桌面端使用，所以设置成跟内存大小相同就行。</p>
 <p>第二行设置使用<code>zstd</code>压缩算法</p>
 <p>辑完成后<code>ESC</code>退出编辑模式<code>:wq</code>保存并退出</p>
 </blockquote>
-<p>保存之后我们需要编辑grub的源文件， 在内核参数里边加上<code>zswap.enabled = 0</code></p>
-<p>在<code>GRUB_CMDLINE_LINUX_DEFAULT=&quot;loglevel=5&quot;</code>中编辑加上<code>zswap.enabled=0</code></p>
+<p>保存之后我们需要编辑grub的源文件，
+在内核参数里边加上<code>zswap.enabled = 0</code></p>
+<p>在<code>GRUB_CMDLINE_LINUX_DEFAULT="loglevel=5"</code>中编辑加上<code>zswap.enabled=0</code></p>
 <figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#编辑为：     （禁用zswap）</span></span><br><span class="line">GRUB_CMDLINE_LINUX_DEFAULT=<span class="string">&quot;loglevel=5 zswap.enabled=0&quot;</span></span><br></pre></td></tr></table></figure>
-
 <blockquote>
-<p>zswap 的功能是在数据写入交换前先压缩并暂存在内存，这在功能上会与 zram 冲突，因此选择其中一种即可。</p>
+<p>zswap 的功能是在数据写入交换前先压缩并暂存在内存，这在功能上会与 zram
+冲突，因此选择其中一种即可。</p>
 <p>编辑完成后<code>ESC</code>退出编辑模式<code>:wq</code>保存并退出</p>
 </blockquote>
-<p>每一次编辑完grub的源文件之后都记得要重新生成<code>grub.cfg</code> 让修改生效</p>
+<p>每一次编辑完grub的源文件之后都记得要重新生成<code>grub.cfg</code>
+让修改生效</p>
 <figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grub-mkconfig -o /boot/grub/grub.cfg</span><br></pre></td></tr></table></figure>
-
-<p>现在我们完成了所有的配置 <code>exit</code>退出<code>chroot</code>环境</p>
+<p>现在我们完成了所有的配置
+<code>exit</code>退出<code>chroot</code>环境</p>
 <figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">exit</span></span><br></pre></td></tr></table></figure>
-
 <p>reboot重启</p>
 <figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reboot</span><br></pre></td></tr></table></figure>
-
 <p>此时会自动卸载所有的挂载，进BIOS把Arch的启动项改成第一个（默认应该会自动修改）</p>
-<h4 id="5-3-6-启用并启动-NetworkManager"><a href="#5-3-6-启用并启动-NetworkManager" class="headerlink" title="5.3.6 启用并启动 NetworkManager"></a>5.3.6 启用并启动 NetworkManager</h4><p>进入系统之后登录root账户</p>
+<h4 id="启用并启动-networkmanager">5.3.6 启用并启动 NetworkManager</h4>
+<p>进入系统之后登录root账户</p>
 <p>开启networkmanager的系统服务</p>
 <figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl <span class="built_in">enable</span> --now NetworkManager</span><br></pre></td></tr></table></figure>
-
 <blockquote>
-<p><code>systemctl</code>是<code>systemd</code>的命令行工具， <code>systemd</code>是红帽开发的系统和服务管理工具</p>
-<p><code>enable</code>代表开机自启， <code>--now</code>代表现在启动， 注意<code>NetworkManager</code>的大小写</p>
+<p><code>systemctl</code>是<code>systemd</code>的命令行工具，
+<code>systemd</code>是红帽开发的系统和服务管理工具</p>
+<p><code>enable</code>代表开机自启， <code>--now</code>代表现在启动，
+注意<code>NetworkManager</code>的大小写</p>
 </blockquote>
 <p>稍作等待后运行nmtui开连接网络的TUI界面</p>
 <blockquote>
 <p>TUI的意思是基于终端的用户交互界面</p>
 </blockquote>
-<p><code>↑↓</code>键选择第二项连接wifi， 回车键可以选择， 连接完成后ESC退出</p>
-<h4 id="5-3-7-测试网络并安装fastfetch"><a href="#5-3-7-测试网络并安装fastfetch" class="headerlink" title="5.3.7 测试网络并安装fastfetch"></a>5.3.7 测试网络并安装fastfetch</h4><p>还记得如何测试网络连接吗</p>
+<p><code>↑↓</code>键选择第二项连接wifi， 回车键可以选择，
+连接完成后ESC退出</p>
+<h4 id="测试网络并安装fastfetch">5.3.7 测试网络并安装fastfetch</h4>
+<p>还记得如何测试网络连接吗</p>
 <figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ping -c 4 bilibili.com  <span class="comment">#-c 4 指定次数 四次</span></span><br></pre></td></tr></table></figure>
-
 <p>然后我们安装<code>fastfetch</code>和<code>cmatrix</code></p>
 <p>国际惯例，fetch一下显示系统LOGO和信息</p>
 <figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fastfetch</span><br></pre></td></tr></table></figure>
-
 <p>恭喜我们完成了ArchLinux的手动安装 🥳</p>
 <p><del>当然接下来我们还有几道难关需要攻克</del></p>
-<h2 id="6-配置驱动和基础显示"><a href="#6-配置驱动和基础显示" class="headerlink" title="6. 配置驱动和基础显示"></a>6. 配置驱动和基础显示</h2><p>在配置快照之前我们可以做一些基本的设置</p>
-<h3 id="6-0配置快照前的准备"><a href="#6-0配置快照前的准备" class="headerlink" title="6.0配置快照前的准备"></a>6.0配置快照前的准备</h3><h4 id="6-0-1确认系统是最新状态"><a href="#6-0-1确认系统是最新状态" class="headerlink" title="6.0.1确认系统是最新状态"></a>6.0.1确认系统是最新状态</h4><figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacman -Syu    <span class="comment">#小写u代表升级所有软件</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="6-0-2编辑环境变量"><a href="#6-0-2编辑环境变量" class="headerlink" title="6.0.2编辑环境变量"></a>6.0.2编辑环境变量</h4><figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/environment</span><br></pre></td></tr></table></figure>
-
+<h2 id="配置驱动和基础显示">6. 配置驱动和基础显示</h2>
+<p>在配置快照之前我们可以做一些基本的设置</p>
+<h3 id="配置快照前的准备">6.0配置快照前的准备</h3>
+<h4 id="确认系统是最新状态">6.0.1确认系统是最新状态</h4>
+<figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacman -Syu    <span class="comment">#小写u代表升级所有软件</span></span><br></pre></td></tr></table></figure>
+<h4 id="编辑环境变量">6.0.2编辑环境变量</h4>
+<figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/environment</span><br></pre></td></tr></table></figure>
 <p>用<code>EDITOR</code>环境变量设置（将系统默认文本编辑器设为vim），在最后一行加入：</p>
 <figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">EDITOR=vim</span><br></pre></td></tr></table></figure>
-
 <p>保存后用exit退出登录</p>
 <figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">exit</span></span><br></pre></td></tr></table></figure>
-
 <p>重新登录让环境变量生效</p>
-<h4 id="6-0-3创建普通账户"><a href="#6-0-3创建普通账户" class="headerlink" title="6.0.3创建普通账户"></a>6.0.3创建普通账户</h4><p>很多软件出于安全考虑会拒绝在root权限下运行，所以普通用户是必须的</p>
+<h4 id="创建普通账户">6.0.3创建普通账户</h4>
+<p>很多软件出于安全考虑会拒绝在root权限下运行，所以普通用户是必须的</p>
 <figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">useradd -mG wheel 你的名字   </span><br></pre></td></tr></table></figure>
-
 <blockquote>
-<p><code>useradd</code>命令创建用户， <code>-m</code>在创建用户的时候创建<code>home</code>目录， <code>-G</code>添加用户到wheel组， 这是Arch上拥有管理员权限的组</p>
+<p><code>useradd</code>命令创建用户，
+<code>-m</code>在创建用户的时候创建<code>home</code>目录，
+<code>-G</code>添加用户到wheel组， 这是Arch上拥有管理员权限的组</p>
 <p>不要用中文 <del>不过你好像也输入不了中文</del></p>
 </blockquote>
 <p>然后passwd加上用户名设置密码</p>
 <figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">passwd 你的名字</span><br></pre></td></tr></table></figure>
-
 <p>再运行visudo设置管理员权限</p>
 <figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">visudo</span><br></pre></td></tr></table></figure>
-
-<p><code>/</code>搜索<code>wheel</code>， 取消这一行的注释<code># %wheelALL=(ALL:ALL) ALL</code>， 记得保存</p>
-<h4 id="6-0-4-开启32位软件源"><a href="#6-0-4-开启32位软件源" class="headerlink" title="6.0.4 开启32位软件源"></a>6.0.4 开启32位软件源</h4><p>32位软件源对桌面端用户来说是必须的， 这需要编辑Pacman的配置文件</p>
+<p><code>/</code>搜索<code>wheel</code>，
+取消这一行的注释<code># %wheelALL=(ALL:ALL) ALL</code>， 记得保存</p>
+<h4 id="开启32位软件源">6.0.4 开启32位软件源</h4>
+<p>32位软件源对桌面端用户来说是必须的， 这需要编辑Pacman的配置文件</p>
 <figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/pacman.conf</span><br></pre></td></tr></table></figure>
-<p><code>/</code>键搜索multilib<br>#取消两行的注释（都要取消！）</p>
-<figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[multilib] </span><br><span class="line">Include = /etc/pacman.d/mirrorlist</span><br></pre></td></tr></table></figure>
-
-<h4 id="6-0-5-添加ArchlinuxCN源"><a href="#6-0-5-添加ArchlinuxCN源" class="headerlink" title="6.0.5 添加ArchlinuxCN源"></a>6.0.5 添加ArchlinuxCN源</h4><p>ArchlinuxCN源和Archlinux用户仓库的效果类似， 可以方便我们安装软件</p>
-<p>在文件的最底部按下<code>o</code>键新建一行， 写入以下内容（千万不能有拼写错误）</p>
+<p><code>/</code>键搜索multilib #取消两行的注释（都要取消！）
+<figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[multilib] </span><br><span class="line">Include = /etc/pacman.d/mirrorlist</span><br></pre></td></tr></table></figure></p>
+<h4 id="添加archlinuxcn源">6.0.5 添加ArchlinuxCN源</h4>
+<p>ArchlinuxCN源和Archlinux用户仓库的效果类似， 可以方便我们安装软件</p>
+<p>在文件的最底部按下<code>o</code>键新建一行，
+写入以下内容（千万不能有拼写错误）</p>
 <figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[archlinuxcn]</span><br><span class="line">Server = https://mirrors.ustc.edu.cn/archlinuxcn/<span class="variable">$arch</span></span><br></pre></td></tr></table></figure>
-
 <p>保存之后同步数据并安装Archlinuxcn的密钥</p>
 <figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacman -Sy archlinuxcn-keyring</span><br></pre></td></tr></table></figure>
-
 <p>配置好archlinuxcn之后可以顺便下载AUR助手</p>
 <figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacman -S yay paru</span><br></pre></td></tr></table></figure>
-
-<h3 id="6-1-正式配置快照"><a href="#6-1-正式配置快照" class="headerlink" title="6.1 正式配置快照"></a>6.1 正式配置快照</h3><figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacman -S snapper snap-pac btrfs-assistant grub-btrfs inotify-tools</span><br></pre></td></tr></table></figure>
-
+<h3 id="正式配置快照">6.1 正式配置快照</h3>
+<figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacman -S snapper snap-pac btrfs-assistant grub-btrfs inotify-tools</span><br></pre></td></tr></table></figure>
 <blockquote>
-<p><code>snapper</code>是自动化管理快照的命令行工具， 提供主要的创建 修改删除之类的功能</p>
-<p><del>另一个比较常用的快照工具是timeshift ，但是用它管理快照早晚会挂掉</del></p>
+<p><code>snapper</code>是自动化管理快照的命令行工具， 提供主要的创建
+修改删除之类的功能</p>
+<p><del>另一个比较常用的快照工具是timeshift
+，但是用它管理快照早晚会挂掉</del></p>
 <p><code>snap-pac</code>会在你执行<code>pacman</code>操作的时候自动创建快照</p>
-<p><code>btrfs-assistant</code>是图形化交互工具而且提供了简单的命令行， 进一步简化快照回档需要的操作</p>
-<p><code>grub-btrfs</code>会自动在<code>grub</code>的启动菜单里添加快照启动项， 可以进一步方便我们回档</p>
+<p><code>btrfs-assistant</code>是图形化交互工具而且提供了简单的命令行，
+进一步简化快照回档需要的操作</p>
+<p><code>grub-btrfs</code>会自动在<code>grub</code>的启动菜单里添加快照启动项，
+可以进一步方便我们回档</p>
 <p><code>inotify-tools</code> 是快照启动项功能的依赖</p>
 </blockquote>
 <p>开启快照启动项的<code>systemd</code>服务 ：</p>
 <figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl <span class="built_in">enable</span> --now grub-btrfsd</span><br></pre></td></tr></table></figure>
-
 <p>重启一次电脑让pacman自动创建快照的功能生效</p>
 <figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reboot</span><br></pre></td></tr></table></figure>
-
 <p>重启之后登录root账户， 创建根目录的配置</p>
 <figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">snapper -c root create-config /</span><br></pre></td></tr></table></figure>
-
 <blockquote>
-<p><code>-c</code>是<code>config</code>指定要使用的配置， <code>root</code>是具体的配置名称， 由于这个配置还不存在， 所以<code>create-config</code>创建它， <code>/</code>表示设置快照的范围是根目录</p>
+<p><code>-c</code>是<code>config</code>指定要使用的配置，
+<code>root</code>是具体的配置名称， 由于这个配置还不存在，
+所以<code>create-config</code>创建它，
+<code>/</code>表示设置快照的范围是根目录</p>
 </blockquote>
 <p>然后用一样的方式创建home的配置</p>
 <figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">snapper -c home create-config /home</span><br></pre></td></tr></table></figure>
-
 <p>现在我们来创建第一个root快照</p>
 <figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">snapper -c root create --description <span class="string">&quot;helloworld&quot;</span></span><br></pre></td></tr></table></figure>
-
 <blockquote>
-<p><code>create</code>代表创建， <code>--description</code>添加描述（这里的描述是“helloworld”）</p>
+<p><code>create</code>代表创建，
+<code>--description</code>添加描述（这里的描述是“helloworld”）</p>
 </blockquote>
 <p>home的快照也是一样的方法</p>
 <figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">snapper -c home create --description <span class="string">&quot;helloworld&quot;</span></span><br></pre></td></tr></table></figure>
-
 <p>为了进一步让系统变得可靠， 我们要安装一个LTS长期支持内核用来备用</p>
 <figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacman -S linux-lts</span><br></pre></td></tr></table></figure>
-
 <blockquote>
-<p>LTS内核不会频繁更新， 系统出现异常的时候， 在快照回档之前我们可以先尝试用LTS内核进入系统， 排查是否是内核问题导致的系统异常， 如果是的话可以用downgrade进行降级， downgrade需要从AUR安装这里就不在详细介绍了 （一般每年发布的最后一个 Linux 内核版本会成为 LTS）</p>
+<p>LTS内核不会频繁更新， 系统出现异常的时候，
+在快照回档之前我们可以先尝试用LTS内核进入系统，
+排查是否是内核问题导致的系统异常， 如果是的话可以用downgrade进行降级，
+downgrade需要从AUR安装这里就不在详细介绍了 （一般每年发布的最后一个
+Linux 内核版本会成为 LTS）</p>
 </blockquote>
 <p>然后还需要运行一次grub-mkconfig命令， 在启动菜单添加快照的入口</p>
 <figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grub-mkconfig -o /boot/grub/grub.cfg</span><br></pre></td></tr></table></figure>
-
-<h3 id="6-2配置显卡驱动"><a href="#6-2配置显卡驱动" class="headerlink" title="6.2配置显卡驱动"></a>6.2配置显卡驱动</h3><h4 id="6-2-1-NVDIA显卡"><a href="#6-2-1-NVDIA显卡" class="headerlink" title="6.2.1 NVDIA显卡"></a>6.2.1 NVDIA显卡</h4><p>首先先确认安装了自己使用的内核的头文件</p>
+<h3 id="配置显卡驱动">6.2配置显卡驱动</h3>
+<h4 id="nvdia显卡">6.2.1 NVDIA显卡</h4>
+<p>首先先确认安装了自己使用的内核的头文件</p>
 <figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacman -S --needed linux-zen-headers linux-lts-headers</span><br></pre></td></tr></table></figure>
-
 <blockquote>
-<p><code>--needed</code>代表跳过已经安装的包， 这是dkmns编译N卡驱动需要的文件</p>
+<p><code>--needed</code>代表跳过已经安装的包，
+这是dkmns编译N卡驱动需要的文件</p>
 </blockquote>
-<p>浏览器搜索ArchWiki Nvidia Driver 找到N卡驱动的wiki页面， 确定自己显卡型号要安装的驱动包名</p>
+<p>浏览器搜索ArchWiki Nvidia Driver 找到N卡驱动的wiki页面，
+确定自己显卡型号要安装的驱动包名</p>
 <p>这里以50系显卡为例</p>
-<p> <span class="exturl" data-url="aHR0cHM6Ly9ub3V2ZWF1LmZyZWVkZXNrdG9wLm9yZy9Db2RlTmFtZXMuaHRtbA==">https://nouveau.freedesktop.org/CodeNames.html<i class="fa fa-external-link-alt"></i></span> </p>
+<p>https://nouveau.freedesktop.org/CodeNames.html</p>
 <p>对照表可知 驱动的包名是<code>nvidia-open</code></p>
 <blockquote>
 <p>nvidia-open是近年快速发展的内核模块开源的N卡驱动， 兼容性会比较好</p>
-<p>不同的内核对应的后缀不同， 终端运行：<code>uname -r</code>可以显示内核信息</p>
+<p>不同的内核对应的后缀不同，
+终端运行：<code>uname -r</code>可以显示内核信息</p>
 <p>zen内核需要安装-dkms驱动</p>
 </blockquote>
-<p>除了驱动包我们还需要安装<code>nvidia-utils</code>和<code>lib32-nvidia-utils</code> 这是库和工具集</p>
+<p>除了驱动包我们还需要安装<code>nvidia-utils</code>和<code>lib32-nvidia-utils</code>
+这是库和工具集</p>
 <figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacman -S nvidia-open-dkms nvidia-utils lib32-nvidia-utils</span><br></pre></td></tr></table></figure>
-
 <blockquote>
-<p>lib32前缀代表32位， 在ArchLinux上这是作为驱动包的依赖自动安装的， 但是以防万一我们手动安装一下</p>
+<p>lib32前缀代表32位， 在ArchLinux上这是作为驱动包的依赖自动安装的，
+但是以防万一我们手动安装一下</p>
 <p>编译内核可能需要一些时间，耐心等待一下</p>
 </blockquote>
-<h4 id="6-2-2-Intel和AMD显卡"><a href="#6-2-2-Intel和AMD显卡" class="headerlink" title="6.2.2 Intel和AMD显卡"></a>6.2.2 Intel和AMD显卡</h4><p>Intel和AMD显卡的驱动安装要简单很多</p>
+<h4 id="intel和amd显卡">6.2.2 Intel和AMD显卡</h4>
+<p>Intel和AMD显卡的驱动安装要简单很多</p>
 <p>Intel显卡需要安装这些包 ：</p>
 <figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacman -S mesa lib32-mesa vulkan-intel lib32-vulkan-intel</span><br></pre></td></tr></table></figure>
-
 <p>AMD显卡需要安装这些包：</p>
 <figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacman -S mesa lib32-mesa xf86-yideo-amdgpu vulkan-radeon lib32-vulkan-radeon</span><br></pre></td></tr></table></figure>
-
-<h3 id="6-3-视频编解码驱动"><a href="#6-3-视频编解码驱动" class="headerlink" title="6.3 视频编解码驱动"></a>6.3 视频编解码驱动</h3><p>Linux上通常使用<code>VAAPI</code>进行硬件视频加速</p>
+<h3 id="视频编解码驱动">6.3 视频编解码驱动</h3>
+<p>Linux上通常使用<code>VAAPI</code>进行硬件视频加速</p>
 <p>AMD一般不需要额外安装</p>
-<p>Intel通常安装<code>intel-media-driver</code> 或者 <code>libva-intel-driver</code></p>
+<p>Intel通常安装<code>intel-media-driver</code> 或者
+<code>libva-intel-driver</code></p>
 <figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacman -S intel-media-driver libva-intel-driver</span><br></pre></td></tr></table></figure>
-
-<p>N卡由<code>nvidia-utils</code>提供， 但是为了让N卡支持<code>VAAPI</code>还需要安装<code>libva-nvidia-driver</code>提供<code>VAAPI</code>翻译</p>
+<p>N卡由<code>nvidia-utils</code>提供，
+但是为了让N卡支持<code>VAAPI</code>还需要安装<code>libva-nvidia-driver</code>提供<code>VAAPI</code>翻译</p>
 <figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacman -S --needed nvidia-utils libva-nvidia-driver</span><br></pre></td></tr></table></figure>
-
 <p>驱动安装完成后需要重启电脑才能生效</p>
 <figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reboot</span><br></pre></td></tr></table></figure>
-
-<h3 id="6-4音视频服务和蓝牙"><a href="#6-4音视频服务和蓝牙" class="headerlink" title="6.4音视频服务和蓝牙"></a>6.4音视频服务和蓝牙</h3><p>登录普通账户</p>
+<h3 id="音视频服务和蓝牙">6.4音视频服务和蓝牙</h3>
+<p>登录普通账户</p>
 <figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> pacman -S sof-firmware alsa-ucm-conf alsa-firmware</span><br></pre></td></tr></table></figure>
-
 <blockquote>
 <p><code>sof-firmware</code> 为现代设备提供固件</p>
 <p><code>alsa-ucm-conf</code> 提供必要的配置文件</p>
-<p><code>alsa-firmware</code> 为一些不常见或者比较旧的设备提供固件，比如采集卡</p>
+<p><code>alsa-firmware</code>
+为一些不常见或者比较旧的设备提供固件，比如采集卡</p>
 </blockquote>
 <figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> pacman -S pipewire wireplumber pipewire-pulse pipewire-alsa pipewire-jack</span><br></pre></td></tr></table></figure>
-
 <blockquote>
-<p>pipewire是由红帽主导开发的新兴音视频服务技术， 它的出现解决了Linux世界音视频服务分裂的问题</p>
-<p>pipewire 是本体， wireplumber 是会话管理器， 后面这三个是对应服务的兼容</p>
+<p>pipewire是由红帽主导开发的新兴音视频服务技术，
+它的出现解决了Linux世界音视频服务分裂的问题</p>
+<p>pipewire 是本体， wireplumber 是会话管理器，
+后面这三个是对应服务的兼容</p>
 </blockquote>
 <p>启动pipewire服务</p>
 <figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl --user <span class="built_in">enable</span> pipewire wireplumber pipewire-pulse</span><br></pre></td></tr></table></figure>
-
 <blockquote>
 <p>因为是–user在用户空间启用， 所以不用加sudo</p>
 </blockquote>
 <p>安装蓝牙</p>
 <figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> pacman -S bluez</span><br></pre></td></tr></table></figure>
-
 <p>开启蓝牙服务</p>
 <figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> systemctl <span class="built_in">enable</span> --now bluetooth</span><br></pre></td></tr></table></figure>
-
-<h3 id="6-5-性能模式切换工具"><a href="#6-5-性能模式切换工具" class="headerlink" title="6.5 性能模式切换工具"></a>6.5 性能模式切换工具</h3><figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> pacman -S power-profiles-daemon    <span class="comment">#这个工具几乎是各个桌面端通用的</span></span><br></pre></td></tr></table></figure>
-
+<h3 id="性能模式切换工具">6.5 性能模式切换工具</h3>
+<figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> pacman -S power-profiles-daemon    <span class="comment">#这个工具几乎是各个桌面端通用的</span></span><br></pre></td></tr></table></figure>
 <p>开启服务</p>
 <figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> systemctl <span class="built_in">enable</span> --now power-profiles-daemon</span><br></pre></td></tr></table></figure>
-
-<h3 id="6-5-基础的字体"><a href="#6-5-基础的字体" class="headerlink" title="6.5 基础的字体"></a>6.5 基础的字体</h3><figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> pacman -S noto-fonts noto-fonts-emoji adobe-source-han-sans-cn-fonts</span><br></pre></td></tr></table></figure>
-
+<h3 id="基础的字体">6.5 基础的字体</h3>
+<figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> pacman -S noto-fonts noto-fonts-emoji adobe-source-han-sans-cn-fonts</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>英文字体的noto-fonts是谷歌开源字体， noto-fonts-emoji是emoji</p>
-<p>中文字体的话看个人喜好，我最近使用的是思源字体 （请用 <code>pacman -Ss source-han</code> 或 AUR 搜索确认您要的具体包名。） </p>
+<p>中文字体的话看个人喜好，我最近使用的是思源字体 （请用
+<code>pacman -Ss source-han</code> 或 AUR 搜索确认您要的具体包名。）</p>
 </blockquote>
 <p>6.6 安装flatpak</p>
 <figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> pacman -S flatpak</span><br></pre></td></tr></table></figure>
-
 <blockquote>
-<p>flatpak拓展了比较多的的软件， Flatpak版本通常比AUR上的更好用（比如OBS和Easyeffects）</p>
+<p>flatpak拓展了比较多的的软件，
+Flatpak版本通常比AUR上的更好用（比如OBS和Easyeffects）</p>
 </blockquote>
 <p>把Flathub的源换成上交大</p>
 <figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> flatpak remote-modify flathub --url=https://mirrors.sjtu.edu.cn/flathub</span><br></pre></td></tr></table></figure>
-
 <p>重启电脑使用新的initramfs进入系统</p>
 <figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reboot</span><br></pre></td></tr></table></figure>
-
-<h2 id="7-安装桌面环境"><a href="#7-安装桌面环境" class="headerlink" title="7. 安装桌面环境"></a>7. 安装桌面环境</h2><p>现在你已经做好了所有安装图形化环境前的准备</p>
-<h3 id="7-0-安装桌面环境前的准备"><a href="#7-0-安装桌面环境前的准备" class="headerlink" title="7.0 安装桌面环境前的准备"></a>7.0 安装桌面环境前的准备</h3><h4 id="7-0-1-创建备份快照"><a href="#7-0-1-创建备份快照" class="headerlink" title="7.0.1 创建备份快照"></a>7.0.1 创建备份快照</h4><p>用Snapper创建root和home的快照</p>
+<h2 id="安装桌面环境">7. 安装桌面环境</h2>
+<p>现在你已经做好了所有安装图形化环境前的准备</p>
+<h3 id="安装桌面环境前的准备">7.0 安装桌面环境前的准备</h3>
+<h4 id="创建备份快照">7.0.1 创建备份快照</h4>
+<p>用Snapper创建root和home的快照</p>
 <figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> snapper -c home create --description <span class="string">&quot;before desktop&quot;</span></span><br><span class="line"><span class="built_in">sudo</span> snapper -c root create --description <span class="string">&quot;before desktop&#x27;</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="7-0-2-选择适合你的桌面"><a href="#7-0-2-选择适合你的桌面" class="headerlink" title="7.0.2 选择适合你的桌面"></a>7.0.2 选择适合你的桌面</h4><p>Linux的图形化环境太过丰富， 篇幅原因能挑出当下最热门的图形化环境进行介绍</p>
+<h4 id="选择适合你的桌面">7.0.2 选择适合你的桌面</h4>
+<p>Linux的图形化环境太过丰富，
+篇幅原因能挑出当下最热门的图形化环境进行介绍</p>
 <blockquote>
-<p>桌面环境：Desktop Environment 桌面环境（简称DE） 对于用惯了Windows的我们来说这个词代表的意思已经相当熟悉了Linux也有完整的桌面环境， 由于大家都比较熟悉就不再过多介绍。</p>
-<p>窗口管理器：Window Manager 窗口管理器（简称WM）在Wayland时代你还可以叫它Wayland合成器，桌面环境其实就是基于WM做出来的，比如GNOME的WM叫做Mutter， KDEPlasma的WM叫KWin， WM只提供基础的窗口管理， 其他的像是任务栏 系统托盘 之类的东西都要自己安装。所以使用WM可以亲手搭建出属于自己的桌面环境。 当我们谈论WM的时候通常指的是自动平铺式的WM， 窗口会按照预设的逻辑自动调整大小， 除了平铺式WM还有像传统桌面的堆叠式WM， 主流的WM同时支持这两种布局， WM的另一个特点是占用极低。</p>
+<p>桌面环境：Desktop Environment 桌面环境（简称DE）
+对于用惯了Windows的我们来说这个词代表的意思已经相当熟悉了Linux也有完整的桌面环境，
+由于大家都比较熟悉就不再过多介绍。</p>
+<p>窗口管理器：Window Manager
+窗口管理器（简称WM）在Wayland时代你还可以叫它Wayland合成器，桌面环境其实就是基于WM做出来的，比如GNOME的WM叫做Mutter，
+KDEPlasma的WM叫KWin， WM只提供基础的窗口管理， 其他的像是任务栏 系统托盘
+之类的东西都要自己安装。所以使用WM可以亲手搭建出属于自己的桌面环境。
+当我们谈论WM的时候通常指的是自动平铺式的WM，
+窗口会按照预设的逻辑自动调整大小，
+除了平铺式WM还有像传统桌面的堆叠式WM， 主流的WM同时支持这两种布局，
+WM的另一个特点是占用极低。</p>
 </blockquote>
-<h5 id="7-0-2-1-GNOME"><a href="#7-0-2-1-GNOME" class="headerlink" title="7.0.2.1 GNOME"></a>7.0.2.1 GNOME</h5><p>GNOME追求简洁， <del>但简洁过头显得有些简陋</del> 我们不得不安装额外的扩展来补全桌面的功能</p>
-<h5 id="7-0-2-2-KDE-Plasma"><a href="#7-0-2-2-KDE-Plasma" class="headerlink" title="7.0.2.2 KDE Plasma"></a>7.0.2.2 KDE Plasma</h5><p>KDEPlasma功能众多且实用， 但刚上手会觉得UI和选项有点无从下手</p>
-<h5 id="7-0-2-3-Sway"><a href="#7-0-2-3-Sway" class="headerlink" title="7.0.2.3 Sway"></a>7.0.2.3 Sway</h5><p>Sway是非常精简的WM， 开机后的CPU占用只有0% - 1%， 内存占用只有500mb左右</p>
-<h5 id="7-0-2-4-Niri"><a href="#7-0-2-4-Niri" class="headerlink" title="7.0.2.4 Niri"></a>7.0.2.4 Niri</h5><p>Niri也是一个非常经典的WM， 占用比Sway高几十mb， 但提供了流畅的动画和丰富的窗口布局</p>
-<h5 id="7-0-2-5-Hyprland"><a href="#7-0-2-5-Hyprland" class="headerlink" title="7.0.2.5 Hyprland"></a>7.0.2.5 Hyprland</h5><p>当下最热门的WM叫做Hyprland<del>（不接受反驳）</del> ， 以自定义极高作为卖点， 缺点是资源占用几乎接近完整的桌面环境</p>
-<h5 id="7-0-2-6-Quickshell"><a href="#7-0-2-6-Quickshell" class="headerlink" title="7.0.2.6 Quickshell"></a>7.0.2.6 Quickshell</h5><p>如果你想要WM的独特窗口管理， 但不想费工夫自己配置， Quickshell可以提供开箱即用的桌面级WM体验</p>
+<h5 id="gnome">7.0.2.1 GNOME</h5>
+<p>GNOME追求简洁， <del>但简洁过头显得有些简陋</del>
+我们不得不安装额外的扩展来补全桌面的功能</p>
+<h5 id="kde-plasma">7.0.2.2 KDE Plasma</h5>
+<p>KDEPlasma功能众多且实用， 但刚上手会觉得UI和选项有点无从下手</p>
+<h5 id="sway">7.0.2.3 Sway</h5>
+<p>Sway是非常精简的WM， 开机后的CPU占用只有0% - 1%，
+内存占用只有500mb左右</p>
+<h5 id="niri">7.0.2.4 Niri</h5>
+<p>Niri也是一个非常经典的WM， 占用比Sway高几十mb，
+但提供了流畅的动画和丰富的窗口布局</p>
+<h5 id="hyprland">7.0.2.5 Hyprland</h5>
+<p>当下最热门的WM叫做Hyprland<del>（不接受反驳）</del> ，
+以自定义极高作为卖点， 缺点是资源占用几乎接近完整的桌面环境</p>
+<h5 id="quickshell">7.0.2.6 Quickshell</h5>
+<p>如果你想要WM的独特窗口管理， 但不想费工夫自己配置，
+Quickshell可以提供开箱即用的桌面级WM体验</p>
 <p>主流的Quickshell是DMS和Noctalia</p>
-<h3 id="7-1桌面环境的正式安装（KDE）"><a href="#7-1桌面环境的正式安装（KDE）" class="headerlink" title="7.1桌面环境的正式安装（KDE）"></a>7.1桌面环境的正式安装（KDE）</h3><figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> pacman -S Plasma konsole dolphin kate ark haruna gwenview firefox</span><br></pre></td></tr></table></figure>
-
+<h3 id="桌面环境的正式安装kde">7.1桌面环境的正式安装（KDE）</h3>
+<figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> pacman -S Plasma konsole dolphin kate ark haruna gwenview firefox</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p><code>plasma</code>这个合集包包含了大多数Plasma桌面的组件</p>
 <p><code>konsole</code>是标配的终端</p>
@@ -762,120 +838,159 @@
 <p>回车安装全部， 选择第一项<code>ffmpeg</code></p>
 <p>配置SDDM显示管理器开机自启</p>
 <figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> systemctl <span class="built_in">enable</span> --now sddm</span><br></pre></td></tr></table></figure>
-
 <blockquote>
 <p>显示管理器是用来管理用户登录和桌面会话的工具</p>
 </blockquote>
 <p>至此所有的系统安装已经全部结束了🥳😘</p>
 <p><del>但是什么软件几乎都没有安装</del></p>
-<h3 id="7-2简单的设置和应用安装"><a href="#7-2简单的设置和应用安装" class="headerlink" title="7.2简单的设置和应用安装"></a>7.2简单的设置和应用安装</h3><h4 id="7-2-1-设置系统为中文"><a href="#7-2-1-设置系统为中文" class="headerlink" title="7.2.1 设置系统为中文"></a>7.2.1 设置系统为中文</h4><p>打开 <code>System Settings</code> &gt; <code>Language and Regional Settings</code> &gt; 在 <code>Language</code> 中点击 <code>Add languages...</code> &gt; 选择中文加入 <code>ADD</code>，再拖拽到第一位 &gt; 点击 <code>Apply</code> （ 注销并重新登陆即可生效 ）</p>
-<h4 id="7-2-2-安装输入法"><a href="#7-2-2-安装输入法" class="headerlink" title="7.2.2 安装输入法"></a>7.2.2 安装输入法</h4><p>安装相关软件包</p>
+<h3 id="简单的设置和应用安装">7.2简单的设置和应用安装</h3>
+<h4 id="设置系统为中文">7.2.1 设置系统为中文</h4>
+<p>打开 <code>System Settings</code> &gt;
+<code>Language and Regional Settings</code> &gt; 在
+<code>Language</code> 中点击 <code>Add languages...</code> &gt;
+选择中文加入 <code>ADD</code>，再拖拽到第一位 &gt; 点击
+<code>Apply</code> （ 注销并重新登陆即可生效 ）</p>
+<h4 id="安装输入法">7.2.2 安装输入法</h4>
+<p>安装相关软件包</p>
 <figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> pacman -S fcitx5-im <span class="comment"># 输入法基础包组</span></span><br><span class="line"><span class="built_in">sudo</span> pacman -S fcitx5-chinese-addons <span class="comment"># 官方中文输入引擎</span></span><br></pre></td></tr></table></figure>
-
-<p>设置环境变量。在这里我们通过使用<code>nano</code>来写入环境变量 <code>~/.config/environment.d/im.conf</code></p>
+<p>设置环境变量。在这里我们通过使用<code>nano</code>来写入环境变量
+<code>~/.config/environment.d/im.conf</code></p>
 <figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> pacman -S nano    <span class="comment">#安装nano</span></span><br><span class="line"><span class="built_in">sudo</span> nano ~/.config/environment.d/im.conf</span><br></pre></td></tr></table></figure>
-
 <p>在文件中加入以下内容并保存退出：</p>
 <figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># fix fcitx problem</span></span><br><span class="line">GTK_IM_MODULE=fcitx</span><br><span class="line">QT_IM_MODULE=fcitx</span><br><span class="line">XMODIFIERS=@im=fcitx</span><br><span class="line">SDL_IM_MODULE=fcitx</span><br><span class="line">GLFW_IM_MODULE=ibus</span><br></pre></td></tr></table></figure>
-
-<p>打开 <code>系统设置</code> &gt; <code>区域设置</code> &gt; <code>输入法</code></p>
+<p>打开 <code>系统设置</code> &gt; <code>区域设置</code> &gt;
+<code>输入法</code></p>
 <p>点击提示信息中的 <code>运行 Fcitx</code></p>
-<p>点击 <code>添加输入法</code> &gt; 找到简体中文下的 <code>Pinyin</code> &gt; 点击 <code>添加</code> 即可加入拼音输入法</p>
-<p>接下来点击 <code>Pinyin</code> 右侧的配置按钮 &gt; 点选 <code>云拼音</code> 和 <code>在程序中显示预编辑文本</code> &gt; 最后点击 <code>应用</code></p>
+<p>点击 <code>添加输入法</code> &gt; 找到简体中文下的
+<code>Pinyin</code> &gt; 点击 <code>添加</code> 即可加入拼音输入法</p>
+<p>接下来点击 <code>Pinyin</code> 右侧的配置按钮 &gt; 点选
+<code>云拼音</code> 和 <code>在程序中显示预编辑文本</code> &gt; 最后点击
+<code>应用</code></p>
 <p>注销重启即可</p>
 <blockquote>
-<p>默认的输入法主题并不好看 <span class="exturl" data-url="aHR0cHM6Ly9wbGFuZXQua2RlLm9yZy93ZW5nLXh1ZXRpYW4tMjAyMi0wNy0wNC1mY2l0eC01LXBsYXNtYS10aGVtZS1zdXBwb3J0Lw==">内置的Breeze<i class="fa fa-external-link-alt"></i></span> 要好看的多</p>
+<p>默认的输入法主题并不好看 <a
+target="_blank" rel="noopener" href="https://planet.kde.org/weng-xuetian-2022-07-04-fcitx-5-plasma-theme-support/">内置的Breeze</a>
+要好看的多</p>
 </blockquote>
-<p>打开 <code>系统设置</code> &gt; <code>区域设置</code> &gt; <code>输入法</code> &gt; <code>配置附加组件</code> &gt; <code>经典用户界面的⚙️</code> &gt; <code>主题</code> &gt;<code>KDE Plasma (Experimental)</code></p>
-<h4 id="7-2-3-以空会话启动"><a href="#7-2-3-以空会话启动" class="headerlink" title="7.2.3 以空会话启动"></a>7.2.3 以空会话启动</h4><p>默认情况下，KDE 桌面环境中关机之后再开机会恢复先前保存的对话（如浏览器没有关掉，那么开机之后浏览器还在）。</p>
+<p>打开 <code>系统设置</code> &gt; <code>区域设置</code> &gt;
+<code>输入法</code> &gt; <code>配置附加组件</code> &gt;
+<code>经典用户界面的⚙️</code> &gt; <code>主题</code>
+&gt;<code>KDE Plasma (Experimental)</code></p>
+<h4 id="以空会话启动">7.2.3 以空会话启动</h4>
+<p>默认情况下，KDE
+桌面环境中关机之后再开机会恢复先前保存的对话（如浏览器没有关掉，那么开机之后浏览器还在）。</p>
 <p>如果你不喜欢这样，请按照以下步骤设置：</p>
-<ol>
-<li>打开 <code>系统设置</code> &gt; 点击侧栏 <code>开机与关机</code> &gt; <code>桌面会话</code></li>
+<ol type="1">
+<li>打开 <code>系统设置</code> &gt; 点击侧栏 <code>开机与关机</code>
+&gt; <code>桌面会话</code></li>
 <li>将 <code>登入时</code> 的选项改为 <code>以空会话启动</code></li>
 <li>点击 <code>应用</code> 保存设置</li>
 </ol>
-<h4 id="7-2-4-触控板"><a href="#7-2-4-触控板" class="headerlink" title="7.2.4 触控板"></a>7.2.4 触控板</h4><p>一般情况下，libinput 已经安装到你的电脑，触摸板应该可用。</p>
-<p>但是默认情况下，触摸板并不启用 <code>轻触点击</code>、<code>自然滚动</code> 等功能，打开 <code>系统设置</code> &gt; 点击侧栏 <code>输入设备</code> &gt; <code>触摸板</code> 来修改你想要的触摸板行为。</p>
-<h4 id="7-2-5-安装-Windows-字体"><a href="#7-2-5-安装-Windows-字体" class="headerlink" title="7.2.5 安装 Windows 字体"></a>7.2.5 安装 Windows 字体</h4><p>Windows 字体不仅日常可能会使用到，还可以让部分需要这些字体的应用（如 Wine）显示字体不会乱码。</p>
+<h4 id="触控板">7.2.4 触控板</h4>
+<p>一般情况下，libinput 已经安装到你的电脑，触摸板应该可用。</p>
+<p>但是默认情况下，触摸板并不启用
+<code>轻触点击</code>、<code>自然滚动</code> 等功能，打开
+<code>系统设置</code> &gt; 点击侧栏 <code>输入设备</code> &gt;
+<code>触摸板</code> 来修改你想要的触摸板行为。</p>
+<h4 id="安装-windows-字体">7.2.5 安装 Windows 字体</h4>
+<p>Windows 字体不仅日常可能会使用到，还可以让部分需要这些字体的应用（如
+Wine）显示字体不会乱码。</p>
 <ul>
 <li>从本地 Windows 获取字体文件</li>
 </ul>
-<ol>
-<li>首先需要挂载 Windows 下的 C 盘所在分区。若分区为 Bitlocker 上锁分区，可通过 Dolphin 使用对应的恢复密钥解锁</li>
+<ol type="1">
+<li>首先需要挂载 Windows 下的 C 盘所在分区。若分区为 Bitlocker
+上锁分区，可通过 Dolphin 使用对应的恢复密钥解锁</li>
 <li>建立 archlinux 下存放 Windows 字体的文件夹</li>
 </ol>
 <figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> <span class="built_in">mkdir</span> /usr/share/fonts/WindowsFonts</span><br></pre></td></tr></table></figure>
-
-<p>进入 Windows 的 <code>Fonts</code> 文件夹，将字体复制到建立的文件夹并设置合理的权限：</p>
+<p>进入 Windows 的 <code>Fonts</code>
+文件夹，将字体复制到建立的文件夹并设置合理的权限：</p>
 <figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /path/to/C:/Windows/Fonts <span class="comment"># 或者通过 Dolphin 在此文件夹下右键 &gt; 点击 打开终端</span></span><br><span class="line"><span class="built_in">sudo</span> <span class="built_in">cp</span> ./* /usr/share/fonts/WindowsFonts</span><br><span class="line"><span class="built_in">sudo</span> <span class="built_in">chmod</span> 755 /usr/share/fonts/WindowsFonts/* <span class="comment"># 设置合理的权限</span></span><br></pre></td></tr></table></figure>
-
 <p>刷新字体：</p>
 <figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fc-cache -vf <span class="comment"># -v：显示过程</span></span><br></pre></td></tr></table></figure>
-
 <blockquote>
 <p>或者你也可以从 AUR 安装</p>
 <p>通过以下命令安装 Windows 11 的中文字体</p>
-<figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yay -S ttf-ms-win11-auto-zh_cn    <span class="comment">#原理是网络挂载 Windows 11 安装镜像并从中提取字体文件</span></span><br></pre></td></tr></table></figure></blockquote>
-<h4 id="7-2-6-其他软件安装"><a href="#7-2-6-其他软件安装" class="headerlink" title="7.2.6 其他软件安装"></a>7.2.6 其他软件安装</h4><p>其他软件的安装我们主要通过<code>AUR</code>来完成, 下面以 <strong><code>yay</code></strong> 为例演示</p>
-<blockquote>
-<p><code>AUR</code>（Arch User Repository）是 Arch Linux 社区维护的非官方软件仓库，诞生于 2005 年，旨在补充官方仓库的不足。它允许任何用户提交软件包的构建脚本（<code>PKGBUILD</code>），其他用户可通过这些脚本来编译、安装软件。</p>
-<p>～指北中带有 aur 角标的软件代表是在 <span class="exturl" data-url="aHR0cHM6Ly9hdXIuYXJjaGxpbnV4Lm9yZy8=">AUR<i class="fa fa-external-link-alt"></i></span>（Arch User Repository）中用户自行打包的软件。不在 arch 官方支持范围内，可能会出现各种问题如更新不及时、无法安装、使用出错等。</p>
-<p>～指北中带有 cn 角标的软件代表是在 <span class="exturl" data-url="aHR0cHM6Ly93d3cuYXJjaGxpbnV4Y24ub3JnL2FyY2hsaW51eC1jbi1yZXBvLWFuZC1taXJyb3Iv">archlinuxcn<i class="fa fa-external-link-alt"></i></span>（Arch Linux 中文社区仓库）中用户自行打包的软件。不在 arch 官方支持范围内，可能会出现各种问题如更新不及时、无法安装、使用出错等。</p>
-<p>～指北中带有 EULA 角标的软件代表是 <span class="exturl" data-url="aHR0cHM6Ly93d3cuZ251Lm9yZy9wcm9wcmlldGFyeS9wcm9wcmlldGFyeS5odG1s">专有软件<i class="fa fa-external-link-alt"></i></span>。请自行斟酌是否使用。</p>
+<figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yay -S ttf-ms-win11-auto-zh_cn    <span class="comment">#原理是网络挂载 Windows 11 安装镜像并从中提取字体文件</span></span><br></pre></td></tr></table></figure>
 </blockquote>
-<h5 id="7-2-6-1-搜索-AUR-包"><a href="#7-2-6-1-搜索-AUR-包" class="headerlink" title="7.2.6.1 搜索 AUR 包"></a>7.2.6.1 搜索 AUR 包</h5><p>搜索包名或关键词（支持正则匹配）：</p>
+<h4 id="其他软件安装">7.2.6 其他软件安装</h4>
+<p>其他软件的安装我们主要通过<code>AUR</code>来完成, 下面以
+<strong><code>yay</code></strong> 为例演示</p>
+<blockquote>
+<p><code>AUR</code>（Arch User Repository）是 Arch Linux
+社区维护的非官方软件仓库，诞生于 2005
+年，旨在补充官方仓库的不足。它允许任何用户提交软件包的构建脚本（<code>PKGBUILD</code>），其他用户可通过这些脚本来编译、安装软件。</p>
+<p>～指北中带有 aur 角标的软件代表是在 <a
+target="_blank" rel="noopener" href="https://aur.archlinux.org/">AUR</a>（Arch User
+Repository）中用户自行打包的软件。不在 arch
+官方支持范围内，可能会出现各种问题如更新不及时、无法安装、使用出错等。</p>
+<p>～指北中带有 cn 角标的软件代表是在 <a
+target="_blank" rel="noopener" href="https://www.archlinuxcn.org/archlinux-cn-repo-and-mirror/">archlinuxcn</a>（Arch
+Linux 中文社区仓库）中用户自行打包的软件。不在 arch
+官方支持范围内，可能会出现各种问题如更新不及时、无法安装、使用出错等。</p>
+<p>～指北中带有 EULA 角标的软件代表是 <a
+target="_blank" rel="noopener" href="https://www.gnu.org/proprietary/proprietary.html">专有软件</a>。请自行斟酌是否使用。</p>
+</blockquote>
+<h5 id="搜索-aur-包">7.2.6.1 搜索 AUR 包</h5>
+<p>搜索包名或关键词（支持正则匹配）：</p>
 <figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">yay -Ss 关键词  <span class="comment"># 搜索官方仓库 + AUR 包（-s 表示搜索，-S 无实际意义）</span></span><br><span class="line"><span class="comment"># 示例：搜索 neovim 相关的 AUR 包</span></span><br><span class="line">yay -Ss wechat</span><br></pre></td></tr></table></figure>
-
 <p>输出示例：</p>
 <figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">aur/xchat-bin 1.0.0-6 (+0 0.00) </span><br><span class="line">    Unofficial WeChat client side built with React18 + Vite4, MobX and Electron27.(Prebuilt version.Use system-wide electron)使用 React18+Vite4、MobX 和 Electron27 构建的非官方WeChat微信客户端</span><br><span class="line">aur/plasma-wechat-toggle 1.0.0-1 (+0 0.00) </span><br><span class="line">    Toggle WeChat window on KDE Plasma Wayland</span><br><span class="line">aur/oba-live-tool-git 1.5.9.r0.g6c9ec63-1 (+0 0.00) </span><br><span class="line">    Live delivery tool,support Douyin,Buyin,Douyin group buying,Xiaohongshu Qianfan,WeChat Channels platform,can automatically pop up windows,automatically speak,AI <span class="built_in">help</span> reply(Use system-wide electron)</span><br><span class="line">aur/matrix-wechat-git 0.1.0.r2.g9abc502-6 (+0 0.00) (孤包) </span><br><span class="line">    A Matrix-WeChat puppeting bridge</span><br><span class="line">aur/electronic-wechat 2.3.3-1 (+2 0.00) </span><br><span class="line">    Better WeChat client under Linux. Which used system Electron and removed the useless content <span class="keyword">in</span> the package</span><br><span class="line">aur/fake-deepin-file-manager 1.0-2 (+0 0.00) </span><br><span class="line">    Workaround the Show <span class="keyword">in</span> Folder functionality <span class="keyword">for</span> wechat</span><br><span class="line">aur/mejituu-wine8 8.16_plus_Mejituu_2024012516-1 (+1 0.00) </span><br><span class="line">    wine8 <span class="keyword">for</span> Wechat (Mejituu version)</span><br><span class="line">aur/fcitx5-theme-wechat 0.0.1-1 (+1 0.03) </span><br><span class="line">    WeChat style fcitx5 theme</span><br><span class="line">aur/electronic-wechat-uos-bin 2.3.2-11 (+13 0.00) </span><br><span class="line">    Linux下更好用的微信客户端. 更多功能, 更少bug. 使用系统Electron并利用UOS请求头修复了登陆问题.</span><br><span class="line">aur/com.qq.weixin.spark 3.9.10deepin1.1-1 (+31 0.00) </span><br><span class="line">    Tencent WeChat Client from Spark Store</span><br><span class="line">aur/wechat-callout-git r4.94f9e6c-1 (+0 0.00) </span><br><span class="line">    微信窗口快捷键唤出/隐藏</span><br><span class="line">aur/wechat-devtools-appimage 1.06.2412050-2 (+1 0.00) (过时的: 2025-06-20) </span><br><span class="line">    The development tools <span class="keyword">for</span> wechat projects</span><br><span class="line">aur/wechat-devtools-bin 2:1.06.2412050_2-2 (+0 0.00) </span><br><span class="line">    WeChat Devtools For Linux.</span><br><span class="line">aur/wechat-backup 1.0.0-2 (+0 0.00) (孤包) </span><br><span class="line">    微信聊天记录持久化备份本地硬盘，释放手机存储空间。</span><br><span class="line">aur/wechat-devtools-git 2.01.2510260-3 (+3 0.00) </span><br><span class="line">    WeChat Devtools For Linux.</span><br><span class="line">aur/wechatircd-git r85.bb8f354-1 (+0 0.00) </span><br><span class="line">    IRC server capable of controlling Web WeChat</span><br><span class="line">aur/wechat-devtools 2:1.06.2308310-1 (+22 0.00) (孤包) (过时的: 2024-03-02) </span><br><span class="line">    WeChat Devtools For Linux.</span><br><span class="line">aur/wechat-bin 4.1.0.13-1 (+15 2.51) (已安装)</span><br><span class="line">    微信是一种生活方式. This is a repackage of WeChat.</span><br><span class="line">aur/wechat-universal-bwrap 4.1.0.13-1 (+137 1.32) </span><br><span class="line">    WeChat (Universal) with bwrap sandbox</span><br><span class="line">aur/wechat-appimage 4.1.0-2 (+19 3.29) </span><br><span class="line">    Wechat <span class="keyword">for</span> Linux</span><br><span class="line">archlinuxcn/wine-for-wechat-debug 11.0-1 (181.3 MiB 1.1 GiB) </span><br><span class="line">    Detached debugging symbols <span class="keyword">for</span> wine-for-wechat</span><br><span class="line">archlinuxcn/wine-for-wechat 11.0-1 (56.2 MiB 502.6 MiB) </span><br><span class="line">    A patched version of Wine <span class="keyword">for</span> running Wechat and Netease Music without persistent shadow windows</span><br><span class="line">aur/wechat 1:10-1 (+48 0.25) </span><br><span class="line">    Fixes and optional sandbox <span class="keyword">for</span> WeChat.</span><br></pre></td></tr></table></figure>
-
-<h5 id="7-2-6-2-安装-AUR-包"><a href="#7-2-6-2-安装-AUR-包" class="headerlink" title="7.2.6.2 安装 AUR 包"></a>7.2.6.2 安装 AUR 包</h5><p>基本语法：<code>yay -S 包名</code>（自动处理依赖、构建、安装）。</p>
+<h5 id="安装-aur-包">7.2.6.2 安装 AUR 包</h5>
+<p>基本语法：<code>yay -S 包名</code>（自动处理依赖、构建、安装）。</p>
 <p>示例：安装 <code>wechar-bin</code>：</p>
 <figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yay -S wechat-bin</span><br></pre></td></tr></table></figure>
-
 <blockquote>
 <p>安装过程：</p>
-<ol>
+<ol type="1">
 <li>拉取 AUR 仓库源码（含 <code>PKGBUILD</code>）。</li>
-<li>提示“是否编辑 PKGBUILD？”（建议选 <code>n</code>，首次安装选 <code>y</code> 检查内容）。</li>
+<li>提示“是否编辑 PKGBUILD？”（建议选 <code>n</code>，首次安装选
+<code>y</code> 检查内容）。</li>
 <li>自动安装依赖（<code>makepkg -s</code>）。</li>
 <li>构建二进制包（<code>makepkg</code>）。</li>
-<li>调用 <code>pacman -U</code> 安装生成的 <code>.pkg.tar.zst</code> 包。</li>
+<li>调用 <code>pacman -U</code> 安装生成的 <code>.pkg.tar.zst</code>
+包。</li>
 </ol>
 </blockquote>
-<h5 id="7-2-6-3-更新-AUR-包"><a href="#7-2-6-3-更新-AUR-包" class="headerlink" title="7.2.6.3 更新 AUR 包"></a>7.2.6.3 更新 AUR 包</h5><p>AUR 包需手动更新，<code>yay</code> 可一键更新系统（官方 + AUR）：</p>
+<h5 id="更新-aur-包">7.2.6.3 更新 AUR 包</h5>
+<p>AUR 包需手动更新，<code>yay</code> 可一键更新系统（官方 + AUR）：</p>
 <figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yay  <span class="comment"># 等价于 yay -Syu（-y 更新数据库，-u 升级包）</span></span><br></pre></td></tr></table></figure>
-
 <p>仅更新 AUR 包（不更新官方仓库）：</p>
 <figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yay -Sua  <span class="comment"># -a 仅处理 AUR 包</span></span><br></pre></td></tr></table></figure>
-
-<h5 id="7-2-6-4-卸载-AUR-包"><a href="#7-2-6-4-卸载-AUR-包" class="headerlink" title="7.2.6.4 卸载 AUR 包"></a>7.2.6.4 卸载 AUR 包</h5><p>与 <code>pacman</code> 语法一致，使用 <code>-Rns</code> 清除依赖和配置文件：</p>
+<h5 id="卸载-aur-包">7.2.6.4 卸载 AUR 包</h5>
+<p>与 <code>pacman</code> 语法一致，使用 <code>-Rns</code>
+清除依赖和配置文件：</p>
 <figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yay -Rns wechat-bin  <span class="comment"># -R 卸载，-n 清除配置，-s 清除未被依赖的依赖</span></span><br></pre></td></tr></table></figure>
-
-<h5 id="7-2-6-5-其他常用操作"><a href="#7-2-6-5-其他常用操作" class="headerlink" title="7.2.6.5 其他常用操作"></a>7.2.6.5 其他常用操作</h5><table>
+<h5 id="其他常用操作">7.2.6.5 其他常用操作</h5>
+<table>
 <thead>
-<tr>
+<tr class="header">
 <th><strong>功能</strong></th>
 <th><strong>命令（yay）</strong></th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr class="odd">
 <td>查看已安装 AUR 包</td>
-<td><code>yay -Qm</code>（<code>-Q</code> 列出已安装，<code>-m</code> 来自 AUR）</td>
+<td><code>yay -Qm</code>（<code>-Q</code> 列出已安装，<code>-m</code>
+来自 AUR）</td>
 </tr>
-<tr>
+<tr class="even">
 <td>查看包详细信息</td>
 <td><code>yay -Qi 包名</code>（<code>-Qi</code> 显示本地包信息）</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>清理构建缓存</td>
-<td><code>yay -Sc</code>（<code>-c</code> 清理，<code>-S</code> 无意义）</td>
+<td><code>yay -Sc</code>（<code>-c</code> 清理，<code>-S</code>
+无意义）</td>
 </tr>
-<tr>
+<tr class="even">
 <td>强制重建包</td>
 <td><code>yay -S --rebuild 包名</code></td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 
     </div>
 
@@ -922,8 +1037,8 @@
       <footer class="post-footer">
           
           <div class="post-tags">
-              <a href="/tags/%E6%9D%82%E8%B0%88/" rel="tag"><i class="fa fa-tag"></i> 杂谈</a>
               <a href="/tags/%E7%B3%BB%E7%BB%9F/" rel="tag"><i class="fa fa-tag"></i> 系统</a>
+              <a href="/tags/%E6%9D%82%E8%B0%88/" rel="tag"><i class="fa fa-tag"></i> 杂谈</a>
           </div>
 
         
@@ -936,8 +1051,8 @@
       <i class="fa fa-chevron-left"></i> 关于LIS(最长递增子序列)
     </a></div>
       <div class="post-nav-item">
-    <a href="/2026/01/20/CF2192(Codeforces%20Round%201073%20(Div.%202))/" rel="next" title="CF2192 Codeforces Round 1073 (Div. 2)(A-D1)题解">
-      CF2192 Codeforces Round 1073 (Div. 2)(A-D1)题解 <i class="fa fa-chevron-right"></i>
+    <a href="/2026/01/20/Codeforces%20Round%201074%20(Div.%204)E-F/" rel="next" title="Codeforces Round 1074 (Div. 4)E-F 题解">
+      Codeforces Round 1074 (Div. 4)E-F 题解 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -998,7 +1113,8 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E5%88%B6%E4%BD%9C%E5%90%AF%E5%8A%A8%E7%9B%98"><span class="nav-number">1.</span> <span class="nav-text">1. 制作启动盘</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-%E4%B8%8B%E8%BD%BD-ISO-%E9%95%9C%E5%83%8F"><span class="nav-number">1.1.</span> <span class="nav-text">1.1 下载 ISO 镜像</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-%E5%88%B6%E4%BD%9C%E5%90%AF%E5%8A%A8%E7%9B%98"><span class="nav-number">1.2.</span> <span class="nav-text">1.2 制作启动盘</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-1-%E4%B8%8B%E8%BD%BD-Rufus"><span class="nav-number">1.2.1.</span> <span class="nav-text">1.2.1 下载 Rufus</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-2-%E4%BD%BF%E7%94%A8-Rufus-%E5%88%B6%E4%BD%9C%E5%90%AF%E5%8A%A8%E7%9B%98"><span class="nav-number">1.2.2.</span> <span class="nav-text">1.2.2 使用 Rufus 制作启动盘</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E8%BF%9B%E5%85%A5%E5%BC%95%E5%AF%BC%E9%A1%B5%E9%9D%A2"><span class="nav-number">2.</span> <span class="nav-text">2. 进入引导页面</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-%E5%85%B3%E9%97%AD-Secure-Boot%EF%BC%88%E5%AE%89%E5%85%A8%E5%90%AF%E5%8A%A8%EF%BC%89"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 关闭 Secure Boot（安全启动）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-%E7%A1%AE%E5%AE%9AUEFI%E5%9B%BA%E4%BB%B6%E5%90%AF%E5%8A%A8"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 确定UEFI固件启动</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E6%AD%A3%E5%BC%8F%E5%AE%89%E8%A3%85%EF%BC%88%E9%A2%84%E5%A4%87%E6%AD%A5%E9%AA%A4%EF%BC%89"><span class="nav-number">3.</span> <span class="nav-text">3.正式安装（预备步骤）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-%E7%A6%81%E7%94%A8-reflector-%E6%9C%8D%E5%8A%A1"><span class="nav-number">3.1.</span> <span class="nav-text">3.1 禁用 reflector 服务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-%E8%81%94%E7%BD%91"><span class="nav-number">3.2.</span> <span class="nav-text">3.2 联网</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-%E6%9B%B4%E6%96%B0%E7%B3%BB%E7%BB%9F%E6%97%B6%E9%92%9F"><span class="nav-number">3.3.</span> <span class="nav-text">3.3 更新系统时钟</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-4-%E9%85%8D%E7%BD%AE%E9%95%9C%E5%83%8F%E6%BA%90"><span class="nav-number">3.4.</span> <span class="nav-text">3.4 配置镜像源</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%E7%A1%AC%E7%9B%98%E5%88%86%E5%8C%BA"><span class="nav-number">4.</span> <span class="nav-text">4. 硬盘分区</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-%E6%98%8E%E7%A1%AE%E5%88%86%E5%8C%BA%E7%8A%B6%E6%80%81"><span class="nav-number">4.1.</span> <span class="nav-text">4.1 明确分区状态</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-%E6%AD%A3%E5%BC%8F%E5%88%86%E5%8C%BA"><span class="nav-number">4.2.</span> <span class="nav-text">4.2 正式分区</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-3-%E5%88%9B%E5%BB%BA%E5%AD%90%E5%8D%B7"><span class="nav-number">4.3.</span> <span class="nav-text">4.3 创建子卷</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-%E6%AD%A3%E5%BC%8F%E5%AE%89%E8%A3%85%E7%B3%BB%E7%BB%9F"><span class="nav-number">5.</span> <span class="nav-text">5. 正式安装系统</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#5-1%E5%AE%89%E8%A3%85%E7%B3%BB%E7%BB%9F"><span class="nav-number">5.1.</span> <span class="nav-text">5.1安装系统</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-2-%E8%BF%9B%E5%85%A5%E6%96%B0%E7%B3%BB%E7%BB%9F"><span class="nav-number">5.2.</span> <span class="nav-text">5.2 进入新系统</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-3-%E5%88%9D%E6%9C%9F%E9%85%8D%E7%BD%AE"><span class="nav-number">5.3.</span> <span class="nav-text">5.3 初期配置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#5-3-1-%E8%AE%BE%E7%BD%AE%E6%97%B6%E5%8C%BA"><span class="nav-number">5.3.1.</span> <span class="nav-text">5.3.1 设置时区</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-3-2-%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%9C%AC%E5%9C%B0%E5%8C%96%E8%AE%BE%E7%BD%AE"><span class="nav-number">5.3.2.</span> <span class="nav-text">5.3.2 系统的本地化设置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-3-3-Windows%E5%85%B1%E5%AD%98"><span class="nav-number">5.3.3.</span> <span class="nav-text">5.3.3 Windows共存</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-3-4-%E9%85%8D%E7%BD%AEGRUB"><span class="nav-number">5.3.4.</span> <span class="nav-text">5.3.4 配置GRUB</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-3-5-%E9%85%8D%E7%BD%AEZram%E5%86%85%E5%AD%98%E5%8E%8B%E7%BC%A9%E5%92%8C%E4%BA%A4%E6%8D%A2%E7%A9%BA%E9%97%B4"><span class="nav-number">5.3.5.</span> <span class="nav-text">5.3.5 配置Zram内存压缩和交换空间</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-3-6-%E5%90%AF%E7%94%A8%E5%B9%B6%E5%90%AF%E5%8A%A8-NetworkManager"><span class="nav-number">5.3.6.</span> <span class="nav-text">5.3.6 启用并启动 NetworkManager</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-3-7-%E6%B5%8B%E8%AF%95%E7%BD%91%E7%BB%9C%E5%B9%B6%E5%AE%89%E8%A3%85fastfetch"><span class="nav-number">5.3.7.</span> <span class="nav-text">5.3.7 测试网络并安装fastfetch</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-%E9%85%8D%E7%BD%AE%E9%A9%B1%E5%8A%A8%E5%92%8C%E5%9F%BA%E7%A1%80%E6%98%BE%E7%A4%BA"><span class="nav-number">6.</span> <span class="nav-text">6. 配置驱动和基础显示</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#6-0%E9%85%8D%E7%BD%AE%E5%BF%AB%E7%85%A7%E5%89%8D%E7%9A%84%E5%87%86%E5%A4%87"><span class="nav-number">6.1.</span> <span class="nav-text">6.0配置快照前的准备</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#6-0-1%E7%A1%AE%E8%AE%A4%E7%B3%BB%E7%BB%9F%E6%98%AF%E6%9C%80%E6%96%B0%E7%8A%B6%E6%80%81"><span class="nav-number">6.1.1.</span> <span class="nav-text">6.0.1确认系统是最新状态</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-0-2%E7%BC%96%E8%BE%91%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="nav-number">6.1.2.</span> <span class="nav-text">6.0.2编辑环境变量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-0-3%E5%88%9B%E5%BB%BA%E6%99%AE%E9%80%9A%E8%B4%A6%E6%88%B7"><span class="nav-number">6.1.3.</span> <span class="nav-text">6.0.3创建普通账户</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-0-4-%E5%BC%80%E5%90%AF32%E4%BD%8D%E8%BD%AF%E4%BB%B6%E6%BA%90"><span class="nav-number">6.1.4.</span> <span class="nav-text">6.0.4 开启32位软件源</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-0-5-%E6%B7%BB%E5%8A%A0ArchlinuxCN%E6%BA%90"><span class="nav-number">6.1.5.</span> <span class="nav-text">6.0.5 添加ArchlinuxCN源</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-1-%E6%AD%A3%E5%BC%8F%E9%85%8D%E7%BD%AE%E5%BF%AB%E7%85%A7"><span class="nav-number">6.2.</span> <span class="nav-text">6.1 正式配置快照</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-2%E9%85%8D%E7%BD%AE%E6%98%BE%E5%8D%A1%E9%A9%B1%E5%8A%A8"><span class="nav-number">6.3.</span> <span class="nav-text">6.2配置显卡驱动</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#6-2-1-NVDIA%E6%98%BE%E5%8D%A1"><span class="nav-number">6.3.1.</span> <span class="nav-text">6.2.1 NVDIA显卡</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-2-2-Intel%E5%92%8CAMD%E6%98%BE%E5%8D%A1"><span class="nav-number">6.3.2.</span> <span class="nav-text">6.2.2 Intel和AMD显卡</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-3-%E8%A7%86%E9%A2%91%E7%BC%96%E8%A7%A3%E7%A0%81%E9%A9%B1%E5%8A%A8"><span class="nav-number">6.4.</span> <span class="nav-text">6.3 视频编解码驱动</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-4%E9%9F%B3%E8%A7%86%E9%A2%91%E6%9C%8D%E5%8A%A1%E5%92%8C%E8%93%9D%E7%89%99"><span class="nav-number">6.5.</span> <span class="nav-text">6.4音视频服务和蓝牙</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-5-%E6%80%A7%E8%83%BD%E6%A8%A1%E5%BC%8F%E5%88%87%E6%8D%A2%E5%B7%A5%E5%85%B7"><span class="nav-number">6.6.</span> <span class="nav-text">6.5 性能模式切换工具</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-5-%E5%9F%BA%E7%A1%80%E7%9A%84%E5%AD%97%E4%BD%93"><span class="nav-number">6.7.</span> <span class="nav-text">6.5 基础的字体</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-%E5%AE%89%E8%A3%85%E6%A1%8C%E9%9D%A2%E7%8E%AF%E5%A2%83"><span class="nav-number">7.</span> <span class="nav-text">7. 安装桌面环境</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#7-0-%E5%AE%89%E8%A3%85%E6%A1%8C%E9%9D%A2%E7%8E%AF%E5%A2%83%E5%89%8D%E7%9A%84%E5%87%86%E5%A4%87"><span class="nav-number">7.1.</span> <span class="nav-text">7.0 安装桌面环境前的准备</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#7-0-1-%E5%88%9B%E5%BB%BA%E5%A4%87%E4%BB%BD%E5%BF%AB%E7%85%A7"><span class="nav-number">7.1.1.</span> <span class="nav-text">7.0.1 创建备份快照</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-0-2-%E9%80%89%E6%8B%A9%E9%80%82%E5%90%88%E4%BD%A0%E7%9A%84%E6%A1%8C%E9%9D%A2"><span class="nav-number">7.1.2.</span> <span class="nav-text">7.0.2 选择适合你的桌面</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#7-0-2-1-GNOME"><span class="nav-number">7.1.2.1.</span> <span class="nav-text">7.0.2.1 GNOME</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#7-0-2-2-KDE-Plasma"><span class="nav-number">7.1.2.2.</span> <span class="nav-text">7.0.2.2 KDE Plasma</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#7-0-2-3-Sway"><span class="nav-number">7.1.2.3.</span> <span class="nav-text">7.0.2.3 Sway</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#7-0-2-4-Niri"><span class="nav-number">7.1.2.4.</span> <span class="nav-text">7.0.2.4 Niri</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#7-0-2-5-Hyprland"><span class="nav-number">7.1.2.5.</span> <span class="nav-text">7.0.2.5 Hyprland</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#7-0-2-6-Quickshell"><span class="nav-number">7.1.2.6.</span> <span class="nav-text">7.0.2.6 Quickshell</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-1%E6%A1%8C%E9%9D%A2%E7%8E%AF%E5%A2%83%E7%9A%84%E6%AD%A3%E5%BC%8F%E5%AE%89%E8%A3%85%EF%BC%88KDE%EF%BC%89"><span class="nav-number">7.2.</span> <span class="nav-text">7.1桌面环境的正式安装（KDE）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-2%E7%AE%80%E5%8D%95%E7%9A%84%E8%AE%BE%E7%BD%AE%E5%92%8C%E5%BA%94%E7%94%A8%E5%AE%89%E8%A3%85"><span class="nav-number">7.3.</span> <span class="nav-text">7.2简单的设置和应用安装</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#7-2-1-%E8%AE%BE%E7%BD%AE%E7%B3%BB%E7%BB%9F%E4%B8%BA%E4%B8%AD%E6%96%87"><span class="nav-number">7.3.1.</span> <span class="nav-text">7.2.1 设置系统为中文</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-2-2-%E5%AE%89%E8%A3%85%E8%BE%93%E5%85%A5%E6%B3%95"><span class="nav-number">7.3.2.</span> <span class="nav-text">7.2.2 安装输入法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-2-3-%E4%BB%A5%E7%A9%BA%E4%BC%9A%E8%AF%9D%E5%90%AF%E5%8A%A8"><span class="nav-number">7.3.3.</span> <span class="nav-text">7.2.3 以空会话启动</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-2-4-%E8%A7%A6%E6%8E%A7%E6%9D%BF"><span class="nav-number">7.3.4.</span> <span class="nav-text">7.2.4 触控板</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-2-5-%E5%AE%89%E8%A3%85-Windows-%E5%AD%97%E4%BD%93"><span class="nav-number">7.3.5.</span> <span class="nav-text">7.2.5 安装 Windows 字体</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-2-6-%E5%85%B6%E4%BB%96%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85"><span class="nav-number">7.3.6.</span> <span class="nav-text">7.2.6 其他软件安装</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#7-2-6-1-%E6%90%9C%E7%B4%A2-AUR-%E5%8C%85"><span class="nav-number">7.3.6.1.</span> <span class="nav-text">7.2.6.1 搜索 AUR 包</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#7-2-6-2-%E5%AE%89%E8%A3%85-AUR-%E5%8C%85"><span class="nav-number">7.3.6.2.</span> <span class="nav-text">7.2.6.2 安装 AUR 包</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#7-2-6-3-%E6%9B%B4%E6%96%B0-AUR-%E5%8C%85"><span class="nav-number">7.3.6.3.</span> <span class="nav-text">7.2.6.3 更新 AUR 包</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#7-2-6-4-%E5%8D%B8%E8%BD%BD-AUR-%E5%8C%85"><span class="nav-number">7.3.6.4.</span> <span class="nav-text">7.2.6.4 卸载 AUR 包</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#7-2-6-5-%E5%85%B6%E4%BB%96%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C"><span class="nav-number">7.3.6.5.</span> <span class="nav-text">7.2.6.5 其他常用操作</span></a></li></ol></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%B6%E4%BD%9C%E5%90%AF%E5%8A%A8%E7%9B%98"><span class="nav-number">1.</span> <span class="nav-text">1. 制作启动盘</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8B%E8%BD%BD-iso-%E9%95%9C%E5%83%8F"><span class="nav-number">1.1.</span> <span class="nav-text">1.1 下载 ISO 镜像</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%B6%E4%BD%9C%E5%90%AF%E5%8A%A8%E7%9B%98-1"><span class="nav-number">1.2.</span> <span class="nav-text">1.2 制作启动盘</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%8B%E8%BD%BD-rufus"><span class="nav-number">1.2.1.</span> <span class="nav-text">1.2.1 下载 Rufus</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8-rufus-%E5%88%B6%E4%BD%9C%E5%90%AF%E5%8A%A8%E7%9B%98"><span class="nav-number">1.2.2.</span> <span class="nav-text">1.2.2 使用 Rufus 制作启动盘</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%9B%E5%85%A5%E5%BC%95%E5%AF%BC%E9%A1%B5%E9%9D%A2"><span class="nav-number">2.</span> <span class="nav-text">2. 进入引导页面</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B3%E9%97%AD-secure-boot%E5%AE%89%E5%85%A8%E5%90%AF%E5%8A%A8"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 关闭 Secure Boot（安全启动）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A1%AE%E5%AE%9Auefi%E5%9B%BA%E4%BB%B6%E5%90%AF%E5%8A%A8"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 确定UEFI固件启动</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AD%A3%E5%BC%8F%E5%AE%89%E8%A3%85%E9%A2%84%E5%A4%87%E6%AD%A5%E9%AA%A4"><span class="nav-number">3.</span> <span class="nav-text">3.正式安装（预备步骤）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A6%81%E7%94%A8-reflector-%E6%9C%8D%E5%8A%A1"><span class="nav-number">3.1.</span> <span class="nav-text">3.1 禁用 reflector 服务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%81%94%E7%BD%91"><span class="nav-number">3.2.</span> <span class="nav-text">3.2 联网</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9B%B4%E6%96%B0%E7%B3%BB%E7%BB%9F%E6%97%B6%E9%92%9F"><span class="nav-number">3.3.</span> <span class="nav-text">3.3 更新系统时钟</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E9%95%9C%E5%83%8F%E6%BA%90"><span class="nav-number">3.4.</span> <span class="nav-text">3.4 配置镜像源</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A1%AC%E7%9B%98%E5%88%86%E5%8C%BA"><span class="nav-number">4.</span> <span class="nav-text">4. 硬盘分区</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%98%8E%E7%A1%AE%E5%88%86%E5%8C%BA%E7%8A%B6%E6%80%81"><span class="nav-number">4.1.</span> <span class="nav-text">4.1 明确分区状态</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AD%A3%E5%BC%8F%E5%88%86%E5%8C%BA"><span class="nav-number">4.2.</span> <span class="nav-text">4.2 正式分区</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E5%AD%90%E5%8D%B7"><span class="nav-number">4.3.</span> <span class="nav-text">4.3 创建子卷</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AD%A3%E5%BC%8F%E5%AE%89%E8%A3%85%E7%B3%BB%E7%BB%9F"><span class="nav-number">5.</span> <span class="nav-text">5. 正式安装系统</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E7%B3%BB%E7%BB%9F"><span class="nav-number">5.1.</span> <span class="nav-text">5.1安装系统</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%9B%E5%85%A5%E6%96%B0%E7%B3%BB%E7%BB%9F"><span class="nav-number">5.2.</span> <span class="nav-text">5.2 进入新系统</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9D%E6%9C%9F%E9%85%8D%E7%BD%AE"><span class="nav-number">5.3.</span> <span class="nav-text">5.3 初期配置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E6%97%B6%E5%8C%BA"><span class="nav-number">5.3.1.</span> <span class="nav-text">5.3.1 设置时区</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%9C%AC%E5%9C%B0%E5%8C%96%E8%AE%BE%E7%BD%AE"><span class="nav-number">5.3.2.</span> <span class="nav-text">5.3.2 系统的本地化设置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#windows%E5%85%B1%E5%AD%98"><span class="nav-number">5.3.3.</span> <span class="nav-text">5.3.3 Windows共存</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%85%8D%E7%BD%AEgrub"><span class="nav-number">5.3.4.</span> <span class="nav-text">5.3.4 配置GRUB</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%85%8D%E7%BD%AEzram%E5%86%85%E5%AD%98%E5%8E%8B%E7%BC%A9%E5%92%8C%E4%BA%A4%E6%8D%A2%E7%A9%BA%E9%97%B4"><span class="nav-number">5.3.5.</span> <span class="nav-text">5.3.5
+配置Zram内存压缩和交换空间</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%90%AF%E7%94%A8%E5%B9%B6%E5%90%AF%E5%8A%A8-networkmanager"><span class="nav-number">5.3.6.</span> <span class="nav-text">5.3.6 启用并启动 NetworkManager</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B5%8B%E8%AF%95%E7%BD%91%E7%BB%9C%E5%B9%B6%E5%AE%89%E8%A3%85fastfetch"><span class="nav-number">5.3.7.</span> <span class="nav-text">5.3.7 测试网络并安装fastfetch</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E9%A9%B1%E5%8A%A8%E5%92%8C%E5%9F%BA%E7%A1%80%E6%98%BE%E7%A4%BA"><span class="nav-number">6.</span> <span class="nav-text">6. 配置驱动和基础显示</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E5%BF%AB%E7%85%A7%E5%89%8D%E7%9A%84%E5%87%86%E5%A4%87"><span class="nav-number">6.1.</span> <span class="nav-text">6.0配置快照前的准备</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%A1%AE%E8%AE%A4%E7%B3%BB%E7%BB%9F%E6%98%AF%E6%9C%80%E6%96%B0%E7%8A%B6%E6%80%81"><span class="nav-number">6.1.1.</span> <span class="nav-text">6.0.1确认系统是最新状态</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BC%96%E8%BE%91%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="nav-number">6.1.2.</span> <span class="nav-text">6.0.2编辑环境变量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E6%99%AE%E9%80%9A%E8%B4%A6%E6%88%B7"><span class="nav-number">6.1.3.</span> <span class="nav-text">6.0.3创建普通账户</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BC%80%E5%90%AF32%E4%BD%8D%E8%BD%AF%E4%BB%B6%E6%BA%90"><span class="nav-number">6.1.4.</span> <span class="nav-text">6.0.4 开启32位软件源</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B7%BB%E5%8A%A0archlinuxcn%E6%BA%90"><span class="nav-number">6.1.5.</span> <span class="nav-text">6.0.5 添加ArchlinuxCN源</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AD%A3%E5%BC%8F%E9%85%8D%E7%BD%AE%E5%BF%AB%E7%85%A7"><span class="nav-number">6.2.</span> <span class="nav-text">6.1 正式配置快照</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E6%98%BE%E5%8D%A1%E9%A9%B1%E5%8A%A8"><span class="nav-number">6.3.</span> <span class="nav-text">6.2配置显卡驱动</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#nvdia%E6%98%BE%E5%8D%A1"><span class="nav-number">6.3.1.</span> <span class="nav-text">6.2.1 NVDIA显卡</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#intel%E5%92%8Camd%E6%98%BE%E5%8D%A1"><span class="nav-number">6.3.2.</span> <span class="nav-text">6.2.2 Intel和AMD显卡</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%86%E9%A2%91%E7%BC%96%E8%A7%A3%E7%A0%81%E9%A9%B1%E5%8A%A8"><span class="nav-number">6.4.</span> <span class="nav-text">6.3 视频编解码驱动</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9F%B3%E8%A7%86%E9%A2%91%E6%9C%8D%E5%8A%A1%E5%92%8C%E8%93%9D%E7%89%99"><span class="nav-number">6.5.</span> <span class="nav-text">6.4音视频服务和蓝牙</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%A7%E8%83%BD%E6%A8%A1%E5%BC%8F%E5%88%87%E6%8D%A2%E5%B7%A5%E5%85%B7"><span class="nav-number">6.6.</span> <span class="nav-text">6.5 性能模式切换工具</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E7%A1%80%E7%9A%84%E5%AD%97%E4%BD%93"><span class="nav-number">6.7.</span> <span class="nav-text">6.5 基础的字体</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E6%A1%8C%E9%9D%A2%E7%8E%AF%E5%A2%83"><span class="nav-number">7.</span> <span class="nav-text">7. 安装桌面环境</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E6%A1%8C%E9%9D%A2%E7%8E%AF%E5%A2%83%E5%89%8D%E7%9A%84%E5%87%86%E5%A4%87"><span class="nav-number">7.1.</span> <span class="nav-text">7.0 安装桌面环境前的准备</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E5%A4%87%E4%BB%BD%E5%BF%AB%E7%85%A7"><span class="nav-number">7.1.1.</span> <span class="nav-text">7.0.1 创建备份快照</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%80%89%E6%8B%A9%E9%80%82%E5%90%88%E4%BD%A0%E7%9A%84%E6%A1%8C%E9%9D%A2"><span class="nav-number">7.1.2.</span> <span class="nav-text">7.0.2 选择适合你的桌面</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#gnome"><span class="nav-number">7.1.2.1.</span> <span class="nav-text">7.0.2.1 GNOME</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#kde-plasma"><span class="nav-number">7.1.2.2.</span> <span class="nav-text">7.0.2.2 KDE Plasma</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#sway"><span class="nav-number">7.1.2.3.</span> <span class="nav-text">7.0.2.3 Sway</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#niri"><span class="nav-number">7.1.2.4.</span> <span class="nav-text">7.0.2.4 Niri</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#hyprland"><span class="nav-number">7.1.2.5.</span> <span class="nav-text">7.0.2.5 Hyprland</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#quickshell"><span class="nav-number">7.1.2.6.</span> <span class="nav-text">7.0.2.6 Quickshell</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A1%8C%E9%9D%A2%E7%8E%AF%E5%A2%83%E7%9A%84%E6%AD%A3%E5%BC%8F%E5%AE%89%E8%A3%85kde"><span class="nav-number">7.2.</span> <span class="nav-text">7.1桌面环境的正式安装（KDE）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AE%80%E5%8D%95%E7%9A%84%E8%AE%BE%E7%BD%AE%E5%92%8C%E5%BA%94%E7%94%A8%E5%AE%89%E8%A3%85"><span class="nav-number">7.3.</span> <span class="nav-text">7.2简单的设置和应用安装</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E7%B3%BB%E7%BB%9F%E4%B8%BA%E4%B8%AD%E6%96%87"><span class="nav-number">7.3.1.</span> <span class="nav-text">7.2.1 设置系统为中文</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E8%BE%93%E5%85%A5%E6%B3%95"><span class="nav-number">7.3.2.</span> <span class="nav-text">7.2.2 安装输入法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BB%A5%E7%A9%BA%E4%BC%9A%E8%AF%9D%E5%90%AF%E5%8A%A8"><span class="nav-number">7.3.3.</span> <span class="nav-text">7.2.3 以空会话启动</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A7%A6%E6%8E%A7%E6%9D%BF"><span class="nav-number">7.3.4.</span> <span class="nav-text">7.2.4 触控板</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-windows-%E5%AD%97%E4%BD%93"><span class="nav-number">7.3.5.</span> <span class="nav-text">7.2.5 安装 Windows 字体</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%B6%E4%BB%96%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85"><span class="nav-number">7.3.6.</span> <span class="nav-text">7.2.6 其他软件安装</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%90%9C%E7%B4%A2-aur-%E5%8C%85"><span class="nav-number">7.3.6.1.</span> <span class="nav-text">7.2.6.1 搜索 AUR 包</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-aur-%E5%8C%85"><span class="nav-number">7.3.6.2.</span> <span class="nav-text">7.2.6.2 安装 AUR 包</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%9B%B4%E6%96%B0-aur-%E5%8C%85"><span class="nav-number">7.3.6.3.</span> <span class="nav-text">7.2.6.3 更新 AUR 包</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%8D%B8%E8%BD%BD-aur-%E5%8C%85"><span class="nav-number">7.3.6.4.</span> <span class="nav-text">7.2.6.4 卸载 AUR 包</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%85%B6%E4%BB%96%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C"><span class="nav-number">7.3.6.5.</span> <span class="nav-text">7.2.6.5 其他常用操作</span></a></li></ol></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -1012,7 +1128,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">42</span>
+          <span class="site-state-item-count">43</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1094,12 +1210,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">92k</span>
+    <span title="站点总字数">93k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">5:33</span>
+    <span title="站点阅读时长">5:39</span>
 </div>
   <div class="powered-by">由 <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl theme-link" data-url="aHR0cHM6Ly90aGVtZS1uZXh0Lm9yZw==">NexT.Gemini</span> 强力驱动
   </div>

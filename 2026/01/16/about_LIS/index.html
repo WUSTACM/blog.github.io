@@ -20,15 +20,15 @@
     var CONFIG = {"hostname":"blog.wustacm.org","root":"/","scheme":"Gemini","version":"7.8.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":"flat"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="关于LIS(最长递增子序列)对于求一个数列的最长递增子序列，">
+  <meta name="description" content="关于LIS(最长递增子序列) 对于求一个数列的最长递增子序列，">
 <meta property="og:type" content="article">
 <meta property="og:title" content="关于LIS(最长递增子序列)">
 <meta property="og:url" content="http://blog.wustacm.org/2026/01/16/about_LIS/index.html">
 <meta property="og:site_name" content="WUSTACM">
-<meta property="og:description" content="关于LIS(最长递增子序列)对于求一个数列的最长递增子序列，">
+<meta property="og:description" content="关于LIS(最长递增子序列) 对于求一个数列的最长递增子序列，">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2026-01-16T00:00:00.000Z">
-<meta property="article:modified_time" content="2026-01-19T17:39:56.257Z">
+<meta property="article:modified_time" content="2026-01-20T10:10:05.654Z">
 <meta property="article:author" content="Blog">
 <meta property="article:tag" content="算法">
 <meta name="twitter:card" content="summary">
@@ -227,7 +227,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2026-01-19 17:39:56" itemprop="dateModified" datetime="2026-01-19T17:39:56+00:00">2026-01-19</time>
+                <time title="修改时间：2026-01-20 10:10:05" itemprop="dateModified" datetime="2026-01-20T10:10:05+00:00">2026-01-20</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -285,15 +285,25 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="关于LIS-最长递增子序列"><a href="#关于LIS-最长递增子序列" class="headerlink" title="关于LIS(最长递增子序列)"></a>关于LIS(最长递增子序列)</h1><p>对于求一个数列的最长递增子序列，<span id="more"></span>我们可以在外维护一个数组$a$，用来存放递增序列。从前到后遍历每一个$v[i]$，对于每一个$v[i]$，使用二分查找寻找其能在数组$a$中所能替换的位置，即第一个大于等于$v[i]$的位置，将其替换为$v[i]$。若$v[i]$大于数组中的所有数字，即可将其放到最后，此时数组长度会加一。答案即是数组$a$中有效的长度。</p>
-<p>时间复杂度：$O(nlogn)$。</p>
+        <h1 id="关于lis最长递增子序列">关于LIS(最长递增子序列)</h1>
+<p>对于求一个数列的最长递增子序列，<span id="more"></span>我们可以在外维护一个数组<span
+class="math inline"><em>a</em></span>，用来存放递增序列。从前到后遍历每一个<span
+class="math inline"><em>v</em>[<em>i</em>]</span>，对于每一个<span
+class="math inline"><em>v</em>[<em>i</em>]</span>，使用二分查找寻找其能在数组<span
+class="math inline"><em>a</em></span>中所能替换的位置，即第一个大于等于<span
+class="math inline"><em>v</em>[<em>i</em>]</span>的位置，将其替换为<span
+class="math inline"><em>v</em>[<em>i</em>]</span>。若<span
+class="math inline"><em>v</em>[<em>i</em>]</span>大于数组中的所有数字，即可将其放到最后，此时数组长度会加一。答案即是数组<span
+class="math inline"><em>a</em></span>中有效的长度。</p>
+<p>时间复杂度：<span
+class="math inline"><em>O</em>(<em>n</em><em>l</em><em>o</em><em>g</em><em>n</em>)</span>。</p>
 <p>代码：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">using</span> ld = <span class="type">long</span> <span class="type">double</span>;</span><br><span class="line"><span class="meta">#<span class="keyword">define</span> int long long</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> fi first</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> se second</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span> <span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> n; cin &gt;&gt; n;</span><br><span class="line">    vector &lt;<span class="type">int</span>&gt; <span class="built_in">v</span>(n + <span class="number">1</span>);</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;</span><br><span class="line">        cin &gt;&gt; v[i];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    vector &lt;<span class="type">int</span>&gt; <span class="built_in">a</span>(n + <span class="number">1</span>);</span><br><span class="line">    a[<span class="number">1</span>] = v[<span class="number">1</span>];</span><br><span class="line">    <span class="type">int</span> ans = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">2</span>; i &lt;= n; i++) &#123;</span><br><span class="line">        <span class="type">int</span> pos = <span class="built_in">lower_bound</span>(a.<span class="built_in">begin</span>() + <span class="number">1</span>, a.<span class="built_in">begin</span>() + <span class="number">1</span> + ans, v[i]) - a.<span class="built_in">begin</span>();</span><br><span class="line">        a[pos] = v[i];</span><br><span class="line">        <span class="keyword">if</span> (pos &gt; ans) ans++;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    cout &lt;&lt; ans &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">&#125;   </span><br><span class="line">    </span><br><span class="line"><span class="function"><span class="type">signed</span> <span class="title">main</span> <span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ios::<span class="built_in">sync_with_stdio</span>(<span class="number">0</span>);</span><br><span class="line">    cin.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line">    <span class="type">int</span> _ = <span class="number">1</span>;</span><br><span class="line">    <span class="comment">// cin &gt;&gt; _;</span></span><br><span class="line">    <span class="keyword">while</span> (_--) &#123;</span><br><span class="line">        <span class="built_in">solve</span>();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p>若为最长不下降子序列，为了让相等也能延长长度，我们要把相等元素放到后面一位，只用更改二分查找的pos即可：<code>int pos = upper_bound(a.begin() + 1, a.begin() + 1 + ans, v[i]) - a.begin();</code></p>
-<p>同理，对于最长递减子序列，我们需要维护一个递减的数组。此时的pos即可改为：<code> int pos = lower_bound(a.begin() + 1, a.begin() + 1 + ans, v[i], greater&lt;int&gt;()) - a.begin();</code> </p>
-<p>最长不上升子序列：<code> int pos = upper_bound(a.begin() + 1, a.begin() + 1 + ans, v[i], greater&lt;int&gt;()) - a.begin();</code></p>
-<p>另外，由于在插入的过程中会改变数组a原有的顺序，数组$a$只能表示递增子序列的结尾位置，其本身并非合法的子序列。</p>
+<p>同理，对于最长递减子序列，我们需要维护一个递减的数组。此时的pos即可改为：<code>int pos = lower_bound(a.begin() + 1, a.begin() + 1 + ans, v[i], greater&lt;int&gt;()) - a.begin();</code></p>
+<p>最长不上升子序列：<code>int pos = upper_bound(a.begin() + 1, a.begin() + 1 + ans, v[i], greater&lt;int&gt;()) - a.begin();</code></p>
+<p>另外，由于在插入的过程中会改变数组a原有的顺序，数组<span
+class="math inline"><em>a</em></span>只能表示递增子序列的结尾位置，其本身并非合法的子序列。</p>
 
     </div>
 
@@ -415,7 +425,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%85%B3%E4%BA%8ELIS-%E6%9C%80%E9%95%BF%E9%80%92%E5%A2%9E%E5%AD%90%E5%BA%8F%E5%88%97"><span class="nav-number">1.</span> <span class="nav-text">关于LIS(最长递增子序列)</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%85%B3%E4%BA%8Elis%E6%9C%80%E9%95%BF%E9%80%92%E5%A2%9E%E5%AD%90%E5%BA%8F%E5%88%97"><span class="nav-number">1.</span> <span class="nav-text">关于LIS(最长递增子序列)</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -429,7 +439,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">42</span>
+          <span class="site-state-item-count">43</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -511,12 +521,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">92k</span>
+    <span title="站点总字数">93k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">5:33</span>
+    <span title="站点阅读时长">5:39</span>
 </div>
   <div class="powered-by">由 <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl theme-link" data-url="aHR0cHM6Ly90aGVtZS1uZXh0Lm9yZw==">NexT.Gemini</span> 强力驱动
   </div>
