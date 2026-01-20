@@ -17,7 +17,7 @@ poster:
 sticky:
 mermaid:
 katex:
-author: RoBin05
+author: RoBin05 lyvsdi
 references:
 comments:
 indexing:
@@ -237,3 +237,73 @@ int main(){
     return 0;
 }
 ``` 
+
+
+lyvsdi的D2题解：
+## D2 Sub-RBS hard version
+---
+### 题意
+在D1的基础上，D2要求的是一个字符串的所有子序列在D1的条件下它们能找到的最大括号序列长度之和
+
+### 思路
+由D1的启发思路可知，要使一个字符串去掉一对括号后字典序比原先要小且不是前缀，很好想到找到")(("这样的括号匹配，去除前面的两个。而D1情况下本身就是规范括号序列，所以去掉一对括号仍然是规范的，而D2没有这个条件，所以还需要考虑是不是平衡的。任意时候，左括号数小于右括号数，都是不平衡的。
+
+### 代码
+``` c++
+
+#include <bits/stdc++.h>
+#define int long long
+using namespace std;
+
+const int mod = 998244353;
+
+void solve() {
+    int n;
+    cin >> n;
+    string s;
+    cin >> s;
+    vector < vector <vector <int>>> dp (4, vector <vector <int> > (105, vector <int> (105, 0)));
+    //三维dp数组 一维表示4种不同的括号类型即“”，“(”，“)(”,“)((”，二维表示当前的平衡系数其即左括号数-右括号数， 三维表示当前子序列长度
+    dp[0][0][0] = 1;
+    for(int i = 0 ; i < n; i++) {
+        int add;
+        if(s[i] == '(') add = 1;
+        else add = -1;
+        auto ndp = dp; //复制包括不选s[i]的情况
+        for(int j = 0; j <= n; j++) {
+            //遍历平衡度，平衡度为小于0时永远无法找到合法的括号序列
+            if(j + add < 0) continue;
+            for(int k = 0; k < n; k++) {
+                //遍历长度
+                for(int l = 0; l < 4; l++) {
+                    //四种状态，now++表示可以变为至下一种状态
+                    int now = l;
+                    if(s[i] == ')' && l == 0) now++;
+                    if(s[i] == '(' && (l == 1 || l == 2)) now++;
+                    ndp[now][j + add][k + 1] += dp[l][j][k] % mod;
+                    ndp[now][j + add][k + 1] %= mod;
+                }
+            }
+        }
+        dp = ndp;
+    }
+    int ans = 0;
+    for(int i = 0 ;i <= n; i++) {
+        ans += dp[3][0][i] * (i - 2); //平衡的，有“)((”的子序列可以贡献i-2的答案
+        ans %= mod;
+    }
+    cout << ans << endl;
+}
+
+signed main() {
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+    int _ = 1;
+    cin >> _;
+    while(_--) {
+        solve();
+    }
+    return 0;
+}
+
+```
