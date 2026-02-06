@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="zh-CN,en,default">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 8.1.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/2025-12-21-2.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/2025-12-21-1.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"blog.wustacm.org","root":"/","scheme":"Gemini","version":"7.8.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":"flat"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="关于LIS(最长递增子序列)(2)  定义：在一个给定的数值序列中，找到一个子序列，使得这个子序列元素的数值依次递增，并且这个子序列的长度尽可能地大。  在关于LIS(最长递增子序列)中，给出了LIS的dp+二分优化 $ O(nlogn) $ 解法，这里再提供一种树状数组的解法。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="关于LIS(最长递增子序列)(2)">
+<meta property="og:url" content="http://blog.wustacm.org/2026/02/06/about_LIS(2)/index.html">
+<meta property="og:site_name" content="WUSTACM">
+<meta property="og:description" content="关于LIS(最长递增子序列)(2)  定义：在一个给定的数值序列中，找到一个子序列，使得这个子序列元素的数值依次递增，并且这个子序列的长度尽可能地大。  在关于LIS(最长递增子序列)中，给出了LIS的dp+二分优化 $ O(nlogn) $ 解法，这里再提供一种树状数组的解法。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-02-06T00:00:00.000Z">
+<meta property="article:modified_time" content="2026-02-06T08:58:27.268Z">
+<meta property="article:author" content="Blog">
+<meta property="article:tag" content="算法">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://blog.wustacm.org/2026/02/06/about_LIS(2)/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>关于LIS(最长递增子序列)(2) | WUSTACM</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta custom-logo">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">WUSTACM</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <a>
+        <img class="custom-logo-image" src="/images/2025-12-21-3.png" alt="WUSTACM">
+      </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+  <span class="exturl github-corner" data-url="aHR0cHM6Ly9naXRodWIuY29tL1dVU1RBQ00=" title="Follow me on GitHub" aria-label="Follow me on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></span>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.wustacm.org/2026/02/06/about_LIS(2)/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="WUSTACM">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          关于LIS(最长递增子序列)(2)
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2026-02-06 00:00:00 / 修改时间：08:58:27" itemprop="dateCreated datePublished" datetime="2026-02-06T00:00:00+00:00">2026-02-06</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2026/02/06/about_LIS(2)/" class="post-meta-item leancloud_visitors" data-flag-title="关于LIS(最长递增子序列)(2)" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2026/02/06/about_LIS(2)/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2026/02/06/about_LIS(2)/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="关于lis最长递增子序列2">关于LIS(最长递增子序列)(2)</h1>
+<ul>
+<li>定义：在一个给定的数值序列中，找到一个子序列，使得这个子序列元素的数值依次递增，并且这个子序列的长度尽可能地大。</li>
+</ul>
+<p>在<a
+href="https://blog.wustacm.org/2026/01/16/about_LIS/">关于LIS(最长递增子序列)</a>中，给出了<span
+class="math inline"><em>L</em><em>I</em><em>S</em></span>的<span
+class="math inline"><em>d</em><em>p</em></span>+二分优化 $ O(nlogn) $
+解法，这里再提供一种<strong>树状数组</strong>的解法。</p>
+<span id="more"></span>
+<h2 id="朴素的暴力尝试">朴素的暴力尝试</h2>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">dp</span><span class="params">(n<span class="number">+1</span>,<span class="number">0</span>)</span>,<span class="title">a</span><span class="params">(n<span class="number">+1</span>,<span class="number">0</span>)</span></span>;</span><br><span class="line"><span class="type">int</span> ans = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> j = <span class="number">1</span>;j&lt;i;j++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(a[i]&gt;a[j])&#123;</span><br><span class="line">            dp[i] = <span class="built_in">max</span>(dp[j],dp[i]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    dp[i]++;</span><br><span class="line">    ans = <span class="built_in">max</span>(ans , dp[i]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p><span
+class="math inline"><em>d</em><em>p</em><sub><em>i</em></sub></span>的含义：以当前下标为结尾的<span
+class="math inline"><em>L</em><em>I</em><em>S</em></span>最大长度</p>
+<p>这里我们得到了状态转移方程: $ dp_i = max_{a_i&gt;a_j}(dp_j)+1 , 0j
+&lt; i$</p>
+<p>但是这段代码的时间复杂度是<span
+class="math inline"><em>O</em>(<em>n</em><sup>2</sup>)</span>，观察状态转移方程，可以发现需要一种快速求前缀最大值的方法，同时兼顾修改操作。</p>
+<h2 id="树状数组优化">树状数组优化</h2>
+<p>树状数组仅能维护可差分信息，但是这题只需要查询前缀最大值(即从下标1到下标<span
+class="math inline"><em>i</em></span>的最大值)，使用树状数组仍能保证答案的正确性，故使用树状数组，感兴趣的可以试试使用线段树优化。</p>
+<h3 id="dp数组重定义">dp数组重定义</h3>
+<p>在这里重新定义了<span
+class="math inline"><em>d</em><em>p</em><sub><em>i</em></sub></span>的含义：以当前值为结尾的<span
+class="math inline"><em>L</em><em>I</em><em>S</em></span>的最大长度。这么定义<span
+class="math inline"><em>d</em><em>p</em><sub><em>i</em></sub></span>有一个好处，就是把所有值大于等于<span
+class="math inline"><em>i</em></span>的数都排除在外，无需再做其他判断。</p>
+<h3 id="查询与更新答案">查询与更新答案</h3>
+<ul>
+<li>查询：查询<span
+class="math inline"><em>m</em><em>a</em><em>x</em><em>n</em> = <em>d</em><em>p</em><sub><em>j</em></sub>, 0 ≤ <em>j</em> &lt; <em>i</em></span>的最大值</li>
+<li>更新：更新<span
+class="math inline"><em>d</em><em>p</em><sub><em>i</em></sub> = <em>m</em><em>a</em><em>x</em><em>n</em> + 1</span></li>
+</ul>
+<h3 id="代码实现">代码实现</h3>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> ll = <span class="type">long</span> <span class="type">long</span>;</span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">BIT</span>&#123;</span><br><span class="line">    <span class="type">int</span> n;</span><br><span class="line">    vector&lt;<span class="type">int</span>&gt; bit;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">BIT</span>(<span class="type">int</span> n):<span class="built_in">n</span>(n),<span class="built_in">bit</span>(n<span class="number">+1</span>,<span class="number">0</span>)&#123;&#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">lowbit</span><span class="params">(<span class="type">int</span> x)</span></span>&#123;<span class="keyword">return</span> x&amp;-x;&#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">upd</span><span class="params">(<span class="type">int</span> i,<span class="type">int</span> k)</span></span>&#123; <span class="comment">// 更新前缀最大值</span></span><br><span class="line">        <span class="keyword">while</span>(i&lt;=n)&#123;</span><br><span class="line">            bit[i] = <span class="built_in">max</span>(bit[i],k);</span><br><span class="line">            i += <span class="built_in">lowbit</span>(i);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">query</span><span class="params">(<span class="type">int</span> i)</span></span>&#123; <span class="comment">// 查询前缀最大值</span></span><br><span class="line">        <span class="type">int</span> res = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(i)&#123;</span><br><span class="line">            res = <span class="built_in">max</span>(bit[i],res);</span><br><span class="line">            i -= <span class="built_in">lowbit</span>(i);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> n; cin &gt;&gt; n;</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">a</span><span class="params">(n<span class="number">+1</span>,<span class="number">0</span>)</span></span>;</span><br><span class="line">    <span class="type">int</span> A = <span class="number">0</span>; <span class="comment">// A为a数组中的最大值</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">        cin &gt;&gt; a[i];</span><br><span class="line">        A = <span class="built_in">max</span>(a[i],A);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function">BIT <span class="title">dp</span><span class="params">(A)</span></span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">        dp.<span class="built_in">upd</span>(a[i],dp.<span class="built_in">query</span>(a[i]<span class="number">-1</span>)<span class="number">+1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; dp.<span class="built_in">query</span>(A) &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>时间复杂度：<span
+class="math inline"><em>O</em>(<em>n</em><em>l</em><em>o</em><em>g</em><em>A</em>)</span></p>
+<p>空间复杂度：<span style="color : red;">O(A)​</span></p>
+<p>如果<span style="color : red;">数组中的值</span>过大，就会导致<span
+class="math inline"><em>M</em><em>L</em><em>E</em></span>，所以需要进一步优化</p>
+<h2 id="离散化树状数组">离散化+树状数组</h2>
+<p>注意到，当<span
+class="math inline"><em>A</em></span>过大时，树状数组中有很多没在原数组出现过的值，这些值并不会影响答案，也就是说原数组中最多出现<span
+class="math inline"><em>n</em></span>个不同的数。</p>
+<p>离散化的作用就是将没出现过的值排除在外，只在树状数组中保留出现过的值，这样就可以降低空间复杂度至<span
+class="math inline"><em>O</em>(<em>n</em>)</span>级别了。</p>
+<h3 id="离散化的步骤">离散化的步骤</h3>
+<ol type="1">
+<li>获取原数组的所有值，并排序。</li>
+<li>排序数组去重。</li>
+<li>使用快速查询原数组的值在排序数组中的下标的函数，使用二分可以达到<span
+class="math inline"><em>O</em>(<em>l</em><em>o</em><em>g</em><em>n</em>)</span>的单次查询。</li>
+</ol>
+<h3 id="dp数组再重定义">dp数组再重定义</h3>
+<p>根据离散化，再次重新定义<span
+class="math inline"><em>d</em><em>p</em><sub><em>i</em></sub></span>的含义：以排序数组下标<span
+class="math inline"><em>i</em></span>对应原数组元素结尾的<span
+class="math inline"><em>L</em><em>I</em><em>S</em></span>的最大长度。</p>
+<h3 id="代码实现-1">代码实现</h3>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> ll = <span class="type">long</span> <span class="type">long</span>;</span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">BIT</span>&#123;</span><br><span class="line">    <span class="type">int</span> n;</span><br><span class="line">    vector&lt;ll&gt; bit;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">BIT</span>(<span class="type">int</span> n):<span class="built_in">n</span>(n),<span class="built_in">bit</span>(n<span class="number">+1</span>,<span class="number">0</span>)&#123;&#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">lowbit</span><span class="params">(<span class="type">int</span> x)</span></span>&#123;<span class="keyword">return</span> x&amp;-x;&#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">upd</span><span class="params">(<span class="type">int</span> i,<span class="type">int</span> k)</span></span>&#123; <span class="comment">// 更新前缀最大值</span></span><br><span class="line">        <span class="keyword">while</span>(i&lt;=n)&#123;</span><br><span class="line">            bit[i] = <span class="built_in">max</span>(bit[i],k);</span><br><span class="line">            i += <span class="built_in">lowbit</span>(i);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">query</span><span class="params">(<span class="type">int</span> i)</span></span>&#123; <span class="comment">// 查询前缀最大值</span></span><br><span class="line">        <span class="type">int</span> res = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(i)&#123;</span><br><span class="line">            res = <span class="built_in">max</span>(bit[i],res);</span><br><span class="line">            i -= <span class="built_in">lowbit</span>(i);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> n; cin &gt;&gt; n;</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">a</span><span class="params">(n<span class="number">+1</span>,<span class="number">0</span>)</span></span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">        cin &gt;&gt; a[i];</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    vector&lt;<span class="type">int</span>&gt; t = a;</span><br><span class="line">    <span class="built_in">sort</span>(t.<span class="built_in">begin</span>(),t.<span class="built_in">end</span>());</span><br><span class="line">    <span class="type">int</span> A = <span class="number">1</span>;</span><br><span class="line">    <span class="comment">// 可以使用t.erase(unique(t.begin(),t.end()),t.end())代替</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(t[i]!=t[i<span class="number">-1</span>])&#123; <span class="comment">// 有序数组去重，时间复杂度O(n)</span></span><br><span class="line">            t[A++] = t[i];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">auto</span> rank = [&amp;](<span class="type">int</span> x)-&gt;<span class="type">int</span></span><br><span class="line">    &#123; <span class="comment">// 二分，可以使用系统内置lower_bound函数代替，但是要确保下标从1开始</span></span><br><span class="line">        <span class="type">int</span> l = <span class="number">1</span>,r = A,mid ,ans = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(l&lt;=r)&#123;</span><br><span class="line">            mid = l+r&gt;&gt;<span class="number">1</span>;</span><br><span class="line">            <span class="keyword">if</span>(t[mid]&gt;=x)&#123;</span><br><span class="line">                ans = mid;</span><br><span class="line">                r = mid<span class="number">-1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span>&#123;</span><br><span class="line">                l = mid<span class="number">+1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;;</span><br><span class="line">    </span><br><span class="line">    <span class="function">BIT <span class="title">dp</span><span class="params">(A)</span></span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">        dp.<span class="built_in">upd</span>(a[i],dp.<span class="built_in">query</span>(<span class="built_in">rank</span>(a[i])<span class="number">-1</span>)<span class="number">+1</span>); <span class="comment">// 注意是查询下标</span></span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; dp.<span class="built_in">query</span>(<span class="built_in">rank</span>(A)) &lt;&lt; endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>时间复杂度：<span
+class="math inline"><em>O</em>(<em>n</em>×<em>l</em><em>o</em><em>g</em><em>m</em><em>a</em><em>x</em>(<em>n</em>,<em>A</em>))</span></p>
+<p>空间复杂度：<span
+class="math inline"><em>O</em>(<em>n</em>)</span></p>
+<h2 id="权值树状数组线段树">权值树状数组/线段树</h2>
+<ul>
+<li>权值数组定义：一个序列<span
+class="math inline"><em>a</em></span>的权值数组<span
+class="math inline"><em>b</em></span>，满足<span
+class="math inline"><em>b</em><sub><em>x</em></sub></span>的值为<span
+class="math inline"><em>x</em></span> 在<span
+class="math inline"><em>a</em></span>中的出现次数。</li>
+</ul>
+<p>例如：<span
+class="math inline"><em>a</em></span>=(1,3,4,3,4)的权值数组为<span
+class="math inline"><em>b</em></span>=(1,0,2,2)</p>
+<p>权值数组是原数组无序性的一种表示：它重点描述数组的元素内容，忽略了数组的顺序，若两数组只是顺序不同，所含内容一致，则它们的权值数组相同。</p>
+<p>在原数组的权值数组上构建树状数组，就是权值树状数组。</p>
+<h3 id="适用范围">适用范围</h3>
+<ul>
+<li>需要动态统计某个数值范围内的元素个数 / 总和（比如 “比 x
+小的元素有多少个”）</li>
+<li>问题核心是 “数值的频率 / 权重”，而非 “元素的位置”；</li>
+<li>数值范围可通过离散化映射到有限区间（1~n）。</li>
+</ul>
+<h3 id="一般解题步骤">一般解题步骤</h3>
+<ol type="1">
+<li>对原数组做离散化</li>
+<li>实现树状数组/线段树的模板，更新与查询</li>
+<li>结合题目逻辑，汇总答案</li>
+</ol>
+<p>代码实现都在<span
+class="math inline"><em>L</em><em>I</em><em>S</em></span>的模板里面了。</p>
+<h3 id="类似题目">类似题目</h3>
+<p><span class="exturl" data-url="aHR0cHM6Ly93d3cubHVvZ3UuY29tLmNuL3Byb2JsZW0vUDE5MDg=">P1908 逆序对<i class="fa fa-external-link-alt"></i></span></p>
+<p><span class="exturl" data-url="aHR0cHM6Ly93d3cubHVvZ3UuY29tLmNuL3Byb2JsZW0vUDE0Mzk=">P1439
+两个排列的最长公共子序列<i class="fa fa-external-link-alt"></i></span></p>
+<p><span class="exturl" data-url="aHR0cHM6Ly93d3cubHVvZ3UuY29tLmNuL3Byb2JsZW0vUDE2Mzc=">P1637
+三元上升子序列<i class="fa fa-external-link-alt"></i></span></p>
+<p><a
+target="_blank" rel="noopener" href="https://ac.nowcoder.com/acm/contest/122724/F">小苯的极大支配</a></p>
+
+    </div>
+
+    
+    
+    
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>RoBin05
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://blog.wustacm.org/2026/02/06/about_LIS(2)/" title="关于LIS(最长递增子序列)(2)">http://blog.wustacm.org/2026/02/06/about_LIS(2)/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</span> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+        
+
+  <div class="followme">
+    <p>欢迎关注我的其它发布渠道</p>
+
+    <div class="social-list">
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="https://wustacm.scandidreams.top/wiki/">
+            <span class="icon">
+              <i class="fab fa-wiki"></i>
+            </span>
+
+            <span class="label">wiki</span>
+          </a>
+        </div>
+    </div>
+  </div>
+
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/%E7%AE%97%E6%B3%95/" rel="tag"><i class="fa fa-tag"></i> 算法</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2026/01/30/Codeforces%20Round%201077%20(Div.%202)%E9%A2%98%E8%A7%A3/" rel="prev" title="Codeforces Round 1077 (Div. 2)题解">
+      <i class="fa fa-chevron-left"></i> Codeforces Round 1077 (Div. 2)题解
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%85%B3%E4%BA%8Elis%E6%9C%80%E9%95%BF%E9%80%92%E5%A2%9E%E5%AD%90%E5%BA%8F%E5%88%972"><span class="nav-number">1.</span> <span class="nav-text">关于LIS(最长递增子序列)(2)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%B4%E7%B4%A0%E7%9A%84%E6%9A%B4%E5%8A%9B%E5%B0%9D%E8%AF%95"><span class="nav-number">1.1.</span> <span class="nav-text">朴素的暴力尝试</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84%E4%BC%98%E5%8C%96"><span class="nav-number">1.2.</span> <span class="nav-text">树状数组优化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#dp%E6%95%B0%E7%BB%84%E9%87%8D%E5%AE%9A%E4%B9%89"><span class="nav-number">1.2.1.</span> <span class="nav-text">dp数组重定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E8%AF%A2%E4%B8%8E%E6%9B%B4%E6%96%B0%E7%AD%94%E6%A1%88"><span class="nav-number">1.2.2.</span> <span class="nav-text">查询与更新答案</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="nav-number">1.2.3.</span> <span class="nav-text">代码实现</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A6%BB%E6%95%A3%E5%8C%96%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84"><span class="nav-number">1.3.</span> <span class="nav-text">离散化+树状数组</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A6%BB%E6%95%A3%E5%8C%96%E7%9A%84%E6%AD%A5%E9%AA%A4"><span class="nav-number">1.3.1.</span> <span class="nav-text">离散化的步骤</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#dp%E6%95%B0%E7%BB%84%E5%86%8D%E9%87%8D%E5%AE%9A%E4%B9%89"><span class="nav-number">1.3.2.</span> <span class="nav-text">dp数组再重定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0-1"><span class="nav-number">1.3.3.</span> <span class="nav-text">代码实现</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9D%83%E5%80%BC%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84%E7%BA%BF%E6%AE%B5%E6%A0%91"><span class="nav-number">1.4.</span> <span class="nav-text">权值树状数组&#x2F;线段树</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%82%E7%94%A8%E8%8C%83%E5%9B%B4"><span class="nav-number">1.4.1.</span> <span class="nav-text">适用范围</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E8%88%AC%E8%A7%A3%E9%A2%98%E6%AD%A5%E9%AA%A4"><span class="nav-number">1.4.2.</span> <span class="nav-text">一般解题步骤</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B1%BB%E4%BC%BC%E9%A2%98%E7%9B%AE"><span class="nav-number">1.4.3.</span> <span class="nav-text">类似题目</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Blog</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">52</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1dVU1RBQ00vYmxvZy5naXRodWIuaW8=" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;WUSTACM&#x2F;blog.github.io"><i class="fab fa-github fa-fw"></i>GitHub</span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly93dXN0YWNtLnNjYW5kaWRyZWFtcy50b3Avd2lraS8=" title="wiki → https:&#x2F;&#x2F;wustacm.scandidreams.top&#x2F;wiki&#x2F;"><i class="fab fa-bilibili fa-fw"></i>wiki</span>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <span class="exturl cc-opacity" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></span>
+  </div>
+
+
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+  <div class="languages">
+    <label class="lang-select-label">
+      <i class="fa fa-language"></i>
+      <span>简体中文</span>
+      <i class="fa fa-angle-up" aria-hidden="true"></i>
+    </label>
+    <select class="lang-select" data-canonical="">
+      
+        <option value="zh-CN" data-href="/2026/02/06/about_LIS(2)/" selected="">
+          简体中文
+        </option>
+      
+        <option value="en" data-href="/en/2026/02/06/about_LIS(2)/" selected="">
+          English
+        </option>
+      
+    </select>
+  </div>
+
+        
+
+<div class="copyright">
+  
+  &copy; 2025 – 
+  <span itemprop="copyrightYear">2026</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Blog</span>
+</div>
+  <div class="powered-by">由 <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl theme-link" data-url="aHR0cHM6Ly90aGVtZS1uZXh0Lm9yZw==">NexT.Gemini</span> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/pjax/pjax.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '.languages',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[data-pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.dataset.pjax !== undefined) {
+      script.dataset.pjax = '';
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : 'QCMzzxhYIC5ZhGjunFmzzGNs-gzGzoHsz',
+      appKey     : 'mrUydHkXNGvacgPVL5OoK8UC',
+      placeholder: "Just go go",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : true,
+      lang       : 'zh-CN' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : true,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+    </div>
+</body>
+</html>
