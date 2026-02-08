@@ -1,5 +1,5 @@
 ---
-title: Codeforces Round 1077 (Div. 2)题解
+title: Codeforces Round 1078 (Div. 2)题解
 date: 2026-2-09
 tags: [题解]
 categories: [题解]
