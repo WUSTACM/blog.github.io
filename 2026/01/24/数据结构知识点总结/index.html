@@ -20,15 +20,15 @@
     var CONFIG = {"hostname":"blog.wustacm.org","root":"/","scheme":"Gemini","version":"7.8.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":"flat"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="数据结构知识点总结 本文围绕“数据结构基础-线性结构-树形结构-图形结构-查找-排序”的逻辑展开。">
+  <meta name="description" content="数据结构知识点总结本文围绕“数据结构基础-线性结构-树形结构-图形结构-查找-排序”的逻辑展开。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="学校-数据结构知识点总结">
 <meta property="og:url" content="http://blog.wustacm.org/2026/01/24/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/index.html">
 <meta property="og:site_name" content="WUSTACM">
-<meta property="og:description" content="数据结构知识点总结 本文围绕“数据结构基础-线性结构-树形结构-图形结构-查找-排序”的逻辑展开。">
+<meta property="og:description" content="数据结构知识点总结本文围绕“数据结构基础-线性结构-树形结构-图形结构-查找-排序”的逻辑展开。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2026-01-24T00:00:00.000Z">
-<meta property="article:modified_time" content="2026-02-12T17:34:03.317Z">
+<meta property="article:modified_time" content="2026-02-24T10:51:40.982Z">
 <meta property="article:author" content="Blog">
 <meta property="article:tag" content="数据结构复习">
 <meta name="twitter:card" content="summary">
@@ -227,7 +227,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2026-02-12 17:34:03" itemprop="dateModified" datetime="2026-02-12T17:34:03+00:00">2026-02-12</time>
+                <time title="修改时间：2026-02-24 10:51:40" itemprop="dateModified" datetime="2026-02-24T10:51:40+00:00">2026-02-24</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -271,575 +271,436 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="数据结构知识点总结">数据结构知识点总结</h1>
-<p>本文围绕“数据结构基础-线性结构-树形结构-图形结构-查找-排序”的逻辑展开。
-<span id="more"></span></p>
-<h2 id="一数据结构与算法基础">一、数据结构与算法基础</h2>
-<h3 id="数据结构核心概念">1. 数据结构核心概念</h3>
-<ul>
-<li><strong>基本术语</strong>：
-<ul>
+        <h1 id="数据结构知识点总结"><a href="#数据结构知识点总结" class="headerlink" title="数据结构知识点总结"></a>数据结构知识点总结</h1><p>本文围绕“数据结构基础-线性结构-树形结构-图形结构-查找-排序”的逻辑展开。 </p>
+<span id="more"></span>
+
+<h2 id="一、数据结构与算法基础"><a href="#一、数据结构与算法基础" class="headerlink" title="一、数据结构与算法基础"></a>一、数据结构与算法基础</h2><h3 id="1-数据结构核心概念"><a href="#1-数据结构核心概念" class="headerlink" title="1. 数据结构核心概念"></a>1. 数据结构核心概念</h3><ul>
+<li><strong>基本术语</strong>：<ul>
 <li>数据：客观事物的符号表示（如图像、声音）。</li>
 <li>数据元素：数据的基本单位（如一条学生记录）。</li>
 <li>数据项：数据元素的不可分割最小单位（如学生记录中的“学号”“姓名”）。</li>
 <li>数据对象：具有相同性质的数据元素集合（如所有学生记录）。</li>
-<li>数据结构：相互存在特定关系的数据元素集合，形式定义为<strong>二元组
-<span
-class="math inline"><em>D</em><em>a</em><em>t</em><em>a</em><em>S</em><em>t</em><em>r</em><em>u</em><em>c</em><em>t</em><em>u</em><em>r</em><em>e</em> = (<em>D</em>,<em>S</em>)</span></strong>（<span
-class="math inline"><em>D</em></span> 为数据元素有限集，<span
-class="math inline"><em>S</em></span> 为 <span
-class="math inline"><em>D</em></span> 上关系有限集）。</li>
-</ul></li>
-<li><strong>数据结构三要素</strong>：
-<ol type="1">
-<li><strong>逻辑结构</strong>：数据元素间的逻辑关系（与存储无关）：
-<ul>
+<li>数据结构：相互存在特定关系的数据元素集合，形式定义为<strong>二元组 $Data Structure&#x3D;(D, S)$</strong>（$D$ 为数据元素有限集，$S$ 为 $D$ 上关系有限集）。</li>
+</ul>
+</li>
+<li><strong>数据结构三要素</strong>：<ol>
+<li><strong>逻辑结构</strong>：数据元素间的逻辑关系（与存储无关）：<ul>
 <li>线性结构：元素间“一对一”（如线性表、栈、队列、串、数组）。</li>
 <li>非线性结构：元素间“一对多”（树）、“多对多”（图）或无明确关系（集合）。</li>
-</ul></li>
-<li><strong>存储结构（物理结构）</strong>：数据在计算机中的表示，共4种：
-<ul>
-<li>顺序存储：逻辑相邻元素物理也相邻（如数组），支持随机存取，插入/删除需移动元素。</li>
-<li>链式存储：用指针表示元素间关系（如链表），无需连续空间，插入/删除无需移动元素。</li>
+</ul>
+</li>
+<li><strong>存储结构（物理结构）</strong>：数据在计算机中的表示，共4种：<ul>
+<li>顺序存储：逻辑相邻元素物理也相邻（如数组），支持随机存取，插入&#x2F;删除需移动元素。</li>
+<li>链式存储：用指针表示元素间关系（如链表），无需连续空间，插入&#x2F;删除无需移动元素。</li>
 <li>索引存储：存储元素+索引表，适合快速查找。</li>
 <li>散列存储（哈希）：按关键字直接计算存储地址，查找效率高，需处理冲突。</li>
-</ul></li>
-<li><strong>数据的运算</strong>：对数据元素的操作（如插入、删除、查找）。</li>
-</ol></li>
 </ul>
-<h3 id="算法核心概念">2. 算法核心概念</h3>
-<ul>
-<li><strong>算法的5个基本特性</strong>：
-<ul>
+</li>
+<li><strong>数据的运算</strong>：对数据元素的操作（如插入、删除、查找）。</li>
+</ol>
+</li>
+</ul>
+<h3 id="2-算法核心概念"><a href="#2-算法核心概念" class="headerlink" title="2. 算法核心概念"></a>2. 算法核心概念</h3><ul>
+<li><strong>算法的5个基本特性</strong>：<ul>
 <li>有穷性：执行有限步后结束，每步耗时有限。</li>
 <li>确定性：指令含义明确，相同输入必有相同输出。</li>
 <li>可行性：操作可通过基本运算有限次实现。</li>
 <li>输入：0个或多个输入。</li>
 <li>输出：1个或多个输出。</li>
-</ul></li>
-<li><strong>“好算法”的4个目标</strong>：
-<ul>
+</ul>
+</li>
+<li><strong>“好算法”的4个目标</strong>：<ul>
 <li>正确性：能正确求解问题。</li>
 <li>可读性：便于理解。</li>
 <li>健壮性：输入非法数据时能合理处理。</li>
 <li>效率与低存储：执行时间短，占用存储空间小。</li>
-</ul></li>
-<li><strong>算法效率度量（复杂度）</strong>：
-<ul>
-<li>时间复杂度：分析语句频度之和 <span
-class="math inline"><em>T</em>(<em>n</em>)</span>
-的数量级，核心是“找主导项”：
-<ul>
-<li>加法规则：<span
-class="math inline"><em>T</em>(<em>n</em>) = <em>O</em>(<em>m</em><em>a</em><em>x</em>(<em>f</em>(<em>n</em>),<em>g</em>(<em>n</em>)))</span>（取增长快的项）。</li>
-<li>乘法规则：<span
-class="math inline"><em>T</em>(<em>n</em>) = <em>O</em>(<em>f</em>(<em>n</em>)×<em>g</em>(<em>n</em>))</span>。</li>
-<li>常见复杂度顺序：<span
-class="math inline"><em>O</em>(1) &lt; <em>O</em>(<em>l</em><em>o</em><em>g</em><sub>2</sub><em>n</em>) &lt; <em>O</em>(<em>n</em>) &lt; <em>O</em>(<em>n</em><em>l</em><em>o</em><em>g</em><sub>2</sub><em>n</em>) &lt; <em>O</em>(<em>n</em>²) &lt; <em>O</em>(<em>n</em>³) &lt; <em>O</em>(2<em>ⁿ</em>) &lt; <em>O</em>(<em>n</em>!) &lt; <em>O</em>(<em>n</em><em>ⁿ</em>)</span>。</li>
-</ul></li>
-<li>空间复杂度：算法执行所需最大存储空间（如数组占 <span
-class="math inline"><em>O</em>(<em>n</em>)</span>，递归栈占 <span
-class="math inline"><em>O</em>(<em>l</em><em>o</em><em>g</em><sub>2</sub><em>n</em>)</span>）。</li>
-</ul></li>
 </ul>
-<h2 id="二线性表之顺序表">二、线性表之顺序表</h2>
-<h3 id="线性表基础">1. 线性表基础</h3>
-<ul>
-<li><strong>定义</strong>：具有相同数据类型的 <span
-class="math inline"><em>n</em>(<em>n</em>≥0)</span>
-个数据元素的有限序列，记为 <span
-class="math inline"><em>L</em> = (<em>a</em><sub>1</sub>,<em>a</em><sub>2</sub>,...,<em>a</em><sub><em>n</em></sub>)</span>：
-<ul>
+</li>
+<li><strong>算法效率度量（复杂度）</strong>：<ul>
+<li>时间复杂度：分析语句频度之和 $T(n)$ 的数量级，核心是“找主导项”：<ul>
+<li>加法规则：$T(n)&#x3D;O(max(f(n),g(n)))$（取增长快的项）。</li>
+<li>乘法规则：$T(n)&#x3D;O(f(n)×g(n))$。</li>
+<li>常见复杂度顺序：$O(1)&lt;O(log_2n)&lt;O(n)&lt;O(nlog_2n)&lt;O(n²)&lt;O(n³)&lt;O(2ⁿ)&lt;O(n!)&lt;O(nⁿ)$。</li>
+</ul>
+</li>
+<li>空间复杂度：算法执行所需最大存储空间（如数组占 $O(n)$，递归栈占 $O(log_2n)$）。</li>
+</ul>
+</li>
+</ul>
+<h2 id="二、线性表之顺序表"><a href="#二、线性表之顺序表" class="headerlink" title="二、线性表之顺序表"></a>二、线性表之顺序表</h2><h3 id="1-线性表基础"><a href="#1-线性表基础" class="headerlink" title="1. 线性表基础"></a>1. 线性表基础</h3><ul>
+<li><strong>定义</strong>：具有相同数据类型的 $n(n≥0)$ 个数据元素的有限序列，记为 $L&#x3D;(a_1,a_2,…,a_n)$：<ul>
 <li>除首元素外，每个元素有且仅有一个直接前驱。</li>
 <li>除尾元素外，每个元素有且仅有一个直接后继。</li>
-</ul></li>
-<li><strong>基本操作</strong>：初始化、求表长、按位查找（<span
-class="math inline"><em>G</em><em>e</em><em>t</em><em>E</em><em>l</em><em>e</em><em>m</em></span>）、按值查找（<span
-class="math inline"><em>L</em><em>o</em><em>c</em><em>a</em><em>t</em><em>e</em><em>E</em><em>l</em><em>e</em><em>m</em></span>）、插入（<span
-class="math inline"><em>L</em><em>i</em><em>s</em><em>t</em><em>I</em><em>n</em><em>s</em><em>e</em><em>r</em><em>t</em></span>）、删除（<span
-class="math inline"><em>L</em><em>i</em><em>s</em><em>t</em><em>D</em><em>e</em><em>l</em><em>e</em><em>t</em><em>e</em></span>）、判空、销毁。</li>
 </ul>
-<h3 id="顺序表线性表的顺序存储">2. 顺序表（线性表的顺序存储）</h3>
-<ul>
-<li><strong>结构特点</strong>：
-<ul>
+</li>
+<li><strong>基本操作</strong>：初始化、求表长、按位查找（$GetElem$）、按值查找（$LocateElem$）、插入（$ListInsert$）、删除（$ListDelete$）、判空、销毁。</li>
+</ul>
+<h3 id="2-顺序表（线性表的顺序存储）"><a href="#2-顺序表（线性表的顺序存储）" class="headerlink" title="2. 顺序表（线性表的顺序存储）"></a>2. 顺序表（线性表的顺序存储）</h3><ul>
+<li><strong>结构特点</strong>：<ul>
 <li>用连续存储单元存储元素，逻辑相邻→物理相邻。</li>
-<li>静态分配：数组大小固定（如
-<code>#define MaxSize 50</code>），易溢出；动态分配：用指针申请空间（<code>malloc</code>），可扩容。</li>
-<li>核心优势：<strong>随机存取</strong>（通过首地址+元素序号快速定位，时间
-(O(1))）；存储密度高（仅存数据元素）。</li>
-</ul></li>
-<li><strong>核心操作</strong>：
-<ul>
-<li>插入：在第 <span
-class="math inline"><em>i</em>(1≤<em>i</em>≤<em>L</em>.<em>l</em><em>e</em><em>n</em><em>g</em><em>t</em><em>h</em>+1)</span>
-位插入，需将第 <span class="math inline"><em>i</em></span>
-位及后续元素右移，移动次数 <span
-class="math inline"><em>n</em> − <em>i</em> + 1</span>（<span
-class="math inline"><em>n</em></span> 为表长）。</li>
-<li>删除：删除第 <span
-class="math inline"><em>i</em>(1≤<em>i</em>≤<em>L</em>.<em>l</em><em>e</em><em>n</em><em>g</em><em>t</em><em>h</em>)</span>
-位元素，需将第 <span class="math inline"><em>i</em> + 1</span>
-位及后续元素左移，移动次数 <span
-class="math inline"><em>n</em> − <em>i</em></span>。</li>
-<li>合并有序顺序表：按“取较小元素”规则合并两个有序表，时间
-(O(m+n))（(m,n) 为两表长度）。</li>
-</ul></li>
+<li>静态分配：数组大小固定（如 <code>#define MaxSize 50</code>），易溢出；动态分配：用指针申请空间（<code>malloc</code>），可扩容。</li>
+<li>核心优势：<strong>随机存取</strong>（通过首地址+元素序号快速定位，时间 (O(1))）；存储密度高（仅存数据元素）。</li>
 </ul>
-<h2 id="三线性表之链表">三、线性表之链表</h2>
-<h3 id="单链表线性表的链式存储">1. 单链表（线性表的链式存储）</h3>
-<ul>
-<li><strong>结构特点</strong>：
-<ul>
+</li>
+<li><strong>核心操作</strong>：<ul>
+<li>插入：在第 $i(1≤i≤L.length+1)$ 位插入，需将第 $i$ 位及后续元素右移，移动次数 $n-i+1$（$n$ 为表长）。</li>
+<li>删除：删除第 $i(1≤i≤L.length)$ 位元素，需将第 $i+1$ 位及后续元素左移，移动次数 $n-i$。</li>
+<li>合并有序顺序表：按“取较小元素”规则合并两个有序表，时间 (O(m+n))（(m,n) 为两表长度）。</li>
+</ul>
+</li>
+</ul>
+<h2 id="三、线性表之链表"><a href="#三、线性表之链表" class="headerlink" title="三、线性表之链表"></a>三、线性表之链表</h2><h3 id="1-单链表（线性表的链式存储）"><a href="#1-单链表（线性表的链式存储）" class="headerlink" title="1. 单链表（线性表的链式存储）"></a>1. 单链表（线性表的链式存储）</h3><ul>
+<li><strong>结构特点</strong>：<ul>
 <li>结点含“数据域”和“指针域”（指向后继结点），用头指针标识链表；通常加<strong>头结点</strong>（简化首元素操作，空表时头指针非空）。</li>
 <li>元素存储地址可连续可离散，无需预分配空间。</li>
-</ul></li>
-<li><strong>核心操作</strong>：
-<ul>
-<li>查找：按序号查找（遍历，时间 (O(n))）、按值查找（遍历，时间
-(O(n))）。</li>
-<li>插入：在第 (i) 位插入，需先找第 (i-1) 位前驱结点，指针操作
-<code>s-&gt;next=p-&gt;next; p-&gt;next=s</code>（顺序不可颠倒）。</li>
-<li>删除：删除第 (i) 位元素，找第 (i-1) 位前驱结点，指针操作
-<code>p-&gt;next=p-&gt;next-&gt;next</code>，释放待删结点。</li>
-</ul></li>
 </ul>
-<h3 id="双链表与循环链表">2. 双链表与循环链表</h3>
-<ul>
-<li><strong>双链表</strong>：
-<ul>
+</li>
+<li><strong>核心操作</strong>：<ul>
+<li>查找：按序号查找（遍历，时间 (O(n))）、按值查找（遍历，时间 (O(n))）。</li>
+<li>插入：在第 (i) 位插入，需先找第 (i-1) 位前驱结点，指针操作 <code>s-&gt;next=p-&gt;next; p-&gt;next=s</code>（顺序不可颠倒）。</li>
+<li>删除：删除第 (i) 位元素，找第 (i-1) 位前驱结点，指针操作 <code>p-&gt;next=p-&gt;next-&gt;next</code>，释放待删结点。</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-双链表与循环链表"><a href="#2-双链表与循环链表" class="headerlink" title="2. 双链表与循环链表"></a>2. 双链表与循环链表</h3><ul>
+<li><strong>双链表</strong>：<ul>
 <li>结点含“前驱指针（prior）”和“后继指针（next）”，支持双向遍历。</li>
-<li>插入（在 (p) 后插
-(s)）：<code>s-&gt;next=p-&gt;next; if(p-&gt;next) p-&gt;next-&gt;prior=s; s-&gt;prior=p; p-&gt;next=s</code>。</li>
-<li>删除（删 (p) 的后继
-(q)）：<code>p-&gt;next=q-&gt;next; if(q-&gt;next) q-&gt;next-&gt;prior=p; free(q)</code>。</li>
-</ul></li>
-<li><strong>循环链表</strong>：
-<ul>
-<li>单循环：尾结点指针指向头结点，判空条件
-<code>L-&gt;next==L</code>。</li>
-<li>双循环：尾结点 <code>next</code> 指向头结点，头结点
-<code>prior</code> 指向尾结点，空表时 <code>L-&gt;next==L</code> 且
-<code>L-&gt;prior==L</code>。</li>
-</ul></li>
+<li>插入（在 (p) 后插 (s)）：<code>s-&gt;next=p-&gt;next; if(p-&gt;next) p-&gt;next-&gt;prior=s; s-&gt;prior=p; p-&gt;next=s</code>。</li>
+<li>删除（删 (p) 的后继 (q)）：<code>p-&gt;next=q-&gt;next; if(q-&gt;next) q-&gt;next-&gt;prior=p; free(q)</code>。</li>
 </ul>
-<h2 id="四栈与队列">四、栈与队列</h2>
-<h3 id="栈操作受限的线性表">1. 栈（操作受限的线性表）</h3>
-<ul>
-<li><strong>核心概念</strong>：
-<ul>
+</li>
+<li><strong>循环链表</strong>：<ul>
+<li>单循环：尾结点指针指向头结点，判空条件 <code>L-&gt;next==L</code>。</li>
+<li>双循环：尾结点 <code>next</code> 指向头结点，头结点 <code>prior</code> 指向尾结点，空表时 <code>L-&gt;next==L</code> 且 <code>L-&gt;prior==L</code>。</li>
+</ul>
+</li>
+</ul>
+<h2 id="四、栈与队列"><a href="#四、栈与队列" class="headerlink" title="四、栈与队列"></a>四、栈与队列</h2><h3 id="1-栈（操作受限的线性表）"><a href="#1-栈（操作受限的线性表）" class="headerlink" title="1. 栈（操作受限的线性表）"></a>1. 栈（操作受限的线性表）</h3><ul>
+<li><strong>核心概念</strong>：<ul>
 <li>仅允许在“栈顶”插入（进栈）和删除（出栈），遵循“先进后出（LIFO）”。</li>
 <li>栈顶：操作端；栈底：固定端；空栈：无元素。</li>
-</ul></li>
-<li><strong>存储结构</strong>：
-<ul>
-<li>顺序栈：用数组存储，栈顶指针 <code>top</code> 初始
-<code>-1</code>，进栈 <code>++top</code> 后存值，出栈取 <code>top</code>
-值后 <code>--top</code>。</li>
-<li>链栈：用单链表存储，栈顶为表头，无栈满问题，进栈/出栈均为表头操作（时间
-(O(1))）。</li>
-<li>共享栈：两个栈共享数组，栈底在两端，栈满条件
-<code>top1-top0==1</code>（提高空间利用率）。</li>
-</ul></li>
 </ul>
-<h3 id="队列操作受限的线性表">2. 队列（操作受限的线性表）</h3>
-<ul>
-<li><strong>核心概念</strong>：
-<ul>
+</li>
+<li><strong>存储结构</strong>：<ul>
+<li>顺序栈：用数组存储，栈顶指针 <code>top</code> 初始 <code>-1</code>，进栈 <code>++top</code> 后存值，出栈取 <code>top</code> 值后 <code>--top</code>。</li>
+<li>链栈：用单链表存储，栈顶为表头，无栈满问题，进栈&#x2F;出栈均为表头操作（时间 (O(1))）。</li>
+<li>共享栈：两个栈共享数组，栈底在两端，栈满条件 <code>top1-top0==1</code>（提高空间利用率）。</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-队列（操作受限的线性表）"><a href="#2-队列（操作受限的线性表）" class="headerlink" title="2. 队列（操作受限的线性表）"></a>2. 队列（操作受限的线性表）</h3><ul>
+<li><strong>核心概念</strong>：<ul>
 <li>仅允许在“队尾”插入（入队）、“队头”删除（出队），遵循“先进先出（FIFO）”。</li>
 <li>队头：删除端；队尾：插入端。</li>
-</ul></li>
-<li><strong>存储结构</strong>：
-<ul>
-<li>顺序队列（循环队列）：
-<ul>
-<li>用数组存储，队头指针 <code>front</code>（指向队头元素）、队尾指针
-<code>rear</code>（指向队尾元素下一位）。</li>
+</ul>
+</li>
+<li><strong>存储结构</strong>：<ul>
+<li>顺序队列（循环队列）：<ul>
+<li>用数组存储，队头指针 <code>front</code>（指向队头元素）、队尾指针 <code>rear</code>（指向队尾元素下一位）。</li>
 <li>判空：<code>front==rear</code>；判满：<code>(rear+1)%MaxSize==front</code>（预留一个空单元，避免与空队混淆）。</li>
 <li>元素个数：<code>(rear+MaxSize-front)%MaxSize</code>。</li>
-</ul></li>
-<li>链队列：用单链表存储，头指针指队头，尾指针指队尾，入队尾插、出队头删（时间
-(O(1))）。</li>
-</ul></li>
 </ul>
-<h2 id="五串与矩阵压缩存储">五、串与矩阵压缩存储</h2>
-<h3 id="串特殊线性表">1. 串（特殊线性表）</h3>
-<ul>
-<li><strong>核心概念</strong>：
-<ul>
-<li>由零个或多个字符组成的有限序列，记为 <span
-class="math inline"><em>S</em> = ′<em>a</em><sub>1</sub><em>a</em><sub>2</sub>...<em>a</em><sub><em>n</em></sub>′</span>：
-<ul>
-<li>空串：<span
-class="math inline"><em>n</em> = 0</span>；空格串：由空格组成（长度≠0）。</li>
+</li>
+<li>链队列：用单链表存储，头指针指队头，尾指针指队尾，入队尾插、出队头删（时间 (O(1))）。</li>
+</ul>
+</li>
+</ul>
+<h2 id="五、串与矩阵压缩存储"><a href="#五、串与矩阵压缩存储" class="headerlink" title="五、串与矩阵压缩存储"></a>五、串与矩阵压缩存储</h2><h3 id="1-串（特殊线性表）"><a href="#1-串（特殊线性表）" class="headerlink" title="1. 串（特殊线性表）"></a>1. 串（特殊线性表）</h3><ul>
+<li><strong>核心概念</strong>：<ul>
+<li>由零个或多个字符组成的有限序列，记为 $S&#x3D;’a_1a_2…a_n’$：<ul>
+<li>空串：$n&#x3D;0$；空格串：由空格组成（长度≠0）。</li>
 <li>子串：连续字符序列；主串：包含子串的串；子串位置：子串首字符在主串的位置。</li>
 <li>串相等：长度相同且对应字符相等。</li>
-</ul></li>
-</ul></li>
-<li><strong>基本操作</strong>：复制（<code>StrCopy</code>）、判空（<code>StrEmpty</code>）、比较（<code>StrCompare</code>）、求长（<code>StrLength</code>）、求子串（<code>SubString</code>）、连接（<code>Concat</code>）、模式匹配（BF算法：逐位比较子串与主串，时间
-(O(mn))，(m,n) 为子串、主串长度）。</li>
 </ul>
-<h3 id="矩阵压缩存储节省空间">2. 矩阵压缩存储（节省空间）</h3>
-<ul>
-<li><strong>对称矩阵</strong>：<span
-class="math inline"><em>a</em><sub><em>i</em><em>j</em></sub> = <em>a</em><sub><em>j</em><em>i</em></sub></span>，仅存下三角（含主对角线），一维数组下标
-<span class="math inline">$k=\begin{cases}\frac{i(i-1)}{2}+j-1 &amp;
-(i≥j) \\ \frac{j(j-1)}{2}+i-1 &amp; (i&lt;j)\end{cases}$</span>。</li>
-<li><strong>下三角矩阵</strong>：上三角元素为常量，存下三角+常量，下标
-<span class="math inline">$k=\frac{i(i-1)}{2}+j-1$</span>（<span
-class="math inline"><em>i</em> ≥ <em>j</em></span>）。</li>
+</li>
+</ul>
+</li>
+<li><strong>基本操作</strong>：复制（<code>StrCopy</code>）、判空（<code>StrEmpty</code>）、比较（<code>StrCompare</code>）、求长（<code>StrLength</code>）、求子串（<code>SubString</code>）、连接（<code>Concat</code>）、模式匹配（BF算法：逐位比较子串与主串，时间 (O(mn))，(m,n) 为子串、主串长度）。</li>
+</ul>
+<h3 id="2-矩阵压缩存储（节省空间）"><a href="#2-矩阵压缩存储（节省空间）" class="headerlink" title="2. 矩阵压缩存储（节省空间）"></a>2. 矩阵压缩存储（节省空间）</h3><ul>
+<li><strong>对称矩阵</strong>：$a_{ij}&#x3D;a_{ji}$，仅存下三角（含主对角线），一维数组下标 $k&#x3D;\begin{cases}\frac{i(i-1)}{2}+j-1 &amp; (i≥j) \ \frac{j(j-1)}{2}+i-1 &amp; (i&lt;j)\end{cases}$。</li>
+<li><strong>下三角矩阵</strong>：上三角元素为常量，存下三角+常量，下标 $k&#x3D;\frac{i(i-1)}{2}+j-1$（$i≥j$）。</li>
 <li><strong>稀疏矩阵</strong>：非零元素极少，用“三元组（行标,列标,值）”或“十字链表”存储，失去随机存取能力。</li>
 </ul>
-<h2 id="六树与二叉树1">六、树与二叉树（1）</h2>
-<h3 id="树的基础">1. 树的基础</h3>
-<ul>
-<li><strong>定义</strong>：<span
-class="math inline"><em>n</em>(<em>n</em>≥0)</span>
-个结点的有限集，有且仅有一个根结点，其余结点分属若干子树（互不相交）。</li>
-<li><strong>核心术语</strong>：
-<ul>
+<h2 id="六、树与二叉树（1）"><a href="#六、树与二叉树（1）" class="headerlink" title="六、树与二叉树（1）"></a>六、树与二叉树（1）</h2><h3 id="1-树的基础"><a href="#1-树的基础" class="headerlink" title="1. 树的基础"></a>1. 树的基础</h3><ul>
+<li><strong>定义</strong>：$n(n≥0)$ 个结点的有限集，有且仅有一个根结点，其余结点分属若干子树（互不相交）。</li>
+<li><strong>核心术语</strong>：<ul>
 <li>度：结点的孩子数；树的度：最大结点度；叶子结点：度为0的结点。</li>
 <li>层次：根为第1层；深度：根到结点的路径长度；高度：叶子到结点的路径长度。</li>
-</ul></li>
-<li><strong>树的性质</strong>：
-<ul>
-<li>结点数=所有结点度之和+1。</li>
-<li>度为 <span class="math inline"><em>m</em></span> 的树，第 <span
-class="math inline"><em>i</em></span> 层最多 <span
-class="math inline"><em>m</em><sup><em>i</em> − 1</sup></span>
-个结点；高度 <span class="math inline"><em>h</em></span> 最多 <span
-class="math inline">$\frac{m^h-1}{m-1}$</span> 个结点。</li>
-</ul></li>
 </ul>
-<h3 id="二叉树">2. 二叉树</h3>
-<ul>
+</li>
+<li><strong>树的性质</strong>：<ul>
+<li>结点数&#x3D;所有结点度之和+1。</li>
+<li>度为 $m$ 的树，第 $i$ 层最多 $m^{i-1}$ 个结点；高度 $h$ 最多 $\frac{m^h-1}{m-1}$ 个结点。</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-二叉树"><a href="#2-二叉树" class="headerlink" title="2. 二叉树"></a>2. 二叉树</h3><ul>
 <li><strong>定义</strong>：每个结点最多两棵子树（左、右子树有序，不可颠倒），递归定义为空树或“根+左子树+右子树”。</li>
-<li><strong>特殊二叉树</strong>：
-<ul>
+<li><strong>特殊二叉树</strong>：<ul>
 <li>满二叉树：高度 (h)，结点数 (2^h-1)（每层满结点）。</li>
-<li>完全二叉树：与同高度满二叉树的前 (n)
-个结点一一对应（叶子仅在最后两层，左密右疏）。</li>
+<li>完全二叉树：与同高度满二叉树的前 (n) 个结点一一对应（叶子仅在最后两层，左密右疏）。</li>
 <li>二叉排序树：左子树值&lt;根值&lt;右子树值（中序遍历递增）。</li>
 <li>平衡二叉树：任意结点左右子树深度差≤1。</li>
-</ul></li>
-<li><strong>二叉树性质</strong>：
-<ul>
-<li>非空二叉树：叶子数 <span
-class="math inline"><em>n</em><sub>0</sub> = <em>n</em><sub>2</sub> + 1</span>（<span
-class="math inline"><em>n</em><sub>2</sub></span> 为度2结点数）。</li>
-<li>第 (k) 层最多 (2^{k-1}) 个结点；高度 (h) 最多 (2^h-1) 个结点。</li>
-<li>完全二叉树编号：若结点编号 (i)，则双亲 (⌊i/2⌋)、左孩子 (2i)、右孩子
-(2i+1)。</li>
-</ul></li>
-<li><strong>存储结构</strong>：
-<ul>
-<li>顺序存储：适合完全二叉树，数组下标对应结点编号。</li>
-<li>链式存储（二叉链表）：结点含“数据域”“左孩子指针”“右孩子指针”，(n)
-个结点有 (n+1) 个空链域。</li>
-</ul></li>
 </ul>
-<h3 id="二叉树遍历">3. 二叉树遍历</h3>
-<ul>
-<li><strong>递归遍历</strong>：
-<ul>
+</li>
+<li><strong>二叉树性质</strong>：<ul>
+<li>非空二叉树：叶子数 $n_0&#x3D; n_2+1$（$n_2$ 为度2结点数）。</li>
+<li>第 (k) 层最多 (2^{k-1}) 个结点；高度 (h) 最多 (2^h-1) 个结点。</li>
+<li>完全二叉树编号：若结点编号 (i)，则双亲 (⌊i&#x2F;2⌋)、左孩子 (2i)、右孩子 (2i+1)。</li>
+</ul>
+</li>
+<li><strong>存储结构</strong>：<ul>
+<li>顺序存储：适合完全二叉树，数组下标对应结点编号。</li>
+<li>链式存储（二叉链表）：结点含“数据域”“左孩子指针”“右孩子指针”，(n) 个结点有 (n+1) 个空链域。</li>
+</ul>
+</li>
+</ul>
+<h3 id="3-二叉树遍历"><a href="#3-二叉树遍历" class="headerlink" title="3. 二叉树遍历"></a>3. 二叉树遍历</h3><ul>
+<li><strong>递归遍历</strong>：<ul>
 <li>先序：根→左→右（<code>visit(T); PreOrder(T-&gt;lchild); PreOrder(T-&gt;rchild)</code>）。</li>
 <li>中序：左→根→右（<code>InOrder(T-&gt;lchild); visit(T); InOrder(T-&gt;rchild)</code>）。</li>
 <li>后序：左→右→根（<code>PostOrder(T-&gt;lchild); PostOrder(T-&gt;rchild); visit(T)</code>）。</li>
-</ul></li>
-<li><strong>层次遍历</strong>：用队列实现，根入队→出队访问→左/右孩子入队→重复至队空。</li>
 </ul>
-<h2 id="七树与森林2及哈夫曼树">七、树与森林（2）及哈夫曼树</h2>
-<h3 id="树与森林的转换">1. 树与森林的转换</h3>
-<ul>
+</li>
+<li><strong>层次遍历</strong>：用队列实现，根入队→出队访问→左&#x2F;右孩子入队→重复至队空。</li>
+</ul>
+<h2 id="七、树与森林（2）及哈夫曼树"><a href="#七、树与森林（2）及哈夫曼树" class="headerlink" title="七、树与森林（2）及哈夫曼树"></a>七、树与森林（2）及哈夫曼树</h2><h3 id="1-树与森林的转换"><a href="#1-树与森林的转换" class="headerlink" title="1. 树与森林的转换"></a>1. 树与森林的转换</h3><ul>
 <li><strong>树转二叉树</strong>：兄弟结点连线→保留第一个孩子，删其他孩子连线→顺时针旋转45°（根的右子树为空）。</li>
 <li><strong>森林转二叉树</strong>：每棵树转二叉树→根结点视为兄弟连线→顺时针旋转45°（第一棵树根为二叉树根，其余树为右子树）。</li>
-<li><strong>遍历对应关系</strong>： | 树 | 森林 | 二叉树 | | ——– | ——– |
-——– | | 先根遍历 | 先序遍历 | 先序遍历 | | 后根遍历 | 中序遍历 |
-中序遍历 |</li>
+<li><strong>遍历对应关系</strong>：<table>
+<thead>
+<tr>
+<th>树</th>
+<th>森林</th>
+<th>二叉树</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>先根遍历</td>
+<td>先序遍历</td>
+<td>先序遍历</td>
+</tr>
+<tr>
+<td>后根遍历</td>
+<td>中序遍历</td>
+<td>中序遍历</td>
+</tr>
+</tbody></table>
+</li>
 </ul>
-<h3 id="二叉排序树bst">2. 二叉排序树（BST）</h3>
-<ul>
-<li><strong>操作</strong>：
-<ul>
-<li>插入：空树直接插，非空则比根值→左/右子树插入（新结点必为叶子）。</li>
-<li>删除：
-<ul>
+<h3 id="2-二叉排序树（BST）"><a href="#2-二叉排序树（BST）" class="headerlink" title="2. 二叉排序树（BST）"></a>2. 二叉排序树（BST）</h3><ul>
+<li><strong>操作</strong>：<ul>
+<li>插入：空树直接插，非空则比根值→左&#x2F;右子树插入（新结点必为叶子）。</li>
+<li>删除：<ul>
 <li>叶子结点：直接删。</li>
 <li>单孩子结点：子树替代该结点。</li>
-<li>双孩子结点：用“直接后继（右子树最小结点）”或“直接前驱（左子树最大结点）”替代，再删后继/前驱。</li>
-</ul></li>
-</ul></li>
+<li>双孩子结点：用“直接后继（右子树最小结点）”或“直接前驱（左子树最大结点）”替代，再删后继&#x2F;前驱。</li>
 </ul>
-<h3 id="哈夫曼树最优二叉树">3. 哈夫曼树（最优二叉树）</h3>
-<ul>
-<li><strong>核心概念</strong>：
-<ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="3-哈夫曼树（最优二叉树）"><a href="#3-哈夫曼树（最优二叉树）" class="headerlink" title="3. 哈夫曼树（最优二叉树）"></a>3. 哈夫曼树（最优二叉树）</h3><ul>
+<li><strong>核心概念</strong>：<ul>
 <li>带权路径长度（WPL）：所有叶子结点“路径长度×权值”之和，哈夫曼树WPL最小。</li>
-</ul></li>
-<li><strong>构造方法</strong>：
-<ol type="1">
-<li><span class="math inline"><em>n</em></span> 个权值视为 <span
-class="math inline"><em>n</em></span> 棵单结点树，构成森林。</li>
-<li>选两棵根权最小的树，构造新结点（权=两树权和，左子树权≤右子树权）。</li>
+</ul>
+</li>
+<li><strong>构造方法</strong>：<ol>
+<li>$n$ 个权值视为 $n$ 棵单结点树，构成森林。</li>
+<li>选两棵根权最小的树，构造新结点（权&#x3D;两树权和，左子树权≤右子树权）。</li>
 <li>重复2，直至森林只剩一棵树。</li>
-</ol></li>
+</ol>
+</li>
 <li><strong>哈夫曼编码</strong>：左分支0、右分支1，叶子结点编码唯一（前缀编码，无歧义）。</li>
 </ul>
-<h2 id="八图基础与遍历">八、图（基础与遍历）</h2>
-<h3 id="图的基本概念">1. 图的基本概念</h3>
-<ul>
-<li><strong>分类</strong>：
-<ul>
-<li>按边方向：无向图（边无序，记为 <span
-class="math inline">(<em>v</em>,<em>w</em>)</span>）、有向图（边有序，记为
-<span
-class="math inline"> &lt; <em>v</em>, <em>w</em>&gt;</span>，v弧尾、w弧头）。</li>
-<li>按边数量：简单图（无重复边、无自环）、多重图（有重复边/自环）、完全图（无向：任意两顶点有边；有向：任意两顶点有双向弧）。</li>
-</ul></li>
-<li><strong>核心术语</strong>：
-<ul>
-<li>连通（无向图）：两顶点有路径；连通图：任意两顶点连通；生成树：连通图的极小连通子图（边数=顶点数-1）。</li>
-<li>度：无向图顶点度=边数；有向图顶点入度（终点）、出度（起点），入度和=出度和=边数。</li>
+<h2 id="八、图（基础与遍历）"><a href="#八、图（基础与遍历）" class="headerlink" title="八、图（基础与遍历）"></a>八、图（基础与遍历）</h2><h3 id="1-图的基本概念"><a href="#1-图的基本概念" class="headerlink" title="1. 图的基本概念"></a>1. 图的基本概念</h3><ul>
+<li><strong>分类</strong>：<ul>
+<li>按边方向：无向图（边无序，记为 $(v,w)$）、有向图（边有序，记为 $&lt;v,w&gt;$，v弧尾、w弧头）。</li>
+<li>按边数量：简单图（无重复边、无自环）、多重图（有重复边&#x2F;自环）、完全图（无向：任意两顶点有边；有向：任意两顶点有双向弧）。</li>
+</ul>
+</li>
+<li><strong>核心术语</strong>：<ul>
+<li>连通（无向图）：两顶点有路径；连通图：任意两顶点连通；生成树：连通图的极小连通子图（边数&#x3D;顶点数-1）。</li>
+<li>度：无向图顶点度&#x3D;边数；有向图顶点入度（终点）、出度（起点），入度和&#x3D;出度和&#x3D;边数。</li>
 <li>网：边带权值的图。</li>
-</ul></li>
 </ul>
-<h3 id="图的存储结构">2. 图的存储结构</h3>
-<ul>
-<li><strong>邻接矩阵</strong>：
-<ul>
-<li><span class="math inline"><em>n</em> × <em>n</em></span>
-矩阵，无向图对称：若 <span
-class="math inline">(<em>v</em><sub><em>i</em></sub>,<em>v</em><sub><em>j</em></sub>)</span>
-存在，<span
-class="math inline"><em>A</em>[<em>i</em>][<em>j</em>] = 1</span>（网为权值），否则为0（网为∞）。</li>
+</li>
+</ul>
+<h3 id="2-图的存储结构"><a href="#2-图的存储结构" class="headerlink" title="2. 图的存储结构"></a>2. 图的存储结构</h3><ul>
+<li><strong>邻接矩阵</strong>：<ul>
+<li>$n×n$ 矩阵，无向图对称：若 $(v_i,v_j)$ 存在，$A[i][j]&#x3D;1$（网为权值），否则为0（网为∞）。</li>
 <li>特点：存储空间仅与顶点数有关（(O(n²))），适合稠密图；求度、判断边存在高效（(O(1))）。</li>
-</ul></li>
-<li><strong>邻接表</strong>：
-<ul>
+</ul>
+</li>
+<li><strong>邻接表</strong>：<ul>
 <li>顶点表（存顶点信息+边表头指针）+边表（存邻接点下标+指针），适合稀疏图。</li>
-<li>特点：存储空间 (O(n+e))（(e)
-为边数）；无向图边表需存两次，有向图求入度需遍历所有边表。</li>
-</ul></li>
+<li>特点：存储空间 (O(n+e))（(e) 为边数）；无向图边表需存两次，有向图求入度需遍历所有边表。</li>
 </ul>
-<h3 id="图的遍历">3. 图的遍历</h3>
-<ul>
-<li><strong>深度优先搜索（DFS）</strong>：
-<ul>
-<li>类似树先序，选起点→访问→递归访问未访问邻接点，用栈记录回溯路径，时间
-(O(n+e))。</li>
-</ul></li>
-<li><strong>广度优先搜索（BFS）</strong>：
-<ul>
-<li>类似树层次，选起点→访问→入队→出队→访问其未访问邻接点→入队，时间
-(O(n+e))。</li>
-</ul></li>
-<li><strong>连通性</strong>：无向图若一次DFS/BFS访问所有顶点，则为连通图；否则为非连通图（需多次遍历）。</li>
+</li>
 </ul>
-<h2 id="九图的应用">九、图的应用</h2>
-<h3 id="最小生成树mst">1. 最小生成树（MST）</h3>
-<ul>
-<li><strong>定义</strong>：带权连通无向图中，权值和最小的生成树（边数=顶点数-1）。</li>
-<li><strong>算法</strong>：
-<ul>
+<h3 id="3-图的遍历"><a href="#3-图的遍历" class="headerlink" title="3. 图的遍历"></a>3. 图的遍历</h3><ul>
+<li><strong>深度优先搜索（DFS）</strong>：<ul>
+<li>类似树先序，选起点→访问→递归访问未访问邻接点，用栈记录回溯路径，时间 (O(n+e))。</li>
+</ul>
+</li>
+<li><strong>广度优先搜索（BFS）</strong>：<ul>
+<li>类似树层次，选起点→访问→入队→出队→访问其未访问邻接点→入队，时间 (O(n+e))。</li>
+</ul>
+</li>
+<li><strong>连通性</strong>：无向图若一次DFS&#x2F;BFS访问所有顶点，则为连通图；否则为非连通图（需多次遍历）。</li>
+</ul>
+<h2 id="九、图的应用"><a href="#九、图的应用" class="headerlink" title="九、图的应用"></a>九、图的应用</h2><h3 id="1-最小生成树（MST）"><a href="#1-最小生成树（MST）" class="headerlink" title="1. 最小生成树（MST）"></a>1. 最小生成树（MST）</h3><ul>
+<li><strong>定义</strong>：带权连通无向图中，权值和最小的生成树（边数&#x3D;顶点数-1）。</li>
+<li><strong>算法</strong>：<ul>
 <li>Prim算法：从某顶点出发，每次选“与当前树最近的顶点”及对应边，直至含所有顶点（适合稠密图）。</li>
 <li>Kruskal算法：按边权从小到大选边，若不构环则加入，直至含所有顶点（用并查集判环，适合稀疏图）。</li>
-</ul></li>
 </ul>
-<h3 id="最短路径dijkstra算法">2. 最短路径（Dijkstra算法）</h3>
-<ul>
+</li>
+</ul>
+<h3 id="2-最短路径（Dijkstra算法）"><a href="#2-最短路径（Dijkstra算法）" class="headerlink" title="2. 最短路径（Dijkstra算法）"></a>2. 最短路径（Dijkstra算法）</h3><ul>
 <li><strong>功能</strong>：求单源（某起点）到其他顶点的最短路径（边权非负）。</li>
-<li><strong>步骤</strong>：
-<ol type="1">
+<li><strong>步骤</strong>：<ol>
 <li>初始化：起点距离0，其他顶点距离∞，标记起点已确定。</li>
 <li>选未确定顶点中距离最小的 (u)，标记确定。</li>
-<li>更新 (u) 邻接点的距离（若 (u)
-到邻接点距离&lt;当前距离，则更新）。</li>
+<li>更新 (u) 邻接点的距离（若 (u) 到邻接点距离&lt;当前距离，则更新）。</li>
 <li>重复2-3，直至所有顶点确定。</li>
-</ol></li>
+</ol>
+</li>
 </ul>
-<h3 id="拓扑排序aov网">3. 拓扑排序（AOV网）</h3>
-<ul>
+<h3 id="3-拓扑排序（AOV网）"><a href="#3-拓扑排序（AOV网）" class="headerlink" title="3. 拓扑排序（AOV网）"></a>3. 拓扑排序（AOV网）</h3><ul>
 <li><strong>AOV网</strong>：顶点表示活动，边表示活动先后关系（无环有向图）。</li>
-<li><strong>排序步骤</strong>：
-<ol type="1">
+<li><strong>排序步骤</strong>：<ol>
 <li>选无前驱（入度0）的顶点，输出。</li>
 <li>删除该顶点及所有出边（邻接点入度-1）。</li>
 <li>重复1-2，若输出顶点数&lt;总顶点数，则有环（工程不可行）。</li>
-</ol></li>
+</ol>
+</li>
 <li><strong>特点</strong>：拓扑序列不唯一。</li>
 </ul>
-<h3 id="关键路径aoe网">4. 关键路径（AOE网）</h3>
-<ul>
+<h3 id="4-关键路径（AOE网）"><a href="#4-关键路径（AOE网）" class="headerlink" title="4. 关键路径（AOE网）"></a>4. 关键路径（AOE网）</h3><ul>
 <li><strong>AOE网</strong>：顶点表示事件，边表示活动，边权表示活动耗时（无环有向图）。</li>
-<li><strong>核心参数</strong>：
-<ul>
-<li>事件最早发生时间 (ve(k))：从源点到 (k) 的最长路径（活动最早开始时间
-(e(i)=ve(起点))）。</li>
-<li>事件最迟发生时间 (vl(k))：从汇点到 (k) 的最短路径（活动最迟开始时间
-(l(i)=vl(终点)-边权)）。</li>
-<li>关键活动：(l(i)-e(i)=0)
-的活动，关键路径=关键活动构成的最长路径（决定工程最短工期）。</li>
-</ul></li>
+<li><strong>核心参数</strong>：<ul>
+<li>事件最早发生时间 (ve(k))：从源点到 (k) 的最长路径（活动最早开始时间 (e(i)&#x3D;ve(起点))）。</li>
+<li>事件最迟发生时间 (vl(k))：从汇点到 (k) 的最短路径（活动最迟开始时间 (l(i)&#x3D;vl(终点)-边权)）。</li>
+<li>关键活动：(l(i)-e(i)&#x3D;0) 的活动，关键路径&#x3D;关键活动构成的最长路径（决定工程最短工期）。</li>
 </ul>
-<h2 id="十查找">十、查找</h2>
-<h3 id="查找基础">1. 查找基础</h3>
-<ul>
+</li>
+</ul>
+<h2 id="十、查找"><a href="#十、查找" class="headerlink" title="十、查找"></a>十、查找</h2><h3 id="1-查找基础"><a href="#1-查找基础" class="headerlink" title="1. 查找基础"></a>1. 查找基础</h3><ul>
 <li><strong>核心概念</strong>：查找表（用于查找的数据集合）、关键字（标识数据元素，主关键字唯一）、平均查找长度（ASL，比较次数平均值）。</li>
 </ul>
-<h3 id="顺序查找">2. 顺序查找</h3>
-<ul>
-<li><strong>适用</strong>：线性表（顺序/链式存储）。</li>
-<li><strong>方法</strong>：从一端遍历，对比关键字；带“哨兵”（表头/表尾存目标值）避免越界判断。</li>
-<li><strong>ASL</strong>：成功 <span
-class="math inline">$(ASL=\frac{n+1}{2})$</span>，不成功 <span
-class="math inline">(<em>A</em><em>S</em><em>L</em>=<em>n</em>+1)</span>（(n)
-为表长），时间复杂度 <span
-class="math inline">(<em>O</em>(<em>n</em>))</span>。</li>
+<h3 id="2-顺序查找"><a href="#2-顺序查找" class="headerlink" title="2. 顺序查找"></a>2. 顺序查找</h3><ul>
+<li><strong>适用</strong>：线性表（顺序&#x2F;链式存储）。</li>
+<li><strong>方法</strong>：从一端遍历，对比关键字；带“哨兵”（表头&#x2F;表尾存目标值）避免越界判断。</li>
+<li><strong>ASL</strong>：成功 $(ASL&#x3D;\frac{n+1}{2})$，不成功 $(ASL&#x3D;n+1)$（(n) 为表长），时间复杂度 $(O(n))$。</li>
 </ul>
-<h3 id="折半查找二分查找">3. 折半查找（二分查找）</h3>
-<ul>
-<li><p><strong>适用</strong>：<strong>有序顺序表</strong>（链式存储不可用）。</p></li>
-<li><p><strong>方法</strong>：<span
-class="math inline">(<em>l</em><em>o</em><em>w</em>=0,<em>h</em><em>i</em><em>g</em><em>h</em>=<em>n</em>−1) → (<em>m</em><em>i</em><em>d</em>=(<em>l</em><em>o</em><em>w</em>+<em>h</em><em>i</em><em>g</em><em>h</em>)/2)</span>→对比
-<span class="math inline">(<em>m</em><em>i</em><em>d</em>)</span>
-与目标→调整 <span
-class="math inline">(<em>l</em><em>o</em><em>w</em>/<em>h</em><em>i</em><em>g</em><em>h</em>)</span>，直至找到或
-<span
-class="math inline">(<em>l</em><em>o</em><em>w</em>&gt;<em>h</em><em>i</em><em>g</em><em>h</em>)</span>。</p></li>
-<li><p><strong>ASL</strong>：成功 <span
-class="math inline">(<em>A</em><em>S</em><em>L</em>≈<em>l</em><em>o</em><em>g</em><sub>2</sub>(<em>n</em>+1)−1)</span>，时间复杂度
-<span
-class="math inline">(<em>O</em>(<em>l</em><em>o</em><em>g</em><sub>2</sub><em>n</em>))</span>。</p></li>
+<h3 id="3-折半查找（二分查找）"><a href="#3-折半查找（二分查找）" class="headerlink" title="3. 折半查找（二分查找）"></a>3. 折半查找（二分查找）</h3><ul>
+<li><p><strong>适用</strong>：<strong>有序顺序表</strong>（链式存储不可用）。</p>
+</li>
+<li><p><strong>方法</strong>：$(low&#x3D;0, high&#x3D;n-1)→(mid&#x3D;(low+high)&#x2F;2)$→对比 $(mid)$ 与目标→调整 $(low&#x2F;high)$，直至找到或 $(low&gt;high)$。</p>
+</li>
+<li><p><strong>ASL</strong>：成功 $(ASL≈log_2(n+1)-1)$，时间复杂度 $(O(log_2n))$。</p>
+</li>
 <li><p><strong>核心概念</strong>：</p>
 <ul>
-<li>散列函数：关键字→存储地址（如除留余数法 <span
-class="math inline">(<em>H</em>(<em>k</em><em>e</em><em>y</em>)=<em>k</em><em>e</em><em>y</em>%<em>p</em>)</span>，<span
-class="math inline">(<em>p</em>)</span> 为接近表长的质数）。</li>
+<li>散列函数：关键字→存储地址（如除留余数法 $(H(key)&#x3D;key%p)$，$(p)$ 为接近表长的质数）。</li>
 <li>冲突：不同关键字映射同一地址（同义词）。</li>
-</ul></li>
+</ul>
+</li>
 <li><p><strong>冲突处理</strong>：</p>
 <ul>
-<li>开放定址法：线性探测（冲突时顺次找空单元）、平方探测（冲突时找 <span
-class="math inline">(<em>H</em>(<em>k</em><em>e</em><em>y</em>)±<em>k</em>²)）</span>。</li>
+<li>开放定址法：线性探测（冲突时顺次找空单元）、平方探测（冲突时找 $(H(key)±k²)）$。</li>
 <li>拉链法：同义词存同一链表，表头存在散列表中。</li>
-</ul></li>
-<li><p><strong>装填因子</strong>：<span
-class="math inline">$(\alpha=\frac{n}{m})$</span>（<span
-class="math inline"><em>n</em></span> 记录数，<span
-class="math inline"><em>m</em></span> 表长），α越小冲突越少。</p></li>
 </ul>
-<h2 id="十一排序">十一、排序</h2>
-<h3 id="排序基础">1. 排序基础</h3>
-<ul>
-<li><strong>核心概念</strong>：
-<ul>
-<li>稳定性：若 <span
-class="math inline">(<em>K</em><em>e</em><em>y</em><sub><em>i</em></sub>=<em>K</em><em>e</em><em>y</em><sub><em>j</em></sub>)</span>
-且排序前 <span class="math inline"><em>i</em></span> 在 <span
-class="math inline"><em>j</em></span> 前，排序后仍如此，则稳定。</li>
+</li>
+<li><p><strong>装填因子</strong>：$(\alpha&#x3D;\frac{n}{m})$（$n$ 记录数，$m$ 表长），α越小冲突越少。</p>
+</li>
+</ul>
+<h2 id="十一、排序"><a href="#十一、排序" class="headerlink" title="十一、排序"></a>十一、排序</h2><h3 id="1-排序基础"><a href="#1-排序基础" class="headerlink" title="1. 排序基础"></a>1. 排序基础</h3><ul>
+<li><strong>核心概念</strong>：<ul>
+<li>稳定性：若 $(Key_i&#x3D;Key_j)$ 且排序前 $i$ 在 $j$ 前，排序后仍如此，则稳定。</li>
 <li>内部排序：元素全在内存（重点）；外部排序：元素需内外存交换。</li>
-</ul></li>
 </ul>
-<h3 id="常见排序算法按类别">2. 常见排序算法（按类别）</h3>
-<table>
-<colgroup>
-<col style="width: 6%" />
-<col style="width: 6%" />
-<col style="width: 24%" />
-<col style="width: 15%" />
-<col style="width: 4%" />
-<col style="width: 42%" />
-</colgroup>
+</li>
+</ul>
+<h3 id="2-常见排序算法（按类别）"><a href="#2-常见排序算法（按类别）" class="headerlink" title="2. 常见排序算法（按类别）"></a>2. 常见排序算法（按类别）</h3><table>
 <thead>
-<tr class="header">
+<tr>
 <th>类别</th>
 <th>算法</th>
-<th>时间复杂度（好/均/坏）</th>
+<th>时间复杂度（好&#x2F;均&#x2F;坏）</th>
 <th>空间复杂度</th>
 <th>稳定性</th>
 <th>核心特点</th>
 </tr>
 </thead>
-<tbody>
-<tr class="odd">
+<tbody><tr>
 <td>插入排序</td>
 <td>直接插入</td>
-<td><span
-class="math inline"><em>O</em>(<em>n</em>)/<em>O</em>(<em>n</em>²)/<em>O</em>(<em>n</em>²)</span></td>
-<td><span class="math inline"><em>O</em>(1)</span></td>
+<td>$O(n)&#x2F;O(n²)&#x2F;O(n²)$</td>
+<td>$O(1)$</td>
 <td>稳定</td>
 <td>适合基本有序数据，插入需移动元素</td>
 </tr>
-<tr class="even">
+<tr>
 <td></td>
 <td>希尔排序</td>
-<td><span
-class="math inline"><em>O</em>(<em>n</em>)/<em>O</em>(<em>n</em><sup>1.3</sup>)/<em>O</em>(<em>n</em>²)</span></td>
-<td><span class="math inline"><em>O</em>(1)</span></td>
+<td>$O(n)&#x2F;O(n^{1.3})&#x2F;O(n²)$</td>
+<td>$O(1)$</td>
 <td>不稳定</td>
 <td>按增量分组插入，增量序列影响效率</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>交换排序</td>
 <td>冒泡排序</td>
-<td><span
-class="math inline"><em>O</em>(<em>n</em>)/<em>O</em>(<em>n</em>²)/<em>O</em>(<em>n</em>²)</span></td>
-<td><span class="math inline"><em>O</em>(1)</span></td>
+<td>$O(n)&#x2F;O(n²)&#x2F;O(n²)$</td>
+<td>$O(1)$</td>
 <td>稳定</td>
-<td>每趟沉最小/大元素到最终位置，可优化（无交换则提前结束）</td>
+<td>每趟沉最小&#x2F;大元素到最终位置，可优化（无交换则提前结束）</td>
 </tr>
-<tr class="even">
+<tr>
 <td></td>
 <td>快速排序</td>
-<td><span
-class="math inline"><em>O</em>(<em>n</em><em>l</em><em>o</em><em>g</em>2<em>n</em>)/<em>O</em>(<em>n</em><em>l</em><em>o</em><em>g</em>2<em>n</em>)/<em>O</em>(<em>n</em>²)</span></td>
-<td><span
-class="math inline"><em>O</em>(<em>l</em><em>o</em><em>g</em>2<em>n</em>)</span>（递归栈）</td>
+<td>$O(nlog2n)&#x2F;O(nlog2n)&#x2F;O(n²)$</td>
+<td>$O(log2n)$（递归栈）</td>
 <td>不稳定</td>
 <td>选枢轴分左右，平均效率最优，不适合有序数据</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>选择排序</td>
 <td>简单选择</td>
-<td><span
-class="math inline"><em>O</em>(<em>n</em>²)/<em>O</em>(<em>n</em>²)/<em>O</em>(<em>n</em>²)</span></td>
-<td><span class="math inline"><em>O</em>(1)</span></td>
+<td>$O(n²)&#x2F;O(n²)&#x2F;O(n²)$</td>
+<td>$O(1)$</td>
 <td>不稳定</td>
-<td>每趟选最小/大元素交换到有序区，移动次数少</td>
+<td>每趟选最小&#x2F;大元素交换到有序区，移动次数少</td>
 </tr>
-<tr class="even">
+<tr>
 <td></td>
 <td>堆排序</td>
-<td><span
-class="math inline"><em>O</em>(<em>n</em><em>l</em><em>o</em><em>g</em>2<em>n</em>)/<em>O</em>(<em>n</em><em>l</em><em>o</em><em>g</em>2<em>n</em>)/<em>O</em>(<em>n</em><em>l</em><em>o</em><em>g</em>2<em>n</em>)</span></td>
-<td><span class="math inline"><em>O</em>(1)</span></td>
+<td>$O(nlog2n)&#x2F;O(nlog2n)&#x2F;O(nlog2n)$</td>
+<td>$O(1)$</td>
 <td>不稳定</td>
-<td>用大/小根堆，每趟选堆顶（最大/小）元素，适合大数据量</td>
+<td>用大&#x2F;小根堆，每趟选堆顶（最大&#x2F;小）元素，适合大数据量</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>归并排序</td>
 <td>二路归并</td>
-<td><span
-class="math inline"><em>O</em>(<em>n</em><em>l</em><em>o</em><em>g</em>2<em>n</em>)/<em>O</em>(<em>n</em><em>l</em><em>o</em><em>g</em>2<em>n</em>)/<em>O</em>(<em>n</em><em>l</em><em>o</em><em>g</em>2<em>n</em>)</span></td>
-<td><span class="math inline"><em>O</em>(<em>n</em>)</span></td>
+<td>$O(nlog2n)&#x2F;O(nlog2n)&#x2F;O(nlog2n)$</td>
+<td>$O(n)$</td>
 <td>稳定</td>
 <td>分治思想，合并两个有序表，适合外排序</td>
 </tr>
-<tr class="even">
+<tr>
 <td>基数排序</td>
 <td>链式基数</td>
-<td><span
-class="math inline"><em>O</em>(<em>d</em>(<em>n</em>+<em>r</em>))</span>（与初始无关）</td>
-<td><span class="math inline"><em>O</em>(<em>r</em>)</span></td>
+<td>$O(d(n+r))$（与初始无关）</td>
+<td>$O(r)$</td>
 <td>稳定</td>
-<td>按位排序（不比较），<span class="math inline"><em>d</em></span>
-关键字位数，<span class="math inline"><em>r</em></span>
-基数（如10）</td>
+<td>按位排序（不比较），$d$ 关键字位数，$r$ 基数（如10）</td>
 </tr>
-</tbody>
-</table>
-<h3 id="算法选择建议">3. 算法选择建议</h3>
-<ul>
+</tbody></table>
+<h3 id="3-算法选择建议"><a href="#3-算法选择建议" class="headerlink" title="3. 算法选择建议"></a>3. 算法选择建议</h3><ul>
 <li>基本有序数据：直接插入、冒泡排序。</li>
 <li>大数据量：堆排序、快速排序、归并排序。</li>
 <li>需稳定排序：归并排序、基数排序、直接插入、冒泡排序。</li>
@@ -966,7 +827,7 @@ class="math inline"><em>O</em>(<em>d</em>(<em>n</em>+<em>r</em>))</span>（与�
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93"><span class="nav-number">1.</span> <span class="nav-text">数据结构知识点总结</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80"><span class="nav-number">1.1.</span> <span class="nav-text">一、数据结构与算法基础</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5"><span class="nav-number">1.1.1.</span> <span class="nav-text">1. 数据结构核心概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AE%97%E6%B3%95%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5"><span class="nav-number">1.1.2.</span> <span class="nav-text">2. 算法核心概念</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E7%BA%BF%E6%80%A7%E8%A1%A8%E4%B9%8B%E9%A1%BA%E5%BA%8F%E8%A1%A8"><span class="nav-number">1.2.</span> <span class="nav-text">二、线性表之顺序表</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BA%BF%E6%80%A7%E8%A1%A8%E5%9F%BA%E7%A1%80"><span class="nav-number">1.2.1.</span> <span class="nav-text">1. 线性表基础</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A1%BA%E5%BA%8F%E8%A1%A8%E7%BA%BF%E6%80%A7%E8%A1%A8%E7%9A%84%E9%A1%BA%E5%BA%8F%E5%AD%98%E5%82%A8"><span class="nav-number">1.2.2.</span> <span class="nav-text">2. 顺序表（线性表的顺序存储）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E7%BA%BF%E6%80%A7%E8%A1%A8%E4%B9%8B%E9%93%BE%E8%A1%A8"><span class="nav-number">1.3.</span> <span class="nav-text">三、线性表之链表</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8D%95%E9%93%BE%E8%A1%A8%E7%BA%BF%E6%80%A7%E8%A1%A8%E7%9A%84%E9%93%BE%E5%BC%8F%E5%AD%98%E5%82%A8"><span class="nav-number">1.3.1.</span> <span class="nav-text">1. 单链表（线性表的链式存储）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%8C%E9%93%BE%E8%A1%A8%E4%B8%8E%E5%BE%AA%E7%8E%AF%E9%93%BE%E8%A1%A8"><span class="nav-number">1.3.2.</span> <span class="nav-text">2. 双链表与循环链表</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9B%E6%A0%88%E4%B8%8E%E9%98%9F%E5%88%97"><span class="nav-number">1.4.</span> <span class="nav-text">四、栈与队列</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%88%E6%93%8D%E4%BD%9C%E5%8F%97%E9%99%90%E7%9A%84%E7%BA%BF%E6%80%A7%E8%A1%A8"><span class="nav-number">1.4.1.</span> <span class="nav-text">1. 栈（操作受限的线性表）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%98%9F%E5%88%97%E6%93%8D%E4%BD%9C%E5%8F%97%E9%99%90%E7%9A%84%E7%BA%BF%E6%80%A7%E8%A1%A8"><span class="nav-number">1.4.2.</span> <span class="nav-text">2. 队列（操作受限的线性表）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%94%E4%B8%B2%E4%B8%8E%E7%9F%A9%E9%98%B5%E5%8E%8B%E7%BC%A9%E5%AD%98%E5%82%A8"><span class="nav-number">1.5.</span> <span class="nav-text">五、串与矩阵压缩存储</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%B2%E7%89%B9%E6%AE%8A%E7%BA%BF%E6%80%A7%E8%A1%A8"><span class="nav-number">1.5.1.</span> <span class="nav-text">1. 串（特殊线性表）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9F%A9%E9%98%B5%E5%8E%8B%E7%BC%A9%E5%AD%98%E5%82%A8%E8%8A%82%E7%9C%81%E7%A9%BA%E9%97%B4"><span class="nav-number">1.5.2.</span> <span class="nav-text">2. 矩阵压缩存储（节省空间）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%AD%E6%A0%91%E4%B8%8E%E4%BA%8C%E5%8F%89%E6%A0%911"><span class="nav-number">1.6.</span> <span class="nav-text">六、树与二叉树（1）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%91%E7%9A%84%E5%9F%BA%E7%A1%80"><span class="nav-number">1.6.1.</span> <span class="nav-text">1. 树的基础</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8C%E5%8F%89%E6%A0%91"><span class="nav-number">1.6.2.</span> <span class="nav-text">2. 二叉树</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8C%E5%8F%89%E6%A0%91%E9%81%8D%E5%8E%86"><span class="nav-number">1.6.3.</span> <span class="nav-text">3. 二叉树遍历</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%83%E6%A0%91%E4%B8%8E%E6%A3%AE%E6%9E%972%E5%8F%8A%E5%93%88%E5%A4%AB%E6%9B%BC%E6%A0%91"><span class="nav-number">1.7.</span> <span class="nav-text">七、树与森林（2）及哈夫曼树</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%91%E4%B8%8E%E6%A3%AE%E6%9E%97%E7%9A%84%E8%BD%AC%E6%8D%A2"><span class="nav-number">1.7.1.</span> <span class="nav-text">1. 树与森林的转换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8C%E5%8F%89%E6%8E%92%E5%BA%8F%E6%A0%91bst"><span class="nav-number">1.7.2.</span> <span class="nav-text">2. 二叉排序树（BST）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%93%88%E5%A4%AB%E6%9B%BC%E6%A0%91%E6%9C%80%E4%BC%98%E4%BA%8C%E5%8F%89%E6%A0%91"><span class="nav-number">1.7.3.</span> <span class="nav-text">3. 哈夫曼树（最优二叉树）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%AB%E5%9B%BE%E5%9F%BA%E7%A1%80%E4%B8%8E%E9%81%8D%E5%8E%86"><span class="nav-number">1.8.</span> <span class="nav-text">八、图（基础与遍历）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%BE%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="nav-number">1.8.1.</span> <span class="nav-text">1. 图的基本概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%BE%E7%9A%84%E5%AD%98%E5%82%A8%E7%BB%93%E6%9E%84"><span class="nav-number">1.8.2.</span> <span class="nav-text">2. 图的存储结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%BE%E7%9A%84%E9%81%8D%E5%8E%86"><span class="nav-number">1.8.3.</span> <span class="nav-text">3. 图的遍历</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B9%9D%E5%9B%BE%E7%9A%84%E5%BA%94%E7%94%A8"><span class="nav-number">1.9.</span> <span class="nav-text">九、图的应用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91mst"><span class="nav-number">1.9.1.</span> <span class="nav-text">1. 最小生成树（MST）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84dijkstra%E7%AE%97%E6%B3%95"><span class="nav-number">1.9.2.</span> <span class="nav-text">2. 最短路径（Dijkstra算法）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8Faov%E7%BD%91"><span class="nav-number">1.9.3.</span> <span class="nav-text">3. 拓扑排序（AOV网）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B3%E9%94%AE%E8%B7%AF%E5%BE%84aoe%E7%BD%91"><span class="nav-number">1.9.4.</span> <span class="nav-text">4. 关键路径（AOE网）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%81%E6%9F%A5%E6%89%BE"><span class="nav-number">1.10.</span> <span class="nav-text">十、查找</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E6%89%BE%E5%9F%BA%E7%A1%80"><span class="nav-number">1.10.1.</span> <span class="nav-text">1. 查找基础</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A1%BA%E5%BA%8F%E6%9F%A5%E6%89%BE"><span class="nav-number">1.10.2.</span> <span class="nav-text">2. 顺序查找</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8A%98%E5%8D%8A%E6%9F%A5%E6%89%BE%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE"><span class="nav-number">1.10.3.</span> <span class="nav-text">3. 折半查找（二分查找）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%81%E4%B8%80%E6%8E%92%E5%BA%8F"><span class="nav-number">1.11.</span> <span class="nav-text">十一、排序</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8E%92%E5%BA%8F%E5%9F%BA%E7%A1%80"><span class="nav-number">1.11.1.</span> <span class="nav-text">1. 排序基础</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%B8%E8%A7%81%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E6%8C%89%E7%B1%BB%E5%88%AB"><span class="nav-number">1.11.2.</span> <span class="nav-text">2. 常见排序算法（按类别）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AE%97%E6%B3%95%E9%80%89%E6%8B%A9%E5%BB%BA%E8%AE%AE"><span class="nav-number">1.11.3.</span> <span class="nav-text">3. 算法选择建议</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93"><span class="nav-number">1.</span> <span class="nav-text">数据结构知识点总结</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80"><span class="nav-number">1.1.</span> <span class="nav-text">一、数据结构与算法基础</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5"><span class="nav-number">1.1.1.</span> <span class="nav-text">1. 数据结构核心概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E7%AE%97%E6%B3%95%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5"><span class="nav-number">1.1.2.</span> <span class="nav-text">2. 算法核心概念</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E7%BA%BF%E6%80%A7%E8%A1%A8%E4%B9%8B%E9%A1%BA%E5%BA%8F%E8%A1%A8"><span class="nav-number">1.2.</span> <span class="nav-text">二、线性表之顺序表</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E7%BA%BF%E6%80%A7%E8%A1%A8%E5%9F%BA%E7%A1%80"><span class="nav-number">1.2.1.</span> <span class="nav-text">1. 线性表基础</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E9%A1%BA%E5%BA%8F%E8%A1%A8%EF%BC%88%E7%BA%BF%E6%80%A7%E8%A1%A8%E7%9A%84%E9%A1%BA%E5%BA%8F%E5%AD%98%E5%82%A8%EF%BC%89"><span class="nav-number">1.2.2.</span> <span class="nav-text">2. 顺序表（线性表的顺序存储）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E7%BA%BF%E6%80%A7%E8%A1%A8%E4%B9%8B%E9%93%BE%E8%A1%A8"><span class="nav-number">1.3.</span> <span class="nav-text">三、线性表之链表</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E5%8D%95%E9%93%BE%E8%A1%A8%EF%BC%88%E7%BA%BF%E6%80%A7%E8%A1%A8%E7%9A%84%E9%93%BE%E5%BC%8F%E5%AD%98%E5%82%A8%EF%BC%89"><span class="nav-number">1.3.1.</span> <span class="nav-text">1. 单链表（线性表的链式存储）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E5%8F%8C%E9%93%BE%E8%A1%A8%E4%B8%8E%E5%BE%AA%E7%8E%AF%E9%93%BE%E8%A1%A8"><span class="nav-number">1.3.2.</span> <span class="nav-text">2. 双链表与循环链表</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9B%E3%80%81%E6%A0%88%E4%B8%8E%E9%98%9F%E5%88%97"><span class="nav-number">1.4.</span> <span class="nav-text">四、栈与队列</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E6%A0%88%EF%BC%88%E6%93%8D%E4%BD%9C%E5%8F%97%E9%99%90%E7%9A%84%E7%BA%BF%E6%80%A7%E8%A1%A8%EF%BC%89"><span class="nav-number">1.4.1.</span> <span class="nav-text">1. 栈（操作受限的线性表）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E9%98%9F%E5%88%97%EF%BC%88%E6%93%8D%E4%BD%9C%E5%8F%97%E9%99%90%E7%9A%84%E7%BA%BF%E6%80%A7%E8%A1%A8%EF%BC%89"><span class="nav-number">1.4.2.</span> <span class="nav-text">2. 队列（操作受限的线性表）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%94%E3%80%81%E4%B8%B2%E4%B8%8E%E7%9F%A9%E9%98%B5%E5%8E%8B%E7%BC%A9%E5%AD%98%E5%82%A8"><span class="nav-number">1.5.</span> <span class="nav-text">五、串与矩阵压缩存储</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E4%B8%B2%EF%BC%88%E7%89%B9%E6%AE%8A%E7%BA%BF%E6%80%A7%E8%A1%A8%EF%BC%89"><span class="nav-number">1.5.1.</span> <span class="nav-text">1. 串（特殊线性表）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E7%9F%A9%E9%98%B5%E5%8E%8B%E7%BC%A9%E5%AD%98%E5%82%A8%EF%BC%88%E8%8A%82%E7%9C%81%E7%A9%BA%E9%97%B4%EF%BC%89"><span class="nav-number">1.5.2.</span> <span class="nav-text">2. 矩阵压缩存储（节省空间）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%AD%E3%80%81%E6%A0%91%E4%B8%8E%E4%BA%8C%E5%8F%89%E6%A0%91%EF%BC%881%EF%BC%89"><span class="nav-number">1.6.</span> <span class="nav-text">六、树与二叉树（1）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E6%A0%91%E7%9A%84%E5%9F%BA%E7%A1%80"><span class="nav-number">1.6.1.</span> <span class="nav-text">1. 树的基础</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E4%BA%8C%E5%8F%89%E6%A0%91"><span class="nav-number">1.6.2.</span> <span class="nav-text">2. 二叉树</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E4%BA%8C%E5%8F%89%E6%A0%91%E9%81%8D%E5%8E%86"><span class="nav-number">1.6.3.</span> <span class="nav-text">3. 二叉树遍历</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%83%E3%80%81%E6%A0%91%E4%B8%8E%E6%A3%AE%E6%9E%97%EF%BC%882%EF%BC%89%E5%8F%8A%E5%93%88%E5%A4%AB%E6%9B%BC%E6%A0%91"><span class="nav-number">1.7.</span> <span class="nav-text">七、树与森林（2）及哈夫曼树</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E6%A0%91%E4%B8%8E%E6%A3%AE%E6%9E%97%E7%9A%84%E8%BD%AC%E6%8D%A2"><span class="nav-number">1.7.1.</span> <span class="nav-text">1. 树与森林的转换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E4%BA%8C%E5%8F%89%E6%8E%92%E5%BA%8F%E6%A0%91%EF%BC%88BST%EF%BC%89"><span class="nav-number">1.7.2.</span> <span class="nav-text">2. 二叉排序树（BST）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E5%93%88%E5%A4%AB%E6%9B%BC%E6%A0%91%EF%BC%88%E6%9C%80%E4%BC%98%E4%BA%8C%E5%8F%89%E6%A0%91%EF%BC%89"><span class="nav-number">1.7.3.</span> <span class="nav-text">3. 哈夫曼树（最优二叉树）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%AB%E3%80%81%E5%9B%BE%EF%BC%88%E5%9F%BA%E7%A1%80%E4%B8%8E%E9%81%8D%E5%8E%86%EF%BC%89"><span class="nav-number">1.8.</span> <span class="nav-text">八、图（基础与遍历）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E5%9B%BE%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="nav-number">1.8.1.</span> <span class="nav-text">1. 图的基本概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E5%9B%BE%E7%9A%84%E5%AD%98%E5%82%A8%E7%BB%93%E6%9E%84"><span class="nav-number">1.8.2.</span> <span class="nav-text">2. 图的存储结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E5%9B%BE%E7%9A%84%E9%81%8D%E5%8E%86"><span class="nav-number">1.8.3.</span> <span class="nav-text">3. 图的遍历</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B9%9D%E3%80%81%E5%9B%BE%E7%9A%84%E5%BA%94%E7%94%A8"><span class="nav-number">1.9.</span> <span class="nav-text">九、图的应用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91%EF%BC%88MST%EF%BC%89"><span class="nav-number">1.9.1.</span> <span class="nav-text">1. 最小生成树（MST）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84%EF%BC%88Dijkstra%E7%AE%97%E6%B3%95%EF%BC%89"><span class="nav-number">1.9.2.</span> <span class="nav-text">2. 最短路径（Dijkstra算法）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F%EF%BC%88AOV%E7%BD%91%EF%BC%89"><span class="nav-number">1.9.3.</span> <span class="nav-text">3. 拓扑排序（AOV网）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E5%85%B3%E9%94%AE%E8%B7%AF%E5%BE%84%EF%BC%88AOE%E7%BD%91%EF%BC%89"><span class="nav-number">1.9.4.</span> <span class="nav-text">4. 关键路径（AOE网）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%81%E3%80%81%E6%9F%A5%E6%89%BE"><span class="nav-number">1.10.</span> <span class="nav-text">十、查找</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E6%9F%A5%E6%89%BE%E5%9F%BA%E7%A1%80"><span class="nav-number">1.10.1.</span> <span class="nav-text">1. 查找基础</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E9%A1%BA%E5%BA%8F%E6%9F%A5%E6%89%BE"><span class="nav-number">1.10.2.</span> <span class="nav-text">2. 顺序查找</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E6%8A%98%E5%8D%8A%E6%9F%A5%E6%89%BE%EF%BC%88%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE%EF%BC%89"><span class="nav-number">1.10.3.</span> <span class="nav-text">3. 折半查找（二分查找）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%81%E4%B8%80%E3%80%81%E6%8E%92%E5%BA%8F"><span class="nav-number">1.11.</span> <span class="nav-text">十一、排序</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E6%8E%92%E5%BA%8F%E5%9F%BA%E7%A1%80"><span class="nav-number">1.11.1.</span> <span class="nav-text">1. 排序基础</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E5%B8%B8%E8%A7%81%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%EF%BC%88%E6%8C%89%E7%B1%BB%E5%88%AB%EF%BC%89"><span class="nav-number">1.11.2.</span> <span class="nav-text">2. 常见排序算法（按类别）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E7%AE%97%E6%B3%95%E9%80%89%E6%8B%A9%E5%BB%BA%E8%AE%AE"><span class="nav-number">1.11.3.</span> <span class="nav-text">3. 算法选择建议</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -980,7 +841,7 @@ class="math inline"><em>O</em>(<em>d</em>(<em>n</em>+<em>r</em>))</span>（与�
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">53</span>
+          <span class="site-state-item-count">54</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

@@ -20,15 +20,15 @@
     var CONFIG = {"hostname":"blog.wustacm.org","root":"/","scheme":"Gemini","version":"7.8.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":"flat"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="Codeforces Round 1075 (Div. 2) 题解 A. Table with Numbers 题意： 有一个h行l列初始值都为0的表格，从n个数中选2k个数并构成k对 如(x,y)，(x,y)会将表格中的第x行，第y列的数值加1，如果数对在表格范围外则无效，问最终表格和的最大可能和">
+  <meta name="description" content="Codeforces Round 1075 (Div. 2) 题解A. Table with Numbers题意：有一个$h$行$l$列初始值都为$0$的表格，从$n$个数中选$2k$个数并构成$k$对 如$(x, y)$，$(x, y)$会将表格中的第$x$行，第$y$列的数值加$1$，如果数对在表格范围外则无效，问最终表格和的最大可能和">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Codeforces Round 1075 (Div. 2) 题解">
 <meta property="og:url" content="http://blog.wustacm.org/2026/01/24/Codeforces%20Round%201075%20(Div.%202)%20%E9%A2%98%E8%A7%A3/index.html">
 <meta property="og:site_name" content="WUSTACM">
-<meta property="og:description" content="Codeforces Round 1075 (Div. 2) 题解 A. Table with Numbers 题意： 有一个h行l列初始值都为0的表格，从n个数中选2k个数并构成k对 如(x,y)，(x,y)会将表格中的第x行，第y列的数值加1，如果数对在表格范围外则无效，问最终表格和的最大可能和">
+<meta property="og:description" content="Codeforces Round 1075 (Div. 2) 题解A. Table with Numbers题意：有一个$h$行$l$列初始值都为$0$的表格，从$n$个数中选$2k$个数并构成$k$对 如$(x, y)$，$(x, y)$会将表格中的第$x$行，第$y$列的数值加$1$，如果数对在表格范围外则无效，问最终表格和的最大可能和">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2026-01-24T00:00:00.000Z">
-<meta property="article:modified_time" content="2026-02-12T17:34:03.315Z">
+<meta property="article:modified_time" content="2026-02-24T10:51:40.980Z">
 <meta property="article:author" content="Blog">
 <meta property="article:tag" content="题解">
 <meta name="twitter:card" content="summary">
@@ -227,7 +227,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2026-02-12 17:34:03" itemprop="dateModified" datetime="2026-02-12T17:34:03+00:00">2026-02-12</time>
+                <time title="修改时间：2026-02-24 10:51:40" itemprop="dateModified" datetime="2026-02-24T10:51:40+00:00">2026-02-24</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -271,230 +271,78 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="codeforces-round-1075-div.-2-题解"><a
-target="_blank" rel="noopener" href="https://codeforces.com/contest/2189">Codeforces Round 1075 (Div.
-2)</a> 题解</h1>
-<h2 id="a.-table-with-numbers">A. Table with Numbers</h2>
-<h3 id="题意">题意：</h3>
-<p>有一个<span class="math inline"><em>h</em></span>行<span
-class="math inline"><em>l</em></span>列初始值都为<span
-class="math inline">0</span>的表格，从<span
-class="math inline"><em>n</em></span>个数中选<span
-class="math inline">2<em>k</em></span>个数并构成<span
-class="math inline"><em>k</em></span>对 如<span
-class="math inline">(<em>x</em>,<em>y</em>)</span>，<span
-class="math inline">(<em>x</em>,<em>y</em>)</span>会将表格中的第<span
-class="math inline"><em>x</em></span>行，第<span
-class="math inline"><em>y</em></span>列的数值加<span
-class="math inline">1</span>，如果数对在表格范围外则无效，问最终表格和的最大可能和</p>
+        <h1 id="Codeforces-Round-1075-Div-2-题解"><a href="#Codeforces-Round-1075-Div-2-题解" class="headerlink" title="Codeforces Round 1075 (Div. 2) 题解"></a><span class="exturl" data-url="aHR0cHM6Ly9jb2RlZm9yY2VzLmNvbS9jb250ZXN0LzIxODk=">Codeforces Round 1075 (Div. 2)<i class="fa fa-external-link-alt"></i></span> 题解</h1><h2 id="A-Table-with-Numbers"><a href="#A-Table-with-Numbers" class="headerlink" title="A. Table with Numbers"></a>A. Table with Numbers</h2><h3 id="题意："><a href="#题意：" class="headerlink" title="题意："></a>题意：</h3><p>有一个$h$行$l$列初始值都为$0$的表格，从$n$个数中选$2k$个数并构成$k$对 如$(x, y)$，$(x, y)$会将表格中的第$x$行，第$y$列的数值加$1$，如果数对在表格范围外则无效，问最终表格和的最大可能和</p>
 <span id="more"></span>
-<h3 id="分析">分析：</h3>
-<p>其实这题问的就是选出来的<span
-class="math inline"><em>k</em></span>个数对，最多可以有多少个同时落在表格内</p>
+
+<h3 id="分析："><a href="#分析：" class="headerlink" title="分析："></a>分析：</h3><p>其实这题问的就是选出来的$k$个数对，最多可以有多少个同时落在表格内</p>
 <p>可以分别计数 n个数中</p>
 <ul>
-<li>设<span
-class="math inline"> ≤ <em>m</em><em>i</em><em>n</em>(<em>h</em>,<em>l</em>)</span>的个数为<span
-class="math inline"><em>n</em><em>u</em><em>m</em></span>个</li>
-<li>设<span
-class="math inline"> ≥ <em>m</em><em>i</em><em>n</em>(<em>h</em>,<em>l</em>)&amp;&amp; ≤ <em>m</em><em>a</em><em>x</em>(<em>h</em>,<em>l</em>)</span>的个数为<span
-class="math inline"><em>c</em><em>n</em><em>t</em></span>个</li>
+<li>设$\le min(h, l)$的个数为$num$个</li>
+<li>设$\ge min(h, l)  &amp;&amp; \le max(h, l)$的个数为$cnt$个</li>
 </ul>
-<p>不然发现，两个<span
-class="math inline"><em>n</em><em>u</em><em>m</em></span>中的数字组成的数对一定满足，两个<span
-class="math inline"><em>c</em><em>n</em><em>t</em></span>中的数字组成的数对一定不满足，一个<span
-class="math inline"><em>n</em><em>u</em><em>m</em></span>中一个<span
-class="math inline"><em>c</em><em>n</em><em>t</em></span>中的数字组成的数对一定满足。</p>
-<p>那么可以直接讨论<span
-class="math inline"><em>n</em><em>u</em><em>m</em></span>和<span
-class="math inline"><em>c</em><em>n</em><em>t</em></span>的大小关系即可，具体讨论见代码即可</p>
+<p>不然发现，两个$num$中的数字组成的数对一定满足，两个$cnt$中的数字组成的数对一定不满足，一个$num$中一个$cnt$中的数字组成的数对一定满足。</p>
+<p>那么可以直接讨论$num$和$cnt$的大小关系即可，具体讨论见代码即可</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> int long long</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">using</span> ll = <span class="type">long</span> <span class="type">long</span>;</span><br><span class="line"><span class="keyword">using</span> arr2 = array&lt;<span class="type">int</span>, <span class="number">2</span>&gt;;</span><br><span class="line"><span class="keyword">using</span> arr3 = array&lt;<span class="type">int</span>, <span class="number">3</span>&gt;;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = (<span class="type">int</span>)<span class="number">2e5</span> + <span class="number">9</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> M = (<span class="type">int</span>)<span class="number">1e5</span> + <span class="number">9</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> mod = <span class="number">998244353</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> n, h, l;</span><br><span class="line">    cin &gt;&gt; n &gt;&gt; h &gt;&gt; l;</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">a</span><span class="params">(n + <span class="number">5</span>)</span></span>;</span><br><span class="line">    <span class="type">int</span> num = <span class="number">0</span>, cnt = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;</span><br><span class="line">        cin &gt;&gt; a[i];</span><br><span class="line">        <span class="keyword">if</span> (a[i] &lt;= <span class="built_in">min</span>(h, l)) num++;</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (a[i] &lt;= <span class="built_in">max</span>(h, l)) cnt++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (cnt &lt;= num) &#123;</span><br><span class="line">        cout &lt;&lt; (num + cnt) / <span class="number">2</span> &lt;&lt; <span class="string">&quot;\n&quot;</span>;</span><br><span class="line">        <span class="keyword">return</span> ;</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; num &lt;&lt; <span class="string">&quot;\n&quot;</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">signed</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ios::<span class="built_in">sync_with_stdio</span>(<span class="literal">false</span>);</span><br><span class="line">    cin.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line">    <span class="type">int</span> _ = <span class="number">1</span>;</span><br><span class="line">    cin &gt;&gt; _;</span><br><span class="line">    <span class="keyword">while</span>(_--) &#123;</span><br><span class="line">        <span class="built_in">solve</span>();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="b.-the-curse-of-the-frog">B. The Curse of the Frog</h2>
-<h3 id="题意-1">题意：</h3>
-<p>一条无限长数轴，<span
-class="math inline">0</span>为起点向右按照下面代价规则朝向目标点进发，如果可以到达目标点，输出最小代价，否则输出<span
-class="math inline"> − 1</span></p>
+
+<h2 id="B-The-Curse-of-the-Frog"><a href="#B-The-Curse-of-the-Frog" class="headerlink" title="B. The Curse of the Frog"></a>B. The Curse of the Frog</h2><h3 id="题意：-1"><a href="#题意：-1" class="headerlink" title="题意："></a>题意：</h3><p>一条无限长数轴，$0$为起点向右按照下面代价规则朝向目标点进发，如果可以到达目标点，输出最小代价，否则输出$-1$</p>
 <p>规则：</p>
 <ul>
-<li>有<span class="math inline"><em>n</em></span>种不同的最大前进值<span
-class="math inline"><em>a</em><sub><em>i</em></sub></span>，每种最大前进值都有对应的规则值<span
-class="math inline"><em>b</em><sub><em>i</em></sub></span>和<span
-class="math inline"><em>c</em><sub><em>i</em></sub></span>，对于某种最大前进值<span
-class="math inline"><em>a</em></span>，每当你要使用这种最大前进值<span
-class="math inline"><em>b</em></span>的整数倍次，你就需要在第<span
-class="math inline"><em>b</em></span>的整数倍次先后退<span
-class="math inline"><em>c</em></span>后，才可以继续前进<span
-class="math inline"><em>a</em></span>，每后退一次就会增加一次代价</li>
+<li>有$n$种不同的最大前进值$a_i$，每种最大前进值都有对应的规则值$b_i$和$c_i$，对于某种最大前进值$a$，每当你要使用这种最大前进值$b$的整数倍次，你就需要在第$b$的整数倍次先后退$c$后，才可以继续前进$a$，每后退一次就会增加一次代价</li>
 </ul>
-<h3 id="分析-1">分析：</h3>
-<p><strong>注意：最大前进值<span
-class="math inline"><em>a</em></span>，并非一定要走长度<span
-class="math inline"><em>a</em></span>，也可以走小于<span
-class="math inline"><em>a</em></span>的长度，所以后续探讨只要能否到达或者超过都算可以到达目标点</strong></p>
+<h3 id="分析：-1"><a href="#分析：-1" class="headerlink" title="分析："></a>分析：</h3><p><strong>注意：最大前进值$a$，并非一定要走长度$a$，也可以走小于$a$的长度，所以后续探讨只要能否到达或者超过都算可以到达目标点</strong></p>
 <p>首先考虑什么时候是到达不了目标点呢？</p>
 <ul>
-<li><p>对于每种最大前进值<span
-class="math inline"><em>a</em></span>，如果一直选择<span
-class="math inline"><em>a</em></span>前进，那么它一定满足一种循环关系，先前行<span
-class="math inline"><em>b</em> − 1</span>次<span
-class="math inline"><em>a</em></span>，然后后退<span
-class="math inline"><em>c</em></span>，再前行一次<span
-class="math inline"><em>a</em></span>，以此反复循环下去……..那么不难发现，如果以单个循环的净前进值来看，花费一个代价可以前进的距离是可以直接算出来的，就是<span
-class="math inline"><em>a</em> × <em>b</em> − <em>c</em></span></p></li>
-<li><p>如果所有的最大前进值对应的循环净前进值<span
-class="math inline"><em>a</em> × <em>b</em> − <em>c</em></span> 是<span
-class="math inline"> ≤ 0</span>的话，那么继续下去也不可能会再前进了</p></li>
-<li><p>然后，不难想到，其实每种最大前进值<span
-class="math inline"><em>a</em></span>，我们都可以白嫖<span
-class="math inline"><em>b</em> − 1</span>次，我们可以定义<span
-class="math inline"><em>c</em><em>n</em><em>t</em></span>为所有白嫖前进值的总和，如果<span
-class="math inline"><em>c</em><em>n</em><em>t</em> &lt; <em>x</em></span>并且所有的最大前进值对应的循环净前进值<span
-class="math inline"><em>a</em> × <em>b</em> − <em>c</em></span> 是<span
-class="math inline"> ≤ 0</span>的，那么就永远不可能到达<span
-class="math inline"><em>x</em></span>。但如果<span
-class="math inline"><em>c</em><em>n</em><em>t</em> ≥ <em>x</em></span>，那么我们将不需要花费任何代价也可以到达<span
-class="math inline"><em>x</em></span>。</p></li>
+<li><p>对于每种最大前进值$a$，如果一直选择$a$前进，那么它一定满足一种循环关系，先前行$b - 1$次$a$，然后后退$c$，再前行一次$a$，以此反复循环下去……..那么不难发现，如果以单个循环的净前进值来看，花费一个代价可以前进的距离是可以直接算出来的，就是$a \times b - c$ </p>
+</li>
+<li><p>如果所有的最大前进值对应的循环净前进值$a \times b - c$ 是$\le 0$的话，那么继续下去也不可能会再前进了</p>
+</li>
+<li><p>然后，不难想到，其实每种最大前进值$a$，我们都可以白嫖$b - 1$次，我们可以定义$cnt$为所有白嫖前进值的总和，如果$cnt &lt; x$并且所有的最大前进值对应的循环净前进值$a \times b - c$ 是$\le 0$的，那么就永远不可能到达$x$。但如果$cnt \ge x$，那么我们将不需要花费任何代价也可以到达$x$。</p>
+</li>
 </ul>
-<p>那么剩下的情况就是白嫖的够不着<span
-class="math inline"><em>x</em></span>，并且有最大前进值<span
-class="math inline"><em>a</em></span>的净前进值是正的，接下来就需要花费代价前进</p>
-<p>由于本地考虑最小代价，所以后续选择完全可以只选择净前进值最大的，所以只需维护出净前进值最大的最大前进值<span
-class="math inline"><em>a</em></span>的净前进值<span
-class="math inline"><em>m</em><em>x</em></span>即可，最后的整除问题你一定会！详见代码</p>
+<p> 那么剩下的情况就是白嫖的够不着$x$，并且有最大前进值$a$的净前进值是正的，接下来就需要花费代价前进</p>
+<p>由于本地考虑最小代价，所以后续选择完全可以只选择净前进值最大的，所以只需维护出净前进值最大的最大前进值$a$的净前进值$mx$即可，最后的整除问题你一定会！详见代码</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> int long long</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">using</span> ll = <span class="type">long</span> <span class="type">long</span>;</span><br><span class="line"><span class="keyword">using</span> arr2 = array&lt;<span class="type">int</span>, <span class="number">2</span>&gt;;</span><br><span class="line"><span class="keyword">using</span> arr3 = array&lt;<span class="type">int</span>, <span class="number">3</span>&gt;;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = (<span class="type">int</span>)<span class="number">2e5</span> + <span class="number">9</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> M = (<span class="type">int</span>)<span class="number">1e5</span> + <span class="number">9</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> mod = <span class="number">998244353</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> n, x;</span><br><span class="line">    cin &gt;&gt; n &gt;&gt; x;</span><br><span class="line">    <span class="function">vector&lt;arr3&gt; <span class="title">a</span><span class="params">(n + <span class="number">5</span>)</span></span>;</span><br><span class="line">    <span class="type">bool</span> f = <span class="number">0</span>;</span><br><span class="line">    <span class="type">int</span> num = <span class="number">0</span>;</span><br><span class="line">    <span class="type">int</span> mx = <span class="number">0</span>, pos = <span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;</span><br><span class="line">        cin &gt;&gt; a[i][<span class="number">0</span>] &gt;&gt; a[i][<span class="number">1</span>] &gt;&gt; a[i][<span class="number">2</span>];</span><br><span class="line">        <span class="keyword">if</span> (a[i][<span class="number">0</span>] * a[i][<span class="number">1</span>] &gt; a[i][<span class="number">2</span>]) f = <span class="number">1</span>;</span><br><span class="line">        num += (a[i][<span class="number">0</span>] * (a[i][<span class="number">1</span>] - <span class="number">1</span>));</span><br><span class="line">        mx = <span class="built_in">max</span>(mx, a[i][<span class="number">0</span>] * a[i][<span class="number">1</span>] - a[i][<span class="number">2</span>]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (num &gt;= x) &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;0\n&quot;</span>;</span><br><span class="line">        <span class="keyword">return</span> ;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (!f) &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;-1\n&quot;</span>;</span><br><span class="line">        <span class="keyword">return</span> ;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> ((x - num) % mx)</span><br><span class="line">        cout &lt;&lt; (x - num) / mx + <span class="number">1</span> &lt;&lt; <span class="string">&quot;\n&quot;</span>;</span><br><span class="line">    <span class="keyword">else</span> cout &lt;&lt; (x - num) / mx &lt;&lt; <span class="string">&quot;\n&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">signed</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ios::<span class="built_in">sync_with_stdio</span>(<span class="literal">false</span>);</span><br><span class="line">    cin.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line">    <span class="type">int</span> _ = <span class="number">1</span>;</span><br><span class="line">    cin &gt;&gt; _;</span><br><span class="line">    <span class="keyword">while</span>(_--) &#123;</span><br><span class="line">        <span class="built_in">solve</span>();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="c1.-xor-convenience-easy-version">C1. XOR Convenience (Easy
-Version)</h2>
-<h3 id="题意-2">题意：</h3>
-<p>找到一个长度为 <em>n</em> 的排列 <em>p</em> ，使得对每个 <em>i</em>
-（ <span
-class="math inline">2 ≤ <em>i</em> ≤ <em>n</em> − 1</span>）存在一个
-<em>j</em> （ <span
-class="math inline"><em>i</em> ≤ <em>j</em> ≤ <em>n</em></span>）使得
-<span
-class="math inline"><em>p</em><sub><em>i</em></sub> = <em>p</em><sub><em>j</em></sub> ⊕ <em>i</em></span></p>
-<h3 id="分析-2">分析：</h3>
-<p>神秘构造题，突破口在于<span
-class="math inline"><em>i</em><em>和</em><em>j</em></span>的范围，<span
-class="math inline"><em>j</em></span>必须大于等于<span
-class="math inline"><em>i</em></span>，那么不难想到，如果<span
-class="math inline"><em>i</em> = <em>n</em> − 1</span>，那么<span
-class="math inline"><em>j</em> = <em>n</em> − 1</span>或者<span
-class="math inline"><em>j</em> = <em>n</em></span>，又因为一个数异或任何一个非<span
-class="math inline">0</span>的数，都不可能得到它本身，所以<span
-class="math inline"><em>p</em><sub><em>n</em> − 1</sub>! = <em>p</em><sub><em>n</em> − 1</sub> ⊕ (<em>n</em>−1)</span>，所以此时<span
-class="math inline"><em>j</em> = <em>n</em></span>，故必有<span
-class="math inline"><em>p</em><sub><em>n</em> − 1</sub> = <em>p</em><sub><em>n</em></sub> ⊕ (<em>n</em>−1)</span>。</p>
-<p>考虑到<span
-class="math inline">1</span>异或一个数，相当于将这个数加一或者减一，那么不难想到直接令<span
-class="math inline"><em>p</em><sub><em>n</em></sub> = 1</span>，那么对于
-<span
-class="math inline">2 ≤ <em>i</em> ≤ <em>n</em> − 2</span>的每一个<span
-class="math inline"><em>i</em></span>都可以尝试取<span
-class="math inline"><em>j</em> = <em>n</em></span>，因为都能保证异或值不大于<span
-class="math inline"><em>n</em></span>且互异（奇数减一，偶数加一刚好完美错开并完美覆盖所有数，手模如下）</p>
+
+<h2 id="C1-XOR-Convenience-Easy-Version"><a href="#C1-XOR-Convenience-Easy-Version" class="headerlink" title="C1. XOR Convenience (Easy Version)"></a>C1. XOR Convenience (Easy Version)</h2><h3 id="题意：-2"><a href="#题意：-2" class="headerlink" title="题意："></a>题意：</h3><p>找到一个长度为  <em>n</em> 的排列   <em>p</em> ，使得对每个  <em>i</em> （  $2 \le i \le n - 1$）存在一个  <em>j</em> （  $i \le j \le n$）使得  $p_i &#x3D; p_j  \oplus i$</p>
+<h3 id="分析：-2"><a href="#分析：-2" class="headerlink" title="分析："></a>分析：</h3><p>神秘构造题，突破口在于$i和j$的范围，$j$必须大于等于$i$，那么不难想到，如果$i &#x3D; n - 1$，那么$j &#x3D; n - 1$或者$j &#x3D; n$，又因为一个数异或任何一个非$0$的数，都不可能得到它本身，所以$p_{n - 1} !&#x3D; p_{n - 1} \oplus (n - 1)$，所以此时$j &#x3D; n$，故必有$p_{n - 1} &#x3D; p_{n} \oplus (n - 1)$。</p>
+<p>考虑到$1$异或一个数，相当于将这个数加一或者减一，那么不难想到直接令$p_n &#x3D; 1$，那么对于 $2 \le i \le n - 2$的每一个$i$都可以尝试取$j &#x3D; n$，因为都能保证异或值不大于$n$且互异（奇数减一，偶数加一刚好完美错开并完美覆盖所有数，手模如下）</p>
 <ul>
-<li><span
-class="math inline"><em>p</em><sub><em>n</em> − 2</sub> = 1 ⊕ (<em>n</em>−2)</span></li>
-<li><span
-class="math inline"><em>p</em><sub><em>n</em> − 3</sub> = 1 ⊕ (<em>n</em>−3)</span></li>
-<li><span
-class="math inline"><em>p</em><sub><em>n</em> − 4</sub> = 1 ⊕ (<em>n</em>−4)</span></li>
+<li>$p_{n - 2} &#x3D; 1 \oplus (n - 2)$</li>
+<li>$p_{n - 3} &#x3D; 1 \oplus (n - 3)$</li>
+<li>$p_{n - 4} &#x3D; 1 \oplus (n - 4)$</li>
 <li>………..</li>
-<li><span
-class="math inline"><em>p</em><sub>2</sub> = 1 ⊕ (2)</span></li>
+<li>$p_{2} &#x3D; 1 \oplus (2)$</li>
 </ul>
-<p>那么最后一个<span
-class="math inline"><em>p</em><sub>1</sub></span>其实是根据<span
-class="math inline"><em>n</em></span>的奇偶性取不同的值（<span
-class="math inline"><em>C</em>2</span>的突破口），如果<span
-class="math inline"><em>n</em></span>是奇数，那么<span
-class="math inline"><em>p</em><sub>1</sub> = <em>n</em> − 1</span>，否则<span
-class="math inline"><em>p</em><sub>1</sub> = <em>n</em></span>，当然没有发现也可以直接用一个<span
-class="math inline"><em>s</em><em>e</em><em>t</em></span>初始化<span
-class="math inline">1<em>到</em><em>n</em></span>，将找到的数<span
-class="math inline"><em>e</em><em>r</em><em>a</em><em>s</em><em>e</em></span>，那么最后剩下的数就是<span
-class="math inline"><em>p</em><sub>1</sub></span>的了</p>
+<p>那么最后一个$p_1$其实是根据$n$的奇偶性取不同的值（$C2$的突破口），如果$n$是奇数，那么$p_1 &#x3D; n - 1$，否则$p_1 &#x3D; n$，当然没有发现也可以直接用一个$set$初始化$1到n$，将找到的数$erase$，那么最后剩下的数就是$p_1$的了</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> int long long</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">using</span> ll = <span class="type">long</span> <span class="type">long</span>;</span><br><span class="line"><span class="keyword">using</span> arr2 = array&lt;<span class="type">int</span>, <span class="number">2</span>&gt;;</span><br><span class="line"><span class="keyword">using</span> arr3 = array&lt;<span class="type">int</span>, <span class="number">3</span>&gt;;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = (<span class="type">int</span>)<span class="number">2e5</span> + <span class="number">9</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> M = (<span class="type">int</span>)<span class="number">1e5</span> + <span class="number">9</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> mod = <span class="number">998244353</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> n;</span><br><span class="line">    cin &gt;&gt; n;</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">a</span><span class="params">(n + <span class="number">5</span>)</span></span>;</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">ans</span><span class="params">(n + <span class="number">5</span>)</span></span>;</span><br><span class="line">    ans[n] = <span class="number">1</span>;</span><br><span class="line">    set&lt;<span class="type">int</span>&gt; st;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">2</span>; i &lt;= n; i++) st.<span class="built_in">insert</span>(i);</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = n - <span class="number">1</span>; i &gt;= <span class="number">2</span>; i--) &#123;</span><br><span class="line">        ans[i] = ans[n] ^ i; </span><br><span class="line">        st.<span class="built_in">erase</span>(ans[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    ans[<span class="number">1</span>] = *st.<span class="built_in">begin</span>();</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;</span><br><span class="line">        cout &lt;&lt; ans[i] &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;\n&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">signed</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ios::<span class="built_in">sync_with_stdio</span>(<span class="literal">false</span>);</span><br><span class="line">    cin.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line">    <span class="type">int</span> _ = <span class="number">1</span>;</span><br><span class="line">    cin &gt;&gt; _;</span><br><span class="line">    <span class="keyword">while</span>(_--) &#123;</span><br><span class="line">        <span class="built_in">solve</span>();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="c2.-xor-convenience-hard-version">C2. XOR-convenience (Hard
-Version)</h2>
-<h2 id="题意-3">题意：</h2>
-<p>找到一个长度为 <em>n</em> 的排列 <em>p</em> ，使得对每个 <em>i</em>
-（ <span
-class="math inline">1 ≤ <em>i</em> ≤ <em>n</em> − 1</span>）存在一个
-<em>j</em> （ <span
-class="math inline"><em>i</em> ≤ <em>j</em> ≤ <em>n</em></span>）使得
-<span
-class="math inline"><em>p</em><sub><em>i</em></sub> = <em>p</em><sub><em>j</em></sub> ⊕ <em>i</em></span>，如果不存在合法排列，输出<span
-class="math inline"> − 1</span></p>
-<h3 id="分析-3">分析：</h3>
-<p>本题其实就是在<span
-class="math inline"><em>C</em>1</span>的基础上多加一个限制，<span
-class="math inline"><em>p</em><sub>1</sub> = <em>p</em><sub><em>j</em></sub> ⊕ 1</span>，（
-<span class="math inline">1 ≤ <em>j</em> ≤ <em>n</em></span>）</p>
-<p>那么如果按照<span
-class="math inline"><em>C</em>1</span>的方法以及结论</p>
+
+<h2 id="C2-XOR-convenience-Hard-Version"><a href="#C2-XOR-convenience-Hard-Version" class="headerlink" title="C2. XOR-convenience (Hard Version)"></a>C2. XOR-convenience (Hard Version)</h2><h2 id="题意：-3"><a href="#题意：-3" class="headerlink" title="题意："></a>题意：</h2><p>找到一个长度为  <em>n</em> 的排列   <em>p</em> ，使得对每个  <em>i</em> （  $1 \le i \le n - 1$）存在一个  <em>j</em> （  $i \le j \le n$）使得  $p_i &#x3D; p_j  \oplus i$，如果不存在合法排列，输出$-1$</p>
+<h3 id="分析：-3"><a href="#分析：-3" class="headerlink" title="分析："></a>分析：</h3><p>本题其实就是在$C1$的基础上多加一个限制，$p_{1} &#x3D; p_{j} \oplus 1$，（  $1 \le j \le n$）</p>
+<p>那么如果按照$C1$的方法以及结论</p>
 <ul>
-<li>如果<span class="math inline"><em>n</em></span>是奇数，那么<span
-class="math inline"><em>p</em><sub>1</sub> = <em>n</em> − 1</span></li>
-<li>如果<span class="math inline"><em>n</em></span>是偶数，那么<span
-class="math inline"><em>p</em><sub>1</sub> = <em>n</em></span></li>
+<li>如果$n$是奇数，那么$p_1 &#x3D; n - 1$</li>
+<li>如果$n$是偶数，那么$p_1 &#x3D; n$</li>
 </ul>
 <p>那么你会发现在本题中</p>
 <ul>
-<li><p>如果<span class="math inline"><em>n</em></span>是奇数，那么<span
-class="math inline"><em>p</em><sub>1</sub> = <em>n</em> − 1 = <em>n</em> ⊕ 1</span>，所以也是正确的构造</p></li>
-<li><p>如果<span class="math inline"><em>n</em></span>是偶数，因为<span
-class="math inline"><em>p</em><sub>1</sub> = <em>n</em> ≠ (1≤<em>x</em>≤<em>n</em>−1) ⊕ 1</span>
-，所以是错误构造</p></li>
+<li><p>如果$n$是奇数，那么$p_1 &#x3D; n - 1 &#x3D; n \oplus 1$，所以也是正确的构造</p>
+</li>
+<li><p>如果$n$是偶数，因为$p_1 &#x3D; n \neq (1\le x \le n - 1) \oplus 1$ ，所以是错误构造</p>
+</li>
 </ul>
-<p>接下来讨论如果<span
-class="math inline"><em>n</em></span>是偶数，显然不能再使<span
-class="math inline"><em>p</em><sub>1</sub> = <em>n</em></span>，所以<span
-class="math inline"><em>n</em></span>必然需要在之前被构造，那么问题就是，如果能在
-<em>i</em> （ <span
-class="math inline">2 ≤ <em>i</em> ≤ <em>n</em></span>）中找到一个可以是使得<span
-class="math inline"><em>p</em><sub><em>i</em></sub> = <em>n</em></span>的，那么<span
-class="math inline"><em>C</em>1</span>方法原先给这个<span
-class="math inline"><em>p</em><sub><em>i</em></sub></span>所构造的那个值就可以给<span
-class="math inline"><em>p</em><sub>1</sub></span>，刚好实现一个互换的效果，这样就成功构造。但如果找不到一个可以使得<span
-class="math inline"><em>p</em><sub><em>i</em></sub> = <em>n</em></span>的话，就不可能构造出来，直接输出<span
-class="math inline"> − 1</span>即可。</p>
-<p>那么代码该如何处理找到中找到一个<span
-class="math inline"><em>p</em><sub><em>i</em></sub> = <em>n</em></span>，（
-<span class="math inline">2 ≤ <em>i</em> ≤ <em>n</em></span>）呢？</p>
+<p>接下来讨论如果$n$是偶数，显然不能再使$p_1 &#x3D; n$，所以$n$必然需要在之前被构造，那么问题就是，如果能在  <em>i</em> （  $2 \le i \le n$）中找到一个可以是使得$p_i &#x3D; n$的，那么$C1$方法原先给这个$p_i$所构造的那个值就可以给$p_1$，刚好实现一个互换的效果，这样就成功构造。但如果找不到一个可以使得$p_i &#x3D; n$的话，就不可能构造出来，直接输出$-1$即可。</p>
+<p>那么代码该如何处理找到中找到一个$p_i &#x3D; n$，（  $2 \le i \le n$）呢？</p>
 <p><strong>异或运算性质</strong></p>
 <ul>
-<li>要使得<span
-class="math inline"><em>p</em><sub><em>i</em></sub> = <em>n</em></span></li>
-<li>则<span
-class="math inline"><em>p</em><sub><em>i</em></sub> = <em>n</em> = <em>p</em><sub><em>j</em></sub> ⊕ <em>i</em></span>，（<span
-class="math inline"><em>i</em> ≤ <em>j</em> ≤ <em>n</em></span>）</li>
-<li>则只需保证之前的所有<span
-class="math inline"><em>p</em><sub><em>j</em></sub></span> 中存在<span
-class="math inline"><em>n</em> = <em>p</em><sub><em>j</em></sub> ⊕ <em>i</em></span>，即<span
-class="math inline"><em>n</em> ⊕ <em>p</em><sub><em>j</em></sub> = <em>p</em><sub><em>j</em></sub> ⊕ <em>i</em> ⊕ <em>p</em><sub><em>j</em></sub></span>
-，即<span
-class="math inline"><em>n</em> ⊕ <em>p</em><sub><em>j</em></sub> = <em>i</em></span></li>
-<li>那么只需要一个<span
-class="math inline"><em>v</em><em>i</em><em>s</em></span>数组标记在<span
-class="math inline"><em>i</em></span>之前的所有<span
-class="math inline"><em>n</em> ⊕ <em>p</em><sub><em>j</em></sub></span>，对每一个新的<span
-class="math inline"><em>i</em></span>判断是否之前有<span
-class="math inline"><em>j</em></span>可以使之满足<span
-class="math inline"><em>p</em><sub><em>i</em></sub> = <em>n</em></span>的条件，如果有，后续<span
-class="math inline"><em>i</em></span>不再需要判断，如果最终都没有，则无法构造出合法答案</li>
+<li>要使得$p_i &#x3D; n$</li>
+<li>则$p_i &#x3D; n &#x3D; p_j \oplus i$，（$i\le j \le n$）</li>
+<li>则只需保证之前的所有$p_j$ 中存在$n &#x3D; p_j \oplus i$，即$n \oplus p_j&#x3D; p_j \oplus i \oplus p_j$  ，即$n \oplus p_j &#x3D; i$</li>
+<li>那么只需要一个$vis$数组标记在$i$之前的所有$n \oplus p_j$，对每一个新的$i$判断是否之前有$j$可以使之满足$p_i &#x3D; n$的条件，如果有，后续$i$不再需要判断，如果最终都没有，则无法构造出合法答案</li>
 </ul>
-<p>值得一提的是，<span
-class="math inline"><em>v</em><em>i</em><em>s</em></span>的数组大小需要开到<span
-class="math inline"><em>n</em></span>的两倍以上，刚好是可以大于二进制的满位情况，否则会RE一发……</p>
-<p>当然现在看来，其实构造不出来的<span
-class="math inline"><em>n</em></span>一定是<span
-class="math inline">2</span>的幂，如 <span
-class="math inline">4, 8, 16.....</span> 因为只有这种情况下，<span
-class="math inline"><em>n</em></span>的二进制最高位，是不可能通过小于它的数去异或得到的。但是<span
-class="math inline"><em>p</em><sub><em>n</em></sub></span>又不能等于<span
-class="math inline"><em>n</em></span>，所以必然无法构造出合法排列</p>
+<p>值得一提的是，$vis$的数组大小需要开到$n$的两倍以上，刚好是可以大于二进制的满位情况，否则会RE一发……</p>
+<p>当然现在看来，其实构造不出来的$n$一定是$2$的幂，如 $4, 8, 16…..$ 因为只有这种情况下，$n$的二进制最高位，是不可能通过小于它的数去异或得到的。但是$p_n$又不能等于$n$，所以必然无法构造出合法排列</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> int long long</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">using</span> ll = <span class="type">long</span> <span class="type">long</span>;</span><br><span class="line"><span class="keyword">using</span> arr2 = array&lt;<span class="type">int</span>, <span class="number">2</span>&gt;;</span><br><span class="line"><span class="keyword">using</span> arr3 = array&lt;<span class="type">int</span>, <span class="number">3</span>&gt;;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = (<span class="type">int</span>)<span class="number">2e5</span> + <span class="number">9</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> M = (<span class="type">int</span>)<span class="number">1e5</span> + <span class="number">9</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> mod = <span class="number">998244353</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> n;</span><br><span class="line">    cin &gt;&gt; n;</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">a</span><span class="params">(n + <span class="number">5</span>)</span></span>;</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">ans</span><span class="params">(n + <span class="number">5</span>)</span></span>;</span><br><span class="line">    <span class="keyword">if</span> (n % <span class="number">2</span>) &#123;</span><br><span class="line">        ans[n] = <span class="number">1</span>;</span><br><span class="line">        set&lt;<span class="type">int</span>&gt; st;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">2</span>; i &lt;= n; i++) st.<span class="built_in">insert</span>(i);</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = n - <span class="number">1</span>; i &gt;= <span class="number">2</span>; i--) &#123;</span><br><span class="line">            ans[i] = ans[n] ^ i; </span><br><span class="line">            st.<span class="built_in">erase</span>(ans[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        ans[<span class="number">1</span>] = *st.<span class="built_in">begin</span>();</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;</span><br><span class="line">            cout &lt;&lt; ans[i] &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;\n&quot;</span>;</span><br><span class="line">        <span class="keyword">return</span> ;</span><br><span class="line">    &#125;</span><br><span class="line">    ans[n] = <span class="number">1</span>;</span><br><span class="line">    set&lt;<span class="type">int</span>&gt; st;</span><br><span class="line">    <span class="function">vector&lt;<span class="type">bool</span>&gt; <span class="title">vis</span><span class="params">(n * <span class="number">2</span> + <span class="number">5</span>)</span></span>;</span><br><span class="line">    vis[<span class="number">1</span>] = (<span class="number">1</span> ^ n);</span><br><span class="line">    <span class="type">bool</span> ff = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">2</span>; i &lt;= n; i++) st.<span class="built_in">insert</span>(i);</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = n - <span class="number">1</span>; i &gt;= <span class="number">2</span>; i--) &#123;</span><br><span class="line">        <span class="keyword">if</span> (!ff &amp;&amp; vis[i]) &#123;</span><br><span class="line">            ans[i] = n;</span><br><span class="line">            ff = <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            ans[i] = ans[n] ^ i; </span><br><span class="line">            vis[ans[i] ^ n] = <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        st.<span class="built_in">erase</span>(ans[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    ans[<span class="number">1</span>] = *st.<span class="built_in">begin</span>();</span><br><span class="line">    <span class="keyword">if</span> (!ff) &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;-1\n&quot;</span>;</span><br><span class="line">        <span class="keyword">return</span> ;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;</span><br><span class="line">        cout &lt;&lt; ans[i] &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;\n&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">signed</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ios::<span class="built_in">sync_with_stdio</span>(<span class="literal">false</span>);</span><br><span class="line">    cin.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line">    <span class="type">int</span> _ = <span class="number">1</span>;</span><br><span class="line">    cin &gt;&gt; _;</span><br><span class="line">    <span class="keyword">while</span>(_--) &#123;</span><br><span class="line">        <span class="built_in">solve</span>();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p>困（</p>
 
     </div>
@@ -617,10 +465,7 @@ class="math inline"><em>n</em></span>，所以必然无法构造出合法排列<
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#codeforces-round-1075-div.-2-%E9%A2%98%E8%A7%A3"><span class="nav-number">1.</span> <span class="nav-text">Codeforces Round 1075 (Div.
-2) 题解</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#a.-table-with-numbers"><span class="nav-number">1.1.</span> <span class="nav-text">A. Table with Numbers</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E6%84%8F"><span class="nav-number">1.1.1.</span> <span class="nav-text">题意：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E6%9E%90"><span class="nav-number">1.1.2.</span> <span class="nav-text">分析：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#b.-the-curse-of-the-frog"><span class="nav-number">1.2.</span> <span class="nav-text">B. The Curse of the Frog</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E6%84%8F-1"><span class="nav-number">1.2.1.</span> <span class="nav-text">题意：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E6%9E%90-1"><span class="nav-number">1.2.2.</span> <span class="nav-text">分析：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#c1.-xor-convenience-easy-version"><span class="nav-number">1.3.</span> <span class="nav-text">C1. XOR Convenience (Easy
-Version)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E6%84%8F-2"><span class="nav-number">1.3.1.</span> <span class="nav-text">题意：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E6%9E%90-2"><span class="nav-number">1.3.2.</span> <span class="nav-text">分析：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#c2.-xor-convenience-hard-version"><span class="nav-number">1.4.</span> <span class="nav-text">C2. XOR-convenience (Hard
-Version)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E6%84%8F-3"><span class="nav-number">1.5.</span> <span class="nav-text">题意：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E6%9E%90-3"><span class="nav-number">1.5.1.</span> <span class="nav-text">分析：</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Codeforces-Round-1075-Div-2-%E9%A2%98%E8%A7%A3"><span class="nav-number">1.</span> <span class="nav-text">Codeforces Round 1075 (Div. 2) 题解</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#A-Table-with-Numbers"><span class="nav-number">1.1.</span> <span class="nav-text">A. Table with Numbers</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E6%84%8F%EF%BC%9A"><span class="nav-number">1.1.1.</span> <span class="nav-text">题意：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E6%9E%90%EF%BC%9A"><span class="nav-number">1.1.2.</span> <span class="nav-text">分析：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#B-The-Curse-of-the-Frog"><span class="nav-number">1.2.</span> <span class="nav-text">B. The Curse of the Frog</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E6%84%8F%EF%BC%9A-1"><span class="nav-number">1.2.1.</span> <span class="nav-text">题意：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E6%9E%90%EF%BC%9A-1"><span class="nav-number">1.2.2.</span> <span class="nav-text">分析：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#C1-XOR-Convenience-Easy-Version"><span class="nav-number">1.3.</span> <span class="nav-text">C1. XOR Convenience (Easy Version)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E6%84%8F%EF%BC%9A-2"><span class="nav-number">1.3.1.</span> <span class="nav-text">题意：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E6%9E%90%EF%BC%9A-2"><span class="nav-number">1.3.2.</span> <span class="nav-text">分析：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#C2-XOR-convenience-Hard-Version"><span class="nav-number">1.4.</span> <span class="nav-text">C2. XOR-convenience (Hard Version)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E6%84%8F%EF%BC%9A-3"><span class="nav-number">1.5.</span> <span class="nav-text">题意：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E6%9E%90%EF%BC%9A-3"><span class="nav-number">1.5.1.</span> <span class="nav-text">分析：</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -634,7 +479,7 @@ Version)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" hre
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">53</span>
+          <span class="site-state-item-count">54</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
