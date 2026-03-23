@@ -191,7 +191,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN,en,default">
-    <link itemprop="mainEntityOfPage" href="http://blog.wustacm.org/2026/03/04/CF2205(Codeforces%20Round%201083%20(Div.%202))/">
+    <link itemprop="mainEntityOfPage" href="http://blog.wustacm.org/2026/03/23/CF2209(Codeforces%20Round%201087%20(Div.%202))/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -205,7 +205,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2026/03/04/CF2205(Codeforces%20Round%201083%20(Div.%202))/" class="post-title-link" itemprop="url">Codeforces Round 1083 (Div. 2)A-D题解</a>
+            <a href="/2026/03/23/CF2209(Codeforces%20Round%201087%20(Div.%202))/" class="post-title-link" itemprop="url">Codeforces Round 1087 (Div. 2)A-E题解</a>
         </h2>
 
         <div class="post-meta">
@@ -216,7 +216,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2026-03-04 00:00:00 / 修改时间：08:01:13" itemprop="dateCreated datePublished" datetime="2026-03-04T00:00:00+00:00">2026-03-04</time>
+              <time title="创建时间：2026-03-23 00:00:00 / 修改时间：08:48:46" itemprop="dateCreated datePublished" datetime="2026-03-23T00:00:00+00:00">2026-03-23</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -229,7 +229,7 @@
             </span>
 
           
-            <span id="/2026/03/04/CF2205(Codeforces%20Round%201083%20(Div.%202))/" class="post-meta-item leancloud_visitors" data-flag-title="Codeforces Round 1083 (Div. 2)A-D题解" title="阅读次数">
+            <span id="/2026/03/23/CF2209(Codeforces%20Round%201087%20(Div.%202))/" class="post-meta-item leancloud_visitors" data-flag-title="Codeforces Round 1087 (Div. 2)A-E题解" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -244,8 +244,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2026/03/04/CF2205(Codeforces%20Round%201083%20(Div.%202))/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2026/03/04/CF2205(Codeforces%20Round%201083%20(Div.%202))/" itemprop="commentCount"></span>
+    <a title="valine" href="/2026/03/23/CF2209(Codeforces%20Round%201087%20(Div.%202))/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2026/03/23/CF2209(Codeforces%20Round%201087%20(Div.%202))/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -260,10 +260,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="Codeforces-Round-1083-Div-2-A-D题解"><a href="#Codeforces-Round-1083-Div-2-A-D题解" class="headerlink" title="Codeforces Round 1083 (Div. 2) A-D题解"></a><span class="exturl" data-url="aHR0cHM6Ly9jb2RlZm9yY2VzLmNvbS9jb250ZXN0LzIyMDU=">Codeforces Round 1083 (Div. 2)<i class="fa fa-external-link-alt"></i></span> A-D题解</h1><h1 id="A-Simons-and-Making-It-Beautiful"><a href="#A-Simons-and-Making-It-Beautiful" class="headerlink" title=" A. Simons and Making It Beautiful "></a><span class="exturl" data-url="aHR0cHM6Ly9jb2RlZm9yY2VzLmNvbS9jb250ZXN0LzIyMDUvcHJvYmxlbS9B"> A. Simons and Making It Beautiful <i class="fa fa-external-link-alt"></i></span></h1><h3 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h3><p>给你一个长为n的排列，最多交换一次下标，使得$max(a_j) &#x3D; i,1\leq j \leq i$的个数最小</p>
+          <h1 id="Codeforces-Round-1087-Div-2-A-E题解"><a href="#Codeforces-Round-1087-Div-2-A-E题解" class="headerlink" title="Codeforces Round 1087 (Div. 2) A-E题解"></a><span class="exturl" data-url="aHR0cHM6Ly9jb2RlZm9yY2VzLmNvbS9jb250ZXN0LzIyMDk=">Codeforces Round 1087 (Div. 2)<i class="fa fa-external-link-alt"></i></span> A-E题解</h1><h2 id="A-Flip-Flops"><a href="#A-Flip-Flops" class="headerlink" title=" A. Flip Flops "></a><span class="exturl" data-url="aHR0cHM6Ly9jb2RlZm9yY2VzLmNvbS9jb250ZXN0LzIyMDkvcHJvYmxlbS9B"> A. Flip Flops <i class="fa fa-external-link-alt"></i></span></h2><h3 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h3><p>你将与n只战斗力为$a_i$的怪物战斗，你的初始战斗力为$c$，有$k$双人字拖<del>??hyw??</del>，你可以进行如下操作：</p>
+<ol>
+<li>杀死一只战斗力小于你的怪物，使你的战斗力+$a_i$($a_i\leq c$)</li>
+<li>对小怪使用人字拖，小怪战斗力+1</li>
+</ol>
+<p>求出最大的最终战斗力。</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2026/03/04/CF2205(Codeforces%20Round%201083%20(Div.%202))/#more" rel="contents">
+              <a class="btn" href="/2026/03/23/CF2209(Codeforces%20Round%201087%20(Div.%202))/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -310,10 +315,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2026-03-04 00:00:00 / 修改时间：08:01:13" itemprop="dateCreated datePublished" datetime="2026-03-04T00:00:00+00:00">2026-03-04</time>
+              <time title="创建时间：2026-03-04 00:00:00" itemprop="dateCreated datePublished" datetime="2026-03-04T00:00:00+00:00">2026-03-04</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2026-03-23 08:48:46" itemprop="dateModified" datetime="2026-03-23T08:48:46+00:00">2026-03-23</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -383,6 +394,108 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN,en,default">
+    <link itemprop="mainEntityOfPage" href="http://blog.wustacm.org/2026/03/04/CF2205(Codeforces%20Round%201083%20(Div.%202))/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="WUSTACM">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2026/03/04/CF2205(Codeforces%20Round%201083%20(Div.%202))/" class="post-title-link" itemprop="url">Codeforces Round 1083 (Div. 2)A-D题解</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2026-03-04 00:00:00" itemprop="dateCreated datePublished" datetime="2026-03-04T00:00:00+00:00">2026-03-04</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2026-03-23 08:48:46" itemprop="dateModified" datetime="2026-03-23T08:48:46+00:00">2026-03-23</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E9%A2%98%E8%A7%A3/" itemprop="url" rel="index"><span itemprop="name">题解</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2026/03/04/CF2205(Codeforces%20Round%201083%20(Div.%202))/" class="post-meta-item leancloud_visitors" data-flag-title="Codeforces Round 1083 (Div. 2)A-D题解" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2026/03/04/CF2205(Codeforces%20Round%201083%20(Div.%202))/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2026/03/04/CF2205(Codeforces%20Round%201083%20(Div.%202))/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Codeforces-Round-1083-Div-2-A-D题解"><a href="#Codeforces-Round-1083-Div-2-A-D题解" class="headerlink" title="Codeforces Round 1083 (Div. 2) A-D题解"></a><span class="exturl" data-url="aHR0cHM6Ly9jb2RlZm9yY2VzLmNvbS9jb250ZXN0LzIyMDU=">Codeforces Round 1083 (Div. 2)<i class="fa fa-external-link-alt"></i></span> A-D题解</h1><h1 id="A-Simons-and-Making-It-Beautiful"><a href="#A-Simons-and-Making-It-Beautiful" class="headerlink" title=" A. Simons and Making It Beautiful "></a><span class="exturl" data-url="aHR0cHM6Ly9jb2RlZm9yY2VzLmNvbS9jb250ZXN0LzIyMDUvcHJvYmxlbS9B"> A. Simons and Making It Beautiful <i class="fa fa-external-link-alt"></i></span></h1><h3 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h3><p>给你一个长为n的排列，最多交换一次下标，使得$max(a_j) &#x3D; i,1\leq j \leq i$的个数最小</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2026/03/04/CF2205(Codeforces%20Round%201083%20(Div.%202))/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN,en,default">
     <link itemprop="mainEntityOfPage" href="http://blog.wustacm.org/2026/02/24/CF2202(Codeforces%20Round%201082%20(Div.%202))/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -414,7 +527,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2026-03-04 08:01:13" itemprop="dateModified" datetime="2026-03-04T08:01:13+00:00">2026-03-04</time>
+                <time title="修改时间：2026-03-23 08:48:46" itemprop="dateModified" datetime="2026-03-23T08:48:46+00:00">2026-03-23</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -516,7 +629,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2026-03-04 08:01:13" itemprop="dateModified" datetime="2026-03-04T08:01:13+00:00">2026-03-04</time>
+                <time title="修改时间：2026-03-23 08:48:46" itemprop="dateModified" datetime="2026-03-23T08:48:46+00:00">2026-03-23</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -618,7 +731,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2026-03-04 08:01:13" itemprop="dateModified" datetime="2026-03-04T08:01:13+00:00">2026-03-04</time>
+                <time title="修改时间：2026-03-23 08:48:46" itemprop="dateModified" datetime="2026-03-23T08:48:46+00:00">2026-03-23</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -723,7 +836,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2026-03-04 08:01:13" itemprop="dateModified" datetime="2026-03-04T08:01:13+00:00">2026-03-04</time>
+                <time title="修改时间：2026-03-23 08:48:46" itemprop="dateModified" datetime="2026-03-23T08:48:46+00:00">2026-03-23</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -825,7 +938,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2026-03-04 08:01:13" itemprop="dateModified" datetime="2026-03-04T08:01:13+00:00">2026-03-04</time>
+                <time title="修改时间：2026-03-23 08:48:46" itemprop="dateModified" datetime="2026-03-23T08:48:46+00:00">2026-03-23</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -927,7 +1040,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2026-03-04 08:01:13" itemprop="dateModified" datetime="2026-03-04T08:01:13+00:00">2026-03-04</time>
+                <time title="修改时间：2026-03-23 08:48:46" itemprop="dateModified" datetime="2026-03-23T08:48:46+00:00">2026-03-23</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1029,7 +1142,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2026-03-04 08:01:13" itemprop="dateModified" datetime="2026-03-04T08:01:13+00:00">2026-03-04</time>
+                <time title="修改时间：2026-03-23 08:48:46" itemprop="dateModified" datetime="2026-03-23T08:48:46+00:00">2026-03-23</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1077,109 +1190,6 @@
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2026/01/24/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN,en,default">
-    <link itemprop="mainEntityOfPage" href="http://blog.wustacm.org/2026/01/23/CF2189(Codeforces%20Round%201075%20(Div.%202))/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Blog">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="WUSTACM">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2026/01/23/CF2189(Codeforces%20Round%201075%20(Div.%202))/" class="post-title-link" itemprop="url">Codeforces Round 1075 (Div. 2)A-C2题解</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2026-01-23 00:00:00" itemprop="dateCreated datePublished" datetime="2026-01-23T00:00:00+00:00">2026-01-23</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2026-03-04 08:01:13" itemprop="dateModified" datetime="2026-03-04T08:01:13+00:00">2026-03-04</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E9%A2%98%E8%A7%A3/" itemprop="url" rel="index"><span itemprop="name">题解</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2026/01/23/CF2189(Codeforces%20Round%201075%20(Div.%202))/" class="post-meta-item leancloud_visitors" data-flag-title="Codeforces Round 1075 (Div. 2)A-C2题解" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2026/01/23/CF2189(Codeforces%20Round%201075%20(Div.%202))/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2026/01/23/CF2189(Codeforces%20Round%201075%20(Div.%202))/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Codeforces-Round-1075-Div-2-A-C2题解"><a href="#Codeforces-Round-1075-Div-2-A-C2题解" class="headerlink" title="Codeforces Round 1075 (Div. 2)A-C2题解"></a>Codeforces Round 1075 (Div. 2)A-C2题解</h1><p>题目链接 : <span class="exturl" data-url="aHR0cHM6Ly9jb2RlZm9yY2VzLmNvbS9jb250ZXN0LzIxODk=">Codeforces Round 1075 (Div. 2)<i class="fa fa-external-link-alt"></i></span></p>
-<h2 id="A-Table-with-Numbers"><a href="#A-Table-with-Numbers" class="headerlink" title="A Table with Numbers"></a>A Table with Numbers</h2><h3 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h3><p>给你n个值，表示行或列，要你把他们配对，使得在$h \times l$的格点图里面有最多点的配对数</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2026/01/23/CF2189(Codeforces%20Round%201075%20(Div.%202))/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -1268,7 +1278,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">56</span>
+          <span class="site-state-item-count">57</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
