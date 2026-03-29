@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="zh-CN,en,default">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 8.1.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/2025-12-21-2.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/2025-12-21-1.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"blog.wustacm.org","root":"/","scheme":"Gemini","version":"7.8.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":"flat"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="A档题A1tags abc234_a 语法题  AC代码连接 A2tags abc303_b 暴力、简单模拟  AC代码连接 A3tags abc181_c 暴力  AC代码连接 B档题B1tags 2088D 难度1100 经典置换环 并查集典型应用  题目大意 给定一个长度为 $n$ 的排列 $p$，满足包含 $1 \sim n$ 且不重复  从某个位置 $i$ 出发，可以不断执行 $ i \">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2026第一次周赛题解">
+<meta property="og:url" content="http://blog.wustacm.org/2026/03/29/2026%E7%AC%AC%E4%B8%80%E6%AC%A1%E5%91%A8%E8%B5%9B%E9%A2%98%E8%A7%A3/index.html">
+<meta property="og:site_name" content="WUSTACM">
+<meta property="og:description" content="A档题A1tags abc234_a 语法题  AC代码连接 A2tags abc303_b 暴力、简单模拟  AC代码连接 A3tags abc181_c 暴力  AC代码连接 B档题B1tags 2088D 难度1100 经典置换环 并查集典型应用  题目大意 给定一个长度为 $n$ 的排列 $p$，满足包含 $1 \sim n$ 且不重复  从某个位置 $i$ 出发，可以不断执行 $ i \">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-03-29T00:00:00.000Z">
+<meta property="article:modified_time" content="2026-03-29T09:28:43.222Z">
+<meta property="article:author" content="Blog">
+<meta property="article:tag" content="题解">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://blog.wustacm.org/2026/03/29/2026%E7%AC%AC%E4%B8%80%E6%AC%A1%E5%91%A8%E8%B5%9B%E9%A2%98%E8%A7%A3/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>2026第一次周赛题解 | WUSTACM</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta custom-logo">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">WUSTACM</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <a>
+        <img class="custom-logo-image" src="/images/2025-12-21-3.png" alt="WUSTACM">
+      </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+  <span class="exturl github-corner" data-url="aHR0cHM6Ly9naXRodWIuY29tL1dVU1RBQ00=" title="Follow me on GitHub" aria-label="Follow me on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></span>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.wustacm.org/2026/03/29/2026%E7%AC%AC%E4%B8%80%E6%AC%A1%E5%91%A8%E8%B5%9B%E9%A2%98%E8%A7%A3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="WUSTACM">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          2026第一次周赛题解
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2026-03-29 00:00:00 / 修改时间：09:28:43" itemprop="dateCreated datePublished" datetime="2026-03-29T00:00:00+00:00">2026-03-29</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E9%A2%98%E8%A7%A3/" itemprop="url" rel="index"><span itemprop="name">题解</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2026/03/29/2026%E7%AC%AC%E4%B8%80%E6%AC%A1%E5%91%A8%E8%B5%9B%E9%A2%98%E8%A7%A3/" class="post-meta-item leancloud_visitors" data-flag-title="2026第一次周赛题解" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2026/03/29/2026%E7%AC%AC%E4%B8%80%E6%AC%A1%E5%91%A8%E8%B5%9B%E9%A2%98%E8%A7%A3/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2026/03/29/2026%E7%AC%AC%E4%B8%80%E6%AC%A1%E5%91%A8%E8%B5%9B%E9%A2%98%E8%A7%A3/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="A档题"><a href="#A档题" class="headerlink" title="A档题"></a>A档题</h2><h3 id="A1"><a href="#A1" class="headerlink" title="A1"></a>A1</h3><h4 id="tags"><a href="#tags" class="headerlink" title="tags"></a>tags</h4><ul>
+<li><span class="exturl" data-url="aHR0cHM6Ly92anVkZ2UubmV0L3Byb2JsZW0vQXRDb2Rlci1hYmMyMzRfYQ==">abc234_a<i class="fa fa-external-link-alt"></i></span></li>
+<li>语法题</li>
+</ul>
+<h4 id="AC代码连接"><a href="#AC代码连接" class="headerlink" title="AC代码连接"></a><span class="exturl" data-url="aHR0cHM6Ly9hdGNvZGVyLmpwL2NvbnRlc3RzL2FiYzIzNC9zdWJtaXNzaW9ucy83NDQyODgzNA==">AC代码连接<i class="fa fa-external-link-alt"></i></span></h4><hr>
+<h3 id="A2"><a href="#A2" class="headerlink" title="A2"></a>A2</h3><h4 id="tags-1"><a href="#tags-1" class="headerlink" title="tags"></a>tags</h4><ul>
+<li><span class="exturl" data-url="aHR0cHM6Ly92anVkZ2UubmV0L3Byb2JsZW0vQXRDb2Rlci1hYmMzMDNfYg==">abc303_b<i class="fa fa-external-link-alt"></i></span></li>
+<li>暴力、简单模拟</li>
+</ul>
+<h4 id="AC代码连接-1"><a href="#AC代码连接-1" class="headerlink" title="AC代码连接"></a><span class="exturl" data-url="aHR0cHM6Ly9hdGNvZGVyLmpwL2NvbnRlc3RzL2FiYzMwMy9zdWJtaXNzaW9ucy83NDQyNTYzMQ==">AC代码连接<i class="fa fa-external-link-alt"></i></span></h4><hr>
+<h3 id="A3"><a href="#A3" class="headerlink" title="A3"></a>A3</h3><h4 id="tags-2"><a href="#tags-2" class="headerlink" title="tags"></a>tags</h4><ul>
+<li><span class="exturl" data-url="aHR0cHM6Ly92anVkZ2UubmV0L3Byb2JsZW0vQXRDb2Rlci1hYmMxODFfYw==">abc181_c<i class="fa fa-external-link-alt"></i></span></li>
+<li>暴力</li>
+</ul>
+<h4 id="AC代码连接-2"><a href="#AC代码连接-2" class="headerlink" title="AC代码连接"></a><span class="exturl" data-url="aHR0cHM6Ly9hdGNvZGVyLmpwL2NvbnRlc3RzL2FiYzE4MS9zdWJtaXNzaW9ucy83NDQzMTA5NA==">AC代码连接<i class="fa fa-external-link-alt"></i></span></h4><hr>
+<h2 id="B档题"><a href="#B档题" class="headerlink" title="B档题"></a>B档题</h2><h3 id="B1"><a href="#B1" class="headerlink" title="B1"></a>B1</h3><h4 id="tags-3"><a href="#tags-3" class="headerlink" title="tags"></a>tags</h4><ul>
+<li><span class="exturl" data-url="aHR0cHM6Ly92anVkZ2UubmV0L3Byb2JsZW0vQ29kZUZvcmNlcy0yMDA4RA==">2088D<i class="fa fa-external-link-alt"></i></span></li>
+<li>难度1100</li>
+<li>经典置换环</li>
+<li>并查集典型应用</li>
+</ul>
+<h4 id="题目大意"><a href="#题目大意" class="headerlink" title="题目大意"></a>题目大意</h4><ul>
+<li><p>给定一个长度为 $n$ 的<strong>排列</strong> $p$，满足包含 $1 \sim n$ 且不重复</p>
+</li>
+<li><p>从某个位置 $i$ 出发，可以不断执行 $ i \leftarrow p_i $</p>
+</li>
+<li><p>若从 $i$ 出发，经过若干次操作可以到达 $j$， 则称 <strong>$j$ 对 $i$ 可达</strong></p>
+</li>
+<li><p>给定一个字符串 $s$：</p>
+<ul>
+<li>$s_i &#x3D; 0$：表示 <strong>$p_i$ 是黑色</strong></li>
+<li>$s_i &#x3D; 1$：表示 <strong>$p_i$ 是白色</strong></li>
+</ul>
+</li>
+<li><p>定义：$  F(i) &#x3D; \text{从 } i \text{ 出发能到达的所有点中，黑色点的数量} $</p>
+</li>
+<li><p>输出所有 $F(1), F(2), \dots, F(n)$</p>
+</li>
+</ul>
+<h4 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h4><ul>
+<li>不难发现从任意位置出发，一定能回到该位置</li>
+<li>整个数组会依据可达的性质被分组，形成一个环</li>
+<li>环内任意元素一定可达，环与环之间任意元素不可达</li>
+<li>每个数字 $x$ 对应的 $F(x)$ 是他所在环内黑色点数量</li>
+<li>用并查集维护每个数字所在的环即可</li>
+</ul>
+<h4 id="AC代码连接-3"><a href="#AC代码连接-3" class="headerlink" title="AC代码连接"></a><span class="exturl" data-url="aHR0cHM6Ly9jb2RlZm9yY2VzLmNvbS9wcm9ibGVtc2V0L3N1Ym1pc3Npb24vMjAwOC8zNjgzNTc3NDE=">AC代码连接<i class="fa fa-external-link-alt"></i></span></h4><h3 id="B2"><a href="#B2" class="headerlink" title="B2"></a>B2</h3><h4 id="tags-4"><a href="#tags-4" class="headerlink" title="tags"></a>tags</h4><ul>
+<li><span class="exturl" data-url="aHR0cHM6Ly92anVkZ2UubmV0L3Byb2JsZW0vQ29kZUZvcmNlcy0xNjE3Qw==">1617C<i class="fa fa-external-link-alt"></i></span></li>
+<li>难度1300</li>
+<li>贪心、排序</li>
+</ul>
+<h4 id="题目大意-1"><a href="#题目大意-1" class="headerlink" title="题目大意"></a>题目大意</h4><ul>
+<li>给定一个n，以及一个长度为n的数组 $a$。</li>
+<li>每次操作，选择其中一个数字 $a_i$，以及任取一个正整数 $x$，让 $a_i &#x3D; a_i \mod x$</li>
+<li>问能不能将数组通过若干次操作后变成1 ~ n的一个排列</li>
+<li>如果不能，输出-1，能的话输出最少操作次数。</li>
+</ul>
+<p>解题思路</p>
+<ul>
+<li>注意到，一个数模另一个小于它的数，肯定会变小</li>
+<li>同时，如果要将一个较大的数模 $x$ 得到 $k$ ，那么这个数必须大于 $2\times k + 1$</li>
+<li>首先为了最优性，那些刚好能填补1 ~ n 的位置的数，先填补上，这部分不变</li>
+<li>接下来从小到大查找空缺的位置，如果存在空缺 k，那么就取当前没有被用过的最小数字 $y$ 去操作</li>
+<li>如果满足 $y &gt; 2\times k + 1$ ，那么答案加一</li>
+<li>否则说明当前数 $y$ 无论操作与否，都不能参与构成最后的结果，反过来说就是排列无法构造，输出 $-1$ 即可</li>
+</ul>
+<h4 id="AC代码连接-4"><a href="#AC代码连接-4" class="headerlink" title="AC代码连接"></a><span class="exturl" data-url="aHR0cHM6Ly9jb2RlZm9yY2VzLmNvbS9jb250ZXN0LzE2MTcvc3VibWlzc2lvbi8zNjgzOTMxODQ=">AC代码连接<i class="fa fa-external-link-alt"></i></span></h4><hr>
+<h2 id="C档题"><a href="#C档题" class="headerlink" title="C档题"></a>C档题</h2><h4 id="tags-5"><a href="#tags-5" class="headerlink" title="tags"></a>tags</h4><ul>
+<li><span class="exturl" data-url="aHR0cHM6Ly92anVkZ2UubmV0L3Byb2JsZW0vQ29kZUZvcmNlcy0xOTc2Qw==">1976C<i class="fa fa-external-link-alt"></i></span></li>
+<li>难度1600</li>
+<li>模拟、分类讨论</li>
+</ul>
+<h4 id="解题思路-1"><a href="#解题思路-1" class="headerlink" title="解题思路"></a>解题思路</h4><p>这题的难点是情况很多，少考虑一种就会出错</p>
+<ul>
+<li><p>首先我们来看所有人都来了是什么情况</p>
+</li>
+<li><p>我们定义一个人最后去了程序员就是A类人，否则就是B类人</p>
+</li>
+<li><p>我们从左到右遍历，如果<code>a[i] &gt; b[i]</code> 并且 A类人没有满，那这个人就可以去A类，我们把他们叫作主动去A的人。如果A满了就只能去B，我们叫做被迫去B类</p>
+</li>
+<li><p>如果<code>a[i] &lt; b[i]</code> 并且 B类人没有满，那这个人就可以去B类，我们把他们叫作主动去B的人。如果B满了就只能去A，我们叫做被迫去A类</p>
+</li>
+<li><p>这里很简单，我们计数就可以了。</p>
+</li>
+<li><p>然后我们会发现前<code>n + m</code>个人就会把岗位全部占满，这时候最后一个人只能来补位了（如果没有人不来，那这个人就没有工作了qwq）</p>
+</li>
+<li><p>那么我们开始考虑第 $i$ 个人没来会出现什么情况</p>
+<ul>
+<li><p>如果这个人是主动去A的人，那么这时候就会多出一个A类人的空位置，那么我们找到第一个被迫去B的人，让他去A就行了，然后让最后一个人补到B去。如果没有被迫去B的人，那我们让最后一个人去A就行了</p>
+</li>
+<li><p>如果这个人是被迫去的A，那么说明这个时候B已经满了，那我们让最后一个人去A就行</p>
+</li>
+<li><p>其它两种也是一样的</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="AC代码连接-5"><a href="#AC代码连接-5" class="headerlink" title="AC代码连接"></a><span class="exturl" data-url="aHR0cHM6Ly9jb2RlZm9yY2VzLmNvbS9jb250ZXN0LzE5NzYvc3VibWlzc2lvbi8zNDM5NTU1OTk=">AC代码连接<i class="fa fa-external-link-alt"></i></span></h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> n, m;</span><br><span class="line">    cin &gt;&gt; n &gt;&gt; m;</span><br><span class="line">    vector&lt;<span class="type">int</span>&gt;<span class="built_in">a</span>(n + m + <span class="number">5</span>, <span class="number">0</span>), <span class="built_in">b</span>(n + m + <span class="number">5</span>, <span class="number">0</span>);</span><br><span class="line">    vector&lt;<span class="type">int</span>&gt;<span class="built_in">vis</span>(n + m + <span class="number">5</span>, <span class="number">0</span>);</span><br><span class="line">    <span class="type">int</span> cnta = <span class="number">0</span>, cntb = <span class="number">0</span>;</span><br><span class="line">    <span class="type">int</span> ca = <span class="number">0</span>, cb = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n + m + <span class="number">1</span>; i++) &#123;</span><br><span class="line">        cin &gt;&gt; a[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n + m + <span class="number">1</span>; i++) &#123;</span><br><span class="line">        cin &gt;&gt; b[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">int</span> ans = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n + m; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (cnta == n) &#123;</span><br><span class="line">            <span class="keyword">if</span> (a[i] &gt; b[i]) &#123;</span><br><span class="line">                vis[i] = <span class="number">2</span>;</span><br><span class="line">                <span class="keyword">if</span> (!cb) &#123;</span><br><span class="line">                    cb = i;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            ans += b[i];</span><br><span class="line">            cntb++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (cntb == m) &#123;</span><br><span class="line">            <span class="keyword">if</span> (a[i] &lt; b[i]) &#123;</span><br><span class="line">                vis[i] = <span class="number">1</span>;</span><br><span class="line">                <span class="keyword">if</span> (!ca) &#123;</span><br><span class="line">                    ca = i;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            ans += a[i];</span><br><span class="line">            cnta++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (a[i] &gt; b[i]) &#123;</span><br><span class="line">            cnta++;</span><br><span class="line">            ans += a[i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            cntb++;</span><br><span class="line">            ans += b[i];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (n == <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n + m; i++) &#123;</span><br><span class="line">            cout &lt;&lt; ans - b[i] + b[n + m + <span class="number">1</span>] &lt;&lt; <span class="string">&#x27; &#x27;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        cout &lt;&lt; ans &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">        <span class="keyword">return</span> ;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (m == <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n + m; i++) &#123;</span><br><span class="line">            cout &lt;&lt; ans - a[i] + a[n + m + <span class="number">1</span>] &lt;&lt; <span class="string">&#x27; &#x27;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        cout &lt;&lt; ans &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">        <span class="keyword">return</span> ;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n + m; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (!vis[i]) &#123;</span><br><span class="line">            <span class="keyword">if</span> (a[i] &gt; b[i]) &#123;</span><br><span class="line">                <span class="keyword">if</span> (cb) &#123;</span><br><span class="line">                    cout &lt;&lt; ans - a[i] - b[cb] + a[cb] + b[n + m + <span class="number">1</span>] &lt;&lt; <span class="string">&#x27; &#x27;</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span> &#123;</span><br><span class="line">                    cout &lt;&lt; ans - a[i] + a[n + m + <span class="number">1</span>] &lt;&lt; <span class="string">&#x27; &#x27;</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">if</span> (ca) &#123;</span><br><span class="line">                    cout &lt;&lt; ans - b[i] - a[ca] + b[ca] + a[n + m + <span class="number">1</span>] &lt;&lt; <span class="string">&#x27; &#x27;</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span> &#123;</span><br><span class="line">                    cout &lt;&lt; ans - b[i] + b[n + m + <span class="number">1</span>] &lt;&lt; <span class="string">&#x27; &#x27;</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (vis[i] == <span class="number">1</span>) &#123;</span><br><span class="line">                cout &lt;&lt; ans - a[i] + a[n + m + <span class="number">1</span>] &lt;&lt; <span class="string">&#x27; &#x27;</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> cout &lt;&lt; ans - b[i] + b[n + m + <span class="number">1</span>] &lt;&lt; <span class="string">&#x27; &#x27;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; ans &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line"> </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<hr>
+<h2 id="D档题"><a href="#D档题" class="headerlink" title="D档题"></a>D档题</h2><h4 id="tags-6"><a href="#tags-6" class="headerlink" title="tags"></a>tags</h4><ul>
+<li><p><span class="exturl" data-url="aHR0cHM6Ly92anVkZ2UubmV0L3Byb2JsZW0vQ29kZUZvcmNlcy0yMTczRA==">2173D<i class="fa fa-external-link-alt"></i></span></p>
+</li>
+<li><p>难度 1900，dfs、数位dp</p>
+</li>
+</ul>
+<h4 id="题目大意-2"><a href="#题目大意-2" class="headerlink" title="题目大意"></a>题目大意</h4><ul>
+<li><p>给定一个正整数 $n$ 和一个正整数 $k$，需要进行 <strong>恰好 $k$ 次操作</strong>。</p>
+</li>
+<li><p>每次操作中，可以任选一个非负整数 $\ell$，并将当前的 $n$ 更新为 $n ：&#x3D; n + 2^\ell$</p>
+</li>
+<li><p>一次操作的得分，定义为：在 <strong>二进制下</strong> 计算 $n + 2^\ell$ 时，产生的 <strong>进位次数</strong>。</p>
+</li>
+<li><p>总得分是 <strong>所有 $k$ 次操作得分之和</strong>。</p>
+</li>
+<li><p>目标是：通过合理选择每一步的 $\ell$，使得在完成 $k$ 次操作后，<strong>总得分最大化</strong></p>
+</li>
+</ul>
+<h4 id="解题思路-2"><a href="#解题思路-2" class="headerlink" title="解题思路"></a>解题思路</h4><ul>
+<li><p>数位dp，从低到高遍历该数二进制的 **每一块连续的 $1$ **，考虑是否对其操作</p>
+</li>
+<li><p>操作过程中维护两个变量： 当前数字和剩余操作次数</p>
+</li>
+<li><p>设 $f(n, k)$  表示其最大总分，考虑当前 <strong>最靠后的连续1的块</strong> 有:</p>
+<ul>
+<li><p>如果对当前对这个块操作 : </p>
+<p>$num1&#x3D;f(n + lowbit(n), k-1) + popcount((n + lowbit(n))\oplus  n) - 1$</p>
+</li>
+<li><p>如果不对其操作：</p>
+<p>$num2&#x3D;(n + lowbit(n)) \oplus lowbit(n + lowbit(n))$</p>
+</li>
+</ul>
+</li>
+<li><p>取二者最大值：$f(n,k) &#x3D; max(num1, num2)$</p>
+</li>
+<li><p>直接 $dfs$ 即可。 $k&#x3D;0$ 时表示操作结束返回 $0$，$lowbit(n) &#x3D; n$ 时直接返回 $k$. </p>
+</li>
+<li><p>时间复杂度 $O(k \cdot logn)$</p>
+</li>
+</ul>
+<h4 id="AC码"><a href="#AC码" class="headerlink" title="AC码"></a><span class="exturl" data-url="aHR0cHM6Ly9jb2RlZm9yY2VzLmNvbS9wcm9ibGVtc2V0L3N1Ym1pc3Npb24vMjE3My8zNjc5OTI3MDA=">AC码<i class="fa fa-external-link-alt"></i></span></h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> uint = <span class="type">uint32_t</span>;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    uint n, k; cin &gt;&gt; n &gt;&gt; k;</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">auto</span> lowbit = [](uint x) &#123; <span class="built_in">return</span> (x &amp; (-x)); &#125;;</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">auto</span> dfs = [&amp;lowbit](<span class="keyword">auto</span>&amp;&amp; dfs, uint n, uint k) -&gt; <span class="type">int</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (k == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line"> </span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">lowbit</span>(n) == n) &#123;</span><br><span class="line">            <span class="keyword">return</span> k;</span><br><span class="line">        &#125;</span><br><span class="line"> </span><br><span class="line">        uint num = n + <span class="built_in">lowbit</span>(n);</span><br><span class="line">        <span class="type">int</span> ans1 = <span class="built_in">dfs</span>(dfs, num, k - <span class="number">1</span>) + <span class="built_in">popcount</span>(num ^ n) - <span class="number">1</span>;</span><br><span class="line">        <span class="type">int</span> ans2 = <span class="built_in">dfs</span>(dfs, num ^ <span class="built_in">lowbit</span>(num), k);</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">max</span>(ans1, ans2);</span><br><span class="line">    &#125;;</span><br><span class="line"> </span><br><span class="line">    cout &lt;&lt; <span class="built_in">dfs</span>(dfs, n, k) &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
+
+<hr>
+
+    </div>
+
+    
+    
+    
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>ACM俱乐部
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://blog.wustacm.org/2026/03/29/2026%E7%AC%AC%E4%B8%80%E6%AC%A1%E5%91%A8%E8%B5%9B%E9%A2%98%E8%A7%A3/" title="2026第一次周赛题解">http://blog.wustacm.org/2026/03/29/2026第一次周赛题解/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</span> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+        
+
+  <div class="followme">
+    <p>欢迎关注我的其它发布渠道</p>
+
+    <div class="social-list">
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="https://wustacm.scandidreams.top/wiki/">
+            <span class="icon">
+              <i class="fab fa-wiki"></i>
+            </span>
+
+            <span class="label">wiki</span>
+          </a>
+        </div>
+    </div>
+  </div>
+
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/%E9%A2%98%E8%A7%A3/" rel="tag"><i class="fa fa-tag"></i> 题解</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2026/03/23/CF2209(Codeforces%20Round%201087%20(Div.%202))/" rel="prev" title="Codeforces Round 1087 (Div. 2)A-E题解">
+      <i class="fa fa-chevron-left"></i> Codeforces Round 1087 (Div. 2)A-E题解
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#A%E6%A1%A3%E9%A2%98"><span class="nav-number">1.</span> <span class="nav-text">A档题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#A1"><span class="nav-number">1.1.</span> <span class="nav-text">A1</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#tags"><span class="nav-number">1.1.1.</span> <span class="nav-text">tags</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#AC%E4%BB%A3%E7%A0%81%E8%BF%9E%E6%8E%A5"><span class="nav-number">1.1.2.</span> <span class="nav-text">AC代码连接</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#A2"><span class="nav-number">1.2.</span> <span class="nav-text">A2</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#tags-1"><span class="nav-number">1.2.1.</span> <span class="nav-text">tags</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#AC%E4%BB%A3%E7%A0%81%E8%BF%9E%E6%8E%A5-1"><span class="nav-number">1.2.2.</span> <span class="nav-text">AC代码连接</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#A3"><span class="nav-number">1.3.</span> <span class="nav-text">A3</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#tags-2"><span class="nav-number">1.3.1.</span> <span class="nav-text">tags</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#AC%E4%BB%A3%E7%A0%81%E8%BF%9E%E6%8E%A5-2"><span class="nav-number">1.3.2.</span> <span class="nav-text">AC代码连接</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#B%E6%A1%A3%E9%A2%98"><span class="nav-number">2.</span> <span class="nav-text">B档题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#B1"><span class="nav-number">2.1.</span> <span class="nav-text">B1</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#tags-3"><span class="nav-number">2.1.1.</span> <span class="nav-text">tags</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%E5%A4%A7%E6%84%8F"><span class="nav-number">2.1.2.</span> <span class="nav-text">题目大意</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A7%A3%E9%A2%98%E6%80%9D%E8%B7%AF"><span class="nav-number">2.1.3.</span> <span class="nav-text">解题思路</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#AC%E4%BB%A3%E7%A0%81%E8%BF%9E%E6%8E%A5-3"><span class="nav-number">2.1.4.</span> <span class="nav-text">AC代码连接</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#B2"><span class="nav-number">2.2.</span> <span class="nav-text">B2</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#tags-4"><span class="nav-number">2.2.1.</span> <span class="nav-text">tags</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%E5%A4%A7%E6%84%8F-1"><span class="nav-number">2.2.2.</span> <span class="nav-text">题目大意</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#AC%E4%BB%A3%E7%A0%81%E8%BF%9E%E6%8E%A5-4"><span class="nav-number">2.2.3.</span> <span class="nav-text">AC代码连接</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#C%E6%A1%A3%E9%A2%98"><span class="nav-number">3.</span> <span class="nav-text">C档题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#tags-5"><span class="nav-number">3.1.</span> <span class="nav-text">tags</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A7%A3%E9%A2%98%E6%80%9D%E8%B7%AF-1"><span class="nav-number">3.2.</span> <span class="nav-text">解题思路</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#AC%E4%BB%A3%E7%A0%81%E8%BF%9E%E6%8E%A5-5"><span class="nav-number">3.3.</span> <span class="nav-text">AC代码连接</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#D%E6%A1%A3%E9%A2%98"><span class="nav-number">4.</span> <span class="nav-text">D档题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#tags-6"><span class="nav-number">4.1.</span> <span class="nav-text">tags</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%E5%A4%A7%E6%84%8F-2"><span class="nav-number">4.2.</span> <span class="nav-text">题目大意</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A7%A3%E9%A2%98%E6%80%9D%E8%B7%AF-2"><span class="nav-number">4.3.</span> <span class="nav-text">解题思路</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#AC%E7%A0%81"><span class="nav-number">4.4.</span> <span class="nav-text">AC码</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Blog</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">58</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1dVU1RBQ00vYmxvZy5naXRodWIuaW8=" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;WUSTACM&#x2F;blog.github.io"><i class="fab fa-github fa-fw"></i>GitHub</span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly93dXN0YWNtLnNjYW5kaWRyZWFtcy50b3Avd2lraS8=" title="wiki → https:&#x2F;&#x2F;wustacm.scandidreams.top&#x2F;wiki&#x2F;"><i class="fab fa-bilibili fa-fw"></i>wiki</span>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <span class="exturl cc-opacity" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></span>
+  </div>
+
+
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+  <div class="languages">
+    <label class="lang-select-label">
+      <i class="fa fa-language"></i>
+      <span>简体中文</span>
+      <i class="fa fa-angle-up" aria-hidden="true"></i>
+    </label>
+    <select class="lang-select" data-canonical="">
+      
+        <option value="zh-CN" data-href="/2026/03/29/2026%E7%AC%AC%E4%B8%80%E6%AC%A1%E5%91%A8%E8%B5%9B%E9%A2%98%E8%A7%A3/" selected="">
+          简体中文
+        </option>
+      
+        <option value="en" data-href="/en/2026/03/29/2026%E7%AC%AC%E4%B8%80%E6%AC%A1%E5%91%A8%E8%B5%9B%E9%A2%98%E8%A7%A3/" selected="">
+          English
+        </option>
+      
+    </select>
+  </div>
+
+        
+
+<div class="copyright">
+  
+  &copy; 2025 – 
+  <span itemprop="copyrightYear">2026</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Blog</span>
+</div>
+  <div class="powered-by">由 <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl theme-link" data-url="aHR0cHM6Ly90aGVtZS1uZXh0Lm9yZw==">NexT.Gemini</span> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/pjax/pjax.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '.languages',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[data-pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.dataset.pjax !== undefined) {
+      script.dataset.pjax = '';
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : 'QCMzzxhYIC5ZhGjunFmzzGNs-gzGzoHsz',
+      appKey     : 'mrUydHkXNGvacgPVL5OoK8UC',
+      placeholder: "Just go go",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : true,
+      lang       : 'zh-CN' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : true,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+    </div>
+</body>
+</html>
