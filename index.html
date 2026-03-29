@@ -216,7 +216,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2026-03-29 00:00:00 / 修改时间：09:28:43" itemprop="dateCreated datePublished" datetime="2026-03-29T00:00:00+00:00">2026-03-29</time>
+              <time title="创建时间：2026-03-29 00:00:00 / 修改时间：09:32:28" itemprop="dateCreated datePublished" datetime="2026-03-29T00:00:00+00:00">2026-03-29</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -265,147 +265,14 @@
 <li>语法题</li>
 </ul>
 <h4 id="AC代码连接"><a href="#AC代码连接" class="headerlink" title="AC代码连接"></a><span class="exturl" data-url="aHR0cHM6Ly9hdGNvZGVyLmpwL2NvbnRlc3RzL2FiYzIzNC9zdWJtaXNzaW9ucy83NDQyODgzNA==">AC代码连接<i class="fa fa-external-link-alt"></i></span></h4><hr>
-<h3 id="A2"><a href="#A2" class="headerlink" title="A2"></a>A2</h3><h4 id="tags-1"><a href="#tags-1" class="headerlink" title="tags"></a>tags</h4><ul>
-<li><span class="exturl" data-url="aHR0cHM6Ly92anVkZ2UubmV0L3Byb2JsZW0vQXRDb2Rlci1hYmMzMDNfYg==">abc303_b<i class="fa fa-external-link-alt"></i></span></li>
-<li>暴力、简单模拟</li>
-</ul>
-<h4 id="AC代码连接-1"><a href="#AC代码连接-1" class="headerlink" title="AC代码连接"></a><span class="exturl" data-url="aHR0cHM6Ly9hdGNvZGVyLmpwL2NvbnRlc3RzL2FiYzMwMy9zdWJtaXNzaW9ucy83NDQyNTYzMQ==">AC代码连接<i class="fa fa-external-link-alt"></i></span></h4><hr>
-<h3 id="A3"><a href="#A3" class="headerlink" title="A3"></a>A3</h3><h4 id="tags-2"><a href="#tags-2" class="headerlink" title="tags"></a>tags</h4><ul>
-<li><span class="exturl" data-url="aHR0cHM6Ly92anVkZ2UubmV0L3Byb2JsZW0vQXRDb2Rlci1hYmMxODFfYw==">abc181_c<i class="fa fa-external-link-alt"></i></span></li>
-<li>暴力</li>
-</ul>
-<h4 id="AC代码连接-2"><a href="#AC代码连接-2" class="headerlink" title="AC代码连接"></a><span class="exturl" data-url="aHR0cHM6Ly9hdGNvZGVyLmpwL2NvbnRlc3RzL2FiYzE4MS9zdWJtaXNzaW9ucy83NDQzMTA5NA==">AC代码连接<i class="fa fa-external-link-alt"></i></span></h4><hr>
-<h2 id="B档题"><a href="#B档题" class="headerlink" title="B档题"></a>B档题</h2><h3 id="B1"><a href="#B1" class="headerlink" title="B1"></a>B1</h3><h4 id="tags-3"><a href="#tags-3" class="headerlink" title="tags"></a>tags</h4><ul>
-<li><span class="exturl" data-url="aHR0cHM6Ly92anVkZ2UubmV0L3Byb2JsZW0vQ29kZUZvcmNlcy0yMDA4RA==">2088D<i class="fa fa-external-link-alt"></i></span></li>
-<li>难度1100</li>
-<li>经典置换环</li>
-<li>并查集典型应用</li>
-</ul>
-<h4 id="题目大意"><a href="#题目大意" class="headerlink" title="题目大意"></a>题目大意</h4><ul>
-<li><p>给定一个长度为 $n$ 的<strong>排列</strong> $p$，满足包含 $1 \sim n$ 且不重复</p>
-</li>
-<li><p>从某个位置 $i$ 出发，可以不断执行 $ i \leftarrow p_i $</p>
-</li>
-<li><p>若从 $i$ 出发，经过若干次操作可以到达 $j$， 则称 <strong>$j$ 对 $i$ 可达</strong></p>
-</li>
-<li><p>给定一个字符串 $s$：</p>
-<ul>
-<li>$s_i &#x3D; 0$：表示 <strong>$p_i$ 是黑色</strong></li>
-<li>$s_i &#x3D; 1$：表示 <strong>$p_i$ 是白色</strong></li>
-</ul>
-</li>
-<li><p>定义：$  F(i) &#x3D; \text{从 } i \text{ 出发能到达的所有点中，黑色点的数量} $</p>
-</li>
-<li><p>输出所有 $F(1), F(2), \dots, F(n)$</p>
-</li>
-</ul>
-<h4 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h4><ul>
-<li>不难发现从任意位置出发，一定能回到该位置</li>
-<li>整个数组会依据可达的性质被分组，形成一个环</li>
-<li>环内任意元素一定可达，环与环之间任意元素不可达</li>
-<li>每个数字 $x$ 对应的 $F(x)$ 是他所在环内黑色点数量</li>
-<li>用并查集维护每个数字所在的环即可</li>
-</ul>
-<h4 id="AC代码连接-3"><a href="#AC代码连接-3" class="headerlink" title="AC代码连接"></a><span class="exturl" data-url="aHR0cHM6Ly9jb2RlZm9yY2VzLmNvbS9wcm9ibGVtc2V0L3N1Ym1pc3Npb24vMjAwOC8zNjgzNTc3NDE=">AC代码连接<i class="fa fa-external-link-alt"></i></span></h4><h3 id="B2"><a href="#B2" class="headerlink" title="B2"></a>B2</h3><h4 id="tags-4"><a href="#tags-4" class="headerlink" title="tags"></a>tags</h4><ul>
-<li><span class="exturl" data-url="aHR0cHM6Ly92anVkZ2UubmV0L3Byb2JsZW0vQ29kZUZvcmNlcy0xNjE3Qw==">1617C<i class="fa fa-external-link-alt"></i></span></li>
-<li>难度1300</li>
-<li>贪心、排序</li>
-</ul>
-<h4 id="题目大意-1"><a href="#题目大意-1" class="headerlink" title="题目大意"></a>题目大意</h4><ul>
-<li>给定一个n，以及一个长度为n的数组 $a$。</li>
-<li>每次操作，选择其中一个数字 $a_i$，以及任取一个正整数 $x$，让 $a_i &#x3D; a_i \mod x$</li>
-<li>问能不能将数组通过若干次操作后变成1 ~ n的一个排列</li>
-<li>如果不能，输出-1，能的话输出最少操作次数。</li>
-</ul>
-<p>解题思路</p>
-<ul>
-<li>注意到，一个数模另一个小于它的数，肯定会变小</li>
-<li>同时，如果要将一个较大的数模 $x$ 得到 $k$ ，那么这个数必须大于 $2\times k + 1$</li>
-<li>首先为了最优性，那些刚好能填补1 ~ n 的位置的数，先填补上，这部分不变</li>
-<li>接下来从小到大查找空缺的位置，如果存在空缺 k，那么就取当前没有被用过的最小数字 $y$ 去操作</li>
-<li>如果满足 $y &gt; 2\times k + 1$ ，那么答案加一</li>
-<li>否则说明当前数 $y$ 无论操作与否，都不能参与构成最后的结果，反过来说就是排列无法构造，输出 $-1$ 即可</li>
-</ul>
-<h4 id="AC代码连接-4"><a href="#AC代码连接-4" class="headerlink" title="AC代码连接"></a><span class="exturl" data-url="aHR0cHM6Ly9jb2RlZm9yY2VzLmNvbS9jb250ZXN0LzE2MTcvc3VibWlzc2lvbi8zNjgzOTMxODQ=">AC代码连接<i class="fa fa-external-link-alt"></i></span></h4><hr>
-<h2 id="C档题"><a href="#C档题" class="headerlink" title="C档题"></a>C档题</h2><h4 id="tags-5"><a href="#tags-5" class="headerlink" title="tags"></a>tags</h4><ul>
-<li><span class="exturl" data-url="aHR0cHM6Ly92anVkZ2UubmV0L3Byb2JsZW0vQ29kZUZvcmNlcy0xOTc2Qw==">1976C<i class="fa fa-external-link-alt"></i></span></li>
-<li>难度1600</li>
-<li>模拟、分类讨论</li>
-</ul>
-<h4 id="解题思路-1"><a href="#解题思路-1" class="headerlink" title="解题思路"></a>解题思路</h4><p>这题的难点是情况很多，少考虑一种就会出错</p>
-<ul>
-<li><p>首先我们来看所有人都来了是什么情况</p>
-</li>
-<li><p>我们定义一个人最后去了程序员就是A类人，否则就是B类人</p>
-</li>
-<li><p>我们从左到右遍历，如果<code>a[i] &gt; b[i]</code> 并且 A类人没有满，那这个人就可以去A类，我们把他们叫作主动去A的人。如果A满了就只能去B，我们叫做被迫去B类</p>
-</li>
-<li><p>如果<code>a[i] &lt; b[i]</code> 并且 B类人没有满，那这个人就可以去B类，我们把他们叫作主动去B的人。如果B满了就只能去A，我们叫做被迫去A类</p>
-</li>
-<li><p>这里很简单，我们计数就可以了。</p>
-</li>
-<li><p>然后我们会发现前<code>n + m</code>个人就会把岗位全部占满，这时候最后一个人只能来补位了（如果没有人不来，那这个人就没有工作了qwq）</p>
-</li>
-<li><p>那么我们开始考虑第 $i$ 个人没来会出现什么情况</p>
-<ul>
-<li><p>如果这个人是主动去A的人，那么这时候就会多出一个A类人的空位置，那么我们找到第一个被迫去B的人，让他去A就行了，然后让最后一个人补到B去。如果没有被迫去B的人，那我们让最后一个人去A就行了</p>
-</li>
-<li><p>如果这个人是被迫去的A，那么说明这个时候B已经满了，那我们让最后一个人去A就行</p>
-</li>
-<li><p>其它两种也是一样的</p>
-</li>
-</ul>
-</li>
-</ul>
-<h4 id="AC代码连接-5"><a href="#AC代码连接-5" class="headerlink" title="AC代码连接"></a><span class="exturl" data-url="aHR0cHM6Ly9jb2RlZm9yY2VzLmNvbS9jb250ZXN0LzE5NzYvc3VibWlzc2lvbi8zNDM5NTU1OTk=">AC代码连接<i class="fa fa-external-link-alt"></i></span></h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> n, m;</span><br><span class="line">    cin &gt;&gt; n &gt;&gt; m;</span><br><span class="line">    vector&lt;<span class="type">int</span>&gt;<span class="built_in">a</span>(n + m + <span class="number">5</span>, <span class="number">0</span>), <span class="built_in">b</span>(n + m + <span class="number">5</span>, <span class="number">0</span>);</span><br><span class="line">    vector&lt;<span class="type">int</span>&gt;<span class="built_in">vis</span>(n + m + <span class="number">5</span>, <span class="number">0</span>);</span><br><span class="line">    <span class="type">int</span> cnta = <span class="number">0</span>, cntb = <span class="number">0</span>;</span><br><span class="line">    <span class="type">int</span> ca = <span class="number">0</span>, cb = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n + m + <span class="number">1</span>; i++) &#123;</span><br><span class="line">        cin &gt;&gt; a[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n + m + <span class="number">1</span>; i++) &#123;</span><br><span class="line">        cin &gt;&gt; b[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">int</span> ans = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n + m; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (cnta == n) &#123;</span><br><span class="line">            <span class="keyword">if</span> (a[i] &gt; b[i]) &#123;</span><br><span class="line">                vis[i] = <span class="number">2</span>;</span><br><span class="line">                <span class="keyword">if</span> (!cb) &#123;</span><br><span class="line">                    cb = i;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            ans += b[i];</span><br><span class="line">            cntb++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (cntb == m) &#123;</span><br><span class="line">            <span class="keyword">if</span> (a[i] &lt; b[i]) &#123;</span><br><span class="line">                vis[i] = <span class="number">1</span>;</span><br><span class="line">                <span class="keyword">if</span> (!ca) &#123;</span><br><span class="line">                    ca = i;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            ans += a[i];</span><br><span class="line">            cnta++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (a[i] &gt; b[i]) &#123;</span><br><span class="line">            cnta++;</span><br><span class="line">            ans += a[i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            cntb++;</span><br><span class="line">            ans += b[i];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (n == <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n + m; i++) &#123;</span><br><span class="line">            cout &lt;&lt; ans - b[i] + b[n + m + <span class="number">1</span>] &lt;&lt; <span class="string">&#x27; &#x27;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        cout &lt;&lt; ans &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">        <span class="keyword">return</span> ;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (m == <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n + m; i++) &#123;</span><br><span class="line">            cout &lt;&lt; ans - a[i] + a[n + m + <span class="number">1</span>] &lt;&lt; <span class="string">&#x27; &#x27;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        cout &lt;&lt; ans &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">        <span class="keyword">return</span> ;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n + m; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (!vis[i]) &#123;</span><br><span class="line">            <span class="keyword">if</span> (a[i] &gt; b[i]) &#123;</span><br><span class="line">                <span class="keyword">if</span> (cb) &#123;</span><br><span class="line">                    cout &lt;&lt; ans - a[i] - b[cb] + a[cb] + b[n + m + <span class="number">1</span>] &lt;&lt; <span class="string">&#x27; &#x27;</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span> &#123;</span><br><span class="line">                    cout &lt;&lt; ans - a[i] + a[n + m + <span class="number">1</span>] &lt;&lt; <span class="string">&#x27; &#x27;</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">if</span> (ca) &#123;</span><br><span class="line">                    cout &lt;&lt; ans - b[i] - a[ca] + b[ca] + a[n + m + <span class="number">1</span>] &lt;&lt; <span class="string">&#x27; &#x27;</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span> &#123;</span><br><span class="line">                    cout &lt;&lt; ans - b[i] + b[n + m + <span class="number">1</span>] &lt;&lt; <span class="string">&#x27; &#x27;</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (vis[i] == <span class="number">1</span>) &#123;</span><br><span class="line">                cout &lt;&lt; ans - a[i] + a[n + m + <span class="number">1</span>] &lt;&lt; <span class="string">&#x27; &#x27;</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> cout &lt;&lt; ans - b[i] + b[n + m + <span class="number">1</span>] &lt;&lt; <span class="string">&#x27; &#x27;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; ans &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line"> </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<hr>
-<h2 id="D档题"><a href="#D档题" class="headerlink" title="D档题"></a>D档题</h2><h4 id="tags-6"><a href="#tags-6" class="headerlink" title="tags"></a>tags</h4><ul>
-<li><p><span class="exturl" data-url="aHR0cHM6Ly92anVkZ2UubmV0L3Byb2JsZW0vQ29kZUZvcmNlcy0yMTczRA==">2173D<i class="fa fa-external-link-alt"></i></span></p>
-</li>
-<li><p>难度 1900，dfs、数位dp</p>
-</li>
-</ul>
-<h4 id="题目大意-2"><a href="#题目大意-2" class="headerlink" title="题目大意"></a>题目大意</h4><ul>
-<li><p>给定一个正整数 $n$ 和一个正整数 $k$，需要进行 <strong>恰好 $k$ 次操作</strong>。</p>
-</li>
-<li><p>每次操作中，可以任选一个非负整数 $\ell$，并将当前的 $n$ 更新为 $n ：&#x3D; n + 2^\ell$</p>
-</li>
-<li><p>一次操作的得分，定义为：在 <strong>二进制下</strong> 计算 $n + 2^\ell$ 时，产生的 <strong>进位次数</strong>。</p>
-</li>
-<li><p>总得分是 <strong>所有 $k$ 次操作得分之和</strong>。</p>
-</li>
-<li><p>目标是：通过合理选择每一步的 $\ell$，使得在完成 $k$ 次操作后，<strong>总得分最大化</strong></p>
-</li>
-</ul>
-<h4 id="解题思路-2"><a href="#解题思路-2" class="headerlink" title="解题思路"></a>解题思路</h4><ul>
-<li><p>数位dp，从低到高遍历该数二进制的 **每一块连续的 $1$ **，考虑是否对其操作</p>
-</li>
-<li><p>操作过程中维护两个变量： 当前数字和剩余操作次数</p>
-</li>
-<li><p>设 $f(n, k)$  表示其最大总分，考虑当前 <strong>最靠后的连续1的块</strong> 有:</p>
-<ul>
-<li><p>如果对当前对这个块操作 : </p>
-<p>$num1&#x3D;f(n + lowbit(n), k-1) + popcount((n + lowbit(n))\oplus  n) - 1$</p>
-</li>
-<li><p>如果不对其操作：</p>
-<p>$num2&#x3D;(n + lowbit(n)) \oplus lowbit(n + lowbit(n))$</p>
-</li>
-</ul>
-</li>
-<li><p>取二者最大值：$f(n,k) &#x3D; max(num1, num2)$</p>
-</li>
-<li><p>直接 $dfs$ 即可。 $k&#x3D;0$ 时表示操作结束返回 $0$，$lowbit(n) &#x3D; n$ 时直接返回 $k$. </p>
-</li>
-<li><p>时间复杂度 $O(k \cdot logn)$</p>
-</li>
-</ul>
-<h4 id="AC码"><a href="#AC码" class="headerlink" title="AC码"></a><span class="exturl" data-url="aHR0cHM6Ly9jb2RlZm9yY2VzLmNvbS9wcm9ibGVtc2V0L3N1Ym1pc3Npb24vMjE3My8zNjc5OTI3MDA=">AC码<i class="fa fa-external-link-alt"></i></span></h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> uint = <span class="type">uint32_t</span>;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    uint n, k; cin &gt;&gt; n &gt;&gt; k;</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">auto</span> lowbit = [](uint x) &#123; <span class="built_in">return</span> (x &amp; (-x)); &#125;;</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">auto</span> dfs = [&amp;lowbit](<span class="keyword">auto</span>&amp;&amp; dfs, uint n, uint k) -&gt; <span class="type">int</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (k == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line"> </span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">lowbit</span>(n) == n) &#123;</span><br><span class="line">            <span class="keyword">return</span> k;</span><br><span class="line">        &#125;</span><br><span class="line"> </span><br><span class="line">        uint num = n + <span class="built_in">lowbit</span>(n);</span><br><span class="line">        <span class="type">int</span> ans1 = <span class="built_in">dfs</span>(dfs, num, k - <span class="number">1</span>) + <span class="built_in">popcount</span>(num ^ n) - <span class="number">1</span>;</span><br><span class="line">        <span class="type">int</span> ans2 = <span class="built_in">dfs</span>(dfs, num ^ <span class="built_in">lowbit</span>(num), k);</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">max</span>(ans1, ans2);</span><br><span class="line">    &#125;;</span><br><span class="line"> </span><br><span class="line">    cout &lt;&lt; <span class="built_in">dfs</span>(dfs, n, k) &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
-
-<hr>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2026/03/29/2026%E7%AC%AC%E4%B8%80%E6%AC%A1%E5%91%A8%E8%B5%9B%E9%A2%98%E8%A7%A3/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -455,7 +322,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2026-03-29 09:28:43" itemprop="dateModified" datetime="2026-03-29T09:28:43+00:00">2026-03-29</time>
+                <time title="修改时间：2026-03-29 09:32:28" itemprop="dateModified" datetime="2026-03-29T09:32:28+00:00">2026-03-29</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -562,7 +429,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2026-03-29 09:28:43" itemprop="dateModified" datetime="2026-03-29T09:28:43+00:00">2026-03-29</time>
+                <time title="修改时间：2026-03-29 09:32:28" itemprop="dateModified" datetime="2026-03-29T09:32:28+00:00">2026-03-29</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -664,7 +531,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2026-03-29 09:28:43" itemprop="dateModified" datetime="2026-03-29T09:28:43+00:00">2026-03-29</time>
+                <time title="修改时间：2026-03-29 09:32:28" itemprop="dateModified" datetime="2026-03-29T09:32:28+00:00">2026-03-29</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -766,7 +633,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2026-03-29 09:28:43" itemprop="dateModified" datetime="2026-03-29T09:28:43+00:00">2026-03-29</time>
+                <time title="修改时间：2026-03-29 09:32:28" itemprop="dateModified" datetime="2026-03-29T09:32:28+00:00">2026-03-29</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -868,7 +735,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2026-03-29 09:28:43" itemprop="dateModified" datetime="2026-03-29T09:28:43+00:00">2026-03-29</time>
+                <time title="修改时间：2026-03-29 09:32:28" itemprop="dateModified" datetime="2026-03-29T09:32:28+00:00">2026-03-29</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -970,7 +837,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2026-03-29 09:28:43" itemprop="dateModified" datetime="2026-03-29T09:28:43+00:00">2026-03-29</time>
+                <time title="修改时间：2026-03-29 09:32:28" itemprop="dateModified" datetime="2026-03-29T09:32:28+00:00">2026-03-29</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1075,7 +942,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2026-03-29 09:28:43" itemprop="dateModified" datetime="2026-03-29T09:28:43+00:00">2026-03-29</time>
+                <time title="修改时间：2026-03-29 09:32:28" itemprop="dateModified" datetime="2026-03-29T09:32:28+00:00">2026-03-29</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1177,7 +1044,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2026-03-29 09:28:43" itemprop="dateModified" datetime="2026-03-29T09:28:43+00:00">2026-03-29</time>
+                <time title="修改时间：2026-03-29 09:32:28" itemprop="dateModified" datetime="2026-03-29T09:32:28+00:00">2026-03-29</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1279,7 +1146,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2026-03-29 09:28:43" itemprop="dateModified" datetime="2026-03-29T09:28:43+00:00">2026-03-29</time>
+                <time title="修改时间：2026-03-29 09:32:28" itemprop="dateModified" datetime="2026-03-29T09:32:28+00:00">2026-03-29</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
