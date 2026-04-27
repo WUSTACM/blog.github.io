@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="zh-CN,en,default">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 8.1.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/2025-12-21-2.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/2025-12-21-1.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"blog.wustacm.org","root":"/","scheme":"Gemini","version":"7.8.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":"flat"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="WUSTACM周赛4题解A1简单的 ifelse 即可">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2026第四次周赛题解">
+<meta property="og:url" content="http://blog.wustacm.org/2026/04/27/2026%E7%AC%AC%E5%9B%9B%E6%AC%A1%E5%91%A8%E8%B5%9B%E9%A2%98%E8%A7%A3/index.html">
+<meta property="og:site_name" content="WUSTACM">
+<meta property="og:description" content="WUSTACM周赛4题解A1简单的 ifelse 即可">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://www.nowcoder.com/equation?tex=f_%7Bij%7D&preview=true">
+<meta property="og:image" content="https://www.nowcoder.com/equation?tex=i&preview=true">
+<meta property="og:image" content="https://www.nowcoder.com/equation?tex=j&preview=true">
+<meta property="og:image" content="https://www.nowcoder.com/equation?tex=dc&preview=true">
+<meta property="og:image" content="https://www.nowcoder.com/equation?tex=f_%7Bij%7D%20=%20%5Cmax%5C%7Bf_%7Bij%7D,%20f_%7Bi%20-%20dc,%20j%20-%201%7D%20+%20a_i%5C%7D&preview=true">
+<meta property="og:image" content="https://www.nowcoder.com/equation?tex=R%20=%20%5Cmax%5C%7Bf_%7Bik%7D%5C%7D,%20i%20%5Cin%20%5B1,%20n%5D&preview=true">
+<meta property="og:image" content="https://www.nowcoder.com/equation?tex=f_%7Bij%7D%20%3C%20-2%20%5Ctimes%2010%5E%7B9+5%7D&preview=true">
+<meta property="article:published_time" content="2026-04-27T00:00:00.000Z">
+<meta property="article:modified_time" content="2026-04-27T02:54:04.693Z">
+<meta property="article:author" content="Blog">
+<meta property="article:tag" content="题解">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.nowcoder.com/equation?tex=f_%7Bij%7D&preview=true">
+
+<link rel="canonical" href="http://blog.wustacm.org/2026/04/27/2026%E7%AC%AC%E5%9B%9B%E6%AC%A1%E5%91%A8%E8%B5%9B%E9%A2%98%E8%A7%A3/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>2026第四次周赛题解 | WUSTACM</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta custom-logo">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">WUSTACM</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <a>
+        <img class="custom-logo-image" src="/images/2025-12-21-3.png" alt="WUSTACM">
+      </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+  <span class="exturl github-corner" data-url="aHR0cHM6Ly9naXRodWIuY29tL1dVU1RBQ00=" title="Follow me on GitHub" aria-label="Follow me on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></span>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.wustacm.org/2026/04/27/2026%E7%AC%AC%E5%9B%9B%E6%AC%A1%E5%91%A8%E8%B5%9B%E9%A2%98%E8%A7%A3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="WUSTACM">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          2026第四次周赛题解
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2026-04-27 00:00:00 / 修改时间：02:54:04" itemprop="dateCreated datePublished" datetime="2026-04-27T00:00:00+00:00">2026-04-27</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E9%A2%98%E8%A7%A3/" itemprop="url" rel="index"><span itemprop="name">题解</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2026/04/27/2026%E7%AC%AC%E5%9B%9B%E6%AC%A1%E5%91%A8%E8%B5%9B%E9%A2%98%E8%A7%A3/" class="post-meta-item leancloud_visitors" data-flag-title="2026第四次周赛题解" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2026/04/27/2026%E7%AC%AC%E5%9B%9B%E6%AC%A1%E5%91%A8%E8%B5%9B%E9%A2%98%E8%A7%A3/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2026/04/27/2026%E7%AC%AC%E5%9B%9B%E6%AC%A1%E5%91%A8%E8%B5%9B%E9%A2%98%E8%A7%A3/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="WUSTACM周赛4题解"><a href="#WUSTACM周赛4题解" class="headerlink" title="WUSTACM周赛4题解"></a>WUSTACM周赛4题解</h1><h2 id="A1"><a href="#A1" class="headerlink" title="A1"></a><span class="exturl" data-url="aHR0cHM6Ly9hYy5ub3djb2Rlci5jb20vYWNtL2NvbnRlc3QvNjkxMTcvQQ==">A1<i class="fa fa-external-link-alt"></i></span></h2><p>简单的 ifelse 即可</p>
+<span id="more"></span>
+
+<h2 id="A2"><a href="#A2" class="headerlink" title="A2"></a><span class="exturl" data-url="aHR0cHM6Ly9hdGNvZGVyLmpwL2NvbnRlc3RzL2FiYzIyOS90YXNrcy9hYmMyMjlfYw==">A2<i class="fa fa-external-link-alt"></i></span></h2><p>注意读题，不要写成01背包，二进制优化什么的了，它就是一道简单的 <strong>贪心</strong></p>
+<p>大家可以尝试一下<code>array</code>，很好用的</p>
+<p>注意开<code>long long</code></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> arr2 = array&lt;<span class="type">int</span>, <span class="number">2</span>&gt;;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> n, w;</span><br><span class="line">    cin &gt;&gt; n &gt;&gt; w;</span><br><span class="line">    vector&lt;array&lt;ll, 2&gt;&gt;<span class="built_in">a</span>(n + <span class="number">5</span>);</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;</span><br><span class="line">        cin &gt;&gt; a[i][<span class="number">0</span>] &gt;&gt; a[i][<span class="number">1</span>];</span><br><span class="line">    &#125;</span><br><span class="line">    ll ans = <span class="number">0</span>;</span><br><span class="line">    <span class="built_in">sort</span>(a.<span class="built_in">begin</span>() + <span class="number">1</span>, a.<span class="built_in">begin</span>() + <span class="number">1</span> + n);</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = n; i &gt;= <span class="number">1</span>; i--) &#123;</span><br><span class="line">        ans += a[i][<span class="number">0</span>] * <span class="built_in">min</span>(<span class="number">1ll</span> * w, a[i][<span class="number">1</span>]);</span><br><span class="line">        w -= <span class="built_in">min</span>(<span class="number">1ll</span> * w, a[i][<span class="number">1</span>]);</span><br><span class="line">        <span class="keyword">if</span> (!w) <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; ans &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="A3"><a href="#A3" class="headerlink" title="A3"></a><span class="exturl" data-url="aHR0cHM6Ly9hdGNvZGVyLmpwL2NvbnRlc3RzL2FiYzIzMC90YXNrcy9hYmMyMzBfYg==">A3<i class="fa fa-external-link-alt"></i></span></h2><p>改了数据，加了多测</p>
+<p>注意它是 $10^5$ 个<code>oxx</code> 拼接起来的，所以我们可以先把这个大字符串搞出来，再用<code>string</code> 的<code>find</code> 就可以了</p>
+<p>如果是 $10 ^ {1000}$   个<code>oxx</code> 拼接起来的呢，又要怎么写？</p>
+<p>我们考虑合法的 <code>S</code> 长什么样子，它一定是 <code>oxx</code> 的一段后缀开头然后接着<code>oxx</code>，所以我们枚举出合法的<code>S</code>就可以了</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    string s, t = <span class="string">&quot;oxx&quot;</span>; </span><br><span class="line">    cin &gt;&gt; s;</span><br><span class="line">    <span class="type">int</span> n = s.<span class="built_in">size</span>();</span><br><span class="line">    vector&lt;string&gt;ans;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> pos = <span class="number">0</span>; pos &lt; <span class="number">3</span>; pos++) &#123;</span><br><span class="line">        string c = <span class="string">&quot;&quot;</span>; </span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">            c += t[(i + pos) % <span class="number">3</span>];</span><br><span class="line">        &#125;</span><br><span class="line">        ans.<span class="built_in">push_back</span>(c);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (string c : ans) &#123;</span><br><span class="line">        <span class="keyword">if</span> (s == c) &#123;</span><br><span class="line">            cout &lt;&lt; <span class="string">&quot;Yes&quot;</span> &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">            <span class="keyword">return</span> ;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;No&quot;</span> &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="B1"><a href="#B1" class="headerlink" title="B1"></a><span class="exturl" data-url="aHR0cHM6Ly9hYy5ub3djb2Rlci5jb20vYWNtL2NvbnRlc3QvODU2ODcvRA==">B1<i class="fa fa-external-link-alt"></i></span></h2><p>$ax^2+bx+c$ 分解为 $(a_1x+b_1)(a_2x+b_2)$ </p>
+<p>则有$a_1 * a_2 &#x3D; a$   $b_1 * b_2 &#x3D; c$    $a_1 * b_2 + a_2 * b_1 &#x3D; b$</p>
+<p>注意到 $abs(a), abs(c) \leq 10 ^ 6$  所以我们可以枚举出它们的因子，$ \leq 10 ^ 6$ 的数的因子最多不超过 300,所以时间复杂度不会爆</p>
+<p>实际是个大模拟，细节比较多</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> a, b, c;</span><br><span class="line">    cin &gt;&gt; a &gt;&gt; b &gt;&gt; c;</span><br><span class="line">    <span class="keyword">if</span> (c == <span class="number">0</span>) &#123;</span><br><span class="line">        cout &lt;&lt; <span class="number">1</span> &lt;&lt; <span class="string">&#x27; &#x27;</span> &lt;&lt; <span class="number">0</span> &lt;&lt; <span class="string">&#x27; &#x27;</span> &lt;&lt; a &lt;&lt; <span class="string">&#x27; &#x27;</span> &lt;&lt; b &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">        <span class="keyword">return</span> ;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">bool</span> f1 = (a &gt; <span class="number">0</span>);</span><br><span class="line">    <span class="type">bool</span> f2 = (c &gt; <span class="number">0</span>);</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i * i &lt;= <span class="built_in">abs</span>(a); i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (a % i) <span class="keyword">continue</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">1</span>; j * j &lt;= <span class="built_in">abs</span>(c); j++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (c % j) <span class="keyword">continue</span>;</span><br><span class="line">            <span class="type">int</span> a_1 = <span class="built_in">abs</span>(i), a_2 = <span class="built_in">abs</span>(a / i);</span><br><span class="line">            <span class="type">int</span> b_1 = <span class="built_in">abs</span>(j), b_2 = <span class="built_in">abs</span>(c / j);</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> m = <span class="number">0</span>; m &lt; <span class="number">4</span>; m++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (m &amp; <span class="number">1</span>) &#123;</span><br><span class="line">                    <span class="built_in">swap</span>(a_1, a_2);</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span> (m &gt;&gt; <span class="number">1</span> &amp; <span class="number">1</span>) &#123;</span><br><span class="line">                    <span class="built_in">swap</span>(b_1, b_2);</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">for</span> (<span class="type">int</span> k = <span class="number">0</span>; k &lt; <span class="number">2</span>; k++) &#123;</span><br><span class="line">                    <span class="keyword">for</span> (<span class="type">int</span> l = <span class="number">0</span>; l &lt; <span class="number">2</span>; l++) &#123;</span><br><span class="line">                        <span class="type">int</span> a1 = <span class="number">0</span>, a2 = <span class="number">0</span>, b1 = <span class="number">0</span>, b2 = <span class="number">0</span>;</span><br><span class="line">                        <span class="keyword">if</span> (f1) &#123;</span><br><span class="line">                            <span class="keyword">if</span> (k) &#123;</span><br><span class="line">                                a1 = -a_1;</span><br><span class="line">                                a2 = -a_2;</span><br><span class="line">                            &#125;</span><br><span class="line">                            <span class="keyword">else</span> &#123;</span><br><span class="line">                                a1 = a_1;</span><br><span class="line">                                a2 = a_2;</span><br><span class="line">                            &#125;</span><br><span class="line">                        &#125;</span><br><span class="line">                        <span class="keyword">else</span> &#123;</span><br><span class="line">                            <span class="keyword">if</span> (!k) &#123;</span><br><span class="line">                                a1 = -a_1;</span><br><span class="line">                                a2 = a_2;</span><br><span class="line">                            &#125;</span><br><span class="line">                            <span class="keyword">else</span> &#123;</span><br><span class="line">                                a1 = a_1;</span><br><span class="line">                                a2 = -a_2;    </span><br><span class="line">                            &#125;</span><br><span class="line">                        &#125;</span><br><span class="line">                        <span class="keyword">if</span> (f2) &#123;</span><br><span class="line">                            <span class="keyword">if</span> (l) &#123;</span><br><span class="line">                                b1 = -b_1;</span><br><span class="line">                                b2 = -b_2;</span><br><span class="line">                            &#125;</span><br><span class="line">                            <span class="keyword">else</span> &#123;</span><br><span class="line">                                b1 = b_1;</span><br><span class="line">                                b2 = b_2;</span><br><span class="line">                            &#125;</span><br><span class="line">                        &#125;   </span><br><span class="line">                        <span class="keyword">else</span> &#123;</span><br><span class="line">                            <span class="keyword">if</span> (!l) &#123;</span><br><span class="line">                                b1 = -b_1;</span><br><span class="line">                                b2 = b_2;</span><br><span class="line">                            &#125;</span><br><span class="line">                            <span class="keyword">else</span> &#123;</span><br><span class="line">                                b1 = b_1;</span><br><span class="line">                                b2 = -b_2;    </span><br><span class="line">                            &#125;</span><br><span class="line">                        &#125;</span><br><span class="line">                        <span class="keyword">if</span> (a1 * b2 + a2 * b1 == b) &#123;</span><br><span class="line">                            cout &lt;&lt; a1 &lt;&lt; <span class="string">&#x27; &#x27;</span> &lt;&lt; b1 &lt;&lt; <span class="string">&#x27; &#x27;</span> &lt;&lt; a2 &lt;&lt; <span class="string">&#x27; &#x27;</span> &lt;&lt; b2 &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">                            <span class="keyword">return</span> ;</span><br><span class="line">                       &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span> (m &amp; <span class="number">1</span>) &#123;</span><br><span class="line">                    <span class="built_in">swap</span>(a_1, a_2);</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span> (m &gt;&gt; <span class="number">1</span> &amp; <span class="number">1</span>) &#123;</span><br><span class="line">                    <span class="built_in">swap</span>(b_1, b_2);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;NO&quot;</span> &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>事实上，这样写非常不优雅</p>
+<p>大家还记得  <strong><span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3poLWNuLyVFOSU5RiVBNiVFOCVCRSVCRSVFNSVBRSU5QSVFNyU5MCU4Ng==">韦达定理<i class="fa fa-external-link-alt"></i></span></strong> 吗</p>
+<p>我们令 $A &#x3D; a_1 b_2$，$B &#x3D; a_2 b_1$</p>
+<p>$A + B &#x3D; a_1 b_2 + a_2 b_1 &#x3D; b$</p>
+<p>$A \times B &#x3D; (a_1 b_2)(a_2 b_1) &#x3D; (a_1 a_2)(b_1 b_2) &#x3D; a \times c$</p>
+<p>$A$ 和 $B$ 本质上就是一元二次方程 $t^2 - bt + ac &#x3D; 0$ 的两个根</p>
+<p>用求根公式求出 $A$ 和 $B$ 即可</p>
+<p>我们有 $a &#x3D; a_1 a_2$ 且 $A &#x3D; a_1 b_2$</p>
+<p>那么 $a_1$ 必须同时整除 $a$ 和 $A$，我们直接取最大公约数，令 $a_1 &#x3D; \gcd(|a|, |A|)$</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> ll = <span class="type">long</span> <span class="type">long</span>;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> a, b, c;</span><br><span class="line">    ll d = <span class="number">0</span>;</span><br><span class="line">    cin &gt;&gt; a &gt;&gt; b &gt;&gt; c;</span><br><span class="line">    d = b * b - <span class="number">4</span> * a * c;</span><br><span class="line">    <span class="keyword">if</span> (d &lt; <span class="number">0</span>) &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;NO&quot;</span> &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">        <span class="keyword">return</span> ;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">int</span> t = <span class="built_in">sqrtl</span>(d);</span><br><span class="line">    <span class="keyword">if</span> (t * t != d) &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;NO&quot;</span> &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">        <span class="keyword">return</span> ;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> ((b + t) % <span class="number">2</span>) &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;NO&quot;</span> &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">        <span class="keyword">return</span> ;</span><br><span class="line">    &#125;</span><br><span class="line">    ll A = (b + t) / <span class="number">2</span>;</span><br><span class="line">    ll B = (b - t) / <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line">    ll a1 = <span class="built_in">gcd</span>(<span class="built_in">abs</span>(a), <span class="built_in">abs</span>(A));</span><br><span class="line">    ll a2 = a / a1;</span><br><span class="line">    ll b1 = B / a2;</span><br><span class="line">    ll b2 = A / a1;</span><br><span class="line">    cout &lt;&lt; a1 &lt;&lt; <span class="string">&#x27; &#x27;</span> &lt;&lt; b1 &lt;&lt; <span class="string">&#x27; &#x27;</span> &lt;&lt; a2 &lt;&lt; <span class="string">&#x27; &#x27;</span> &lt;&lt; b2 &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<blockquote>
+<p>两种方法各有利弊，你说大模拟不好写，但你在韦达定理推式子的时候，我模拟已经无脑敲完了</p>
+<p>在赛场上能写出来AC的就是好方法</p>
+</blockquote>
+<h2 id="B2"><a href="#B2" class="headerlink" title="B2"></a><span class="exturl" data-url="aHR0cHM6Ly9jb2RlZm9yY2VzLmNvbS9wcm9ibGVtc2V0L3Byb2JsZW0vMTUzNi9D">B2<i class="fa fa-external-link-alt"></i></span></h2><p>题目来源：<span class="exturl" data-url="aHR0cHM6Ly9jb2RlZm9yY2VzLmNvbS9wcm9ibGVtc2V0L3Byb2JsZW0vMTUzNi9D">CF1536C<i class="fa fa-external-link-alt"></i></span></p>
+<p>考虑任意一个前缀的答案</p>
+<p>该答案中划分出的任意一个子串都满足：</p>
+<ul>
+<li>在该段中，两个字符的比例与当前这个前缀的比例相同</li>
+<li>该段无法再被划分出更多的满足条件的子串</li>
+</ul>
+<p>划分出的一段满足这两个条件，与其成为该前缀的答案是充要的。</p>
+<p>若当前位置 $j$ 的前缀的比例为 $a : b$ ，上一个比例为 $a : b$ 的前缀位置是 $i$<br>那么不难发现从 $i + 1$ 到 $j$ 的串满足上述两个条件<br>那么将位置 $i$ 的答案加一就是当前位置 $j$ 的答案</p>
+<p>考虑做法:</p>
+<blockquote>
+<p>对于每个前缀，用一个对 (a,b) 标记它，其中 a &#x3D; 此前缀中 ‘D’ 的频率， b &#x3D; 此前缀中 ‘K’ 的频率。将 a 和 b 除以 gcd(a,b) 。如果我们从左到右遍历所有前缀，我们可以注意到前缀的答案等于我们到目前为止看到的这个对的出现次数</p>
+<p>对于实现，你可以使用 C++ 中的 map 来实现 O(nlogn) 或 O(n) 的时间复杂度</p>
+</blockquote>
+<p>代码:</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> n; cin &gt;&gt; n;</span><br><span class="line">    string s; cin &gt;&gt; s;</span><br><span class="line">     </span><br><span class="line">    map &lt;array &lt;<span class="type">int</span>, 2&gt;, <span class="type">int</span>&gt; mp;</span><br><span class="line">    <span class="type">int</span> a = <span class="number">0</span>, b = <span class="number">0</span>;</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (s[i] == <span class="string">&#x27;D&#x27;</span>) a++;</span><br><span class="line">        <span class="keyword">else</span> b++;</span><br><span class="line">        <span class="type">int</span> x = a / <span class="built_in">gcd</span>(a, b);</span><br><span class="line">        <span class="type">int</span> y = b / <span class="built_in">gcd</span>(a, b);</span><br><span class="line">        cout &lt;&lt; ++mp[&#123;x, y&#125;] &lt;&lt; <span class="string">&quot; \n&quot;</span>[i == n - <span class="number">1</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="C"><a href="#C" class="headerlink" title="C"></a><span class="exturl" data-url="aHR0cHM6Ly9hYy5ub3djb2Rlci5jb20vYWNtL2NvbnRlc3QvMTAyODk2L0U=">C<i class="fa fa-external-link-alt"></i></span></h2><p>我们可以定义二维动态规划数组 <img src="https://www.nowcoder.com/equation?tex=f_%7Bij%7D&preview=true" alt="img">，表示在抵达第 <img src="https://www.nowcoder.com/equation?tex=i&preview=true" alt="img"> 格总共移动了 <img src="https://www.nowcoder.com/equation?tex=j&preview=true" alt="img"> 次的状态，遍历所有可能的骰子（6个值）为 <img src="https://www.nowcoder.com/equation?tex=dc&preview=true" alt="img">，即可得到状态转移方程：</p>
+<p><img src="https://www.nowcoder.com/equation?tex=f_%7Bij%7D%20=%20%5Cmax%5C%7Bf_%7Bij%7D,%20f_%7Bi%20-%20dc,%20j%20-%201%7D%20+%20a_i%5C%7D&preview=true" alt="img"></p>
+<p>最后取<img src="https://www.nowcoder.com/equation?tex=R%20=%20%5Cmax%5C%7Bf_%7Bik%7D%5C%7D,%20i%20%5Cin%20%5B1,%20n%5D&preview=true" alt="img"> 即为答案。</p>
+<p>DP 数组的最小值需要满足 <img src="https://www.nowcoder.com/equation?tex=f_%7Bij%7D%20%3C%20-2%20%5Ctimes%2010%5E%7B9+5%7D&preview=true" alt="img"> 才不会被负数卡爆。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> n, k; cin &gt;&gt; n &gt;&gt; k;</span><br><span class="line">    <span class="function">vector&lt;LL&gt; <span class="title">a</span><span class="params">(n + <span class="number">5</span>)</span></span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; ++i)&#123;</span><br><span class="line">        cin &gt;&gt; a[i];</span><br><span class="line">    &#125;</span><br><span class="line">    vector&lt;vector&lt;LL&gt;&gt; <span class="built_in">f</span>(n + <span class="number">5</span>, <span class="built_in">vector</span>&lt;LL&gt;(k + <span class="number">5</span>, <span class="number">-1145141919810</span>)); <span class="comment">// 魔法的数字，助您日入百亿</span></span><br><span class="line">    LL R = <span class="number">-1145141919810</span>;</span><br><span class="line">    f[<span class="number">0</span>][<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; ++i)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j = <span class="number">1</span>; j &lt;= <span class="built_in">min</span>(i, k); ++j)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> p = <span class="built_in">max</span>(<span class="number">0</span>, i - <span class="number">6</span>); p &lt;= i - <span class="number">1</span>; ++p)&#123;</span><br><span class="line">                f[i][j] = <span class="built_in">max</span>(f[i][j], f[p][j - <span class="number">1</span>] + a[i]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        R = <span class="built_in">max</span>(R, f[i][k]);</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; R &lt;&lt; endl;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="D"><a href="#D" class="headerlink" title="D"></a><span class="exturl" data-url="aHR0cHM6Ly9hYy5ub3djb2Rlci5jb20vYWNtL2NvbnRlc3QvOTQxMTQvRA==">D<i class="fa fa-external-link-alt"></i></span></h2><p>防AK题，没有题解（不建议大家补）</p>
+
+    </div>
+
+    
+    
+    
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>ACM俱乐部
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://blog.wustacm.org/2026/04/27/2026%E7%AC%AC%E5%9B%9B%E6%AC%A1%E5%91%A8%E8%B5%9B%E9%A2%98%E8%A7%A3/" title="2026第四次周赛题解">http://blog.wustacm.org/2026/04/27/2026第四次周赛题解/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</span> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+        
+
+  <div class="followme">
+    <p>欢迎关注我的其它发布渠道</p>
+
+    <div class="social-list">
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="https://wustacm.scandidreams.top/wiki/">
+            <span class="icon">
+              <i class="fab fa-wiki"></i>
+            </span>
+
+            <span class="label">wiki</span>
+          </a>
+        </div>
+    </div>
+  </div>
+
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/%E9%A2%98%E8%A7%A3/" rel="tag"><i class="fa fa-tag"></i> 题解</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2026/04/19/2026%E7%AC%AC%E4%B8%89%E6%AC%A1%E5%91%A8%E8%B5%9B%E9%A2%98%E8%A7%A3/" rel="prev" title="2026第三次周赛题解">
+      <i class="fa fa-chevron-left"></i> 2026第三次周赛题解
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#WUSTACM%E5%91%A8%E8%B5%9B4%E9%A2%98%E8%A7%A3"><span class="nav-number">1.</span> <span class="nav-text">WUSTACM周赛4题解</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#A1"><span class="nav-number">1.1.</span> <span class="nav-text">A1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#A2"><span class="nav-number">1.2.</span> <span class="nav-text">A2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#A3"><span class="nav-number">1.3.</span> <span class="nav-text">A3</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#B1"><span class="nav-number">1.4.</span> <span class="nav-text">B1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#B2"><span class="nav-number">1.5.</span> <span class="nav-text">B2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#C"><span class="nav-number">1.6.</span> <span class="nav-text">C</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#D"><span class="nav-number">1.7.</span> <span class="nav-text">D</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Blog</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">62</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1dVU1RBQ00vYmxvZy5naXRodWIuaW8=" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;WUSTACM&#x2F;blog.github.io"><i class="fab fa-github fa-fw"></i>GitHub</span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly93dXN0YWNtLnNjYW5kaWRyZWFtcy50b3Avd2lraS8=" title="wiki → https:&#x2F;&#x2F;wustacm.scandidreams.top&#x2F;wiki&#x2F;"><i class="fab fa-bilibili fa-fw"></i>wiki</span>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <span class="exturl cc-opacity" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></span>
+  </div>
+
+
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+  <div class="languages">
+    <label class="lang-select-label">
+      <i class="fa fa-language"></i>
+      <span>简体中文</span>
+      <i class="fa fa-angle-up" aria-hidden="true"></i>
+    </label>
+    <select class="lang-select" data-canonical="">
+      
+        <option value="zh-CN" data-href="/2026/04/27/2026%E7%AC%AC%E5%9B%9B%E6%AC%A1%E5%91%A8%E8%B5%9B%E9%A2%98%E8%A7%A3/" selected="">
+          简体中文
+        </option>
+      
+        <option value="en" data-href="/en/2026/04/27/2026%E7%AC%AC%E5%9B%9B%E6%AC%A1%E5%91%A8%E8%B5%9B%E9%A2%98%E8%A7%A3/" selected="">
+          English
+        </option>
+      
+    </select>
+  </div>
+
+        
+
+<div class="copyright">
+  
+  &copy; 2025 – 
+  <span itemprop="copyrightYear">2026</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Blog</span>
+</div>
+  <div class="powered-by">由 <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl theme-link" data-url="aHR0cHM6Ly90aGVtZS1uZXh0Lm9yZw==">NexT.Gemini</span> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/pjax/pjax.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '.languages',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[data-pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.dataset.pjax !== undefined) {
+      script.dataset.pjax = '';
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : 'QCMzzxhYIC5ZhGjunFmzzGNs-gzGzoHsz',
+      appKey     : 'mrUydHkXNGvacgPVL5OoK8UC',
+      placeholder: "Just go go",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : true,
+      lang       : 'zh-CN' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : true,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+    </div>
+</body>
+</html>
