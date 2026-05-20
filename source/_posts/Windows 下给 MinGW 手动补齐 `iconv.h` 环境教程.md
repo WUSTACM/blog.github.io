@@ -1,6 +1,6 @@
 ---
 title: Windows 下给 MinGW 手动补齐 `iconv.h` 环境教程
-date: 2025-5-20
+date: 2026-5-20
 tags: [杂谈]
 categories: [技术分享]
 cover: https://i.postimg.cc/ZnCzZKvr/2cb79efe667b08d4b12e3b103d67653.jpg
@@ -15,7 +15,7 @@ sticky:
 mermaid:
 katex:
 mathjax: true
-author: yz
+author: everlasting
 references:
 comments:
 indexing:
