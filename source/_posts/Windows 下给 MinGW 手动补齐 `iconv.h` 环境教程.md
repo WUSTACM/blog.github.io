@@ -26,7 +26,7 @@ h1:
 type:
 ---
 
-# Windows 下给 MinGW 手动补齐 `iconv.h` 环境教程
+# Windows 下给 MinGW 手动补齐iconv.h环境教程
 
 ## 1. 问题背景
 
@@ -55,6 +55,8 @@ fatal error: iconv.h: No such file or directory
 ```
 
 这个问题的本质不是 C++ 代码写错了，而是当前 MinGW 环境里缺少 `libiconv` 相关的头文件和库文件。
+
+<!-- more -->
 
 ---
 
