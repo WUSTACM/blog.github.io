@@ -216,7 +216,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2026-05-20 00:00:00 / 修改时间：07:13:39" itemprop="dateCreated datePublished" datetime="2026-05-20T00:00:00+00:00">2026-05-20</time>
+              <time title="创建时间：2026-05-20 00:00:00 / 修改时间：07:17:12" itemprop="dateCreated datePublished" datetime="2026-05-20T00:00:00+00:00">2026-05-20</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -260,7 +260,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="Windows-下给-MinGW-手动补齐-iconv-h-环境教程"><a href="#Windows-下给-MinGW-手动补齐-iconv-h-环境教程" class="headerlink" title="Windows 下给 MinGW 手动补齐 iconv.h 环境教程"></a>Windows 下给 MinGW 手动补齐 <code>iconv.h</code> 环境教程</h1><h2 id="1-问题背景"><a href="#1-问题背景" class="headerlink" title="1. 问题背景"></a>1. 问题背景</h2><p>在 Windows 下使用 MinGW &#x2F; WinLibs 编译 C++ 代码时，如果包含：</p>
+          <h1 id="Windows-下给-MinGW-手动补齐iconv-h环境教程"><a href="#Windows-下给-MinGW-手动补齐iconv-h环境教程" class="headerlink" title="Windows 下给 MinGW 手动补齐iconv.h环境教程"></a>Windows 下给 MinGW 手动补齐iconv.h环境教程</h1><h2 id="1-问题背景"><a href="#1-问题背景" class="headerlink" title="1. 问题背景"></a>1. 问题背景</h2><p>在 Windows 下使用 MinGW &#x2F; WinLibs 编译 C++ 代码时，如果包含：</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/extc++.h&gt;</span></span></span><br></pre></td></tr></table></figure>
 
 <p>可能会遇到类似错误：</p>
@@ -270,172 +270,14 @@
 <figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;bits/extc++.h&gt;</span><br><span class="line">    ↓</span><br><span class="line">&lt;ext/codecvt_specializations.h&gt;</span><br><span class="line">    ↓</span><br><span class="line">&lt;iconv.h&gt;</span><br><span class="line">    ↓</span><br><span class="line">找不到 iconv.h</span><br></pre></td></tr></table></figure>
 
 <p>这个问题的本质不是 C++ 代码写错了，而是当前 MinGW 环境里缺少 <code>libiconv</code> 相关的头文件和库文件。</p>
-<hr>
-<h2 id="2-适用环境"><a href="#2-适用环境" class="headerlink" title="2. 适用环境"></a>2. 适用环境</h2><p>本教程适用于 Windows 下手动配置 MinGW &#x2F; WinLibs 环境，并且不想安装完整 MSYS2，只想补齐 <code>iconv.h</code> 相关文件的情况。</p>
-<p>可以通过下面命令查看自己的编译器信息：</p>
-<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">g++ -v</span><br></pre></td></tr></table></figure>
-
-<p>重点观察输出中的关键词，比如：</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">x86_64-w64-mingw32</span><br><span class="line">ucrt</span><br><span class="line">mingw64</span><br><span class="line">clang64</span><br><span class="line">i686</span><br></pre></td></tr></table></figure>
-
-<p>根据自己的环境选择对应的 <code>libiconv</code> 包：</p>
-<table>
-<thead>
-<tr>
-<th>你的环境</th>
-<th>关键词</th>
-<th>应下载的包</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><strong>普通 64 位 MinGW &#x2F; MSVCRT</strong></td>
-<td><code>x86_64-w64-mingw32</code>、<code>mingw64</code>、没有 <code>ucrt</code></td>
-<td><code>mingw-w64-x86_64-libiconv</code></td>
-</tr>
-<tr>
-<td><strong>UCRT64</strong></td>
-<td><code>ucrt</code>、<code>ucrt64</code></td>
-<td><code>mingw-w64-ucrt-x86_64-libiconv</code></td>
-</tr>
-<tr>
-<td><strong>CLANG64</strong></td>
-<td><code>clang64</code>、<code>clang-x86_64</code></td>
-<td><code>mingw-w64-clang-x86_64-libiconv</code></td>
-</tr>
-<tr>
-<td><strong>32 位 MinGW</strong></td>
-<td><code>i686</code>、<code>mingw32</code></td>
-<td><code>mingw-w64-i686-libiconv</code></td>
-</tr>
-</tbody></table>
-<p>例如，如果 <code>g++ -v</code> 输出中有类似：</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">MinGW-W64 x86_64-ucrt-posix-seh</span><br></pre></td></tr></table></figure>
-
-<p>说明你使用的是 <strong>UCRT64 版本</strong>，这种情况下应该下载：</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mingw-w64-ucrt-x86_64-libiconv</span><br></pre></td></tr></table></figure>
-
-<p>如果输出中没有 <code>ucrt</code>，而是普通的 64 位 MinGW 环境，一般应该下载：</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mingw-w64-x86_64-libiconv</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h2 id="3-下载-libiconv-包"><a href="#3-下载-libiconv-包" class="headerlink" title="3. 下载 libiconv 包"></a>3. 下载 libiconv 包</h2><p>进入 MSYS2 Packages 页面，下载自己环境对应的 <code>libiconv</code> 包。</p>
-<p>MSYS2 Packages 搜索页：</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://packages.msys2.org/search?t=binpkg&amp;q=libiconv</span><br></pre></td></tr></table></figure>
-
-<p>也可以根据自己的环境直接进入对应页面：</p>
-<table>
-<thead>
-<tr>
-<th>你的环境</th>
-<th>应下载的包</th>
-<th>下载页面</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><strong>普通 64 位 MinGW &#x2F; MSVCRT</strong></td>
-<td><code>mingw-w64-x86_64-libiconv</code></td>
-<td><span class="exturl" data-url="aHR0cHM6Ly9wYWNrYWdlcy5tc3lzMi5vcmcvcGFja2FnZS9taW5ndy13NjQteDg2XzY0LWxpYmljb252">https://packages.msys2.org/package/mingw-w64-x86_64-libiconv<i class="fa fa-external-link-alt"></i></span></td>
-</tr>
-<tr>
-<td><strong>UCRT64</strong></td>
-<td><code>mingw-w64-ucrt-x86_64-libiconv</code></td>
-<td><span class="exturl" data-url="aHR0cHM6Ly9wYWNrYWdlcy5tc3lzMi5vcmcvcGFja2FnZS9taW5ndy13NjQtdWNydC14ODZfNjQtbGliaWNvbnY=">https://packages.msys2.org/package/mingw-w64-ucrt-x86_64-libiconv<i class="fa fa-external-link-alt"></i></span></td>
-</tr>
-<tr>
-<td><strong>CLANG64</strong></td>
-<td><code>mingw-w64-clang-x86_64-libiconv</code></td>
-<td><span class="exturl" data-url="aHR0cHM6Ly9wYWNrYWdlcy5tc3lzMi5vcmcvcGFja2FnZS9taW5ndy13NjQtY2xhbmcteDg2XzY0LWxpYmljb252">https://packages.msys2.org/package/mingw-w64-clang-x86_64-libiconv<i class="fa fa-external-link-alt"></i></span></td>
-</tr>
-<tr>
-<td><strong>32 位 MinGW</strong></td>
-<td><code>mingw-w64-i686-libiconv</code></td>
-<td><span class="exturl" data-url="aHR0cHM6Ly9wYWNrYWdlcy5tc3lzMi5vcmcvcGFja2FnZS9taW5ndy13NjQtaTY4Ni1saWJpY29udg==">https://packages.msys2.org/package/mingw-w64-i686-libiconv<i class="fa fa-external-link-alt"></i></span></td>
-</tr>
-</tbody></table>
-<p>进入对应页面后，找到页面中的 <code>File</code> 一栏，下载 <code>.pkg.tar.zst</code> 文件。</p>
-<p>例如 UCRT64 环境的页面中，文件名通常类似:</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mingw-w64-ucrt-x86_64-libiconv-1.19-1-any.pkg.tar.zst</span><br></pre></td></tr></table></figure>
-
-<p>普通 64 位 MinGW 环境的文件名通常类似：</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mingw-w64-x86_64-libiconv-1.19-1-any.pkg.tar.zst</span><br></pre></td></tr></table></figure>
-
-<p>注意：版本号可能会随着 MSYS2 更新而变化，所以实际下载时以页面中的 <code>File</code> 一栏为准。</p>
-<hr>
-<h2 id="4-解压-pkg-tar-zst-文件"><a href="#4-解压-pkg-tar-zst-文件" class="headerlink" title="4. 解压 .pkg.tar.zst 文件"></a>4. 解压 <code>.pkg.tar.zst</code> 文件</h2><p>下载后你会得到一个类似这样的文件：</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mingw-w64-ucrt-x86_64-libiconv-1.19-1-any.pkg.tar.zst</span><br></pre></td></tr></table></figure>
-
-<p>解压展开后一般会看到一个环境目录，例如：</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ucrt64</span><br></pre></td></tr></table></figure>
-
-<p>或者：</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mingw64</span><br></pre></td></tr></table></figure>
-
-<p>再展开后应该有：</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">环境目录\bin</span><br><span class="line">环境目录\include</span><br><span class="line">环境目录\lib</span><br></pre></td></tr></table></figure>
-
-<p>例如 UCRT64 包中通常是：</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ucrt64\bin</span><br><span class="line">ucrt64\include</span><br><span class="line">ucrt64\lib</span><br></pre></td></tr></table></figure>
-
-<p>普通 MINGW64 包中通常是：</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mingw64\bin</span><br><span class="line">mingw64\include</span><br><span class="line">mingw64\lib</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h2 id="5-复制文件到你的-MinGW-目录"><a href="#5-复制文件到你的-MinGW-目录" class="headerlink" title="5. 复制文件到你的 MinGW 目录"></a>5. 复制文件到你的 MinGW 目录</h2><p>假设你的 MinGW &#x2F; WinLibs GCC 安装目录是：</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">D:\gcc-14.2.0\mingw64</span><br></pre></td></tr></table></figure>
-
-<p>那么要把解压出来的环境目录中的文件复制到这个目录下。</p>
-<p>例如你解压出来的是：</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ucrt64</span><br></pre></td></tr></table></figure>
-
-<p>就把 <code>ucrt64</code> 里面的 <code>include</code>、<code>lib</code>、<code>bin</code> 中的相关文件复制到：</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">D:\gcc-14.2.0\mingw64\include</span><br><span class="line">D:\gcc-14.2.0\mingw64\lib</span><br><span class="line">D:\gcc-14.2.0\mingw64\bin</span><br></pre></td></tr></table></figure>
-
-<p>如果你解压出来的是：</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mingw64</span><br></pre></td></tr></table></figure>
-
-<p>也是同理，把里面对应的文件复制到你自己的 MinGW 安装目录。</p>
-<hr>
-<h2 id="5-1-复制-include-文件"><a href="#5-1-复制-include-文件" class="headerlink" title="5.1 复制 include 文件"></a>5.1 复制 include 文件</h2><p>从解压目录：</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">环境目录\include</span><br></pre></td></tr></table></figure>
-
-<p>复制以下文件：</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">iconv.h</span><br><span class="line">libcharset.h</span><br><span class="line">localcharset.h</span><br></pre></td></tr></table></figure>
-
-<p>到你的 MinGW include 目录：</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">D:\gcc-14.2.0\mingw64\include</span><br></pre></td></tr></table></figure>
-
-<p>也就是最终应该存在：</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">D:\gcc-14.2.0\mingw64\include\iconv.h</span><br><span class="line">D:\gcc-14.2.0\mingw64\include\libcharset.h</span><br><span class="line">D:\gcc-14.2.0\mingw64\include\localcharset.h</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h2 id="5-2-复制-lib-文件"><a href="#5-2-复制-lib-文件" class="headerlink" title="5.2 复制 lib 文件"></a>5.2 复制 lib 文件</h2><p>从解压目录：</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">环境目录\lib</span><br></pre></td></tr></table></figure>
-
-<p>复制以下文件：</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">libiconv.a</span><br><span class="line">libiconv.dll.a</span><br><span class="line">libcharset.a</span><br><span class="line">libcharset.dll.a</span><br></pre></td></tr></table></figure>
-
-<p>到你的 MinGW lib 目录：</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">D:\gcc-14.2.0\mingw64\lib</span><br></pre></td></tr></table></figure>
-
-<p>最终应该存在：</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">D:\gcc-14.2.0\mingw64\lib\libiconv.a</span><br><span class="line">D:\gcc-14.2.0\mingw64\lib\libiconv.dll.a</span><br><span class="line">D:\gcc-14.2.0\mingw64\lib\libcharset.a</span><br><span class="line">D:\gcc-14.2.0\mingw64\lib\libcharset.dll.a</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h2 id="5-3-复制-bin-文件"><a href="#5-3-复制-bin-文件" class="headerlink" title="5.3 复制 bin 文件"></a>5.3 复制 bin 文件</h2><p>从解压目录：</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">环境目录\bin</span><br></pre></td></tr></table></figure>
-
-<p>复制以下文件：</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">libiconv-2.dll</span><br><span class="line">libcharset-1.dll</span><br></pre></td></tr></table></figure>
-
-<p>到你的 MinGW bin 目录：</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">D:\gcc-14.2.0\mingw64\bin</span><br></pre></td></tr></table></figure>
-
-<p>最终应该存在：</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">D:\gcc-14.2.0\mingw64\bin\libiconv-2.dll</span><br><span class="line">D:\gcc-14.2.0\mingw64\bin\libcharset-1.dll</span><br></pre></td></tr></table></figure>
-
-<hr>
-<p>复制完后即可正常编译运行了</p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2026/05/20/Windows%20%E4%B8%8B%E7%BB%99%20MinGW%20%E6%89%8B%E5%8A%A8%E8%A1%A5%E9%BD%90%20%60iconv.h%60%20%E7%8E%AF%E5%A2%83%E6%95%99%E7%A8%8B/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -485,7 +327,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2026-05-20 07:13:39" itemprop="dateModified" datetime="2026-05-20T07:13:39+00:00">2026-05-20</time>
+                <time title="修改时间：2026-05-20 07:17:12" itemprop="dateModified" datetime="2026-05-20T07:17:12+00:00">2026-05-20</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -589,7 +431,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2026-05-20 07:13:39" itemprop="dateModified" datetime="2026-05-20T07:13:39+00:00">2026-05-20</time>
+                <time title="修改时间：2026-05-20 07:17:12" itemprop="dateModified" datetime="2026-05-20T07:17:12+00:00">2026-05-20</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -693,7 +535,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2026-05-20 07:13:39" itemprop="dateModified" datetime="2026-05-20T07:13:39+00:00">2026-05-20</time>
+                <time title="修改时间：2026-05-20 07:17:12" itemprop="dateModified" datetime="2026-05-20T07:17:12+00:00">2026-05-20</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -795,7 +637,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2026-05-20 07:13:39" itemprop="dateModified" datetime="2026-05-20T07:13:39+00:00">2026-05-20</time>
+                <time title="修改时间：2026-05-20 07:17:12" itemprop="dateModified" datetime="2026-05-20T07:17:12+00:00">2026-05-20</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -899,7 +741,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2026-05-20 07:13:39" itemprop="dateModified" datetime="2026-05-20T07:13:39+00:00">2026-05-20</time>
+                <time title="修改时间：2026-05-20 07:17:12" itemprop="dateModified" datetime="2026-05-20T07:17:12+00:00">2026-05-20</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1002,7 +844,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2026-05-20 07:13:39" itemprop="dateModified" datetime="2026-05-20T07:13:39+00:00">2026-05-20</time>
+                <time title="修改时间：2026-05-20 07:17:12" itemprop="dateModified" datetime="2026-05-20T07:17:12+00:00">2026-05-20</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1107,7 +949,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2026-05-20 07:13:39" itemprop="dateModified" datetime="2026-05-20T07:13:39+00:00">2026-05-20</time>
+                <time title="修改时间：2026-05-20 07:17:12" itemprop="dateModified" datetime="2026-05-20T07:17:12+00:00">2026-05-20</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1213,7 +1055,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2026-05-20 07:13:39" itemprop="dateModified" datetime="2026-05-20T07:13:39+00:00">2026-05-20</time>
+                <time title="修改时间：2026-05-20 07:17:12" itemprop="dateModified" datetime="2026-05-20T07:17:12+00:00">2026-05-20</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1320,7 +1162,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2026-05-20 07:13:39" itemprop="dateModified" datetime="2026-05-20T07:13:39+00:00">2026-05-20</time>
+                <time title="修改时间：2026-05-20 07:17:12" itemprop="dateModified" datetime="2026-05-20T07:17:12+00:00">2026-05-20</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
