@@ -1,13 +1,48 @@
 ---
-title: "Archlinux安装指北"
-description: "本文系统性地介绍了在 UEFI 环境下使用 BTRFS 文件系统手动安装 Arch Linux 的完整流程，涵盖启动盘制作、网络与镜像配置、磁盘分区、基础系统安装、引导配置以及显卡与系统优化等关键步骤，适合希望深入理解 Arch Linux 安装与系统结构的用户参考。"
-date: "2026-01-16 13:59:12"
-updated: "2026-01-17 09:03:23"
-image: "https://jianges.com/wp-content/uploads/2026/01/1768551164-20260116161217_381_30-scaled.png"
-permalink: "/2026/01/16/ArchLinux手动安装指北"
-categories: ["技术分享"]
-tags: ["系统","杂谈"]
+title: ArchLinux手动安装指北
+description: 本文系统性地介绍了在 UEFI 环境下使用 BTRFS 文件系统手动安装 Arch Linux 的完整流程，涵盖启动盘制作、网络与镜像配置、磁盘分区、基础系统安装、引导配置以及显卡与系统优化等关键步骤，适合希望深入理解 Arch Linux 安装与系统结构的用户参考。
+date: 2026-01-16 14:13:44
+updated: 2026-02-02 15:27:23
+permalink: /2026/archlinux
+image: https://jianges.com/wp-content/uploads/2026/01/1768551164-20260116161217_381_30-scaled.png
+categories: [技术]
+tags: [系统, 教程, Archlinux]
 ---
+
+
+::alert{type="warning" title="开始前"}
+手动安装系统会改写磁盘分区和引导项。操作前请备份重要数据，并确认自己处在 UEFI 环境。
+::
+
+::timeline
+{准备介质}
+
+下载 Arch Linux ISO，制作启动盘，关闭 Secure Boot。
+
+{进入 live 环境}
+
+确认 UEFI 启动，联网、同步时间、配置镜像源。
+
+{分区与挂载}
+
+确认目标硬盘，创建 ESP 和 BTRFS 根分区，挂载子卷。
+
+{安装基础系统}
+
+使用 `pacstrap` 安装基础包，生成 `fstab`，进入 `arch-chroot`。
+
+{引导与桌面}
+
+配置本地化、GRUB、网络、快照、驱动和 KDE Plasma。
+::
+
+::folding{title="安装前检查清单"}
+- 已经备份目标磁盘上的重要文件。
+- 清楚自己要操作的硬盘名称，例如 `/dev/nvme0n1`。
+- 电脑使用 UEFI 启动，并已关闭 Secure Boot。
+- 安装时能稳定联网，或者已经准备好有线网络/USB 网络共享。
+- 如果是双系统，已经确认 Windows 的 EFI 分区和数据分区位置。
+::
 
 ## 1. 制作启动盘
 
@@ -15,9 +50,24 @@ tags: ["系统","杂谈"]
 
 浏览器搜索ArchLinux，找到Download页面（[或者通过这里直接跳转](https://archlinux.org/download/)）向下翻找到China地区镜像源，下载ISO镜像，推荐[hust.edu.cn](https://mirrors.hust.edu.cn/archlinux/iso/2026.01.01/)华中科技大学[开源镜像站](https://mirrors.hust.edu.cn/)，选择[archlinux-2026.01.01-x86_64.iso](https://mirrors.hust.edu.cn/archlinux/iso/2026.01.01/archlinux-2026.01.01-x86_64.iso)（日期可能变化）
 
+::link-card
+---
+title: Arch Linux Downloads
+description: 官方 ISO 下载页面，镜像日期会持续更新。
+link: https://archlinux.org/download/
+---
+::
+
 ### 1.2 制作启动盘
 
 Windows 下推荐使用 [Ventoy](https://www.ventoy.net/cn/doc_start.html)、[Rufus](https://rufus.ie/) 或者 [Power ISO](https://www.poweriso.com/download.php)EULA 进行 U 盘刻录。三者皆为免费使用的软件。具体操作都非常简单除此之外，如果你还嫌麻烦，还可以使用更为简单的安装盘制作工具 [balenaEtcher](https://www.balena.io/etcher/)。这里以Rufus为例
+
+::card-list
+- **Ventoy**：适合经常换 ISO，直接把镜像复制进 U 盘即可。
+- **Rufus**：适合一次性制作启动盘，选项直接，本文以它为例。
+- **balenaEtcher**：流程更简单，适合不想处理复杂选项的情况。
+- **Power ISO** :badge[text="EULA"]：可用，但需要自行留意专有软件协议。
+::
 
 #### 1.2.1 下载 Rufus
 
@@ -25,9 +75,7 @@ Windows 下推荐使用 [Ventoy](https://www.ventoy.net/cn/doc_start.html)、[Ru
 
 #### 1.2.2 使用 Rufus 制作启动盘
 
-在这里你需要一个8G以上的U盘，当然读写速度越快越好
-{% note danger %} 制作启动盘会清空U盘里面的所有数据，需要提前做好数据备份 {% endnote %}
-等待制作完毕直接点击右下角的关闭即可 千万不要再点一遍开始。
+在这里你需要一个8G以上的U盘，当然读写速度越快越好，制作启动盘会清空U盘里面的所有数据，需要提前做好数据备份。等待制作完毕直接点击右下角的关闭即可 千万不要再点一遍开始。
 
 ## 2. 进入引导页面
 
@@ -35,19 +83,37 @@ Windows 下推荐使用 [Ventoy](https://www.ventoy.net/cn/doc_start.html)、[Ru
 
 根据ArchWiki介绍，Arch是不支持安全启动的，而一般电脑默认开启安全启动，所以需要先到BIOS里面关闭安全启动( Secure Boot )，注意需要先关闭Windows的快速启动（powercfg /h off）。
 
+::alert{type="info" title="Windows 快速启动"}
+如果保留 Windows 双系统，可以先在管理员终端执行 :tip[powercfg /h off]{copy}，避免快速启动锁住分区状态。
+::
+
 不同品牌的主板进入BIOS的方式千奇百怪，需要去浏览器上搜索一下具体的按键。关闭安全启动，并且调整启动顺序后应该就可以正常进去live环境了
 
 ### 2.2 确定UEFI固件启动
 
-![img](https://jianges.com/wp-content/uploads/2026/01/1768396992-image-1024x633.png)
+::pic
+---
+src: https://jianges.com/wp-content/uploads/2026/01/1768396992-image-1024x633.png
+caption: 主板 BIOS 固件界面
+---
+::
 
 进入live环境后如何是以下界面说明是进入了主板的BIOS固件
 
-![img](https://jianges.com/wp-content/uploads/2026/01/1768397155-image.png)
+::pic
+---
+src: https://jianges.com/wp-content/uploads/2026/01/1768397155-image.png
+caption: Arch Linux UEFI 启动界面
+---
+::
 
 这个页面说明是进入了UEFI固件
 
 这篇教程主要是以UEFI的方式安装，如果你的主板是只支持BIOS的老设备，在分区和安装引导的部分可能不一样，网上有很多教程可以自己查一查。
+
+::alert{type="warning" title="本文限定环境"}
+后续分区、挂载和 GRUB 配置默认基于 UEFI + GPT + BTRFS。传统 BIOS/MBR 设备需要改用另一套引导方案。
+::
 
 ## 3.正式安装（预备步骤）
 
@@ -98,10 +164,18 @@ timedatectl status # 检查服务状态
 ### 3.4 配置镜像源
 
 ```zsh
-reflector -a 12 -c cn -f 10 --sort score --v --save /etc/pacman.d/mirrorlist
+reflector -a 12 -c cn -f 10 --sort score --verbose --save /etc/pacman.d/mirrorlist
 ```
 
-> 启动`reflector`是自动配置镜像源的工具，-`a(age)`指定最近12小时更新过的源，`-c(country)`指定所在的国家或区域 `-f(fast)`调出最快的十个 `--sort`按照同步时间和下载速度综合评分进行排序 `--v(verbose)`让过程显示出来 `--save`将结果保存到`etc`里的`pacman.d`目录下的 `mirrorlist` 里面
+::folding{title="reflector 参数说明"}
+- `reflector`：自动筛选并写入 Arch 镜像源的工具。
+- `-a 12`：只选择最近 12 小时内同步过的镜像。
+- `-c cn`：限定中国大陆镜像。
+- `-f 10`：从候选中取速度较快的 10 个。
+- `--sort score`：按综合评分排序。
+- `--verbose`：显示详细过程。
+- `--save /etc/pacman.d/mirrorlist`：把结果写入 pacman 的镜像列表。
+::
 
 然后更新数据库并安装密钥
 
@@ -109,7 +183,9 @@ reflector -a 12 -c cn -f 10 --sort score --v --save /etc/pacman.d/mirrorlist
 pacman -Sy archlinux-keyring
 ```
 
-> `-S`是`Sync`可以简单理解为安装 `y`代表更新本地的软件列表数据 `archlinux-keyring`是密钥的软件数据包名称 回车进行安装
+::folding{title="pacman -Sy archlinux-keyring 做了什么"}
+`-S` 是 `Sync`，可以简单理解为从软件仓库同步并安装软件包；`y` 会刷新本地软件包数据库；`archlinux-keyring` 是 Arch Linux 的密钥包。先更新它可以减少后续安装时遇到签名校验错误的概率。
+::
 
 ## 4. 硬盘分区
 
@@ -121,7 +197,7 @@ pacman -Sy archlinux-keyring
 lsblk -pf    #-p完整列出设备名称 -f显示更多信息
 ```
 
-如果不确定是不是自己使用的硬盘，可以使用`fdisk-l 设备名` 查看该硬盘更详细的信息
+如果不确定是不是自己使用的硬盘，可以使用 `fdisk -l 设备名` 查看该硬盘更详细的信息
 
 ```zsh
 fdisk -l /dev/nvme0n1
@@ -139,47 +215,77 @@ cfdisk /dev/nvme0n1
 
 明确使用那个硬盘之后我们使用cfdisk进行正式分区，如果你的硬盘是第一次使用会弹出几个选项让你选择分区模式，选择GPT即可
 
-![img](https://jianges.com/wp-content/uploads/2026/01/1768400160-image-1024x182.png)
+::pic
+---
+src: https://jianges.com/wp-content/uploads/2026/01/1768400160-image-1024x182.png
+caption: cfdisk 分区模式选择，本文选择 GPT
+---
+::
 
 我们首先要创建一个启动分区（当然我们可以让windows和linux共用一个引导分区，但是windows可能会搞坏linux的引导，保险起见我们为linux创建一个独立于windows的启动分区）
 
 使用↑↓键来选中要使用的空闲空间，←→键选择`new`，创建一个`200mb`的分区，再选择`type`把类型改为`EFI System`
 
-> 如果你没该选项，那么你使用的大概率是`MBR`分区模式，要先修改成`GPT`分区模式才能按以下步骤操作
->
-> {% note danger %} 注意：更改分区模式会清除已有的分区 {% endnote %}
->
-> ```zsh
-> fdisk /dev/nvme0n1
-> ```
->
-> 输入`g`创建`GPT`
->
-> ```zsh
-> g
-> ```
->
-> 在输入w保存更改
->
-> ```zsh
-> w
-> ```
->
-> 启动分区的大小取决于你要把启动分区挂载到哪一个位置，启动分区的英文名是`EFI System Partition`简称`ESP`还可以叫`EFI分区`
->
-> `ESP`的常用挂载点有三个`/boot` `/boot/efi` `/efi`，其中最常用的是`/boot`（boot目录用来存放内核和系统初始化相关的文件）内核文件的体积通常较大，如果`ESP`的挂载点是boot目录的话，在安装多个内核的时候就需要1g甚至2g的空间，因此很多发行版已经不把`ESP`挂载到boot了，这样`ESP`里就只存放启动相关的文件，需要的空间很小
+::alert{type="warning" title="分区写入前再确认"}
+在 `cfdisk` 中选择 `write` 前，再核对一次硬盘名、分区大小和分区类型。写入之后再格式化，原数据就很难恢复。
+::
+
+::folding{title="cfdisk 按键提示"}
+- 使用 :key{code="ArrowUp" icon} :key{code="ArrowDown" icon} 选择分区或空闲空间。
+- 使用 :key{code="ArrowLeft" icon} :key{code="ArrowRight" icon} 切换底部操作。
+- 选择 `write` 后需要输入 `yes` 才会真正写入。
+- 选择 `quit` 退出，:key{ctrl code="L" icon} 可以清屏。
+::
+
+::alert{type="warning" title="转换分区表会清空现有分区"}
+如果看不到 GPT 选项，目标盘大概率仍是 `MBR` 分区模式。更改分区模式会清除已有分区，只有在确认目标硬盘可以被重建时才继续。
+::
+
+::folding{title="如果看到的是 MBR 分区模式"}
+需要先修改成 `GPT` 分区模式才能按以下步骤操作。
+
+```zsh
+fdisk /dev/nvme0n1
+```
+
+输入 `g` 创建 `GPT`。
+
+```zsh
+g
+```
+
+再输入 `w` 保存更改。
+
+```zsh
+w
+```
+::
+
+::folding{title="ESP 挂载点和 BTRFS 快照的关系"}
+启动分区的大小取决于你要把启动分区挂载到哪一个位置，启动分区的英文名是 `EFI System Partition`，简称 `ESP`，也叫 `EFI 分区`。
+
+`ESP` 的常用挂载点有三个：`/boot`、`/boot/efi`、`/efi`。其中最常用的是 `/boot`，但 `boot` 目录会存放内核和系统初始化相关文件，内核文件体积通常较大，如果 `ESP` 挂载到 `/boot`，多内核环境下可能需要 1G 甚至 2G 空间。
+
+本文使用 `BTRFS` 快照。因为 `ESP` 必须是 FAT 文件系统，如果希望用 `BTRFS` 管理系统快照，就不应该把 `ESP` 挂载到 `/boot` 下。这里选择 `/efi`，让 `ESP` 只存放引导相关文件。
+::
 
 然后我们来创建根分区，选中剩余空间，选择`new`，直接回车把所有空间分配到一个分区里，类型不需要更改
 
-> 除了分区大小，另一个影响`ESP`挂载点的是根分区的文件系统。文件系统决定了文件的存储和检索方式，其中最常用的是`EXT4`和`BTRFS`。不同的文件系统有不同的特性，`EXT4`是文件系统界实用可靠的OG，但对于`ArchLinux`这样的滚动发行版来说`BTRFS`最大的特点是快照 。你可以把快照理解为游戏里的存档和回档，快照不止可以帮你恢复系统 ~~还可以让你更大胆的作死~~ 所以我们在这里使用`BTRFS`格式。同时要注意因为ESP的文件系统必须是FAT，所以使用 `BTRFS` 快照功能的话`ESP`就不能挂载到`/boot`下。
+::alert{type="info" title="为什么这里选 BTRFS"}
+`EXT4` 实用可靠，`BTRFS` 的优势是快照。对 Arch Linux 这种滚动发行版来说，快照可以在系统更新翻车时提供回滚余地，所以本文选择 `BTRFS`。
+::
 
 分区结束之后选择`write`保存 ，输入`yes`确定保存，最后`quit`保存退出 （`ctrl + l`清屏）
 
 ```zsh
 lsblk -pf    #再次列出分区信息
 ```
-{% note danger %} 接下来要通过格式化分区建立我们需要的文件系统，注意格式化的时候一定要确认设备名没有输错！{% endnote %}
 
+接下来要通过格式化分区建立我们需要的文件系统，注意格式化的时候一定要确认设备名没有输错！
+
+::alert{type="error" title="格式化会清空目标分区"}
+下面两条命令会重建文件系统。执行前务必确认 `/dev/nvme0n1p1` 是新的 ESP，`/dev/nvme0n1p2` 是新的根分区，不要照抄到错误硬盘。
+::
 
 ```zsh
 mkfs.fat -F 32 /dev/nvme0n1p1    #把ESP格式化为FAT32
@@ -198,14 +304,22 @@ mkfs.btrfs /dev/nvme0n1p2    #把根分区格式化为BTRFS
 mount -t btrfs /dev/nvme0n1p2 /mnt    #把根分区挂载到mnt目录
 ```
 
-> mount 是挂载命令；-t 指定文件系统类型（例如 btrfs）
+::folding{title="mount 命令说明"}
+`mount` 是挂载命令，`-t` 用来指定文件系统类型，例如这里的 `btrfs`。
+::
 
 ```zsh
 btrfs subvolume create /mnt/@    #用BTRFS管理工具创建root子卷 
 btrfs subvolume create /mnt/@home    #用BTRFS管理工具创建home子卷 
 ```
 
-> 可能细心的你会发现我们并没有创建swap分区，交换分区的主要目的是存储内存中的冷数据，还能在内存不够用的时候把硬盘当作虚拟内存使用，还可以用来`Hibernate`休眠到硬盘，在下下次开机时恢复到上次关机时的状态（实际上感觉用起来对桌面端用户的作用不大）`Hibernate`休眠到硬盘可以完全被`Suspend`睡眠(挂起) 到内存取代。我们其实只是需要一点交换空间存放内存中的冷数据，但是比起使用硬盘做交换我们完全可以把内存中的一部分空间用来交换，这样速度更快还不会影响磁盘寿命。虚拟内存功能可以通过内存压缩技术来弥补。在后面会介绍用zram把内存的一部分当做交换空间的配置方法
+::folding{title="为什么这里不单独创建 swap 分区"}
+交换分区的主要用途是存储内存中的冷数据，也能在内存不够用时把硬盘当作虚拟内存，还可以用于 `Hibernate` 休眠到硬盘。
+
+桌面端场景里，休眠到硬盘通常可以被 `Suspend` 睡眠取代。如果只是需要一点交换空间存放冷数据，也可以用 `zram` 把一部分内存压缩后作为交换空间。这样速度更快，也不会频繁写硬盘。
+
+后面会介绍用 `zram` 配置内存压缩和交换空间。
+::
 
 再次运行lsblk -pf命令查看分区情况
 
@@ -225,12 +339,19 @@ umount /mnt    #umount的意思是取消挂载
 mount -t btrfs -o subvol=/@,compress=zstd /dev/nvme0n1p2 /mnt
 ```
 
-> -o是option用来指定挂载参数 参数和参数之间用逗号隔开，subvol指定子卷，compress指定透明压缩，zstd是压缩算法（透明压缩是BTRFS的另一个功能，在数据写入硬盘之前先进行压缩，可以提高硬盘的读写性能，节省空间，延长寿命）
+::folding{title="BTRFS 挂载参数说明"}
+`-o` 是 `option`，用来指定挂载参数，参数之间用逗号隔开。
+
+- `subvol=/@`：指定要挂载的子卷。
+- `compress=zstd`：启用透明压缩，压缩算法为 `zstd`。
+
+透明压缩会在数据写入硬盘前先压缩数据，通常可以提高读写性能、节省空间，并减少写入量。
+::
 
 接着把home子卷挂载到/mnt/home， 由于/mnt里边没有home目录， 所以需要加上--mkdlir选项创建目录
 
 ```zsh
-mount --mkdir -t btrfs-o subvol=/@home,compress=zstd /dev/nvme0n1p2 /mnt/homemount
+mount --mkdir -t btrfs -o subvol=/@home,compress=zstd /dev/nvme0n1p2 /mnt/home
 ```
 
 最后我们要挂载ESP
@@ -247,13 +368,21 @@ mount --mkdir /dev/nvme0n1p1 /mnt/efi
 pacstrap -K /mnt base base-devel linux-zen linux-firmware btrfs-progs
 ```
 
-> pacstrap把软件安装到指定的根目录下，-K复制密钥，/mnt现在挂着我们要安装的系统的根，base是基本包，base-devel是在编译AUR助手和软件时会用到的，linux是主线内核，这里使用-zen是一个性能特调内核，linux-firmware是基本的固件，btrfs-progs是BTRFS管理工具
->
-> 如果你是Marvell的网卡的话，需要额外安装linux-firmware-marvell
->
-> ```zsh
-> pacstrap -K /mnt linux-firmware-marvell
-> ```
+::folding{title="pacstrap 这一步安装了什么"}
+`pacstrap` 会把软件安装到指定的根目录下。`-K` 用来复制密钥，`/mnt` 是当前挂载的新系统根目录。
+
+- `base`：基础系统包。
+- `base-devel`：编译 AUR 助手和软件时常用。
+- `linux-zen`：性能特调内核。
+- `linux-firmware`：基础固件。
+- `btrfs-progs`：BTRFS 管理工具。
+
+如果你是 Marvell 网卡，需要额外安装：
+
+```zsh
+pacstrap -K /mnt linux-firmware-marvell
+```
+::
 
 然后我们还需要安装一些最基本的功能性软件
 
@@ -261,7 +390,16 @@ pacstrap -K /mnt base base-devel linux-zen linux-firmware btrfs-progs
 pacstrap /mnt networkmanager vim sudo intel-ucode
 ```
 
-> `networkmanager`是联网的工具，主流的桌面环境都默认使用`networkmanager`，想要完整的桌面体验就装这个，当然你也可以选择我们之前使用过的`iwd`用终端联网，一定要装联网工具否则进系统没法联网！因为我们马上要切换到安装好的系统里边编辑几个配置文件，所以需要安装一个终端文本编辑器， `sudo`用来管理权限，`intel-ucode`用来优化和修复CPU(如果使用的是AMD的话请修改成`amd-ucode`)
+::alert{type="info" title="CPU 微码包二选一"}
+这里示例安装的是 `intel-ucode`。如果使用 AMD CPU，请把它换成 `amd-ucode`。
+::
+
+::folding{title="基础工具说明"}
+- `networkmanager`：联网工具，主流桌面环境通常默认使用它。
+- `vim`：终端文本编辑器，后面要用来编辑配置文件。
+- `sudo`：普通用户提权工具。
+- `intel-ucode` / `amd-ucode`：CPU 微码更新包。
+::
 
 在切换进系统前我们需要先生成fstab文件，系统在启动的时候会按照里面的内容自动完成挂载
 
@@ -269,7 +407,9 @@ pacstrap /mnt networkmanager vim sudo intel-ucode
 genfstab -U /mnt > /mnt/etc/fstab
 ```
 
-> 大写`U`使用UUID指定分区， 大于号代表覆盖写入这里的文件（如果是两个大于号就代表在文件的末尾追加写入）
+::folding{title="fstab 命令说明"}
+大写 `-U` 表示使用 UUID 指定分区。`>` 代表覆盖写入目标文件，如果是 `>>`，则代表在文件末尾追加写入。
+::
 
 ### 5.2 进入新系统
 
@@ -302,6 +442,16 @@ timedatectl set-timezone Asia/Shanghai
 ```zsh
 vim /etc/locale.gen
 ```
+
+::folding{title="Vim 最小操作表"}
+- :key{code="/"} 搜索文本。
+- :key{code="x"} 删除光标所在字符，适合取消行首 `#` 注释。
+- :key{code="i"} 进入编辑模式。
+- :key{code="Escape"} 退出编辑模式。
+- :key{code="u"} 撤销上一步修改。
+- 输入 `:wq` 保存并退出。
+- 输入 `:q!` 放弃修改并退出。
+::
 
 按下`/`搜索`en_US`回车，光标移动到`#en_US.UTF-8 UTF-8`的开头，按下`x`剪切掉前面代表注释的`#`号；再次按下`/`搜索`zh_CN`回车 ，光标移动到`#zh_CN.UTF-8 UTF-8`的开头，按下`x`剪切掉前面代表注释的`#`号。如果你操作错误了可以按下u键撤销更改。修改完成后按下shift加分号键输入一个冒号，代表要运行命令，`w`是保存`q`是退出`wq`是保存并推出，回车。
 
@@ -357,7 +507,9 @@ passwd    #不指定用户名的话默认就是修改root账户，密码存储�
 pacman -S grub efibootmgr
 ```
 
-> Grub对于初学者的我们来说功能最强大兼容性最好文档最多 ，efibootmgr用来管理EFI启动项
+::folding{title="为什么这里选择 GRUB"}
+`GRUB` 对初学者来说资料最多、兼容性最好，后面配置 Windows 共存、快照启动项和多内核启动也更方便。`efibootmgr` 用来管理 UEFI 固件里的 EFI 启动项。
+::
 
 接着使用grub-install命令安装引导
 
@@ -365,7 +517,12 @@ pacman -S grub efibootmgr
 grub-install --target=x86_64-efi --efi-directory=/efi --boot-directory=/efi --bootloader-id=eris
 ```
 
-> -target选项指定架构是**X86_64** EFI固件， -efi-directory指定ESP的位置，我们的ESP挂载到了/efi，--boot-directory指定Grub安装的目录，如果不指定这一项Grub会默认安装到/boot里，但是我们的/boot是BTRFS文件系统， Grub在系统初期的时候无法写入BTRFS上的文件，所以会导致一些功能无法正常使用， 因此我们把Grub也装到ESP里边。--bootloader-id取一个喜欢的启动项名称，不加的话默认取名为arch
+::folding{title="grub-install 参数说明"}
+- `--target=x86_64-efi`：指定当前设备使用 x86_64 UEFI 固件。
+- `--efi-directory=/efi`：指定 ESP 挂载点，本文前面已经把 ESP 挂载到 `/efi`。
+- `--boot-directory=/efi`：把 GRUB 文件也放进 ESP。本文的 `/boot` 位于 BTRFS 根分区，系统早期阶段写入 BTRFS 可能导致部分 GRUB 功能异常。
+- `--bootloader-id=eris`：自定义启动项名称。不写的话通常会使用 `arch`。
+::
 
 由于大部分软件会默认grub的安装位置在boot目录下，我们要grub的默认位置创建一个链接指向/efi/grub
 
@@ -385,6 +542,10 @@ grub-mkconfig
 grub-mkconfig -o /boot/grub/grub.cfg
 ```
 
+::alert{type="warning" title="修改 GRUB 后要重新生成配置"}
+后面只要编辑了 `/etc/default/grub`，都需要再次执行 `grub-mkconfig -o /boot/grub/grub.cfg`，否则修改不会写入最终启动配置。
+::
+
 #### 5.3.3 Windows共存
 
 如果你安装了Windows的话接下来我们来配置双系统（两个系统在同一个物理盘内）
@@ -393,7 +554,10 @@ grub-mkconfig -o /boot/grub/grub.cfg
 pacman -S os-prober exfat-utils
 ```
 
-> `os-prober`用来搜索其他的系统， `exfat-utils`让我们能够找到Windows的EFI分区
+::folding{title="Windows 共存相关软件"}
+- `os-prober`：生成 GRUB 配置时搜索其他系统。
+- `exfat-utils`：提供 exFAT 文件系统相关工具，便于识别和处理部分 Windows 分区。
+::
 
 这个时候运行`os-prober`就能找到Windows
 
@@ -421,6 +585,13 @@ GRUB_SAVEDEFAULT=true
 然后我们要让系统启动的时候显示出日志 ~~只有日志刷屏别人才知道你使用的是Arch~~ 方便确认系统异常
 
 `i`键进入编辑模式， 在`GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 quiet"`中编辑， 删除quiet，再把loglevel日志等级改成5， 编辑完成后`ESC`退出编辑模式`:wq`保存并退出
+
+::folding{title="这里修改了哪些 GRUB 选项"}
+- `GRUB_DEFAULT=saved`：让 GRUB 默认进入上一次选择的启动项。
+- `GRUB_SAVEDEFAULT=true`：保存每次手动选择的启动项。
+- 删除 `quiet`：启动时显示更多日志。
+- `loglevel=5`：提高内核日志显示等级，方便排查启动异常。
+::
 
 然后再grub-mkconfig生成一次grub的配置文件
 
@@ -452,13 +623,13 @@ zram-size = ram
 compression-algorithm = zstd
 ```
 
-> `zram-size`设置最多存储多少数据，注意这里设置的是压缩之前的大小。我们是桌面端使用，所以设置成跟内存大小相同就行。
->
-> 第二行设置使用`zstd`压缩算法
->
-> 辑完成后`ESC`退出编辑模式`:wq`保存并退出
+::folding{title="zram-generator 配置说明"}
+- `zram-size = ram`：设置 zram 设备的最大容量为物理内存大小。这里的容量指压缩前的数据量。
+- `compression-algorithm = zstd`：使用 `zstd` 压缩算法。
+- 编辑完成后按 :key{code="Escape"}，输入 `:wq` 保存并退出。
+::
 
-保存之后我们需要编辑grub的源文件， 在内核参数里边加上`zswap.enabled = 0`
+保存之后我们需要编辑grub的源文件， 在内核参数里边加上 `zswap.enabled=0`
 
 在`GRUB_CMDLINE_LINUX_DEFAULT="loglevel=5"`中编辑加上`zswap.enabled=0`
 
@@ -467,9 +638,11 @@ compression-algorithm = zstd
 GRUB_CMDLINE_LINUX_DEFAULT="loglevel=5 zswap.enabled=0"
 ```
 
-> zswap 的功能是在数据写入交换前先压缩并暂存在内存，这在功能上会与 zram 冲突，因此选择其中一种即可。
-> 
-> 编辑完成后`ESC`退出编辑模式`:wq`保存并退出
+::alert{type="info" title="zram 与 zswap 二选一"}
+`zswap` 会在数据写入交换空间前先压缩并暂存在内存中，功能上会与 `zram` 重叠。本文已经启用 `zram`，所以在 GRUB 内核参数里禁用 `zswap`。
+::
+
+编辑完成后按 :key{code="Escape"}，输入 `:wq` 保存并退出
 
 每一次编辑完grub的源文件之后都记得要重新生成`grub.cfg` 让修改生效
 
@@ -501,13 +674,18 @@ reboot
 systemctl enable --now NetworkManager
 ```
 
-> `systemctl`是`systemd`的命令行工具， `systemd`是红帽开发的系统和服务管理工具
->
-> `enable`代表开机自启， `--now`代表现在启动， 注意`NetworkManager`的大小写
+::folding{title="systemctl 参数说明"}
+- `systemctl`：`systemd` 的命令行管理工具。
+- `enable`：设置服务开机自启。
+- `--now`：立即启动这个服务。
+- `NetworkManager`：服务名区分大小写。
+::
 
 稍作等待后运行nmtui开连接网络的TUI界面
 
-> TUI的意思是基于终端的用户交互界面
+::folding{title="什么是 TUI"}
+`TUI` 是基于终端的用户交互界面。`nmtui` 可以在没有桌面的情况下用方向键和回车配置网络。
+::
 
 `↑↓`键选择第二项连接wifi， 回车键可以选择， 连接完成后ESC退出
 
@@ -571,9 +749,12 @@ exit
 useradd -mG wheel 你的名字   
 ```
 
-> `useradd`命令创建用户， `-m`在创建用户的时候创建`home`目录， `-G`添加用户到wheel组， 这是Arch上拥有管理员权限的组
->
-> 不要用中文 ~~不过你好像也输入不了中文~~
+::folding{title="普通用户和 wheel 组"}
+- `useradd`：创建新用户。
+- `-m`：同时创建用户的 home 目录。
+- `-G wheel`：把用户加入 `wheel` 组。Arch 上通常通过这个组授予管理员权限。
+- 用户名建议只使用小写英文、数字和短横线，不要用中文。
+::
 
 然后passwd加上用户名设置密码
 
@@ -597,7 +778,9 @@ visudo
 vim /etc/pacman.conf
 ```
 `/`键搜索multilib
-#取消两行的注释（都要取消！）
+
+取消下面两行的注释（都要取消！）
+
 ```zsh
 [multilib] 
 Include = /etc/pacman.d/mirrorlist
@@ -608,6 +791,10 @@ Include = /etc/pacman.d/mirrorlist
 ArchlinuxCN源和Archlinux用户仓库的效果类似， 可以方便我们安装软件
 
 在文件的最底部按下`o`键新建一行， 写入以下内容（千万不能有拼写错误）
+
+::alert{type="warning" title="软件源名称必须完全一致"}
+`[archlinuxcn]`、`Server`、镜像地址和 `$arch` 都要准确输入。这里写错会导致后续同步数据库或安装密钥失败。
+::
 
 ```zsh
 [archlinuxcn]
@@ -632,17 +819,13 @@ pacman -S yay paru
 pacman -S snapper snap-pac btrfs-assistant grub-btrfs inotify-tools
 ```
 
-> `snapper`是自动化管理快照的命令行工具， 提供主要的创建 修改删除之类的功能
->
-> ~~另一个比较常用的快照工具是timeshift ，但是用它管理快照早晚会挂掉~~
->
-> `snap-pac`会在你执行`pacman`操作的时候自动创建快照
->
-> `btrfs-assistant`是图形化交互工具而且提供了简单的命令行， 进一步简化快照回档需要的操作
->
-> `grub-btrfs`会自动在`grub`的启动菜单里添加快照启动项， 可以进一步方便我们回档
->
-> `inotify-tools` 是快照启动项功能的依赖
+::folding{title="快照相关软件说明"}
+- `snapper`：自动化管理快照的命令行工具，负责创建、查看、删除快照。
+- `snap-pac`：在执行 `pacman` 操作前后自动创建快照。
+- `btrfs-assistant`：图形化交互工具，也提供简单命令行，方便快照回档。
+- `grub-btrfs`：把快照启动项加入 GRUB 菜单。
+- `inotify-tools`：快照启动项更新功能的依赖。
+::
 
 开启快照启动项的`systemd`服务 ：
 
@@ -662,7 +845,9 @@ reboot
 snapper -c root create-config /
 ```
 
-> `-c`是`config`指定要使用的配置， `root`是具体的配置名称， 由于这个配置还不存在， 所以`create-config`创建它， `/`表示设置快照的范围是根目录
+::folding{title="snapper 配置命令说明"}
+`-c root` 指定配置名为 `root`；`create-config` 会创建这份配置；最后的 `/` 表示快照范围是根目录。
+::
 
 然后用一样的方式创建home的配置
 
@@ -676,7 +861,9 @@ snapper -c home create-config /home
 snapper -c root create --description "helloworld"
 ```
 
-> `create`代表创建， `--description`添加描述（这里的描述是“helloworld”）
+::folding{title="手动创建快照命令说明"}
+`create` 代表创建快照，`--description` 用来添加描述。描述写清楚之后，后续在 `btrfs-assistant` 或 GRUB 快照菜单里会更容易识别。
+::
 
 home的快照也是一样的方法
 
@@ -690,7 +877,9 @@ snapper -c home create --description "helloworld"
 pacman -S linux-lts
 ```
 
-> LTS内核不会频繁更新， 系统出现异常的时候， 在快照回档之前我们可以先尝试用LTS内核进入系统， 排查是否是内核问题导致的系统异常， 如果是的话可以用downgrade进行降级， downgrade需要从AUR安装这里就不在详细介绍了 （一般每年发布的最后一个 Linux 内核版本会成为 LTS）
+::alert{type="info" title="LTS 内核是备用入口"}
+`linux-lts` 更新频率更低。系统异常时，可以在快照回档前先尝试用 LTS 内核进入系统，判断问题是否来自新内核。
+::
 
 然后还需要运行一次grub-mkconfig命令， 在启动菜单添加快照的入口
 
@@ -700,7 +889,7 @@ grub-mkconfig -o /boot/grub/grub.cfg
 
 ### 6.2配置显卡驱动
 
-#### 6.2.1 NVDIA显卡
+#### 6.2.1 NVIDIA显卡
 
 首先先确认安装了自己使用的内核的头文件
 
@@ -708,21 +897,29 @@ grub-mkconfig -o /boot/grub/grub.cfg
 pacman -S --needed linux-zen-headers linux-lts-headers
 ```
 
-> `--needed`代表跳过已经安装的包， 这是dkmns编译N卡驱动需要的文件
+::folding{title="为什么要安装内核头文件"}
+`--needed` 会跳过已经安装的软件包。`linux-zen-headers` 和 `linux-lts-headers` 是 DKMS 编译 NVIDIA 驱动时需要的内核头文件。
+::
 
 浏览器搜索ArchWiki Nvidia Driver 找到N卡驱动的wiki页面， 确定自己显卡型号要安装的驱动包名
 
 这里以50系显卡为例
 
- https://nouveau.freedesktop.org/CodeNames.html 
+::link-card
+---
+title: Nouveau CodeNames
+description: 对照 NVIDIA 显卡代号，用来判断适合的驱动包。
+link: https://nouveau.freedesktop.org/CodeNames.html
+---
+::
 
 对照表可知 驱动的包名是`nvidia-open`
 
-> nvidia-open是近年快速发展的内核模块开源的N卡驱动， 兼容性会比较好
->
-> 不同的内核对应的后缀不同， 终端运行：`uname -r`可以显示内核信息
->
-> zen内核需要安装-dkms驱动
+::folding{title="NVIDIA 驱动包选择"}
+- `nvidia-open` 是近年快速发展的内核模块开源 NVIDIA 驱动，兼容性通常更好。
+- 不同内核对应的包后缀不同，运行 `uname -r` 可以查看当前内核。
+- 本文使用 `linux-zen`，所以选择 `nvidia-open-dkms`。
+::
 
 除了驱动包我们还需要安装`nvidia-utils`和`lib32-nvidia-utils` 这是库和工具集
 
@@ -730,9 +927,9 @@ pacman -S --needed linux-zen-headers linux-lts-headers
 pacman -S nvidia-open-dkms nvidia-utils lib32-nvidia-utils
 ```
 
-> lib32前缀代表32位， 在ArchLinux上这是作为驱动包的依赖自动安装的， 但是以防万一我们手动安装一下
->
-> 编译内核可能需要一些时间，耐心等待一下
+::alert{type="info" title="NVIDIA DKMS 编译需要等待"}
+`lib32-` 前缀代表 32 位兼容库。DKMS 编译内核模块可能需要一些时间，等待命令正常结束即可。
+::
 
 #### 6.2.2 Intel和AMD显卡
 
@@ -747,7 +944,7 @@ pacman -S mesa lib32-mesa vulkan-intel lib32-vulkan-intel
 AMD显卡需要安装这些包：
 
 ```zsh
-pacman -S mesa lib32-mesa xf86-yideo-amdgpu vulkan-radeon lib32-vulkan-radeon
+pacman -S mesa lib32-mesa xf86-video-amdgpu vulkan-radeon lib32-vulkan-radeon
 ```
 
 ### 6.3 视频编解码驱动
@@ -782,19 +979,21 @@ reboot
 sudo pacman -S sof-firmware alsa-ucm-conf alsa-firmware
 ```
 
-> `sof-firmware` 为现代设备提供固件
->
-> `alsa-ucm-conf` 提供必要的配置文件
->
-> `alsa-firmware` 为一些不常见或者比较旧的设备提供固件，比如采集卡
+::folding{title="音频固件包说明"}
+- `sof-firmware`：为现代设备提供音频固件。
+- `alsa-ucm-conf`：提供必要的 ALSA 配置文件。
+- `alsa-firmware`：为一些不常见或较旧的设备提供固件，比如采集卡。
+::
 
 ```zsh
 sudo pacman -S pipewire wireplumber pipewire-pulse pipewire-alsa pipewire-jack
 ```
 
-> pipewire是由红帽主导开发的新兴音视频服务技术， 它的出现解决了Linux世界音视频服务分裂的问题
->
-> pipewire 是本体， wireplumber 是会话管理器， 后面这三个是对应服务的兼容
+::folding{title="PipeWire 组件说明"}
+- `pipewire`：音视频服务本体。
+- `wireplumber`：PipeWire 的会话管理器。
+- `pipewire-pulse`、`pipewire-alsa`、`pipewire-jack`：分别提供 PulseAudio、ALSA、JACK 兼容层。
+::
 
 启动pipewire服务
 
@@ -802,7 +1001,9 @@ sudo pacman -S pipewire wireplumber pipewire-pulse pipewire-alsa pipewire-jack
 systemctl --user enable pipewire wireplumber pipewire-pulse
 ```
 
-> 因为是--user在用户空间启用， 所以不用加sudo
+::alert{type="info" title="--user 不需要 sudo"}
+这里启用的是当前用户空间的服务，所以命令前不需要加 `sudo`。
+::
 
 安装蓝牙
 
@@ -828,23 +1029,27 @@ sudo pacman -S power-profiles-daemon    #这个工具几乎是各个桌面端通
 sudo systemctl enable --now power-profiles-daemon
 ```
 
-### 6.5 基础的字体
+### 6.6 基础的字体
 
 ```zsh
 sudo pacman -S noto-fonts noto-fonts-emoji adobe-source-han-sans-cn-fonts
 ```
 
-> 英文字体的noto-fonts是谷歌开源字体， noto-fonts-emoji是emoji
->
-> 中文字体的话看个人喜好，我最近使用的是思源字体 （请用 `pacman -Ss source-han` 或 AUR 搜索确认您要的具体包名。） 
+::folding{title="基础字体选择"}
+- `noto-fonts`：Google 开源的基础西文字体。
+- `noto-fonts-emoji`：Emoji 字体。
+- `adobe-source-han-sans-cn-fonts`：思源黑体中文字体。也可以用 `pacman -Ss source-han` 或 AUR 搜索自己偏好的中文字体包。
+::
 
-6.6 安装flatpak
+### 6.7 安装 Flatpak
 
 ```zsh
 sudo pacman -S flatpak
 ```
 
-> flatpak拓展了比较多的的软件， Flatpak版本通常比AUR上的更好用（比如OBS和Easyeffects）
+::folding{title="为什么安装 Flatpak"}
+Flatpak 覆盖了很多桌面应用。部分软件的 Flatpak 版本比 AUR 版本更省心，例如 OBS 和 EasyEffects。
+::
 
 把Flathub的源换成上交大
 
@@ -868,64 +1073,67 @@ reboot
 
 用Snapper创建root和home的快照
 
+::alert{type="info" title="安装桌面前先留回滚点"}
+桌面环境会安装大量包。先给 `root` 和 `home` 各创建一个快照，后面如果显示服务、驱动或输入法配置出错，可以更容易回退。
+::
+
 ```zsh
 sudo snapper -c home create --description "before desktop"
-sudo snapper -c root create --description "before desktop'
+sudo snapper -c root create --description "before desktop"
 ```
 
 #### 7.0.2 选择适合你的桌面
 
 Linux的图形化环境太过丰富， 篇幅原因能挑出当下最热门的图形化环境进行介绍
 
-> 桌面环境：Desktop Environment 桌面环境（简称DE） 对于用惯了Windows的我们来说这个词代表的意思已经相当熟悉了Linux也有完整的桌面环境， 由于大家都比较熟悉就不再过多介绍。
->
-> 窗口管理器：Window Manager 窗口管理器（简称WM）在Wayland时代你还可以叫它Wayland合成器，桌面环境其实就是基于WM做出来的，比如GNOME的WM叫做Mutter， KDEPlasma的WM叫KWin， WM只提供基础的窗口管理， 其他的像是任务栏 系统托盘 之类的东西都要自己安装。所以使用WM可以亲手搭建出属于自己的桌面环境。 当我们谈论WM的时候通常指的是自动平铺式的WM， 窗口会按照预设的逻辑自动调整大小， 除了平铺式WM还有像传统桌面的堆叠式WM， 主流的WM同时支持这两种布局， WM的另一个特点是占用极低。
+::folding{title="DE 和 WM 的区别"}
+桌面环境（Desktop Environment，简称 DE）会提供完整的桌面体验，包含窗口管理、面板、设置、文件管理器等完整组件。
 
-##### 7.0.2.1 GNOME
+窗口管理器（Window Manager，简称 WM）在 Wayland 时代也常被叫做 Wayland 合成器。它主要负责窗口管理，任务栏、系统托盘、启动器、通知等功能通常需要自己搭建。主流 WM 同时支持平铺式和堆叠式布局，占用也通常更低。
+::
 
-GNOME追求简洁， ~~但简洁过头显得有些简陋~~ 我们不得不安装额外的扩展来补全桌面的功能
+::tab{:tabs='["GNOME","KDE Plasma","Sway","Niri","Hyprland","Quickshell"]'}
+#tab1
 
-##### 7.0.2.2 KDE Plasma
+GNOME 追求简洁，~~但简洁过头显得有些简陋~~，常常需要安装额外扩展来补全桌面功能。
 
-KDEPlasma功能众多且实用， 但刚上手会觉得UI和选项有点无从下手
+#tab2
 
-##### 7.0.2.3 Sway
+KDE Plasma 功能众多且实用，但刚上手会觉得 UI 和选项有点无从下手。本文后面以 KDE Plasma 为安装示例。
 
-Sway是非常精简的WM， 开机后的CPU占用只有0% - 1%， 内存占用只有500mb左右
+#tab3
 
-##### 7.0.2.4 Niri
+Sway 是非常精简的 WM，开机后的 CPU 占用通常只有 0% - 1%，内存占用大约 500 MB 左右。
 
-Niri也是一个非常经典的WM， 占用比Sway高几十mb， 但提供了流畅的动画和丰富的窗口布局
+#tab4
 
-##### 7.0.2.5 Hyprland
+Niri 也是一个很经典的 WM，占用比 Sway 高几十 MB，但提供了流畅动画和更丰富的窗口布局。
 
-当下最热门的WM叫做Hyprland~~（不接受反驳）~~ ， 以自定义极高作为卖点， 缺点是资源占用几乎接近完整的桌面环境
+#tab5
 
-##### 7.0.2.6 Quickshell
+Hyprland 是当下热门的 WM，~~不接受反驳~~，卖点是高度自定义，缺点是资源占用几乎接近完整桌面环境。
 
-如果你想要WM的独特窗口管理， 但不想费工夫自己配置， Quickshell可以提供开箱即用的桌面级WM体验
+#tab6
 
-主流的Quickshell是DMS和Noctalia
+如果你想要 WM 的独特窗口管理，但不想花大量时间自己配置，Quickshell 可以提供更接近开箱即用的桌面级 WM 体验。主流的 Quickshell 配置有 DMS 和 Noctalia。
+::
 
 ### 7.1桌面环境的正式安装（KDE）
 
 ```zsh
-sudo pacman -S Plasma konsole dolphin kate ark haruna gwenview firefox
+sudo pacman -S plasma konsole dolphin kate ark haruna gwenview firefox
 ```
 
-> `plasma`这个合集包包含了大多数Plasma桌面的组件
->
-> `konsole`是标配的终端
->
-> `dolphin`是标配的文档管理器
->
-> `kate`是标配的文本编辑器
->
-> `ark`是标配的压缩解压缩软件
->
-> `haruna`是基于Qt和MPV的视频播放器
->
-> `gwenview`是图片查看工具
+::card-list
+- **plasma**：KDE Plasma 桌面的主要组件集合。
+- **konsole**：KDE 标配终端。
+- **dolphin**：KDE 标配文件管理器。
+- **kate**：KDE 标配文本编辑器。
+- **ark**：压缩与解压缩工具。
+- **haruna**：基于 Qt 和 MPV 的视频播放器。
+- **gwenview**：图片查看工具。
+- **firefox**：浏览器。
+::
 
 回车安装全部， 选择第一项`ffmpeg`
 
@@ -935,7 +1143,9 @@ sudo pacman -S Plasma konsole dolphin kate ark haruna gwenview firefox
 sudo systemctl enable --now sddm
 ```
 
-> 显示管理器是用来管理用户登录和桌面会话的工具
+::folding{title="显示管理器是什么"}
+显示管理器负责图形化登录界面和桌面会话启动。KDE Plasma 常用 `sddm`。
+::
 
 至此所有的系统安装已经全部结束了🥳😘
 
@@ -960,7 +1170,8 @@ sudo pacman -S fcitx5-chinese-addons # 官方中文输入引擎
 
 ```zsh
 sudo pacman -S nano    #安装nano
-sudo nano ~/.config/environment.d/im.conf
+mkdir -p ~/.config/environment.d
+nano ~/.config/environment.d/im.conf
 ```
 
 在文件中加入以下内容并保存退出：
@@ -984,7 +1195,9 @@ GLFW_IM_MODULE=ibus
 
 注销重启即可
 
-> 默认的输入法主题并不好看 [内置的Breeze](https://planet.kde.org/weng-xuetian-2022-07-04-fcitx-5-plasma-theme-support/) 要好看的多
+::alert{type="info" title="输入法主题可以换成 Breeze"}
+默认输入法主题不太协调，[内置的 Breeze](https://planet.kde.org/weng-xuetian-2022-07-04-fcitx-5-plasma-theme-support/) 和 KDE Plasma 更搭。
+::
 
 打开 `系统设置` > `区域设置` > `输入法` > `配置附加组件` > `经典用户界面的⚙️` > `主题` >`KDE Plasma (Experimental)`
 
@@ -1031,25 +1244,25 @@ sudo chmod 755 /usr/share/fonts/WindowsFonts/* # 设置合理的权限
 fc-cache -vf # -v：显示过程
 ```
 
-> 或者你也可以从 AUR 安装
->
-> 通过以下命令安装 Windows 11 的中文字体
->
-> ```zsh
-> yay -S ttf-ms-win11-auto-zh_cn    #原理是网络挂载 Windows 11 安装镜像并从中提取字体文件
-> ```
+::folding{title="也可以从 AUR 安装 Windows 字体"}
+通过以下命令安装 Windows 11 的中文字体：
+
+```zsh
+yay -S ttf-ms-win11-auto-zh_cn    # 原理是网络挂载 Windows 11 安装镜像并从中提取字体文件
+```
+::
 
 #### 7.2.6 其他软件安装
 
 其他软件的安装我们主要通过`AUR`来完成, 下面以 **`yay`** 为例演示
 
-> `AUR`（Arch User Repository）是 Arch Linux 社区维护的非官方软件仓库，诞生于 2005 年，旨在补充官方仓库的不足。它允许任何用户提交软件包的构建脚本（`PKGBUILD`），其他用户可通过这些脚本来编译、安装软件。
->
-> ～指北中带有 aur 角标的软件代表是在 [AUR](https://aur.archlinux.org/)（Arch User Repository）中用户自行打包的软件。不在 arch 官方支持范围内，可能会出现各种问题如更新不及时、无法安装、使用出错等。
->
-> ～指北中带有 cn 角标的软件代表是在 [archlinuxcn](https://www.archlinuxcn.org/archlinux-cn-repo-and-mirror/)（Arch Linux 中文社区仓库）中用户自行打包的软件。不在 arch 官方支持范围内，可能会出现各种问题如更新不及时、无法安装、使用出错等。
->
-> ～指北中带有 EULA 角标的软件代表是 [专有软件](https://www.gnu.org/proprietary/proprietary.html)。请自行斟酌是否使用。
+::folding{title="AUR、CN、EULA 角标说明"}
+`AUR`（Arch User Repository）是 Arch Linux 社区维护的非官方软件仓库，用来补充官方仓库。用户提交 `PKGBUILD`，其他用户通过它编译、安装软件。
+
+- :badge[AUR]{link="https://aur.archlinux.org/"}：来自 AUR，不在 Arch 官方支持范围内，可能出现更新不及时、无法安装或运行异常。
+- :badge[CN]{link="https://www.archlinuxcn.org/archlinux-cn-repo-and-mirror/"}：来自 Arch Linux 中文社区仓库，也不属于 Arch 官方仓库。
+- :badge[EULA]{link="https://www.gnu.org/proprietary/proprietary.html"}：专有软件，需要自行判断是否接受协议和使用风险。
+::
 
 ##### 7.2.6.1 搜索 AUR 包
 
@@ -1116,19 +1329,33 @@ aur/wechat 1:10-1 (+48 0.25)
 
 基本语法：`yay -S 包名`（自动处理依赖、构建、安装）。
 
-示例：安装 `wechar-bin`：
+示例：安装 `wechat-bin`：
 
 ```zsh
 yay -S wechat-bin
 ```
 
-> 安装过程：
->
-> 1. 拉取 AUR 仓库源码（含 `PKGBUILD`）。
-> 2. 提示“是否编辑 PKGBUILD？”（建议选 `n`，首次安装选 `y` 检查内容）。
-> 3. 自动安装依赖（`makepkg -s`）。
-> 4. 构建二进制包（`makepkg`）。
-> 5. 调用 `pacman -U` 安装生成的 `.pkg.tar.zst` 包。
+::timeline
+{拉取源码}
+
+`yay` 拉取 AUR 仓库源码，其中包含 `PKGBUILD`。
+
+{检查构建脚本}
+
+提示“是否编辑 PKGBUILD？”。普通使用可以选 `n`，首次安装不熟悉的软件建议选 `y` 检查内容。
+
+{安装依赖}
+
+自动执行类似 `makepkg -s` 的依赖安装流程。
+
+{构建软件包}
+
+调用 `makepkg` 构建二进制包。
+
+{安装结果}
+
+调用 `pacman -U` 安装生成的 `.pkg.tar.zst` 包。
+::
 
 ##### 7.2.6.3 更新 AUR 包
 
