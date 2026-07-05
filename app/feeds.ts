@@ -23,8 +23,20 @@ export default [
 	},
 	{
 		name: 'WUSTer们',
-		desc: '从杂话铺友链页同步的 WUSTer 个人站点。',
+		desc: 'WUSTer 个人站点与文档。',
 		entries: [
+			{
+				author: 'Jianges',
+				sitenick: '姜一',
+				title: '杂话铺',
+				desc: '留此一方素纸，待岁生苔。',
+				link: 'https://blog.jianges.com/',
+				feed: 'https://blog.jianges.com/atom.xml',
+				icon: 'https://blog.jianges.com/favicon.png',
+				avatar: 'https://jianges.com/wp-content/uploads/2025/12/1765434218-jianges.jpg',
+				archs: ['Nuxt', 'Vercel'],
+				date: '2026-07-05',
+			},
 			{
 				author: 'everlasting',
 				sitenick: 'aMore',
