@@ -26,6 +26,18 @@ function encodeContentPath(path: string) {
 export default defineNuxtConfig({
 	app: {
 		head: {
+			style: [
+				{
+					children: `
+@media not (max-width: 528px) { .phone-only { display: none !important; } }
+@media (max-width: 528px) { .phone-hidden { display: none !important; } }
+@media not (max-width: 768px) { .mobile-only { display: none !important; } }
+@media (max-width: 768px) { .mobile-hidden { display: none !important; } }
+@media not (max-width: 1080px) { .widescreen-only { display: none !important; } }
+@media (max-width: 1080px) { .widescreen-hidden { display: none !important; } }
+`.trim(),
+				},
+			],
 			meta: [
 				{ name: 'author', content: [blogConfig.author.name, blogConfig.author.email].filter(Boolean).join(', ') },
 				{ name: 'color-scheme', content: 'light dark' },
