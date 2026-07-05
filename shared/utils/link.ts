@@ -5,7 +5,6 @@ const domainTip: Record<string, string> = {
 	'github.io': 'GitHub Pages 域名',
 	'netlify.app': 'Netlify 域名',
 	'pages.dev': 'Cloudflare 域名',
-	'thisis.host': '纸鹿提供的域名',
 	'vercel.app': 'Vercel 域名',
 	'zeabur.app': 'Zeabur 域名',
 }

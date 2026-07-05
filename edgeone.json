@@ -21,7 +21,7 @@
   ],
   "redirects": [
     {
-      "destination": "https://www.zhilu.site/api/icon",
+      "destination": "/assets/wustacm-logo.png",
       "source": "/favicon.ico",
       "status": 308
     }

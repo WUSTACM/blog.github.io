@@ -19,14 +19,15 @@ watch(category, () => {
 useSeoMeta({ title: () => (page.value > 1 ? `第${page.value}页` : '') })
 
 const listRecommended = computed(() => orderBy(
-	listRaw.value.filter(item => item.recommend !== null),
+	listRaw.value.filter(item => typeof item.recommend === 'number'),
 	['recommend', 'date'],
 	['desc'],
 ))
 
-const { data: previewCount } = useAsyncData(
+const { data: previewCount } = await useAsyncData(
 	'previews:count',
 	() => queryCollection('content').where('stem', 'LIKE', 'previews/%').count(),
+	{ default: () => 0 },
 )
 </script>
 

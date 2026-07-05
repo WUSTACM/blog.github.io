@@ -4,11 +4,11 @@ import blogConfig from '../../blog.config'
 import handleMirror from './runtime/client'
 
 const blacklist = [
-	'dgjlx.com', // blog.revincx.icu
-	'dgvhqt.com', // blog.zhilu.cyou
-	'hcmsla.com', // thyuu.com
-	'wmlop.com', // xaoxuu.com
-	'yswjxs.com', // blog.zhilu.cyou
+	'dgjlx.com',
+	'dgvhqt.com',
+	'hcmsla.com',
+	'wmlop.com',
+	'yswjxs.com',
 ]
 
 export default defineNuxtModule({

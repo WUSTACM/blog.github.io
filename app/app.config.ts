@@ -45,9 +45,9 @@ export default defineAppConfig({
 
 		stats: {
 			/** 归档页面每年标题对应的年龄 */
-			birthYear: 2003,
+			birthYear: 2025,
 			/** blog-stats widget 的预置文本 */
-			wordCount: '约10万',
+			wordCount: '约55万字',
 		},
 	},
 
@@ -57,35 +57,35 @@ export default defineAppConfig({
 		copyright: `© ${Temporal.Now.plainDateISO().year.toString()} ${blogConfig.author.name}`,
 		/** 侧边栏底部图标导航 */
 		iconNav: [
-			{ icon: 'tabler:home', text: '个人主页', url: blogConfig.author.homepage },
-			{ icon: 'ri:qq-line', text: '交流群: 169994096', url: 'https://jq.qq.com/?_wv=1027&k=lQfNSeEd' },
-			{ icon: 'tabler:brand-github', text: 'GitHub: L33Z22L11', url: 'https://github.com/L33Z22L11' },
+			{ icon: 'tabler:home', text: 'WUSTACM', url: blogConfig.url },
+			{ icon: 'tabler:brand-github', text: 'GitHub: WUSTACM', url: 'https://github.com/WUSTACM' },
+			{ icon: 'tabler:code', text: '博客仓库', url: 'https://github.com/WUSTACM/blog.github.io' },
 			{ icon: 'tabler:rss', text: 'Atom订阅', url: '/atom.xml' },
-			{ icon: 'ri:subway-line', text: '开往 - 博客下一站', url: 'https://www.travellings.cn/go.html' },
 		] satisfies NavItem[],
 		/** 页脚站点地图 */
 		nav: [
 			{
 				title: '探索',
 				items: [
+					{ icon: 'tabler:files', text: '文章', url: '/' },
+					{ icon: 'tabler:archive', text: '归档', url: '/archive' },
+					{ icon: 'tabler:info-circle', text: '关于', url: '/about' },
 					{ icon: 'tabler:rss', text: 'Atom订阅', url: '/atom.xml' },
-					{ icon: 'ri:subway-line', text: '开往', url: 'https://www.travellings.cn/go.html' },
 				],
 			},
 			{
-				title: '社交',
+				title: '项目',
 				items: [
-					{ icon: 'tabler:brand-github', text: 'L33Z22L11', url: 'https://github.com/L33Z22L11' },
-					{ icon: 'ri:qq-line', text: '群: 169994096', url: 'https://jq.qq.com/?_wv=1027&k=lQfNSeEd' },
-					{ icon: 'tabler:mail', text: blogConfig.author.email, url: `mailto:${blogConfig.author.email}` },
+					{ icon: 'tabler:brand-github', text: 'WUSTACM', url: 'https://github.com/WUSTACM' },
+					{ icon: 'tabler:code', text: '博客仓库', url: 'https://github.com/WUSTACM/blog.github.io' },
 				],
 			},
 			{
 				title: '信息',
 				items: [
 					{ icon: 'simple-icons:nuxt', text: `主题: ${pascalCase(name)} ${version}`, url: 'https://github.com/L33Z22L11/blog-v3' },
-					{ icon: 'tabler:color-swatch', text: '主题和组件文档', url: '/theme' },
-					{ icon: 'tabler:certificate', text: '陕ICP备2025082251号', url: 'https://beian.miit.gov.cn/' },
+					{ icon: 'tabler:color-swatch', text: '主题说明', url: '/theme' },
+					{ icon: 'tabler:certificate', text: blogConfig.copyright.abbr, url: blogConfig.copyright.url },
 				],
 			},
 		] satisfies Nav,
@@ -93,11 +93,11 @@ export default defineAppConfig({
 
 	/** 左侧栏顶部 Logo */
 	header: {
-		logo: 'https://weavatar.com/avatar/47c0f2e82b76d9b10eb3023df9e02e4e3fdbeaf5b74b842063f207971e7fbe7b?s=160',
+		logo: blogConfig.author.avatar,
 		/** 展示标题文本，否则展示纯 Logo */
 		showTitle: true,
 		subtitle: blogConfig.subtitle,
-		emojiTail: ['📄', '🦌', '🙌', '🐟', '🏖️'],
+		emojiTail: ['☁️', '💡', '🎈'],
 	},
 
 	/** 友链页面 */
@@ -112,16 +112,17 @@ export default defineAppConfig({
 	nav: [
 		{
 			title: '',
-			items: [
-				{ icon: 'tabler:files', text: '文章', url: '/' },
-				{ icon: 'tabler:link', text: '友链', url: '/link' },
-				{ icon: 'tabler:archive', text: '归档', url: '/archive' },
-			],
-		},
+				items: [
+					{ icon: 'tabler:files', text: '文章', url: '/' },
+					{ icon: 'tabler:link', text: '友链', url: '/link' },
+					{ icon: 'tabler:archive', text: '归档', url: '/archive' },
+					{ icon: 'tabler:info-circle', text: '关于', url: '/about' },
+				],
+			},
 	] satisfies Nav,
 
 	pagination: {
-		perPage: 10,
+		perPage: 20,
 		/** 默认排序方式，需要是 this.article.order 中的键名 */
 		sortOrder: 'date' as keyof typeof blogConfig.article.order,
 		/** 允许（普通/预览/归档）文章列表正序，开启后排序方式左侧图标可切换顺序 */

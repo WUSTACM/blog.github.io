@@ -1,11 +1,11 @@
 {
-  "name": "clarity",
+  "name": "wustacm-blog",
   "type": "module",
   "version": "3.7.0",
   "private": true,
   "packageManager": "pnpm@11.8.0",
   "license": "(MIT OR CC-BY-NC-SA-4.0)",
-  "homepage": "https://github.com/L33Z22L11/blog-v3",
+  "homepage": "https://github.com/WUSTACM/blog.github.io",
   "engines": {
     "node": "^22.5 || ^23.6 || >=24",
     "pnpm": ">=10"
@@ -21,7 +21,6 @@
     "bump": "pnpx taze -w && rimraf pnpm-lock.yaml && pnpm update && pnpm dedupe",
     "lint": "eslint && stylelint '**/*.{vue,scss}'",
     "lint:fix": "eslint --fix && stylelint '**/*.{vue,scss}' --fix",
-    "init-project": "unrun scripts/init-project",
     "new": "unrun scripts/new-blog.ts",
     "check:feed": "unrun scripts/framework/get-feed.ts",
     "check:feed/all": "unrun scripts/framework/check-all-feeds.ts"
@@ -64,9 +63,11 @@
     "@antfu/eslint-config": "catalog:quality",
     "@clack/prompts": "catalog:util",
     "@iconify-json/catppuccin": "catalog:ui",
+    "@iconify-json/devicon": "^1.2.62",
     "@iconify-json/line-md": "catalog:ui",
     "@iconify-json/ri": "catalog:ui",
     "@iconify-json/simple-icons": "catalog:ui",
+    "@iconify-json/tabler": "^1.2.35",
     "@nuxt/a11y": "catalog:quality",
     "@nuxt/hints": "catalog:quality",
     "@zinkawaii/stylelint-config": "catalog:quality",

@@ -2,6 +2,7 @@
 import type { TippyComponent } from 'vue-tippy'
 
 const appConfig = useAppConfig()
+const commentEnabled = computed(() => Boolean(appConfig.twikoo?.envId))
 
 const commentEl = useTemplateRef('comment')
 const popoverEl = useTemplateRef<TippyComponent>('popover')
@@ -52,6 +53,9 @@ function confirmOpen() {
 }
 
 onMounted(() => {
+	if (!commentEnabled.value)
+		return
+
 	window.twikoo?.init?.({
 		envId: appConfig.twikoo?.envId,
 		// twikoo 会把挂载后的元素变为 #twikoo
@@ -104,9 +108,13 @@ onMounted(() => {
 		</template>
 	</Tooltip>
 
-	<div id="twikoo">
+	<div v-if="commentEnabled" id="twikoo">
 		<p>评论加载中...</p>
 	</div>
+
+	<p v-else class="text-center">
+		评论暂未启用。
+	</p>
 </section>
 </template>
 

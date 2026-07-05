@@ -13,6 +13,15 @@ function pluginPath(path: string) {
 	return pathToFileURL(resolve(`./remark-plugins/${path}.ts`)).href
 }
 
+function encodeContentPath(path: string) {
+	try {
+		return encodeURI(decodeURI(path))
+	}
+	catch {
+		return encodeURI(path)
+	}
+}
+
 // 此处配置无需修改
 export default defineNuxtConfig({
 	app: {
@@ -27,7 +36,7 @@ export default defineNuxtConfig({
 			link: [
 				{ rel: 'icon', href: blogConfig.favicon },
 				{ rel: 'alternate', type: 'application/atom+xml', href: '/atom.xml' },
-				{ rel: 'preconnect', href: blogConfig.twikoo.preload },
+				...(blogConfig.twikoo.preload ? [{ rel: 'preconnect', href: blogConfig.twikoo.preload }] : []),
 				{ rel: 'stylesheet', href: 'https://lib.baomitu.com/KaTeX/0.16.9/katex.min.css', media: 'print', onload: 'this.media="all"' },
 				// "InterVariable", "Inter", "InterDisplay"
 				{ rel: 'stylesheet', href: 'https://rsms.me/inter/inter.css', media: 'print', onload: 'this.media="all"' },
@@ -146,7 +155,6 @@ export default defineNuxtConfig({
 		'@bikariya/shiki',
 		'@nuxt/a11y',
 		'@nuxt/content',
-		'@nuxt/hints',
 		'@nuxt/icon',
 		'@nuxt/image',
 		'@nuxtjs/color-mode',
@@ -205,9 +213,9 @@ ${packageJson.homepage}
 			const { permalink, path } = ctx.content as Record<string, string | undefined>
 			// 优先使用自定义链接（permalink/abbrlink），其次隐藏基于文件路由的 URL 中的 /posts 前缀
 			if (permalink)
-				ctx.content.path = permalink
+				ctx.content.path = encodeContentPath(permalink)
 			else if (blogConfig.article.hidePostPrefix && path?.startsWith('/posts/'))
-				ctx.content.path = path.slice('/posts'.length)
+				ctx.content.path = encodeContentPath(path.slice('/posts'.length))
 		},
 	},
 
@@ -244,6 +252,7 @@ ${packageJson.homepage}
 		domain: blogConfig.url,
 		title: blogConfig.title,
 		description: blogConfig.description,
+		contentRawMarkdown: false,
 	},
 
 	ogImage: {

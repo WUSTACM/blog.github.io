@@ -73,7 +73,6 @@ const mainDomainIcons: Record<string, string> = {
 	'pages.dev': 'simple-icons:cloudflare',
 	'qq.com': 'ri:qq-fill',
 	'taobao.com': 'ri:taobao-fill',
-	'thisis.host': 'tabler:star-filled',
 	'tmall.com': 'ri:taobao-fill',
 	'v2ex.com': 'simple-icons:v2ex',
 	'vercel.app': 'simple-icons:vercel',
