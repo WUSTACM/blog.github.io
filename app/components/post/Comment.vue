@@ -58,6 +58,7 @@ onMounted(() => {
 
 	window.twikoo?.init?.({
 		envId: appConfig.twikoo?.envId,
+		path: `/wustacm${window.location.pathname}`,
 		// twikoo 会把挂载后的元素变为 #twikoo
 		el: '#twikoo',
 	})
