@@ -19,7 +19,7 @@ const basicConfig = {
 	language: 'zh-CN',
 	timeEstablished: '2025-06-15',
 	timeZone: 'Asia/Shanghai',
-	url: 'https://blog.wustacm.org/',
+	url: 'https://blog.wustacm.com/',
 	defaultCategory: '未分类',
 }
 

@@ -31,7 +31,7 @@ pnpm generate
 
 仓库包含 GitHub Pages 工作流，推送到 `main` 分支后会自动安装依赖、执行 `pnpm generate`，并发布 `.output/public`。
 
-自定义域名配置在 `public/CNAME`：`blog.wustacm.org`。
+自定义域名配置在 `public/CNAME`：`blog.wustacm.com`。
 
 ## 来源
 

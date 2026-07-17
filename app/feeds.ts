@@ -78,7 +78,7 @@ export default [
 				link: 'https://docs.scandidreams.top/',
 				feed: 'https://docs.scandidreams.top/feed_rss_created.xml',
 				icon: 'https://docs.scandidreams.top/assets/2026-3-20-1.jpg',
-				avatar: 'https://image.wustacm.org/i/2026/02/17/si2wc7.png',
+				avatar: 'https://image.wustacm.com/i/2026/02/17/si2wc7.png',
 				archs: ['Material for MkDocs'],
 				date: '2026-07-05',
 			},

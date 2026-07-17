@@ -761,7 +761,7 @@ int main ()
 
 ### 思路：
 
-这里采用贪心做法。具体思路见[wustacm](https://blog.wustacm.org/2025/12/15/2025%E8%8F%9C%E9%B8%9F%E6%9D%AF%E9%A2%98%E8%A7%A3/#%E8%B4%AA%E5%BF%83)
+这里采用贪心做法。具体思路见[wustacm](https://blog.wustacm.com/2025/12/15/2025%E8%8F%9C%E9%B8%9F%E6%9D%AF%E9%A2%98%E8%A7%A3/#%E8%B4%AA%E5%BF%83)
 
 ### 代码：
 
