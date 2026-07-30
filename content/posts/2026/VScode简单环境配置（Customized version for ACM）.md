@@ -20,7 +20,7 @@ tags: [VSCode, C++, MinGW, CPH, 环境配置, WUSTACM]
 这时候我们可以先把vscode关掉~~扔一边~~，先配置编译环境<del>（推荐一定不要先打开VSCode）</del>
 ::
 
-从 [蓝奏云](https://wwavk.lanzoub.com/ijOZo3wl71uf) `密码fd9o` / [Github](https://github.com/niXman/mingw-builds-binaries/releases/download/15.2.0-rt_v13-rev1/x86_64-15.2.0-release-posix-seh-ucrt-rt_v13-rev1.7z) 下载Mingw64，解压放在C盘根目录（如下图所示 ~~解压和复制巨量文件可能使你的风扇旋转~~）
+从 [蓝奏云](https://wwavk.lanzoub.com/ijOZo3wl71uf) `密码fd9o` / [Github](https://github.com/niXman/mingw-builds-binaries/releases/download/15.2.0-rt_v13-rev1/x86_64-15.2.0-release-posix-seh-ucrt-rt_v13-rev1.7z) /  [OneDrive](https://dlink.host/sharepoint/aHR0cHM6Ly9kbGluay5ob3N0L3NoYXJlcG9pbnQvYUhSMGNITTZMeTh5TmpZd09UazRPRE15Y1hFdGJYa3VjMmhoY21Wd2IybHVkQzVqYjIwdk9uVTZMMmN2Y0dWeWMyOXVZV3d2WVdSdGFXNXBjM1J5WVhSdmNsOXFhV0Z1WjJWelgyTnZiUzlKVVVOWlYwMUdTVXc0VlZWVVRHOVVWekZ6VWtzNVFrTkJaV1pxTjBWdVJFdGhkRTB4TTFKaWJrNURSRlZJTUQ5bFBWbDVTM1k0UWcuanBn.7z) 下载Mingw64，解压放在C盘根目录（如下图所示 ~~解压和复制巨量文件可能使你的风扇旋转~~）
 
 ![1784118439705](/images/vscode-acm-config/1784118439705.png)
 点击`开始/搜索` -  键入 `编辑系统环境变量` -  点击右下角的`环境变量` -  双击下方`系统变量(S)`栏目的 `path` -  点击右方的`新建(N)` - 输入
@@ -194,4 +194,10 @@ int main()
 
 ::alert{type="tip" title="配置完成"}
 至此恭喜你完成了Visual Studio Code的~~简单~~环境配置👏
+::
+
+
+
+::meta-copyright{title="本文章不保留版权"}
+通过 [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/deed.zh-hans){icon="ri:creative-commons-zero-line"} 贡献至公共领域。
 ::
