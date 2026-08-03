@@ -12,6 +12,8 @@ tags: [WUSTACM, 新生指南, C语言, WUST-OJ, 刷题]
 
 [翁恺 C 语言课程](https://www.bilibili.com/video/BV1dr4y1n7vA?spm_id_from=333.788.videopod.episodes&vd_source=6b273a6126c7135f38180cc8ff60a1e7&p=2)
 
+**[黑马程序员版本](https://www.bilibili.com/video/BV1Xa4y1k7LU/)**
+
 [WUST OJ｜2026 WUSTACM 选拔赛](https://oj.wust-acm.top/contest/591)（密码：wustacm2026）
 
 
@@ -23,7 +25,7 @@ tags: [WUSTACM, 新生指南, C语言, WUST-OJ, 刷题]
 
 ::
 
-## 基础学习路线
+## 基础学习路线（[翁恺 C 语言课程](https://www.bilibili.com/video/BV1dr4y1n7vA?spm_id_from=333.788.videopod.episodes&vd_source=6b273a6126c7135f38180cc8ff60a1e7&p=2)）版本
 
 ::table-fit
 | 阶段 | 视频章节 | 主要内容 | 对应题目 |
@@ -71,7 +73,7 @@ tags: [WUSTACM, 新生指南, C语言, WUST-OJ, 刷题]
 
 
 
-## [黑马程序员版本](https://www.bilibili.com/video/BV1Xa4y1k7LU/)
+## 基础学习路线（[黑马程序员版本](https://www.bilibili.com/video/BV1Xa4y1k7LU/)）版本
 
 ::table-fit
 | 阶段 | 视频章节                              | 主要内容                      | 对应题目                                                     |
