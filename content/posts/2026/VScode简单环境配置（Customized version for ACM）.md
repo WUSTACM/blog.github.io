@@ -198,6 +198,16 @@ int main()
 
 
 
+::video-embed
+
+type: bilibili
+
+id: BV15Uu46oE4T
+
+::
+
+
+
 ::meta-copyright{title="本文章不保留版权"}
 通过 [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/deed.zh-hans){icon="ri:creative-commons-zero-line"} 贡献至公共领域。
 ::
