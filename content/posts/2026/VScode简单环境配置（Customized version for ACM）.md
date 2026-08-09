@@ -199,11 +199,10 @@ int main()
 
 
 ::video-embed
-
+---
 type: bilibili
-
 id: BV15Uu46oE4T
-
+---
 ::
 
 
