@@ -83,7 +83,7 @@ export default defineAppConfig({
 			{
 				title: '信息',
 				items: [
-					{ icon: 'simple-icons:nuxt', text: `主题: ${pascalCase(name)} ${version}`, url: 'https://github.com/L33Z22L11/blog-v3' },
+					{ icon: 'simple-icons:nuxt', text: `主题: ${pascalCase(name)} ${version}`, url: '/example' },
 					{ icon: 'tabler:color-swatch', text: '主题说明', url: '/theme' },
 					{ icon: 'tabler:certificate', text: blogConfig.copyright.abbr, url: blogConfig.copyright.url },
 				],
@@ -112,13 +112,13 @@ export default defineAppConfig({
 	nav: [
 		{
 			title: '',
-				items: [
-					{ icon: 'tabler:files', text: '文章', url: '/' },
-					{ icon: 'tabler:link', text: '友链', url: '/link' },
-					{ icon: 'tabler:archive', text: '归档', url: '/archive' },
-					{ icon: 'tabler:info-circle', text: '关于', url: '/about' },
-				],
-			},
+			items: [
+				{ icon: 'tabler:files', text: '文章', url: '/' },
+				{ icon: 'tabler:link', text: '友链', url: '/link' },
+				{ icon: 'tabler:archive', text: '归档', url: '/archive' },
+				{ icon: 'tabler:info-circle', text: '关于', url: '/about' },
+			],
+		},
 	] satisfies Nav,
 
 	pagination: {
