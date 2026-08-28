@@ -38,8 +38,8 @@ export default [
 				date: '2026-07-05',
 			},
 			{
-				author: 'aMore',
-				sitenick: 'Everlasting Pages',
+				author: 'Everlasting Pages',
+				sitenick: '',
 				title: 'everlasting 的博客',
 				desc: '人生如逆旅，我亦是行人。',
 				link: 'https://blog.everlasting.xin/',
