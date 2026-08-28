@@ -44,7 +44,7 @@ export default [
 				desc: '人生如逆旅，我亦是行人。',
 				link: 'https://blog.everlasting.xin/',
 				feed: 'https://blog.everlasting.xin/rss.xml',
-				icon: 'https://everlastingblog.top/favicon-32x32.png',
+				icon: 'https://blog.everlasting.xin/favicon/favicon.ico',
 				avatar: 'https://jianges.com/wp-content/uploads/2026/01/1767861756-avatar.jpg',
 				archs: ['Astro'],
 				date: '2026-07-05',
