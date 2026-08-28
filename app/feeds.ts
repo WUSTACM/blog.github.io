@@ -89,7 +89,7 @@ export default [
 				desc: '个人博客，分享技术，还会提供些神秘小工具 wow',
 				link: 'https://blog.songline-blog.com/',
 				feed: 'https://blog.songline-blog.com/index.xml',
-				avatar: 'https://blog.songline-blog.com/uploads/admin/snowMan.png',
+				avatar: '/assets/2026-08-28-chord.jpg',
 				icon: 'https://blog.songline-blog.com/uploads/admin/main_logo.png',
 				archs: ['Hugo'],
 				date: '2026-08-27',
