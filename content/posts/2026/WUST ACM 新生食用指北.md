@@ -20,8 +20,8 @@ tags: [WUSTACM, 新生指南, C语言, WUST-OJ, 刷题]
 
 ::alert{type="warning" title="招新要求与加餐内容"}
 
-<strong>招新要求：</strong>完成前 145 题。<br>
-<strong>加餐内容：</strong>第 160～203 题。
+<strong>招新要求：</strong>完成 135 题。<br>
+<strong>加餐内容：</strong>第 136～237 题。
 
 ::
 
@@ -109,9 +109,6 @@ tags: [WUSTACM, 新生指南, C语言, WUST-OJ, 刷题]
 | 77 | [5.2.2](https://www.bilibili.com/video/BV1dr4y1n7vA?p=42)（指定合集P42）<br>[8.2.3](https://www.bilibili.com/video/BV1dr4y1n7vA?p=80)（指定合集P80）<br>补课：矩阵与坐标 | 旧单回补：斜三角填数与斜线边界 | t231 |
 | 78 | [5.1.1](https://www.bilibili.com/video/BV1dr4y1n7vA?p=39)（指定合集P39）<br>[5.2.2](https://www.bilibili.com/video/BV1dr4y1n7vA?p=42)（指定合集P42）<br>[6.2.2](https://www.bilibili.com/video/BV1dr4y1n7vA?p=55)（指定合集P55）<br>[8.2.3](https://www.bilibili.com/video/BV1dr4y1n7vA?p=80)（指定合集P80）<br>补课：模拟与状态 | 旧单回补：二维扩散、双缓冲与范围核验 | t232 |
 | 79 | [5.2.2](https://www.bilibili.com/video/BV1dr4y1n7vA?p=42)（指定合集P42）<br>[8.2.3](https://www.bilibili.com/video/BV1dr4y1n7vA?p=80)（指定合集P80）<br>补课：矩阵与坐标 | 旧单回补：反对角线填数、同向与交替方向 | t233～t234 |
-| 80 | [5.1.1](https://www.bilibili.com/video/BV1dr4y1n7vA?p=39)（指定合集P39）<br>[5.3.1](https://www.bilibili.com/video/BV1dr4y1n7vA?p=44)（指定合集P44）<br>[6.2.7～6.2.8](https://www.bilibili.com/video/BV1dr4y1n7vA?p=60)（指定合集P60～P61）<br>补课：组合数与精确性 | 俱乐部补充：组合数、阶乘溢出与精确计算 | t235 |
-| 81 | [2.2.3](https://www.bilibili.com/video/BV1dr4y1n7vA?p=19)（指定合集P19）<br>[5.2.2](https://www.bilibili.com/video/BV1dr4y1n7vA?p=42)（指定合集P42）<br>[8.1.1](https://www.bilibili.com/video/BV1dr4y1n7vA?p=75)（指定合集P75）<br>[8.2.1](https://www.bilibili.com/video/BV1dr4y1n7vA?p=78)（指定合集P78）<br>[7.2排序](https://www.bilibili.com/video/BV1Hs411A7NS?p=50)（进阶合集P50）<br>补课：基本排序 | 俱乐部补充：独立实现冒泡排序 | t236 |
-| 82 | [8.1.1～8.1.2](https://www.bilibili.com/video/BV1dr4y1n7vA?p=75)（指定合集P75～P76）<br>[8.2.1](https://www.bilibili.com/video/BV1dr4y1n7vA?p=78)（指定合集P78）<br>[7.1 搜索（1）～7.1 搜索（3）](https://www.bilibili.com/video/BV1Hs411A7NS?p=47)（进阶合集P47～P49）<br>补课：二分查找 | 俱乐部补充：有序数组二分查找与区间边界 | t237 |
 ::
 
 ::alert{type="info" title="学习顺序提醒"}
@@ -125,7 +122,6 @@ tags: [WUSTACM, 新生指南, C语言, WUST-OJ, 刷题]
 | --- | --- |
 | t136～t196 | 常规加餐：字符串、二维数组、递归、结构体、模拟与高精度 |
 | t197～t234 | 旧题单回补：数学、日期、数组、矩阵、字符串、数值方法与模拟 |
-| t235～t237 | 俱乐部补充：组合数、冒泡排序与二分查找 |
 ::
 
 
@@ -218,6 +214,3 @@ tags: [WUSTACM, 新生指南, C语言, WUST-OJ, 刷题]
 |   77 | [流程控制语句-10～11](https://www.bilibili.com/video/BV1Xa4y1k7LU/?p=56)（P56～P57）<br>[指针高级-08～09](https://www.bilibili.com/video/BV1Xa4y1k7LU/?p=126)（P126～P127）<br>补课：矩阵与坐标 | 旧单回补：斜三角填数与斜线边界      | t231                                                 |
 |   78 | [核心语法-14～15](https://www.bilibili.com/video/BV1Xa4y1k7LU/?p=20)（P20～P21）<br>[流程控制语句-10～11](https://www.bilibili.com/video/BV1Xa4y1k7LU/?p=56)（P56～P57）<br>[指针高级-08～09](https://www.bilibili.com/video/BV1Xa4y1k7LU/?p=126)（P126～P127）<br>补课：模拟与状态 | 旧单回补：二维扩散、双缓冲与范围核验   | t232                                                 |
 |   79 | [流程控制语句-10～11](https://www.bilibili.com/video/BV1Xa4y1k7LU/?p=56)（P56～P57）<br>[指针高级-08～09](https://www.bilibili.com/video/BV1Xa4y1k7LU/?p=126)（P126～P127）<br>补课：矩阵与坐标 | 旧单回补：反对角线填数、同向与交替方向  | t233～t234                                            |
-|   80 | [核心语法-14～16](https://www.bilibili.com/video/BV1Xa4y1k7LU/?p=20)（P20～P22）<br>[流程控制语句-10～17](https://www.bilibili.com/video/BV1Xa4y1k7LU/?p=56)（P56～P63）<br>[函数-08](https://www.bilibili.com/video/BV1Xa4y1k7LU/?p=90)（P90）<br>补课：组合数与精确性 | 俱乐部补充：组合数、阶乘溢出与精确计算（本课仅语法前置，须补组合数与精确性） | t235                                                 |
-|   81 | [数组-01～07](https://www.bilibili.com/video/BV1Xa4y1k7LU/?p=95)（P95～P101）<br>[数组-18](https://www.bilibili.com/video/BV1Xa4y1k7LU/?p=112)（P112）<br>补课：基本排序 | 俱乐部补充：冒泡排序（P112为对应排序专题） | t236                                                 |
-|   82 | [数组-01～05](https://www.bilibili.com/video/BV1Xa4y1k7LU/?p=95)（P95～P99）<br>[数组-14～15](https://www.bilibili.com/video/BV1Xa4y1k7LU/?p=108)（P108～P109）<br>补课：二分查找 | 俱乐部补充：二分查找（P109为对应查找专题） | t237                                                 |
