@@ -27,7 +27,7 @@ tags: [WUSTACM, 新生指南, C语言, WUST-OJ, 刷题]
 
 ## 基础学习路线（[翁恺 C 语言课程](https://www.bilibili.com/video/BV1dr4y1n7vA?spm_id_from=333.788.videopod.episodes&vd_source=6b273a6126c7135f38180cc8ff60a1e7&p=2)）版本
 
-::table-fit
+::table-fit{wrap}
 | 阶段 | 视频章节 | 主要内容 | 对应题目 |
 | ---: | --- | --- | --- |
 | 1 | [1.3.1～1.3.2](https://www.bilibili.com/video/BV1dr4y1n7vA?p=7)（指定合集P7～P8） | 程序框架、编译运行、printf与换行 | t1～t3 |
@@ -111,10 +111,6 @@ tags: [WUSTACM, 新生指南, C语言, WUST-OJ, 刷题]
 | 79 | [5.2.2](https://www.bilibili.com/video/BV1dr4y1n7vA?p=42)（指定合集P42）<br>[8.2.3](https://www.bilibili.com/video/BV1dr4y1n7vA?p=80)（指定合集P80）<br>补课：矩阵与坐标 | 旧单回补：反对角线填数、同向与交替方向 | t233～t234 |
 ::
 
-::alert{type="info" title="学习顺序提醒"}
-<strong>学习顺序提醒：</strong>先学习数组，再学习函数。因此，课程第 8 章安排在第 7 章之前。
-::
-
 ## 加餐内容
 
 ::table-fit
@@ -132,7 +128,7 @@ tags: [WUSTACM, 新生指南, C语言, WUST-OJ, 刷题]
 
 ## 基础学习路线（[黑马程序员版本](https://www.bilibili.com/video/BV1Xa4y1k7LU/)）版本
 
-::table-fit
+::table-fit{wrap}
 | 阶段 | 视频章节                              | 主要内容                      | 对应题目                                                     |
 | ---: | ------------------------------------- | ----------------------------- | ------------------------------------------------------------ |
 |    1 | [C语言入门-03](https://www.bilibili.com/video/BV1Xa4y1k7LU/?p=3)（P3）<br>[C语言入门-05～06](https://www.bilibili.com/video/BV1Xa4y1k7LU/?p=5)（P5～P6）<br>[核心语法-06～07](https://www.bilibili.com/video/BV1Xa4y1k7LU/?p=12)（P12～P13） | 程序框架、编译运行、printf与换行  | t1～t3                                                |

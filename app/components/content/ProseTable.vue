@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const [scroll, toggleScroll] = useToggle(true)
+const [scroll, toggleScroll] = useToggle(!inject('tableDefaultWrap', false))
 </script>
 
 <template>

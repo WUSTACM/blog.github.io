@@ -1,3 +1,11 @@
+<script setup lang="ts">
+const props = defineProps<{
+	wrap?: boolean
+}>()
+
+provide('tableDefaultWrap', props.wrap)
+</script>
+
 <template>
 <div class="table-fit">
 	<slot />
